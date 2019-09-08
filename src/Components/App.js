@@ -1,40 +1,34 @@
 import React from "react";
-import Router from "./Router";
-import GlobalStyles from "./GobalStyles";
-import styled from "styled-components";
+import styled, { ThemeProvider } from "styled-components";
+import { gql } from "apollo-boost";
+import { useQuery } from "react-apollo-hooks";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import Router from "Components/Router";
+import GlobalStyles from "Styles/GobalStyles";
+import Theme from "Styles/Theme";
+
+const QUERY = gql`
+  {
+    logged @client
+  }
+`;
 
 const Container = styled.div``;
 
-const Title = styled.h1`
-  padding: 20px 10px 20px 20px;
-  display: flex;
-  flex-direction: row;
-  /* justify-content: center; */
-  align-items: center;
-  border-bottom: 0.5px solid #ff9500;
-`;
+const App = () => {
+  const {
+    data: { logged }
+  } = useQuery(QUERY);
 
-const Image = styled.img`
-  width: 60px;
-  border-right: 2px solid #ff9500;
-  padding-right: 30px;
-`;
-
-const Text = styled.span`
-  padding-left: 30px;
-  color: #ff9500;
-`;
-
-function App() {
   return (
-    <Container>
-      <Title>
-        <Image src="https://nomad-coders-assets.s3.amazonaws.com/static/img/m.svg" />
-        <Text>The GN</Text>
-      </Title>
-      <Router />
-      <GlobalStyles />
-    </Container>
+    <ThemeProvider theme={Theme}>
+      <Container>
+        <GlobalStyles />
+        <Router logged={logged} />
+        <ToastContainer position={toast.POSITION.BOTTOM_LEFT} />
+      </Container>
+    </ThemeProvider>
   );
-}
+};
 export default App;

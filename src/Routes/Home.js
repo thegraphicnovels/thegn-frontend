@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { useTitle } from "Hooks/useTitle";
 
 const Section = styled.div`
   display: flex;
@@ -8,8 +9,13 @@ const Section = styled.div`
   flex-direction: column;
 `;
 
-export default () => (
-  <Section>
-    <h2>Portpolio</h2>
-  </Section>
-);
+const Home = () => {
+  useTitle("The GN");
+  return (
+    <Section>
+      <h2> The Graphic Novels </h2>
+    </Section>
+  );
+};
+
+export default Home;
