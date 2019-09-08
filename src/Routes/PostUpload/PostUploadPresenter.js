@@ -2,9 +2,9 @@ import React from "react";
 import styled from "styled-components";
 import Dropzone from "react-dropzone-uploader";
 import "react-dropzone-uploader/dist/styles.css";
-import Input from "../../Components/Input";
-import TextArea from "../../Components/TextArea";
-import Button from "../../Components/Button";
+import Input from "Components/Input";
+import TextArea from "Components/TextArea";
+import Button from "Components/Button";
 
 const Section = styled.div`
   display: flex;

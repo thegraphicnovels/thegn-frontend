@@ -4,8 +4,8 @@ import { gql } from "apollo-boost";
 import { useTitle } from "Hooks/useTitle";
 import { useQuery } from "react-apollo-hooks";
 import Loader from "Components/Loader";
-import FatText from "Components/FatText";
-import SquarePost from "Components/SquarePost";
+// import FatText from "Components/FatText";
+// import SquarePost from "Components/SquarePost";
 
 const POST_QUERY = gql`
   {
@@ -25,14 +25,14 @@ const POST_QUERY = gql`
   }
 `;
 
-const PostSection = styled.div`
-  margin: 100px;
-  display: grid;
-  grid-gap: 25px;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  grid-template-rows: 160px;
-  grid-auto-rows: 160px;
-`;
+// const PostSection = styled.div`
+//   margin: 100px;
+//   display: grid;
+//   grid-gap: 25px;
+//   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+//   grid-template-rows: 160px;
+//   grid-auto-rows: 160px;
+// `;
 
 const Wrapper = styled.div`
   min-height: 60vh;
@@ -47,33 +47,34 @@ const Portpolios = () => {
 
   const { data, loading } = useQuery(POST_QUERY);
   console.log(data);
+  console.log(loading);
 
-  if (loading === true) {
-    return (
-      <Wrapper>
-        <Loader />;
-      </Wrapper>
-    );
-  } else if (data) {
-    return (
-      <Wrapper>
-        <PostSection>
-          {data.seePosts.length === 0 ? (
-            <FatText text={"No Portpolios found"} />
-          ) : (
-            data.seePosts.map(post => (
-              <SquarePost
-                key={post._id}
-                // likeCount={post.likeCount}
-                // commentCount={post.commentCount}
-                file={post.files[0]}
-              />
-            ))
-          )}
-        </PostSection>
-      </Wrapper>
-    );
-  }
+  // if (loading === true) {
+  return (
+    <Wrapper>
+      <Loader />;
+    </Wrapper>
+  );
+  // } else if (!loading && data) {
+  //   return (
+  //     <Wrapper>
+  //       <PostSection>
+  //         {data.seePosts.length === 0 ? (
+  //           <FatText text={"No Portpolios found"} />
+  //         ) : (
+  //           data.seePosts.map(post => (
+  //             <SquarePost
+  //               key={post._id}
+  //               // likeCount={post.likeCount}
+  //               // commentCount={post.commentCount}
+  //               file={post.files[0]}
+  //             />
+  //           ))
+  //         )}
+  //       </PostSection>
+  //     </Wrapper>
+  //   );
+  // }
 };
 
 export default Portpolios;
