@@ -3,7 +3,6 @@ import UploadPresenter from "./PostUploadPresenter";
 import request from "superagent";
 import { useInput } from "rooks";
 import { useMutation } from "react-apollo-hooks";
-import { useTitle } from "Hooks/useTitle";
 import {
   POST_UPDATE,
   POST_UPLOAD,
@@ -15,8 +14,6 @@ import { toast } from "react-toastify";
 let FileArr = [];
 
 const PostUploadContainer = () => {
-  useTitle("Upload | The GN");
-
   const title = useInput("");
   const description = useInput("");
   const tag = useInput("");

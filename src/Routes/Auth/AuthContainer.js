@@ -4,11 +4,8 @@ import { useInput } from "rooks";
 import { useMutation } from "react-apollo-hooks";
 import { LOGIN_USER, CREATE_USER, LOCAL_LOG_IN } from "./AuthQueries";
 import { toast } from "react-toastify";
-import { useTitle } from "Hooks/useTitle";
 
 export default () => {
-  useTitle("Login | The GN");
-
   const [action, setAction] = useState("logIn");
   const name = useInput("");
   const id = useInput("");

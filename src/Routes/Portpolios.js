@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import { gql } from "apollo-boost";
-import { useTitle } from "Hooks/useTitle";
 import { useQuery } from "react-apollo-hooks";
 import Loader from "Components/Loader";
 // import FatText from "Components/FatText";
@@ -43,8 +42,6 @@ const Wrapper = styled.div`
 `;
 
 const Portpolios = () => {
-  useTitle("Portpolios | The GN");
-
   const { data, loading } = useQuery(POST_QUERY);
   console.log(data);
   console.log(loading);
