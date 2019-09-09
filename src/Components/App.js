@@ -37,9 +37,9 @@ const App = () => {
       <Container>
         <img
           src={
-            "https://res.cloudinary.com/drzp9d9jm/image/upload/v1567990091/TheGN_gyqvq5.png"
+            "https://res.cloudinary.com/drzp9d9jm/image/upload/v1568006347/TheGN_vqskdg.png"
           }
-          alt={"공사중..."}
+          alt={"Renewal"}
         ></img>
         <GlobalStyles />
         {/* <Router logged={logged} /> */}
