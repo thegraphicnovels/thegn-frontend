@@ -14,18 +14,7 @@ import Theme from "Styles/Theme";
 //   }
 // `;
 
-const Container = styled.div`
-  position: relative;
-  img {
-    min-height: 100%;
-    min-width: 1024px;
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-  }
-`;
+const Container = styled.div``;
 
 const App = () => {
   // const {
@@ -35,12 +24,6 @@ const App = () => {
   return (
     <ThemeProvider theme={Theme}>
       <Container>
-        <img
-          src={
-            "https://res.cloudinary.com/drzp9d9jm/image/upload/v1568006347/TheGN_vqskdg.png"
-          }
-          alt={"Renewal"}
-        ></img>
         <GlobalStyles />
         {/* <Router logged={logged} /> */}
         <ToastContainer position={toast.POSITION.BOTTOM_LEFT} />
