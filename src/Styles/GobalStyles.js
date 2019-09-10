@@ -20,14 +20,15 @@ const globalStyles = createGlobalStyle`
     input:focus{
         outline:none;
     } */
+
     html {
     -webkit-font-smoothing: antialiased;
     }
 
-
     body {
         margin: 0;
         width: 100%;
+        min-height: 100%;
         color: #fff;
         background: linear-gradient(-10deg, #ffff00, #00ff00, #99ff8d, #537bff, #ff5d5d, #ff0000);
         background-size: 300% 300%;
