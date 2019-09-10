@@ -21,6 +21,7 @@ const globalStyles = createGlobalStyle`
         outline:none;
     } */
 
+    @import url('https://fonts.googleapis.com/css?family=Work+Sans:700&display=swap');
     html {
     -webkit-font-smoothing: antialiased;
     }
