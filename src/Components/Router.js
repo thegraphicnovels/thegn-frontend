@@ -5,7 +5,7 @@ import {
   Switch,
   Redirect
 } from "react-router-dom";
-// import Header from "./Header";
+import Header from "./Header";
 import Home from "Routes/Home";
 import About from "Routes/About";
 import Contact from "Routes/Contact";
@@ -40,7 +40,7 @@ const LoggedOutRoutes = () => (
 export default ({ logged }) => {
   return (
     <Router>
-      {/* <Header logged={logged} /> */}
+      <Header logged={logged} />
       {logged ? <LoggedInRoutes /> : <LoggedOutRoutes />}
     </Router>
   );
