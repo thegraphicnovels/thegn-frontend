@@ -3,12 +3,12 @@ import styled from "styled-components";
 import { gql } from "apollo-boost";
 import { useQuery } from "react-apollo-hooks";
 import Loader from "Components/Loader";
-import FatText from "Components/FatText";
+// import FatText from "Components/FatText";
 import SquarePost from "Components/SquarePost";
 
 const POST_QUERY = gql`
   {
-    seePosts {
+    seePortpolios {
       _id
       title
       description
@@ -43,8 +43,6 @@ const Wrapper = styled.div`
 
 const Portpolios = () => {
   const { data, loading } = useQuery(POST_QUERY);
-  console.log(data);
-  console.log(loading);
 
   if (loading === true) {
     return (
@@ -56,15 +54,16 @@ const Portpolios = () => {
     return (
       <Wrapper>
         <PostSection>
-          {data.seePosts.length === 0 ? (
-            <FatText text={"No Portpolios found"} />
+          {data.seePortpolios.length === 0 ? (
+            // <FatText text={"No Portpolios found"} />
+            <Loader />
           ) : (
-            data.seePosts.map(post => (
+            data.seePortpolios.map(portpolios => (
               <SquarePost
-                key={post._id}
+                key={portpolios._id}
                 // likeCount={post.likeCount}
                 // commentCount={post.commentCount}
-                file={post.files[0]}
+                file={portpolios.files[0]}
               />
             ))
           )}

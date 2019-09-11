@@ -44,7 +44,6 @@ const Box = styled.div`
 const Form = styled(Box)`
   padding: 40px;
   padding-bottom: 30px;
-  margin-bottom: 15px;
   width: 100%;
   input {
     width: 100%;
@@ -55,7 +54,8 @@ const Form = styled(Box)`
 `;
 
 const PostUploadPresenter = ({
-  handleChangeStatus,
+  handleFileChangeStatus,
+  handleThumbFileChangeStatus,
   handleSubmit,
   title,
   description,
@@ -64,11 +64,11 @@ const PostUploadPresenter = ({
   return (
     <Section>
       <Dropzone
-        onChangeStatus={handleChangeStatus}
+        onChangeStatus={handleFileChangeStatus}
         // onSubmit={handleSubmit}
         // LayoutComponent={Layout}
-        maxFiles={3}
-        inputContent="Drop 3 Files"
+        maxFiles={5}
+        inputContent="Drop 5 Files"
         // inputWithFilesContent={files => `${3 - files.length} more`}
         // submitButtonDisabled={files => files.length < 3}
         accept="image/*,video/*"
@@ -77,8 +77,25 @@ const PostUploadPresenter = ({
             margin: 0,
             border: 0,
             backgroundColor: "white",
-            width: 500,
-            height: 400
+            width: 300,
+            height: 230
+          },
+          dropzoneActive: { borderColor: "green" }
+        }}
+      />
+      <Dropzone
+        onChangeStatus={handleThumbFileChangeStatus}
+        maxFiles={1}
+        multiple={false}
+        inputContent="Drop Thumbnail"
+        accept="image/*,video/*"
+        styles={{
+          dropzone: {
+            margin: 0,
+            border: 0,
+            backgroundColor: "white",
+            width: 200,
+            height: 110
           },
           dropzoneActive: { borderColor: "green" }
         }}

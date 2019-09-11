@@ -42,20 +42,22 @@ const NumberText = styled.span`
   font-size: 20px;
 `;
 
-const SquarePost = ({ likeCount, commentCount, file }) => (
-  <Container bg={file.url}>
-    <Overlay>
-      <Number>
-        <HeartFull />
-        <NumberText>{likeCount}</NumberText>
-      </Number>
-      <Number>
-        <CommentFull />
-        <NumberText>{commentCount}</NumberText>
-      </Number>
-    </Overlay>
-  </Container>
-);
+const SquarePost = ({ likeCount, commentCount, file }) => {
+  return (
+    <Container bg={file.url}>
+      <Overlay>
+        <Number>
+          <HeartFull />
+          <NumberText>{likeCount}</NumberText>
+        </Number>
+        <Number>
+          <CommentFull />
+          <NumberText>{commentCount}</NumberText>
+        </Number>
+      </Overlay>
+    </Container>
+  );
+};
 
 SquarePost.propTypes = {
   //   likeCount: PropTypes.number.isRequired,

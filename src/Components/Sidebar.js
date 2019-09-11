@@ -46,8 +46,8 @@ const Sidebar = ({ setOpen }) => {
         </Link>
       </MenuItem>
       <MenuItem>
-        <Link onClick={() => setOpen(false)} to="/admin/upload">
-          Post Upload
+        <Link onClick={() => setOpen(false)} to="/admin/portpolioUpload">
+          Portpolio Upload
         </Link>
       </MenuItem>
       <MenuItem>

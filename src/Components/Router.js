@@ -11,7 +11,7 @@ import About from "Routes/About";
 import Contact from "Routes/Contact";
 import Admin from "Routes/Admin";
 import Auth from "Routes/Auth";
-import PostUpload from "Routes/PostUpload";
+import PortpolioUpload from "Routes/PortpolioUpload";
 import Portpolios from "Routes/Portpolios";
 
 const LoggedInRoutes = () => (
@@ -21,7 +21,7 @@ const LoggedInRoutes = () => (
     <Route path="/contact" exact component={Contact} />
     <Route path="/portpolios" exact component={Portpolios} />
     <Route path="/admin" exact component={Admin} />
-    <Route path="/admin/upload" exact component={PostUpload} />
+    <Route path="/admin/portpolioUpload" exact component={PortpolioUpload} />
     <Redirect from="*" to="/" />
   </Switch>
 );
