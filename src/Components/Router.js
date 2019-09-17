@@ -24,6 +24,7 @@ const LoggedInRoutes = () => (
     <Route path="/admin" exact component={Admin} />
     <Route path="/admin/portpolioUpload" exact component={PortpolioUpload} />
     <Route path="/admin/dropzone" exact component={Dropzone} />
+    <Route path="/thegn-login" exact component={Auth} />
     <Redirect from="*" to="/" />
   </Switch>
 );
@@ -43,7 +44,8 @@ export default ({ logged }) => {
   return (
     <Router>
       <Header logged={logged} />
-      {logged ? <LoggedInRoutes /> : <LoggedOutRoutes />}
+      {/* {logged ? <LoggedInRoutes /> : <LoggedOutRoutes />} */}
+      <LoggedInRoutes />
     </Router>
   );
 };

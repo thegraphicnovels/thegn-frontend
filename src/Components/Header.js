@@ -126,11 +126,12 @@ export default withRouter(({ location: { pathname }, logged }) => {
         <Text>The GN</Text>
       </Title>
       <List>
-        {logged ? (
+        <LoggedItem pathname={pathname} isOpen={isOpen} setOpen={setOpen} />
+        {/* {logged ? (
           <LoggedItem pathname={pathname} isOpen={isOpen} setOpen={setOpen} />
         ) : (
           <LoggedOutItem pathname={pathname} />
-        )}
+        )} */}
       </List>
     </Header>
   );

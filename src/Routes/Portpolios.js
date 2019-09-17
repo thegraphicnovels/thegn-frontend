@@ -54,19 +54,7 @@ const Portpolios = () => {
     return (
       <Wrapper>
         <PostSection>
-          {data.seePortpolios.length === 0 ? (
-            // <FatText text={"No Portpolios found"} />
-            <Loader />
-          ) : (
-            data.seePortpolios.map(portpolios => (
-              <SquarePost
-                key={portpolios._id}
-                // likeCount={post.likeCount}
-                // commentCount={post.commentCount}
-                file={portpolios.files[0]}
-              />
-            ))
-          )}
+          <Loader />
         </PostSection>
       </Wrapper>
     );
