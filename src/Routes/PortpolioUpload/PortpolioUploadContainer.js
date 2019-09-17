@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useCallback } from "react";
 import PortpolioUploadPresenter from "./PortpolioUploadPresenter";
 import request from "superagent";
 import { useInput } from "rooks";
 import { useMutation } from "react-apollo-hooks";
-import { UPLOAD_PORTPOLIO } from "./PortpolioUploadQueries";
 import { toast } from "react-toastify";
+import { useDropzone } from "react-dropzone";
+import { UPLOAD_PORTPOLIO } from "./PortpolioUploadQueries";
 
 let FileArr = [];
 let ThumbArr = [];
@@ -79,6 +80,45 @@ const PortpolioUploadContainer = () => {
     }
   };
 
+  const maxSize = 1048576;
+  let previewSrc = [];
+
+  const onDrop = useCallback(
+    acceptedFiles => {
+      acceptedFiles.forEach(file => {
+        const reader = new FileReader();
+        reader.onload = () => {
+          previewSrc.push(reader.result);
+        };
+        reader.onabort = () => console.log("file reading was aborted");
+        reader.onerror = () => console.log("file reading has failed");
+
+        reader.readAsBinaryString(file);
+      });
+    },
+    [previewSrc]
+  );
+
+  const {
+    isDragActive,
+    getRootProps,
+    getInputProps,
+    isDragReject,
+    acceptedFiles,
+    rejectedFiles,
+    rootRef
+  } = useDropzone({
+    onDrop,
+    accept: "image/png",
+    minSize: 0,
+    maxSize,
+    autoQueue: false
+  });
+
+  const isFileTooLarge =
+    rejectedFiles.length > 0 && rejectedFiles[0].size > maxSize;
+
+  console.log(acceptedFiles);
   return (
     <PortpolioUploadPresenter
       handleFileChangeStatus={handleFileChangeStatus}
@@ -87,6 +127,15 @@ const PortpolioUploadContainer = () => {
       title={title}
       description={description}
       tag={tag}
+      isDragActive={isDragActive}
+      getRootProps={getRootProps}
+      getInputProps={getInputProps}
+      isDragReject={isDragReject}
+      acceptedFiles={acceptedFiles}
+      rejectedFiles={rejectedFiles}
+      isFileTooLarge={isFileTooLarge}
+      rootRef={rootRef}
+      previewSrc={previewSrc}
     />
   );
 };

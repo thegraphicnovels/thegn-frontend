@@ -51,6 +51,11 @@ const Sidebar = ({ setOpen }) => {
         </Link>
       </MenuItem>
       <MenuItem>
+        <Link onClick={() => setOpen(false)} to="/admin/dropzone">
+          Dropzone Test
+        </Link>
+      </MenuItem>
+      <MenuItem>
         <Link to="#" onClick={() => localLogOutMutation()}>
           Log Out
         </Link>

@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import Dropzone from "react-dropzone-uploader";
-import "react-dropzone-uploader/dist/styles.css";
+// import Dropzone from "react-dropzone-uploader";
+// import "react-dropzone-uploader/dist/styles.css";
 import Input from "Components/Input";
 import TextArea from "Components/TextArea";
 import Button from "Components/Button";
@@ -33,6 +33,7 @@ const Wrapper = styled.div`
 //   padding-bottom: 30px;
 //   margin-bottom: 15px;
 // `;
+const Dropcontainer = styled.div``;
 
 const Box = styled.div`
   ${props => props.theme.whiteBox}
@@ -59,11 +60,29 @@ const PostUploadPresenter = ({
   handleSubmit,
   title,
   description,
-  tag
+  tag,
+  isDragActive,
+  getRootProps,
+  getInputProps,
+  isDragReject,
+  acceptedFiles,
+  rejectedFiles,
+  isFileTooLarge,
+  rootRef
 }) => {
   return (
     <Section>
-      <Dropzone
+      <Dropcontainer {...getRootProps({ refKey: rootRef })}>
+        <input {...getInputProps()} />
+        {!isDragActive && "Click here or drop a file to upload!"}
+        {isDragActive && !isDragReject && "Drop it like it's hot!"}
+        {isDragReject && "File type not accepted, sorry!"}
+        {isFileTooLarge && (
+          <div className="text-danger mt-2">File is too large.</div>
+        )}
+      </Dropcontainer>
+      <div>{}</div>
+      {/* <Dropzone
         onChangeStatus={handleFileChangeStatus}
         // onSubmit={handleSubmit}
         // LayoutComponent={Layout}
@@ -99,7 +118,7 @@ const PostUploadPresenter = ({
           },
           dropzoneActive: { borderColor: "green" }
         }}
-      />
+      /> */}
       <Wrapper>
         <Form>
           <Input placeholder={"title"} {...title} />

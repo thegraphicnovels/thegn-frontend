@@ -7,9 +7,14 @@ const Container = styled.textarea`
   border: ${props => props.theme.boxBorder};
   border-radius: ${props => props.theme.borderRadius};
   background-color: ${props => props.theme.bgColor};
-  height: 35px;
+  height: 217px;
+  width: 319px;
   font-size: 12px;
   padding: 0px 15px;
+  resize: none;
+  &::placeholder {
+    padding-top: 10px;
+  }
 `;
 
 const TextArea = ({
