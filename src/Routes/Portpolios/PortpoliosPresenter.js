@@ -1,28 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import { gql } from "apollo-boost";
-import { useQuery } from "react-apollo-hooks";
 import Loader from "Components/Loader";
-// import FatText from "Components/FatText";
 import SquarePost from "Components/SquarePost";
-
-const POST_QUERY = gql`
-  {
-    seePortpolios {
-      _id
-      title
-      description
-      user {
-        _id
-        name
-      }
-      files {
-        _id
-        url
-      }
-    }
-  }
-`;
+import Pagination from "../../Components/Pagination";
 
 const PostSection = styled.div`
   margin: 100px;
@@ -41,9 +21,7 @@ const Wrapper = styled.div`
   flex-direction: row;
 `;
 
-const Portpolios = () => {
-  const { data, loading } = useQuery(POST_QUERY);
-
+const PortpoliosPresenter = ({ logged, loading, data, handlePageClick }) => {
   if (loading === true) {
     return (
       <Wrapper>
@@ -51,26 +29,31 @@ const Portpolios = () => {
       </Wrapper>
     );
   } else if (!loading && data) {
+    console.log(data.seePortpolios.totalPages);
     return (
       <Wrapper>
         <PostSection>
-          {data.seePortpolios.length === 0 ? (
+          {data.seePortpolios.portpolios.length === 0 ? (
             // <FatText text={"No Portpolios found"} />
             <Loader />
           ) : (
-            data.seePortpolios.map(portpolios => (
+            data.seePortpolios.portpolios.map(portpolio => (
               <SquarePost
-                key={portpolios._id}
+                key={portpolio._id}
                 // likeCount={post.likeCount}
                 // commentCount={post.commentCount}
-                file={portpolios.files[0]}
+                file={portpolio.files[0]}
               />
             ))
           )}
         </PostSection>
+        <Pagination
+          handlePageClick={handlePageClick}
+          pageCount={data.seePortpolios.totalPages}
+        />
       </Wrapper>
     );
   }
 };
 
-export default Portpolios;
+export default PortpoliosPresenter;

@@ -15,12 +15,16 @@ import PortpolioUpload from "Routes/PortpolioUpload";
 import Portpolios from "Routes/Portpolios";
 import Dropzone from "Routes/Dropzone";
 
-const LoggedInRoutes = () => (
+const LoggedInRoutes = ({ logged }) => (
   <Switch>
     <Route path="/" exact component={Home} />
     <Route path="/about" exact component={About} />
     <Route path="/contact" exact component={Contact} />
-    <Route path="/portpolios" exact component={Portpolios} />
+    <Route
+      path="/portpolios"
+      exact
+      render={props => <Portpolios {...props} logged={logged} />}
+    />
     <Route path="/admin" exact component={Admin} />
     <Route path="/admin/portpolioUpload" exact component={PortpolioUpload} />
     <Route path="/admin/dropzone" exact component={Dropzone} />
@@ -28,12 +32,16 @@ const LoggedInRoutes = () => (
   </Switch>
 );
 
-const LoggedOutRoutes = () => (
+const LoggedOutRoutes = ({ logged }) => (
   <Switch>
     <Route path="/" exact component={Home} />
     <Route path="/about" exact component={About} />
     <Route path="/contact" exact component={Contact} />
-    <Route path="/portpolios" exact component={Portpolios} />
+    <Route
+      path="/portpolios"
+      exact
+      render={props => <Portpolios {...props} logged={logged} />}
+    />
     <Route path="/thegn-login" exact component={Auth} />
     <Redirect from="*" to="/" />
   </Switch>
@@ -43,7 +51,11 @@ export default ({ logged }) => {
   return (
     <Router>
       <Header logged={logged} />
-      {logged ? <LoggedInRoutes /> : <LoggedOutRoutes />}
+      {logged ? (
+        <LoggedInRoutes logged={logged} />
+      ) : (
+        <LoggedOutRoutes logged={logged} />
+      )}
     </Router>
   );
 };
