@@ -17,6 +17,7 @@ export const SEE_PORTPOLIOS = gql`
         }
       }
       totalPages
+      totalPortpolios
     }
   }
 `;

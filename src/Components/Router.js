@@ -13,7 +13,8 @@ import Admin from "Routes/Admin";
 import Auth from "Routes/Auth";
 import PortpolioUpload from "Routes/PortpolioUpload";
 import Portpolios from "Routes/Portpolios";
-import Dropzone from "Routes/Dropzone";
+import Portpolio from "Components/Portpolio";
+import UploadTest from "../Routes/UploadTest";
 
 const LoggedInRoutes = ({ logged }) => (
   <Switch>
@@ -25,9 +26,27 @@ const LoggedInRoutes = ({ logged }) => (
       exact
       render={props => <Portpolios {...props} logged={logged} />}
     />
+    <Route
+      path="/portpolios/:portpolioId"
+      exact
+      render={props => <Portpolio {...props} logged={logged} />}
+    />
+    <Route
+      path="/portpolio/upload"
+      exact
+      render={props => (
+        <PortpolioUpload {...props} logged={logged} action={"upload"} />
+      )}
+    />
+    <Route
+      path="/portpolio/edit/:portpolioId"
+      exact
+      render={props => (
+        <PortpolioUpload {...props} logged={logged} action={"edit"} />
+      )}
+    />
     <Route path="/admin" exact component={Admin} />
-    <Route path="/admin/portpolioUpload" exact component={PortpolioUpload} />
-    <Route path="/admin/dropzone" exact component={Dropzone} />
+    <Route path="/uploadtest" exact component={UploadTest} />
     <Redirect from="*" to="/" />
   </Switch>
 );
@@ -41,6 +60,11 @@ const LoggedOutRoutes = ({ logged }) => (
       path="/portpolios"
       exact
       render={props => <Portpolios {...props} logged={logged} />}
+    />
+    <Route
+      path="/portpolios/:portpolioId"
+      exact
+      render={props => <Portpolio {...props} logged={logged} />}
     />
     <Route path="/thegn-login" exact component={Auth} />
     <Redirect from="*" to="/" />

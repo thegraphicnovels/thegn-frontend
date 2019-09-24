@@ -3,7 +3,7 @@ import { gql } from "apollo-boost";
 export const UPLOAD_PORTPOLIO = gql`
   mutation uploadPortpolio(
     $title: String!
-    $description: String!
+    $description: String
     $fileUrl: [String]
   ) {
     uploadPortpolio(

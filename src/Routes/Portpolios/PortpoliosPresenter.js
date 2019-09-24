@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 import Loader from "Components/Loader";
-import SquarePost from "Components/SquarePost";
-import Pagination from "../../Components/Pagination";
+import Paging from "../../Components/Paging";
 
 const PostSection = styled.div`
   margin: 100px;
@@ -18,10 +18,17 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: row;
+  flex-direction: column;
 `;
 
-const PortpoliosPresenter = ({ logged, loading, data, handlePageClick }) => {
+const PortpoliosPresenter = ({
+  logged,
+  loading,
+  limit,
+  page,
+  data,
+  handlePageChange
+}) => {
   if (loading === true) {
     return (
       <Wrapper>
@@ -29,27 +36,33 @@ const PortpoliosPresenter = ({ logged, loading, data, handlePageClick }) => {
       </Wrapper>
     );
   } else if (!loading && data) {
-    console.log(data.seePortpolios.totalPages);
     return (
       <Wrapper>
+        {logged && <Link to={`/portpolio/upload`}>올리기</Link>}
+        {logged && <Link to={`/uploadtest`}>테스트</Link>}
         <PostSection>
           {data.seePortpolios.portpolios.length === 0 ? (
             // <FatText text={"No Portpolios found"} />
             <Loader />
           ) : (
-            data.seePortpolios.portpolios.map(portpolio => (
-              <SquarePost
-                key={portpolio._id}
-                // likeCount={post.likeCount}
-                // commentCount={post.commentCount}
-                file={portpolio.files[0]}
-              />
-            ))
+            data.seePortpolios.portpolios.map(portpolio => {
+              return (
+                <Link to={`/portpolios/${portpolio._id}`} key={portpolio._id}>
+                  <img
+                    src={portpolio.files[0].url}
+                    style={{ width: "200px", height: "200px" }}
+                    alt={""}
+                  />
+                </Link>
+              );
+            })
           )}
         </PostSection>
-        <Pagination
-          handlePageClick={handlePageClick}
-          pageCount={data.seePortpolios.totalPages}
+        <Paging
+          limit={limit}
+          page={page}
+          totalItemsCount={data.seePortpolios.totalPortpolios}
+          handlePageChange={handlePageChange}
         />
       </Wrapper>
     );

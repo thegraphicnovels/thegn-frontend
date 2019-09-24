@@ -3,26 +3,26 @@ import { useQuery } from "react-apollo-hooks";
 import PortpoliosPresenter from "./PortpoliosPresenter";
 import { SEE_PORTPOLIOS } from "./PortpoliosQueries";
 
-let limit = 16;
+let limit = 2;
 
 const PortpoliosContainer = ({ logged }) => {
   const [page, setPage] = useState(1);
-  const { data, loading, refetch } = useQuery(SEE_PORTPOLIOS, {
+  const { data, loading } = useQuery(SEE_PORTPOLIOS, {
     variables: { page, limit }
   });
 
-  const handlePageClick = ({ selected }) => {
-    setPage(selected);
-    refetch();
-    console.log(selected);
+  const handlePageChange = pageNumber => {
+    setPage(pageNumber);
   };
 
   return (
     <PortpoliosPresenter
       logged={logged}
       loading={loading}
+      limit={limit}
+      page={page}
       data={data}
-      handlePageClick={handlePageClick}
+      handlePageChange={handlePageChange}
     />
   );
 };

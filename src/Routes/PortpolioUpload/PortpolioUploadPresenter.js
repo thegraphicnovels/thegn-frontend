@@ -1,52 +1,91 @@
 import React from "react";
 import styled from "styled-components";
-// import Dropzone from "react-dropzone-uploader";
-// import "react-dropzone-uploader/dist/styles.css";
 import Input from "Components/Input";
 import TextArea from "Components/TextArea";
 import Button from "Components/Button";
 
-const Section = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
-`;
+const getColor = props => {
+  if (props.isDragAccept) {
+    return "#00e676";
+  }
+  if (props.isDragReject) {
+    return "#ff1744";
+  }
+  if (props.isDragActive) {
+    return "#2196f3";
+  }
+  return "#eeeeee";
+};
 
 const Wrapper = styled.div`
-  min-height: 80vh;
+  /* min-height: 20vh; */
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
 `;
 
-// const PreviewContainer = styled.div`
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-//   flex-direction: row;
-// `;
+const Container = styled.div`
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  border-width: 2px;
+  border-radius: 2px;
+  border-color: ${props => getColor(props)};
+  border-style: dashed;
+  background-color: #fafafa;
+  color: #bdbdbd;
+  outline: none;
+  transition: border 0.24s ease-in-out;
+  width: 400px;
+`;
 
-// const CustomDropzone = styled.div`
-//   padding: 200px;
-//   padding-bottom: 30px;
-//   margin-bottom: 15px;
-// `;
-const Dropcontainer = styled.div``;
+const ThumbsContainer = styled.aside`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top: 16;
+  height: 100px;
+`;
+
+const Thumb = styled.div`
+  display: inline-flex;
+  border-radius: 2;
+  border: 1px solid #eaeaea;
+  margin-bottom: 8;
+  margin-right: 8;
+  width: 100px;
+  height: 100px;
+  padding: 4;
+  box-sizing: border-box;
+`;
+
+const ThumbInner = styled.div`
+  display: flex;
+  min-width: 0;
+  overflow: hidden;
+`;
+
+const Img = styled.img`
+  display: block;
+  width: auto;
+  height: 100%;
+`;
 
 const Box = styled.div`
   ${props => props.theme.whiteBox}
   border-radius: 0px;
   width: 100%;
-  max-width: 800px;
+  max-width: 400px;
 `;
 
 const Form = styled(Box)`
   padding: 40px;
   padding-bottom: 30px;
   width: 100%;
-  input {
+  * {
     width: 100%;
     &:not(:last-child) {
       margin-bottom: 7px;
@@ -54,81 +93,45 @@ const Form = styled(Box)`
   }
 `;
 
-const PostUploadPresenter = ({
-  handleFileChangeStatus,
-  handleThumbFileChangeStatus,
-  handleSubmit,
+const PortpolioUploadPresenter = ({
+  getRootProps,
+  getInputProps,
+  isDragActive,
+  isDragAccept,
+  isDragReject,
+  removeFile,
+  files,
   title,
   description,
   tag,
-  isDragActive,
-  getRootProps,
-  getInputProps,
-  isDragReject,
-  acceptedFiles,
-  rejectedFiles,
-  isFileTooLarge,
-  rootRef
+  handleSubmit
 }) => {
   return (
-    <Section>
-      <Dropcontainer {...getRootProps({ refKey: rootRef })}>
+    <Wrapper>
+      <Container
+        {...getRootProps({ isDragActive, isDragAccept, isDragReject })}
+      >
         <input {...getInputProps()} />
-        {!isDragActive && "Click here or drop a file to upload!"}
-        {isDragActive && !isDragReject && "Drop it like it's hot!"}
-        {isDragReject && "File type not accepted, sorry!"}
-        {isFileTooLarge && (
-          <div className="text-danger mt-2">File is too large.</div>
-        )}
-      </Dropcontainer>
-      <div>{}</div>
-      {/* <Dropzone
-        onChangeStatus={handleFileChangeStatus}
-        // onSubmit={handleSubmit}
-        // LayoutComponent={Layout}
-        maxFiles={5}
-        inputContent="Drop 5 Files"
-        // inputWithFilesContent={files => `${3 - files.length} more`}
-        // submitButtonDisabled={files => files.length < 3}
-        accept="image/*,video/*"
-        styles={{
-          dropzone: {
-            margin: 0,
-            border: 0,
-            backgroundColor: "white",
-            width: 300,
-            height: 230
-          },
-          dropzoneActive: { borderColor: "green" }
-        }}
-      />
-      <Dropzone
-        onChangeStatus={handleThumbFileChangeStatus}
-        maxFiles={1}
-        multiple={false}
-        inputContent="Drop Thumbnail"
-        accept="image/*,video/*"
-        styles={{
-          dropzone: {
-            margin: 0,
-            border: 0,
-            backgroundColor: "white",
-            width: 200,
-            height: 110
-          },
-          dropzoneActive: { borderColor: "green" }
-        }}
-      /> */}
-      <Wrapper>
-        <Form>
-          <Input placeholder={"title"} {...title} />
-          <TextArea placeholder={"description"} {...description} />
-          <Input placeholder={"tag"} {...tag} />
-          <Button text={"Upload Post"} onClick={handleSubmit} />
-        </Form>
-      </Wrapper>
-    </Section>
+        <p>Drag 'n' drop some files here, or click to select files</p>
+      </Container>
+      <ThumbsContainer>
+        {files.map(file => (
+          <Thumb key={file.name}>
+            <ThumbInner>
+              <Img src={file.preview} alt={file.name} />
+            </ThumbInner>
+            <button onClick={removeFile(file)}>Remove File</button>
+          </Thumb>
+        ))}
+      </ThumbsContainer>
+      <Form>
+        <Input placeholder={"title"} {...title} />
+        <TextArea placeholder={"description"} {...description} />
+        <Input placeholder={"tag"} {...tag} />
+        <Button text={"Upload Portpolio"} onClick={handleSubmit} />
+      </Form>
+    </Wrapper>
   );
 };
 
-export default PostUploadPresenter;
+export default PortpolioUploadPresenter;
