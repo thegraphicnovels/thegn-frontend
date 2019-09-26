@@ -3,20 +3,35 @@ import { toast } from "react-toastify";
 import { useDropzone } from "react-dropzone";
 import { useInput } from "rooks";
 import request from "superagent";
-import { useMutation } from "react-apollo-hooks";
+import { useMutation, useQuery } from "react-apollo-hooks";
 import PortpolioUploadPresenter from "./PortpolioUploadPresenter";
 import { UPLOAD_PORTPOLIO } from "./PortpolioUploadQueries";
+import { DEATIL_PORTPOLIO } from "../../Components/Portpolio/PortpolioQueries";
 
 let fileUrl = [];
 let toastId = null;
 
-const PortpolioUploadContainer = ({ history, action }) => {
+const PortpolioUploadContainer = ({
+  history,
+  match: {
+    params: { portpolioId }
+  }
+}) => {
   const imageMaxSize = 2097152; //bytes
   const acceeptedFileTypes =
     "image/x-png, image/png, image/jpg, image/jpeg, image/gif";
   const acceptedFileTypesArray = acceeptedFileTypes
     .split(",")
     .map(item => item.trim());
+
+  const { data } = useQuery(DEATIL_PORTPOLIO, {
+    variables: { id: portpolioId },
+    skip: !portpolioId
+  });
+
+  if (data) {
+    console.log(data.detailPortpolio);
+  }
 
   const title = useInput("");
   const description = useInput("");

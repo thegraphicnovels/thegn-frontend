@@ -1,26 +1,36 @@
 import React from "react";
-import styled from "styled-components";
 import PropTypes from "prop-types";
+import { Button } from "antd";
 
-const Container = styled.button`
-  width: 100%;
-  border: 0;
-  border-radius: ${props => props.theme.borderRadius};
-  color: white;
-  font-weight: 600;
-  background-color: ${props => props.theme.blueColor};
-  text-align: center;
-  padding: 7px 0px;
-  font-size: 14px;
-  cursor: pointer;
-`;
-
-const Button = ({ text, onClick }) => (
-  <Container onClick={onClick}>{text}</Container>
-);
-
-Button.propTypes = {
-  text: PropTypes.string.isRequired
+export default ({
+  type = "primary",
+  loading = false,
+  text = "Button",
+  onClick,
+  size,
+  disabled = false,
+  style
+}) => {
+  return (
+    <Button
+      type={type}
+      size={size}
+      loading={loading}
+      onClick={onClick}
+      disabled={disabled}
+      style={style}
+    >
+      {text}
+    </Button>
+  );
 };
 
-export default Button;
+Button.propTypes = {
+  type: PropTypes.string,
+  loading: PropTypes.bool,
+  text: PropTypes.string,
+  onClick: PropTypes.func,
+  size: PropTypes.string,
+  disabled: PropTypes.bool,
+  style: PropTypes.object
+};

@@ -14,13 +14,14 @@ import Auth from "Routes/Auth";
 import PortpolioUpload from "Routes/PortpolioUpload";
 import Portpolios from "Routes/Portpolios";
 import Portpolio from "Components/Portpolio";
-import UploadTest from "../Routes/UploadTest";
+import Filepond from "../Routes/Filepond";
+import Tab from "../Routes/Tab";
 
 const LoggedInRoutes = ({ logged }) => (
   <Switch>
     <Route path="/" exact component={Home} />
-    <Route path="/about" exact component={About} />
-    <Route path="/contact" exact component={Contact} />
+    <Route path="/about" component={About} />
+    <Route path="/contact" component={Contact} />
     <Route
       path="/portpolios"
       exact
@@ -34,19 +35,16 @@ const LoggedInRoutes = ({ logged }) => (
     <Route
       path="/portpolio/upload"
       exact
-      render={props => (
-        <PortpolioUpload {...props} logged={logged} action={"upload"} />
-      )}
+      render={props => <PortpolioUpload {...props} logged={logged} />}
     />
     <Route
       path="/portpolio/edit/:portpolioId"
       exact
-      render={props => (
-        <PortpolioUpload {...props} logged={logged} action={"edit"} />
-      )}
+      render={props => <PortpolioUpload {...props} logged={logged} />}
     />
-    <Route path="/admin" exact component={Admin} />
-    <Route path="/uploadtest" exact component={UploadTest} />
+    <Route path="/admin" component={Admin} />
+    <Route path="/uploadtest" component={Tab} />
+    <Route path="/filepond" component={Filepond} />
     <Redirect from="*" to="/" />
   </Switch>
 );

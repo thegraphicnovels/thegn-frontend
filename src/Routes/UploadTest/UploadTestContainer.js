@@ -9,7 +9,9 @@ class UploadTestContainer extends Component {
       previewVisible: false,
       previewImage: "",
       fileList: [],
-      uploadUrl: `${process.env.REACT_APP_CLOUDINARY_UPLOAD_URL}?upload_preset=${process.env.REACT_APP_CLOUDINARY_UPLOAD_POST_PRESET}`
+      uploadUrl: `${process.env.REACT_APP_CLOUDINARY_UPLOAD_URL}?upload_preset=${process.env.REACT_APP_CLOUDINARY_UPLOAD_POST_PRESET}`,
+      title: "",
+      description: ""
     };
   }
 
@@ -30,8 +32,22 @@ class UploadTestContainer extends Component {
     this.setState({ fileList });
   };
 
+  handleTitleChange = event => {
+    this.setState({ title: event.target.value });
+  };
+  handleDescriptionChange = event => {
+    this.setState({ description: event.target.value });
+  };
+
   render() {
-    const { previewVisible, previewImage, fileList, uploadUrl } = this.state;
+    const {
+      previewVisible,
+      previewImage,
+      fileList,
+      uploadUrl,
+      title,
+      description
+    } = this.state;
     return (
       <UploadTestPresenter
         previewVisible={previewVisible}
@@ -41,6 +57,10 @@ class UploadTestContainer extends Component {
         handleCancel={this.handleCancel}
         handlePreview={this.handlePreview}
         handleChange={this.handleChange}
+        title={title}
+        description={description}
+        handleTitleChange={this.handleTitleChange}
+        handleDescriptionChange={this.handleDescriptionChange}
       />
     );
   }

@@ -50,16 +50,16 @@ const Form = styled(Box)`
   }
 `;
 
-const UploadTestPresenter = ({
+const UploadTestPresenter2 = ({
   previewVisible,
   previewImage,
   fileList,
   uploadUrl,
+  title,
+  description,
   handleCancel,
   handlePreview,
-  handleChange,
-  handleTitleChange,
-  handleDescriptionChange
+  handleChange
 }) => {
   return (
     <Wrapper>
@@ -87,14 +87,14 @@ const UploadTestPresenter = ({
       <Form>
         <Input
           placeholder={"title"}
-          onChange={handleTitleChange}
+          {...title}
           autoFocus={true}
           isRequired={true}
         />
 
         <TextArea
           placeholder={"description"}
-          onChange={handleDescriptionChange}
+          {...description}
           resize={"auto"}
         />
         {/* <Input placeholder={"tag"} {...tag} /> */}
@@ -104,4 +104,4 @@ const UploadTestPresenter = ({
   );
 };
 
-export default UploadTestPresenter;
+export default UploadTestPresenter2;

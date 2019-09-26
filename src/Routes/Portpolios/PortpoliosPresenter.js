@@ -40,6 +40,8 @@ const PortpoliosPresenter = ({
       <Wrapper>
         {logged && <Link to={`/portpolio/upload`}>올리기</Link>}
         {logged && <Link to={`/uploadtest`}>테스트</Link>}
+        {/* {logged && <Link to={`/filepond`}>Filepond</Link>} */}
+        {/* {logged && <Link to={`/cloudinary`}>Cloudinary</Link>} */}
         <PostSection>
           {data.seePortpolios.portpolios.length === 0 ? (
             // <FatText text={"No Portpolios found"} />

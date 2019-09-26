@@ -1,8 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-// import ReactPaginate from "react-paginate";
 import Pagination from "react-js-pagination";
-// import Pagination from "@atlaskit/pagination";
 
 const Paging = ({ limit, page, totalItemsCount, handlePageChange }) => {
   return (

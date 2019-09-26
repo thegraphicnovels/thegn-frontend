@@ -21,12 +21,9 @@ const PortpolioPresenter = ({ data, loading, logged }) => {
     );
   } else if (!loading && data) {
     const updateAt = data.detailPortpolio.updateAt;
-    var date = new Date(Number(updateAt));
+    const date = new Date(Number(updateAt));
     return (
       <Wrapper>
-        <div>{data.detailPortpolio.title}</div>
-        <div>{data.detailPortpolio.description}</div>
-        <div>{formatDate(date)}</div>
         <div style={{ display: "flex", flexdirection: "row" }}>
           {data.detailPortpolio.files.map(file => (
             <img
@@ -37,6 +34,9 @@ const PortpolioPresenter = ({ data, loading, logged }) => {
             />
           ))}
         </div>
+        <div>{data.detailPortpolio.title}</div>
+        <div>{data.detailPortpolio.description}</div>
+        <div>{formatDate(date)}</div>
         {logged && (
           <div style={{ display: "flex", flexdirection: "row" }}>
             <Link to={`/portpolio/edit/${data.detailPortpolio._id}`}>
