@@ -1,36 +1,36 @@
 import React from "react";
+import Button from "@atlaskit/button";
 import PropTypes from "prop-types";
-import { Button } from "antd";
+
+// Button Types
+// 'default',
+// 'primary',
+// 'link',
+// 'subtle',
+// 'subtle-link',
+// 'warning',
+// 'danger',
 
 export default ({
+  text,
   type = "primary",
-  loading = false,
-  text = "Button",
-  onClick,
-  size,
-  disabled = false,
-  style
-}) => {
-  return (
-    <Button
-      type={type}
-      size={size}
-      loading={loading}
-      onClick={onClick}
-      disabled={disabled}
-      style={style}
-    >
-      {text}
-    </Button>
-  );
-};
+  isDisabled = false,
+  isLoading = false,
+  onClick
+}) => (
+  <Button
+    appearance={type}
+    isDisabled={isDisabled}
+    isLoading={isLoading}
+    onClick={onClick}
+  >
+    {text}
+  </Button>
+);
 
 Button.propTypes = {
-  type: PropTypes.string,
-  loading: PropTypes.bool,
-  text: PropTypes.string,
-  onClick: PropTypes.func,
-  size: PropTypes.string,
-  disabled: PropTypes.bool,
-  style: PropTypes.object
+  appearance: PropTypes.string,
+  isDisabled: PropTypes.bool,
+  isLoading: PropTypes.bool,
+  onClick: PropTypes.func.isRequired
 };

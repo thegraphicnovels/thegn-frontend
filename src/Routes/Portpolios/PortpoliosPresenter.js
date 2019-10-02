@@ -39,7 +39,8 @@ const PortpoliosPresenter = ({
     return (
       <Wrapper>
         {logged && <Link to={`/portpolio/upload`}>올리기</Link>}
-        {logged && <Link to={`/uploadtest`}>테스트</Link>}
+        {logged && <Link to={`/portpolioManage`}>테스트</Link>}
+        {/* {logged && <Link to={`/Butterfiles`}>Butterfiles</Link>} */}
         {/* {logged && <Link to={`/filepond`}>Filepond</Link>} */}
         {/* {logged && <Link to={`/cloudinary`}>Cloudinary</Link>} */}
         <PostSection>

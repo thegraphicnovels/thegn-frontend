@@ -28,7 +28,7 @@ const TagContainer = ({ setActive }) => {
       } else {
         toast.success("Tag create Success");
         refetch();
-        setActive("2");
+        setActive(1);
       }
     } catch {
       toast.error("This Tag is already taken");
@@ -54,14 +54,14 @@ const TagContainer = ({ setActive }) => {
       } else {
         toast.success("Tag modify Success");
         refetch();
-        setActive("2");
+        setActive(1);
       }
     } catch {
       toast.error("This Tag is already taken");
     }
   };
 
-  const handleTagDelete = async id => {
+  const handleTagDelete = async (id, value) => {
     try {
       const {
         data: { deleteTag }

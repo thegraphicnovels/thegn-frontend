@@ -39,7 +39,7 @@ const PortpolioPresenter = ({ data, loading, logged }) => {
         <div>{formatDate(date)}</div>
         {logged && (
           <div style={{ display: "flex", flexdirection: "row" }}>
-            <Link to={`/portpolio/edit/${data.detailPortpolio._id}`}>
+            <Link to={`/portpolioManage/edit/${data.detailPortpolio._id}`}>
               <button>수정</button>
             </Link>
           </div>

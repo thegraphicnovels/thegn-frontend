@@ -14,6 +14,10 @@ export const DEATIL_PORTPOLIO = gql`
         _id
         url
       }
+      tags {
+        _id
+        value
+      }
       createAt
       updateAt
     }

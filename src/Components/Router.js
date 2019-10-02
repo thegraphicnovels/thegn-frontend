@@ -15,7 +15,7 @@ import PortpolioUpload from "Routes/PortpolioUpload";
 import Portpolios from "Routes/Portpolios";
 import Portpolio from "Components/Portpolio";
 import Filepond from "../Routes/Filepond";
-import Tab from "../Routes/Tab";
+import PortpolioManage from "../Routes/PortpolioManage";
 
 const LoggedInRoutes = ({ logged }) => (
   <Switch>
@@ -43,7 +43,12 @@ const LoggedInRoutes = ({ logged }) => (
       render={props => <PortpolioUpload {...props} logged={logged} />}
     />
     <Route path="/admin" component={Admin} />
-    <Route path="/uploadtest" component={Tab} />
+    <Route path="/portpolioManage" exact component={PortpolioManage} />
+    <Route
+      path="/portpolioManage/edit/:portpolioId"
+      exact
+      component={PortpolioManage}
+    />
     <Route path="/filepond" component={Filepond} />
     <Redirect from="*" to="/" />
   </Switch>

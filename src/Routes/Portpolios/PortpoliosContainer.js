@@ -3,7 +3,7 @@ import { useQuery } from "react-apollo-hooks";
 import PortpoliosPresenter from "./PortpoliosPresenter";
 import { SEE_PORTPOLIOS } from "./PortpoliosQueries";
 
-let limit = 2;
+let limit = 1;
 
 const PortpoliosContainer = ({ logged }) => {
   const [page, setPage] = useState(1);

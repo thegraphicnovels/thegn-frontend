@@ -1,22 +1,37 @@
 import React from "react";
+import TextArea from "@atlaskit/textarea";
 import PropTypes from "prop-types";
-import { Input } from "antd";
-const { TextArea } = Input;
 
-export default ({ onChange, placeholder, minRows = 3, maxRows = 5, value }) => {
+export default ({
+  value,
+  placeholder,
+  isRequired = true,
+  isDisabled = false,
+  isReadOnly = false,
+  maxHeight = "50vh",
+  resize = "smart",
+  onChange
+}) => {
   return (
     <TextArea
-      onChange={onChange}
-      placeholder={placeholder}
-      autosize={{ minRows, maxRows }}
       value={value}
+      placeholder={placeholder}
+      isRequired={isRequired}
+      isDisabled={isDisabled}
+      isReadOnly={isReadOnly}
+      maxHeight={maxHeight}
+      resize={resize}
+      onChange={onChange}
     />
   );
 };
 
 TextArea.propTypes = {
-  onChange: PropTypes.func,
   placeholder: PropTypes.string.isRequired,
-  minRows: PropTypes.number,
-  maxRows: PropTypes.number
+  isRequired: PropTypes.bool,
+  isDisabled: PropTypes.bool,
+  isReadOnly: PropTypes.bool,
+  maxHeight: PropTypes.string,
+  resize: PropTypes.string,
+  onChange: PropTypes.func.isRequired
 };

@@ -1,22 +1,35 @@
 import React from "react";
-import { Input } from "antd";
+import Textfield from "@atlaskit/textfield";
 import PropTypes from "prop-types";
 
-export default ({ onChange, placeholder, style, size = "default", value }) => {
+const Input = ({
+  value,
+  placeholder,
+  isRequired = true,
+  isDisabled = false,
+  isReadOnly = false,
+  autoFocus = false,
+  onChange
+}) => {
   return (
-    <Input
-      placeholder={placeholder}
-      onChange={onChange}
-      style={style}
-      size={size}
+    <Textfield
       value={value}
+      placeholder={placeholder}
+      isRequired={isRequired}
+      isDisabled={isDisabled}
+      isReadOnly={isReadOnly}
+      autoFocus={autoFocus}
+      onChange={onChange}
     />
   );
 };
 
 Input.propTypes = {
-  onChange: PropTypes.func.isRequired,
-  placeholder: PropTypes.string,
-  style: PropTypes.object,
-  size: PropTypes.string
+  placeholder: PropTypes.string.isRequired,
+  isRequired: PropTypes.bool,
+  isDisabled: PropTypes.bool,
+  autoFocus: PropTypes.bool,
+  onChange: PropTypes.func.isRequired
 };
+
+export default Input;

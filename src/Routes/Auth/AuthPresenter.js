@@ -65,10 +65,10 @@ export default ({
     <Form>
       {action === "logIn" && (
         <>
-          <form onSubmit={onSubmit}>
+          <form>
             <Input placeholder={"id"} {...id} />
             <Input placeholder={"password"} {...password} type="password" />
-            <Button text={"Log in"} />
+            <Button text={"Log in"} onClick={onSubmit} />
           </form>
         </>
       )}
@@ -83,7 +83,7 @@ export default ({
               {...password2}
               type="password"
             />
-            <Button text={"Sign up"} />
+            <Button text={"Sign up"} onClick={onSubmit} />
           </form>
         </>
       )}

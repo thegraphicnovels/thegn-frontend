@@ -1,2 +1,2 @@
-import UploadTestContainer from "./UploadTestContainer";
+import UploadTestContainer from "./UploadTestContainer2";
 export default UploadTestContainer;

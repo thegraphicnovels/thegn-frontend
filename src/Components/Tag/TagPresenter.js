@@ -1,13 +1,13 @@
 import React from "react";
 import styled from "styled-components";
-import Input from "../Input";
-import Button from "../Button";
 import ReactTable from "react-table";
 import "react-table/react-table.css";
+import { confirmAlert } from "react-confirm-alert"; // Import
+import "react-confirm-alert/src/react-confirm-alert.css"; // Import css
 import { RIEInput } from "riek";
 import { formatDate } from "utils";
-import { Popconfirm } from "antd";
-import { Link } from "react-router-dom";
+import Input from "../Input";
+import Button from "../Button";
 
 const Wrapper = styled.div`
   /* min-height: 20vh; */
@@ -56,6 +56,21 @@ const TagPresenter = ({
   handleTagModify,
   handleTagDelete
 }) => {
+  const deleteAlert = (id, value) => {
+    confirmAlert({
+      title: `Are you delete Tag? [${value}]`,
+      buttons: [
+        {
+          label: "Yes",
+          onClick: () => handleTagDelete(id, value)
+        },
+        {
+          label: "No"
+        }
+      ]
+    });
+  };
+
   return (
     <Wrapper>
       <Container>
@@ -70,7 +85,6 @@ const TagPresenter = ({
           <Button text={"Add"} onClick={handleTagCreate} />
         </Form>
       </Container>
-      {/* {!loading && data && <EditableTable data={data.seeTags} />} */}
       {!loading && data && (
         <ReactTable
           noDataText="No Tags"
@@ -112,20 +126,14 @@ const TagPresenter = ({
               Header: "Action",
               width: 100,
               Cell: row => (
-                <Popconfirm
-                  title={`Are you delete this Tag [${row.row.value}]?`}
-                  onConfirm={() => handleTagDelete(row.row._id)}
-                  okText="Yes"
-                  cancelText="No"
-                >
-                  <Link to="#">Delete</Link>
-                </Popconfirm>
+                <Button
+                  text={"Delete"}
+                  onClick={() => deleteAlert(row.row._id, row.row.value)}
+                />
               )
             }
           ]}
-          // defaultPageSize={10}
           className="-striped -highlight"
-          // showPagination={false}
           minRows={1}
           defaultSorted={[
             {
