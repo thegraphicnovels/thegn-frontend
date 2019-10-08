@@ -1,0 +1,110 @@
+@charset "utf-8";
+
+
+/**************************************************************************************
+** MAIN SWIPER
+**************************************************************************************/
+.mainSwipeWrap {position:relative;overflow:hidden;}
+.mainSwipeWrap .swiper-wrapper {position:relative;overflow:hidden;width:100000em;}
+.mainSwipeWrap .swiper-wrapper .swiper-slide {position:relative;float:left;width:100%;height:calc(100vh - 90px - 100px);background-position:center;background-repeat:no-repeat;background-size:cover;}
+.mainSwipeWrap .swiper-wrapper .swiper-slide .imgTxt {display:block;position:absolute;left:50%;top:50%;transform:translate(-50%, -50%);}
+.mainSwipeWrap .btnPrev {position:absolute;left:100px;top:50%;width:112px;height:40px;background:url('../images/btn_main_swiper.png') no-repeat left top;z-index:1;transform:translate(0, -50%);}
+.mainSwipeWrap .btnNext {position:absolute;right:100px;top:50%;width:112px;height:40px;background:url('../images/btn_main_swiper.png') no-repeat right top;z-index:1;transform:translate(0, -50%);}
+
+/**************************************************************************************
+** ACHIVE LIST
+**************************************************************************************/
+.achiveWrap .tagMenu {overflow:hidden;position:fixed;left:66px;top:90px;bottom:100px;width:0;z-index:1;}
+.achiveWrap .tagMenu > button {position:absolute;left:65px;top:50%;width:20px;height:20px;background-image:url('../images/ico_tag.png');background-repeat:no-repeat;background-position:left bottom;transform:translate(0, -50%);}
+.achiveWrap .tagMenu .swiperScrollBox,
+.achiveWrap .tagMenu .mCustomScrollbar {display:none;margin:0 0 0 100px;}
+.achiveWrap .tagMenu .swiperScrollBox ul,
+.achiveWrap .tagMenu .mCustomScrollbar ul {padding:50px;}
+.achiveWrap .tagMenu .swiperScrollBox ul li,
+.achiveWrap .tagMenu .mCustomScrollbar ul li {margin:40px 0 0;}
+.achiveWrap .tagMenu .swiperScrollBox ul li:first-child,
+.achiveWrap .tagMenu .mCustomScrollbar ul li:first-child {margin:0;}
+.achiveWrap .tagMenu .swiperScrollBox ul li a,
+.achiveWrap .tagMenu .mCustomScrollbar ul li a {display:block;line-height:36px;font-size:26px;font-weight:300;color:#fff;text-decoration:underline;}
+.achiveWrap.active .tagMenu {width:auto;padding:0 0 0 95px;transition:width 0.5s ease, padding 0.5s ease;transition-delay:0.8s;}
+[class^="pageWrap"].active .achiveWrap .tagMenu.active,
+.achiveWrap.active .tagMenu.active {background:#ff5d5d;}
+[class^="pageWrap"].active .achiveWrap .tagMenu.active > button,
+.achiveWrap.active .tagMenu.active > button {background-position:left top;}
+[class^="pageWrap"].active .achiveWrap .tagMenu.active .swiperScrollBox,
+.achiveWrap.active .tagMenu.active .mCustomScrollbar {display:block;}
+
+.achiveWrap {overflow:hidden;}
+.achiveWrap .achiveListWrap {width:100%;margin:0 -5%;}
+.achiveWrap .achiveListWrap .grid {position:relative;box-sizing:border-box;}
+.achiveWrap .achiveListWrap .grid .grid-item {display:inline-block;padding:0 0 5% 5%;}
+.achiveWrap .achiveListWrap .grid .grid-item a {display:block;}
+
+/*************************** 1366 - tablet ***************************/
+/* @media screen and (max-width:1370px) {
+	.achiveListWrap .grid .grid-item img {width:60%;max-width:60%;}
+} */
+
+/**************************************************************************************
+** ACHIVE DETAIL
+**************************************************************************************/
+.achiveDescriptWrap {overflow:hidden;}
+.achiveDescriptWrap .descriptThum {overflow:hidden;position:relative;float:left;width:60%;}
+.achiveDescriptWrap .descriptThum .swiper-wrapper {overflow:hidden;width:9999em;}
+.achiveDescriptWrap .descriptThum .swiper-wrapper .swiper-slide {position:relative;float:left;}
+.achiveDescriptWrap .descriptThum .swiper-wrapper .swiper-slide img {width:100%;}
+.achiveDescriptWrap .descriptThum .swiper-wrapper .swiper-slide:after {display:block;content:"";position:absolute;left:0;top:0;right:0;bottom:0;background-color:rgba(0, 0, 0, 0.5);}
+.achiveDescriptWrap .descriptThum .btnPrev {position:absolute;left:40px;top:50%;width:112px;height:40px;background:url('../images/btn_main_swiper.png') no-repeat left top;z-index:1;transform:translate(0, -50%);}
+.achiveDescriptWrap .descriptThum .btnNext {position:absolute;right:40px;top:50%;width:112px;height:40px;background:url('../images/btn_main_swiper.png') no-repeat right top;z-index:1;transform:translate(0, -50%);}
+
+.achiveDescriptWrap .descriptBox {float:right;width:38%;padding:20px 0 0;}
+.achiveDescriptWrap .descriptBox strong {display:block;line-height:50px;font-size:32px;font-weight:400;text-decoration:underline;}
+.achiveDescriptWrap .descriptBox .date {line-height:36px;font-size:26px;font-weight:300;}
+.achiveDescriptWrap .descriptBox .tag {line-height:36px;font-size:26px;font-weight:300;}
+.achiveDescriptWrap .descriptBox .txt {line-height:30px;font-size:20px;}
+.achiveDescriptWrap .descriptBox strong + .date,
+.achiveDescriptWrap .descriptBox strong + .tag {margin:20px 0 0;}
+.achiveDescriptWrap .descriptBox .date +  .txt,
+.achiveDescriptWrap .descriptBox .tag +  .txt {margin:20px 0 0;}
+
+.achiveMoreBox {position:relative;margin:50px 0 0;padding:0 220px 130px;}
+.achiveMoreBox h3 {margin:0 0 100px;line-height:36px;font-size:26px;font-weight:300;text-align:center;}
+.achiveMoreBox .moreListWrap {overflow:hidden;}
+.achiveMoreBox .moreListWrap .swiper-wrapper {overflow:hidden;width:9999em;}
+.achiveMoreBox .moreListWrap .swiper-wrapper .swiper-slide {position:relative;float:left;}
+.achiveMoreBox .moreListWrap .swiper-wrapper .swiper-slide ul li {margin:90px 0 0;}
+.achiveMoreBox .moreListWrap .swiper-wrapper .swiper-slide ul li:first-child {margin:0;}
+.achiveMoreBox .moreListWrap .swiper-wrapper .swiper-slide ul li a {display:block;position:relative;}
+.achiveMoreBox .moreListWrap .swiper-wrapper .swiper-slide ul li a img {width:100%;}
+.achiveMoreBox .moreListWrap .swiper-wrapper .swiper-slide ul li .guideFrame {position:absolute;top:0;right:0;bottom:0;left:0;text-align:center;background-color:rgba(0, 0, 0, 0.5);}
+.achiveMoreBox .moreListWrap .swiper-wrapper .swiper-slide ul li .guideFrame .guideInner {position:absolute;left:0;right:0;top:50%;padding:0 50px;transform:translate(0, -50%);}
+.achiveMoreBox .moreListWrap .swiper-wrapper .swiper-slide ul li .guideFrame .tit {display:block;line-height:42px;font-size:32px;font-weight:400;color:#fff;text-decoration:underline;word-break:keep-all;}
+.achiveMoreBox .moreListWrap .swiper-wrapper .swiper-slide ul li .guideFrame .tag {display:block;margin:30px 0 0;line-height:32px;font-size:22px;color:#fff;}
+
+.achiveMoreBox .btnPrev {position:absolute;left:40px;top:325px;width:112px;height:40px;background:url('../images/btn_swiper_arrow.png') no-repeat left top;z-index:1;}
+.achiveMoreBox .btnNext {position:absolute;right:40px;top:325px;width:112px;height:40px;background:url('../images/btn_swiper_arrow.png') no-repeat right top;z-index:1;}
+
+
+/**************************************************************************************
+** About
+**************************************************************************************/
+.aboutWrap {padding:0 0 100px;}
+.aboutWrap .aboutLogo02 {height:141px;margin:50px 0 0;background:url('../images/about_logo02.png') no-repeat center top;background-size:auto 100%;}
+.aboutWrap .aboutIntro:after {display:block;content:"";clear:both;overflow:hidden;width:0;height:0;line-height:0;}
+.aboutWrap .aboutIntro .aboutLogo {display:block;float:left;width:455px;padding:50px;}
+.aboutWrap .aboutIntro .intro {float:right;width:calc(100% - 600px);padding:40px 10px 40px;line-height:35px;font-size:20px;}
+
+/**************************************************************************************
+** Contact
+**************************************************************************************/
+.contactWrap .contactInfoBox {padding:0 0 100px;}
+.contactWrap .contactInfoBox:after {display:block;content:"";clear:both;overflow:hidden;width:0;height:0;line-height:0;}
+.contactWrap .contactInfoBox .img {display:block;float:left;width:600px;}
+.contactWrap .contactInfoBox .img img {width:100%;}
+.contactWrap .contactInfoBox .infoBox {float:right;width:calc(100% - 650px);}
+.contactWrap .contactInfoBox .infoBox .contcInfo li {margin:20px 0 0;line-height:42px;font-size:32px;}
+.contactWrap .contactInfoBox .infoBox .contcInfo li:first-child {margin:0;}
+.contactWrap .contactInfoBox .infoBox .contcInfo li strong {display:inline-block;font-weight:400;}
+.contactWrap .contactInfoBox .infoBox .contcInfo li span {display:inline-block;text-decoration:underline;}
+.contactWrap .contactInfoBox .infoBox .corp {margin:70px 0 0;line-height:42px;font-size:32px;}
+.contactWrap .contactInfoBox .infoBox address {display:block;margin:20px 0 0;line-height:36px;font-size:26px;}

@@ -1,0 +1,43 @@
+@charset "utf-8";
+
+#wrap {position:relative;min-height:100vh;margin:0 auto;}
+
+#header {display:block;position:fixed;left:200px;top:0;right:200px;box-sizing:border-box;height:90px;padding:35px 0 0;z-index:5;}
+#header .logo {display:block;float:left;}
+#header .logo a {display:block;}
+#header .util {float:right;}
+
+#header .util .topSrchBox {display:inline-block;position:relative;vertical-align:middle;}
+#header .util .topSrchBox span {display:block;position:absolute;top:0;left:0;right:0;bottom:0;line-height:26px;font-size:22px;}
+#header .util .topSrchBox input[type=text] {box-sizing:border-box;width:100%;height:26px;border:none;border-bottom:1px solid #000;outline:none;background:transparent;}
+
+#header .util a {display:inline-block;margin:0 0 0 50px;vertical-align:middle;}
+#header .util a.btnInsta {height:20px;}
+#header .util a.btnBe {height:20px;}
+#header .util a img {height:100%;}
+
+.contents [class^="subMenu"] {position:fixed;top:90px;bottom:100px;box-sizing:border-box;width:47px;background-color:#fff;z-index:5;}
+.contents [class^="subMenu"] em {position:absolute;left:50%;top:50%;height:47px;line-height:47px;font-size:22px;font-weight:700;transform:translate(-50%, -50%) rotate(-90deg);transform-origin:50% 50%;}
+.contents .subMenu01 {left:calc(100vw - 190px);border-right:5px solid #ff5d5d;}
+.contents .subMenu01 em {color:#ff5d5d;}
+.contents .subMenu02 {left:calc(100vw - 133px);border-right:5px solid #99ff8d;}
+.contents .subMenu02 em {color:#99ff8d;}
+.contents .subMenu03 {left:calc(100vw - 76px);border-right:5px solid #537bff;}
+.contents .subMenu03 em {color:#537bff;}
+
+#container {margin:0 200px;padding:90px 0 100px;}
+
+.contents:after {display:block;content:"";clear:both;overflow:hidden;width:0;height:0;line-height:0;}
+[class^="pageWrap"] {overflow:hidden;float:left;width:0;height:0;transition:width 0.7s ease;}
+
+#footer {position:absolute;left:0;right:0;bottom:0;padding:100px 0 0;background:#fff;}
+#footer > .fInfoBtn {position:absolute;top:30px;left:200px;right:200px;border-bottom:5px solid #000;}
+#footer > .fInfoBtn button {width:100%;height:40px;font-size:22px;font-weight:700;text-align:center;}
+#footer .fInfo {display:none;}
+
+/**************************************************************************************
+** ACHIVE DETAIL - MENU
+**************************************************************************************/
+.contents.achiveDetail .subMenu01 {left:19px;}
+.contents.achiveDetail .subMenu02 {left:calc(100vw - 133px);}
+.contents.achiveDetail .subMenu03 {left:calc(100vw - 76px);}

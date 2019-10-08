@@ -1,12 +1,5 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import App from "Components/App";
-import Client from "Apollo/Client";
-import { ApolloProvider } from "react-apollo-hooks";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from 'layout/App';
 
-ReactDOM.render(
-  <ApolloProvider client={Client}>
-    <App />
-  </ApolloProvider>,
-  document.getElementById("root")
-);
+ReactDOM.render(<App />, document.getElementById('wrap'));
