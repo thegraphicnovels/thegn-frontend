@@ -1,5 +1,10 @@
 import React from "react";
-import {BrowserRouter as Router,Route,Switch,Redirect} from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect
+} from "react-router-dom";
 import Header from "layout/header";
 import Footer from "layout/footer";
 import Main from "page/main";
@@ -17,10 +22,10 @@ const PageUrl = function() {
   );
 };
 
-export default () => {
+export default ({ logged }) => {
   return (
     <Router>
-      <Header />
+      <Header logged={logged} />
       <div id="container">
         <PageUrl />
       </div>

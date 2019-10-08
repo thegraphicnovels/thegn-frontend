@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Header = function() {
+const Header = function({ logged }) {
   return (
     <header id="header">
       <div className="headerIn">
@@ -21,6 +21,11 @@ const Header = function() {
           <Link to="/upload" className="btnBe">
             <img src={"resources/images/icon_Be.svg"} alt={"instagram"} />
           </Link>
+          {logged === true && (
+            <Link to="#" className="btnBe">
+              <img src={"resources/images/icon_admin.svg"} alt={"admin"} />
+            </Link>
+          )}
         </div>
         <button className="btnHamberg">
           <span className="blind">메뉴 열기</span>

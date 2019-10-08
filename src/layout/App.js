@@ -1,16 +1,20 @@
-import React from 'react';
-import Router from 'layout/Router';
-import { ApolloProvider } from '@apollo/react-hooks';
-import Client from 'apollo/apolloClient';
+import React from "react";
+import Router from "layout/Router";
+import { useQuery } from "@apollo/react-hooks";
+import { gql } from "apollo-boost";
 
-
+const QUERY = gql`
+  {
+    logged @client
+  }
+`;
 
 function App() {
-	return (
-		<ApolloProvider client={Client}>
-			<Router />
-		</ApolloProvider>
-	);
+  const {
+    data: { logged }
+  } = useQuery(QUERY);
+
+  return <Router logged={logged} />;
 }
 
 export default App;
