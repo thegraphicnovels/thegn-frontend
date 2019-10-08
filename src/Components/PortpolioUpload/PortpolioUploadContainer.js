@@ -13,13 +13,12 @@ let toastId = null;
 
 const PortpolioUploadContainer = ({ history, portpolioId }) => {
   const filepondEl = useRef(null);
-  const selectEl = useRef(null);
   const [files, setFiles] = useState([]);
   const [tags, setTags] = useState([]);
-  const { data: tagData } = useQuery(SEE_TAGS);
+  let { data: tagData } = useQuery(SEE_TAGS);
   const { data: portpolioData } = useQuery(DEATIL_PORTPOLIO, {
-    variables: { id: portpolioId }
-    // skip: !portpolioId
+    variables: { id: portpolioId },
+    skip: !portpolioId
   });
   const [uploadPortpolioMutation] = useMutation(UPLOAD_PORTPOLIO);
   const [modifyPortpolioMutation] = useMutation(MODIFY_PORTPOLIO);
@@ -105,33 +104,43 @@ const PortpolioUploadContainer = ({ history, portpolioId }) => {
     }
   };
 
-  const handleTagSelect = e => {
-    setTags(e.map(tag => tag.value));
+  const handleUseTag = useTag => {
+    // setTags([]);
+    console.log(useTag);
+    setTags(useTag);
   };
 
-  let tagMap = {};
-  let tagObject = [];
-  if (tagData) {
-    for (let i = 0; i < tagData.seeTags.length; i++) {
-      tagMap.label = tagData.seeTags[i].value;
-      tagMap.value = tagData.seeTags[i]._id;
-      tagObject.push(tagMap);
-      tagMap = {};
-    }
-  }
+  // if (portpolioData && tagData) {
+  //   const seeTags = tagData.seeTags;
+  //   const portpolioTags = portpolioData.detailPortpolio.tags;
+
+  //   for (var i = 0; i < portpolioTags.length; i++) {
+  //     for (var j = 0; j < seeTags.length; j++) {
+  //       if (portpolioTags[i].value === seeTags[j].value) {
+  //         seeTags.splice(j, 1);
+  //         j = seeTags.length;
+  //       }
+  //     }
+  //   }
+  // }
 
   return (
     <PortpolioUploadPresenter
       filepondEl={filepondEl}
-      selectEl={selectEl}
       files={files}
       setFiles={setFiles}
       title={title}
       description={description}
-      tagObject={tagObject}
       handleUpload={handleUpload}
-      handleTagSelect={handleTagSelect}
       portpolioData={portpolioData}
+      tagData={tagData}
+      setTags={setTags}
+      // setDefaultTag={setDefaultTag}
+      // defaultTag={defaultTag}
+      tags={tags}
+      handleUseTag={handleUseTag}
+
+      // handleDefaultTag={handleDefaultTag}
     />
   );
 };

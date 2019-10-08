@@ -4,8 +4,11 @@ import Input from "Components/Input";
 import TextArea from "Components/TextArea";
 import Button from "Components/Button";
 import FilePond from "../FilePond";
-import Select from "../Select";
-import CheckboxSelect from "../CheckboxSelect";
+// import Select from "../Select";
+// import CheckboxSelect from "../CheckboxSelect";
+import Draggable from "../Draggable";
+// import TagDraggable from "../TagDraggable";
+// import CheckboxSelect from "../CheckboxSelect";
 
 const Wrapper = styled.div`
   /* min-height: 20vh; */
@@ -36,20 +39,50 @@ const Form = styled(Box)`
   }
 `;
 
+// const CrossArea = styled.div`
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   flex-direction: row;
+//   &::after {
+//     content: "";
+//     display: block;
+//     clear: both;
+//   }
+// `;
+
+// const DraggableArea = styled.div`
+//   border: 1px solid #e9e9e9;
+//   border-radius: 4px;
+//   width: 200px;
+//   height: 220px;
+//   padding: 5px;
+// `;
+
 const PortpolioUploadPresenter = ({
   filepondEl,
-  selectEl,
   files,
   setFiles,
   title,
   description,
-  tagObject,
   handleUpload,
-  handleTagSelect,
-  portpolioData
+  portpolioData,
+  tagData,
+  setTags,
+  handleUseTag
+  // handleDefaultTag
 }) => {
+  // if (portpolioData) {
+  //   setTags(portpolioData.detailPortpolio.tags);
+  // }
+  // if (tagData) {
+  //   setDefaultTag(tagData.seeTags);
+  // }
+
   return (
     <>
+      {/* {portpolioData && setTags(portpolioData.detailPortpolio.tags)} */}
+      {/* {tagData && setDefaultTag(tagData.seeTags)} */}
       {!portpolioData && (
         <FilePond filepondEl={filepondEl} files={files} setFiles={setFiles} />
       )}
@@ -73,26 +106,44 @@ const PortpolioUploadPresenter = ({
             autoFocus={true}
             isRequired={true}
           />
-
           <TextArea
             placeholder={"description"}
             {...description}
             resize={"auto"}
           />
-          <CheckboxSelect
-            selectEl={selectEl}
-            placeholder={"tag"}
-            data={tagObject}
-            defaultValue={portpolioData && portpolioData.detailPortpolio.tags}
-            onChange={handleTagSelect}
-          />
-          {/* <Select
-            selectEl={selectEl}
-            placeholder={"tag"}
-            data={tagObject}
-            defaultValue={portpolioData && portpolioData.detailPortpolio.tags}
-            onChange={handleTagSelect}
+          {/* <CheckboxSelect
+            defaultValue={
+              tags
+                ? tags.map(tag => {
+                    return { value: tag._id, label: tag.value };
+                  })
+                : []
+            }
+            options={
+              defaultTag
+                ? defaultTag.map(tag => {
+                    return { value: tag._id, label: tag.value };
+                  })
+                : []
+            }
+            onConfirm={handleUseTag}
           /> */}
+          <Draggable
+            leftTags={
+              tagData
+                ? tagData.seeTags.map(tag => {
+                    return { id: tag._id, content: tag.value };
+                  })
+                : []
+            }
+            rightTags={
+              portpolioData
+                ? portpolioData.detailPortpolio.tags.map(tag => {
+                    return { id: tag._id, content: tag.value };
+                  })
+                : []
+            }
+          />
           {!portpolioData ? (
             <Button
               text={"Upload Portpolio"}
