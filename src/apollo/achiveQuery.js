@@ -1,8 +1,8 @@
 import {gql} from 'apollo-boost';
 
 export const achiveQuery = gql`
-    query seePortpolios($page: Int!, $limit: Int!) {
-        seePortpolios(page: $page, limit: $limit) {
+    query seePortpolios($page: Int, $limit: Int, $tags : [String]) {
+        seePortpolios(page: $page, limit: $limit, tags : $tags) {
             _id
             title
             description

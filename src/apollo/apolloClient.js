@@ -1,5 +1,5 @@
 import ApolloClient from "apollo-boost";
-import { defaults, resolvers } from "./localState";
+import { defaults, resolvers } from "apollo/localState";
 
 const Client = new ApolloClient({
   uri: process.env.REACT_APP_MONGO_URL,
