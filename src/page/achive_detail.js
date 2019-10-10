@@ -1,8 +1,9 @@
-import React, {useRef, useEffect} from 'react';
+import React from 'react';
 import {Link} from 'react-router-dom';
 
-const AchiveDetail = function({action}) {
+const AchiveDetail = function({action, match:{params:{portpolioId}}}) {
 
+	console.log(portpolioId);
 	if(action === 1) {
 		return (
 			<div className="contents achiveDetail">

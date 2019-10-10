@@ -15,7 +15,7 @@ const PageUrl = function() {
   return (
     <Switch>
       <Route path="/" exact component={Main} />
-      <Route path="/achiveDetail" component={AchiveDetail} />
+      <Route path="/achiveDetail/:portpolioId" component={AchiveDetail} />
       <Route path="/upload" component={Upload} />
       <Redirect from="*" to="/" />
     </Switch>

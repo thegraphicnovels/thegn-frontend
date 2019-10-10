@@ -6,7 +6,7 @@ const Header = function({ logged }) {
     <header id="header">
       <div className="headerIn">
         <h1 className="logo">
-          <Link to="locallhost:3000">
+          <Link to="#" onClick={() => window.location.reload()}>
             <img src={"resources/images/logo.png"} alt={"the graphic novels"} />
           </Link>
         </h1>
