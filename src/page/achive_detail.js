@@ -17,7 +17,7 @@ const AchiveDetail = ({
   let topSwiper;
 
 	useEffect(()=>{
-		topSwiper = swiperFn(topSwiperEl.current);
+		if(!loading) {topSwiper = swiperFn(topSwiperEl.current);}
 	});
 
 	if (!loading) {console.log(data);
@@ -27,7 +27,7 @@ const AchiveDetail = ({
 			상세 본문영역
 			</span>
 
-			<Link to="/" className="subMenu01">
+			<Link to={{pathname : '/', state : {menuId : 1}}} className="subMenu01">
 			<em>&lt;Archive&gt;</em>
 			</Link>
 
@@ -251,10 +251,10 @@ const AchiveDetail = ({
 			</div> */}
 			</div>
 
-			<Link to="/" className="subMenu02">
+			<Link to={{pathname : '/', state : {menuId : 2}}} className="subMenu02">
 			<em>&lt;About&gt;</em>
 			</Link>
-			<Link to="/" className="subMenu03">
+			<Link to={{pathname : '/', state : {menuId : 3}}} className="subMenu03">
 			<em>&lt;Contact&gt;</em>
 			</Link>
 		</div>
