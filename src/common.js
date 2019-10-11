@@ -36,8 +36,8 @@ export const swiperFn = target => {
     },
     allowTouchMove: false,
     navigation: {
-      prevEl: '.mainSwipeWrap .btnPrev',
-      nextEl: '.mainSwipeWrap .btnNext',
+      prevEl: $('.btnPrev', mainWrap),
+      nextEl: $('.btnNext', mainWrap),
     },
   });
 

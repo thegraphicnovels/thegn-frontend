@@ -3,160 +3,228 @@ mutation{
 	uploadPortpolio(
 		title: "엑시트"
 		description: "지난 7월 31일 ‘엑시트’와 ‘사자’가 동시에 출격한 가운데, ‘엑시트’가 먼저 승기를 잡았다. 영화진흥위원회 통합전산망에 따르면 ‘엑시트’는 개봉 첫날인 지난 31일 하루 동안 49만16명을 동원해 박스오피스 1위에 올랐다. 개봉 전 시사회를 통해 동원한 관객까지 52만9235명이 영화를 봤다. ‘사자’는 일일 관객 수 38만95명을 모으면서 개봉 첫날 2위로 진입했다. 개봉 전 시사회에서 영화를 본 관객까지 누적 관객 수는 40만6316명을 기록했다."
-		thumbImg: "https://hyunh84.synology.me:5006/photo/share/temp01.jpg"
-		fileUrl: ["https://hyunh84.synology.me:5006/photo/share/temp01_01.jpg", "https://hyunh84.synology.me:5006/photo/share/temp", "https://hyunh84.synology.me:5006/photo/share/temp"]
+		thumbImg: "https://res.cloudinary.com/drzp9d9jm/image/upload/v1570678506/post/temp01_dw94dn.jpg"
+		fileUrl: [
+			"https://res.cloudinary.com/drzp9d9jm/image/upload/v1570678506/post/temp01_01_h5cdbc.jpg"
+			, "https://res.cloudinary.com/drzp9d9jm/image/upload/v1570678506/post/temp01_02_se3ud4.jpg"
+			, "https://res.cloudinary.com/drzp9d9jm/image/upload/v1570678506/post/temp01_03_fi7ule.jpg"
+		]
 		tags: ["POSTER", "LEAFLET"]
 	)
 
 	uploadPortpolio(
 		title: "The Swindlers(꾼))"
 		description: "영화 꾼은 범죄 영화입니다 정말 자주 반복되는 범죄 영화죠 그리고 꾼이라는 영화는 다 어디선가 본듯한 장면과 본듯한 상황으로 펼쳐지는 뻔하디뻔한 영화입니다 결국 경찰이나 검찰 윗선의 정치인 조폭이나 범죄자의 등장이라는 한국 범죄영화의 공식은 저녁 깨지지 않고 있습니다 이런 영화들이 국화빵 찍히듯이 나오는 이유 역시 우리나라 영화판의 기형적인 구조 때문이라고 할 수 있을 것입니다 결국 영화에는 성공의 공식이 있을 거라고 믿는 것 그리고 그 성공의 공식을 따라 하는 것만이  안전한 투자할 것이라고 믿는 것 이 두 가지의 믿음이 만들어낸 결과가 바로 꾼 이라는 영화 입니다 그래서 스타배우들의 등장시키고 그 스타 배우들에게 모두 그럴듯해 보이는 배역을 주고 언제나 성공을 보장하는 이야기들을 등장시키는 것이죠"
-		thumbImg: "https://hyunh84.synology.me:5006/photo/share/temp02.jpg"
-		fileUrl: ["https://hyunh84.synology.me:5006/photo/share/temp02_01.jpg", "https://hyunh84.synology.me:5006/photo/share/temp02_02.jpg", "https://hyunh84.synology.me:5006/photo/share/temp02_03.jpg"]
+		thumbImg: "https://res.cloudinary.com/drzp9d9jm/image/upload/v1570678506/post/temp02_gywqam.jpg"
+		fileUrl: [
+			"https://res.cloudinary.com/drzp9d9jm/image/upload/v1570678506/post/temp02_01_tkxkrr.jpg"
+			, "https://res.cloudinary.com/drzp9d9jm/image/upload/v1570678506/post/temp02_02_rh24v7.jpg"
+			, "https://res.cloudinary.com/drzp9d9jm/image/upload/v1570678506/post/temp02_03_rxbmqi.jpg"
+		]
 		tags: ["BOOKLET", "LEAFLET", "EDITORIAL"]
 	)
 
 	uploadPortpolio(
 		title: "알라딘"
 		description: "선풍적인 인기를 끌어 이미 너무 많은 사람이 보았고, 하나의 클래식으로 자리 잡은 디즈니 애니메이션. 하지만 \"실사 버전\"이라면 얘기가 달라진다.  바로 그 점이 양날의 검이 된다. 애니메이션과의 비교는 피할 수 없고, 기대에 못 미치면 실망은 배가 된다. 소중하게 간직한 추억이 손상된 듯한 기분을 느끼는 관객이 많기 때문이다. 내일(23일) 개봉하는 외화 \"알라딘\"(감독 가이 리치)을 보러 가기 전 기자의 마음이 딱 그랬다. \"아무리 그래도 원작만 하겠어?\"란 생각이 앞섰다. 다 보고 나서의 감상은? \"실사도 재미있네!\""
-		thumbImg: "https://hyunh84.synology.me:5006/photo/share/temp03.jpg"
-		fileUrl: ["https://hyunh84.synology.me:5006/photo/share/temp03_01.jpg", "https://hyunh84.synology.me:5006/photo/share/temp03_02.jpg", "https://hyunh84.synology.me:5006/photo/share/temp03_03.jpg"]
+		thumbImg: "https://res.cloudinary.com/drzp9d9jm/image/upload/v1570678506/post/temp03_xxe3fl.jpg"
+		fileUrl: [
+			"https://res.cloudinary.com/drzp9d9jm/image/upload/v1570678506/post/temp03_01_kacjn4.jpg"
+			, "https://res.cloudinary.com/drzp9d9jm/image/upload/v1570678506/post/temp03_02_eufyuf.jpg"
+			, "https://res.cloudinary.com/drzp9d9jm/image/upload/v1570678506/post/temp03_03_mfn2s6.jpg"
+		]
 		tags: ["IDENTITY", "EDITORIAL"]
 	)
 	
 	uploadPortpolio(
 		title: "사자"
 		description: "4일 영화진흥위원회 영화관입장권 통합전산망에 따르면 \"사자\"는 이날 0시 20분 누적 관객 수 100만30명을 기록했다. 지난달 31일 개봉 이후 전날까지 박스오피스 2위를 유지하고 있다 이는 최종 관객 781만 관객을 동원한 영화 \"공조\"(2016)와 506만 관객을 기록한 \"독전\"(2018)과 같은 속도라고 배급사 롯데엔터테인먼트는 설명했다. \"사자\"는 격투기 챔피언 용후(박서준)가 구마 사제 안 신부(안성기)를 만나 세상을 혼란에 빠뜨린 강력한 악에 맞서는 한국형 오컬트 히어로 영화다."
-		thumbImg: "https://hyunh84.synology.me:5006/photo/share/temp04.jpg"
-		fileUrl: ["https://hyunh84.synology.me:5006/photo/share/temp04_01.jpg", "https://hyunh84.synology.me:5006/photo/share/temp04_02.jpg"]
+		thumbImg: "https://res.cloudinary.com/drzp9d9jm/image/upload/v1570678506/post/temp04_kddmpj.jpg"
+		fileUrl: [
+			"https://res.cloudinary.com/drzp9d9jm/image/upload/v1570678506/post/temp04_01_xpe9dz.jpg"
+			, "https://res.cloudinary.com/drzp9d9jm/image/upload/v1570678506/post/temp04_02_iffjtp.jpg"
+		]
 		tags: ["IDENTITY", "POSTER"]
 	)
 
 	uploadPortpolio(
 		title: "타짜-원아이드잭"
 		description: "영화 \"타짜\" 시리즈가 또 다시 추석 극장가를 찾아왔다. 지난 2006년 추석엔 \"타짜\"(감독 최동훈)가, 지난 2014년 추석엔 \"타짜-신의 손\"(감독 강형철)이 각각 흥행에 성공했다. 이번엔 \"돌연변이\"로 연출력을 인정받은 권오광 감독이 \"타짜: 원아이드잭\"(이하 \"타짜3\")으로 주연배우 박정민과 함께 2019년 추석 극장가 접수에 나선다.  장르 연기에 도전한 박정민, 그리고 화투가 아닌 포커로 종목을 바꿔 선보이는 흥미진진한 승부가 관객들을 사로잡을 것으로 기대된다. \"타짜3\"는 전설의 타짜 짝귀(주진모 분)의 아들이자 공무원 시험을 준비 중인 고시생 도일출(박정민 분)의 이야기로 시작된다.  도일출은 짝귀의 아들답게 타고난 배짱과 센스가 있는 인물로 금수저든, 흙수저든 동등하게 카드 7장을 갖고 승부볼 수 있는 도박판을 해볼만한 곳이라고 말한다.  그러다 우연히 만난 마돈나(최유화 분)의 묘한 매력에 빠져들고, 그의 열등감을 자극하는 마돈나의 일행 이상무(윤제문 분)와 도박을 벌였지만 사채빚까지 지고 모든 것을 잃고 만다."
-		thumbImg: "https://hyunh84.synology.me:5006/photo/share/temp05.jpg"
-		fileUrl: ["https://hyunh84.synology.me:5006/photo/share/temp05_01.jpg"]
+		thumbImg: "https://res.cloudinary.com/drzp9d9jm/image/upload/v1570678506/post/temp05_k9fulm.jpg"
+		fileUrl: [
+			"https://res.cloudinary.com/drzp9d9jm/image/upload/v1570678506/post/temp05_01_dx7yfy.jpg"
+		]
 		tags: ["POSTER"]
 	)
 
 	uploadPortpolio(
 		title: "악인전"
 		description: "‘악인전’ 제작사 측은 28일 “영화 본편 영상을 무단으로 게시, 배포, 유통, 공유하거나 이를 다운로드하는 모든 행위는 심각한 범법행위다.  불법 유출에 대해 강경한 법적 조치를 취할 것”이라고 밝혔다. 아울러 “저작권 침해 및 피해액에 대해 경찰서 사이버 수사대에 사건 수사를 의뢰, 조치를 취하기로 결정했다”고 전했다. 관객 336만명을 동원한 ‘악인전’은 지난 6월 VOD 서비스를 시작했다. 하지만 SNS와 국내외 불법 다운로드 사이트 등을 통해 영상이 불법 업로드되기 시작했다."
-		thumbImg: "https://hyunh84.synology.me:5006/photo/share/temp06.jpg"
-		fileUrl: ["https://hyunh84.synology.me:5006/photo/share/temp06_01.jpg", "https://hyunh84.synology.me:5006/photo/share/temp06_02.jpg", "https://hyunh84.synology.me:5006/photo/share/temp06_03.jpg"]
+		thumbImg: "https://res.cloudinary.com/drzp9d9jm/image/upload/v1570678507/post/temp06_jpkcet.jpg"
+		fileUrl: [
+			"https://res.cloudinary.com/drzp9d9jm/image/upload/v1570678507/post/temp06_01_n48asp.jpg"
+			, "https://res.cloudinary.com/drzp9d9jm/image/upload/v1570678507/post/temp06_02_evjyfj.jpg"
+			, "https://res.cloudinary.com/drzp9d9jm/image/upload/v1570678507/post/temp06_03_niikpd.jpg"
+		]
 		tags: ["LEAFLET", "BOOKLET"]
 	)
 
 	uploadPortpolio(
 		title: "라이프"
 		description: "화성에서 발견된 생명체의 샘플을 우주에서 깨우는데 성공한 미란다 일행들, 역사상 첫 외계인을 영접한 그들은 위대한 발견에 축제 분위기로 들떠있습니다. 덩달아 지구도 완전 난리가 나죠. 지구에서는 이 외계인의 이름을 공모를 거쳐 \"캘빈\"으로 정하고, 우주인 6인은 여러 환경을 \"캘빈\"에게 제공하면서 무럭무럭 자라게 됩니다. \"캘빈\"은 온몸이 근육이자 시각 세포, 뇌라고 하는데 엄청난 속도로 성장을 하기 시작합니다."
-		thumbImg: "https://hyunh84.synology.me:5006/photo/share/temp07.jpg"
-		fileUrl: ["https://hyunh84.synology.me:5006/photo/share/temp07_01.jpg", "https://hyunh84.synology.me:5006/photo/share/temp07_02.jpg"]
+		thumbImg: "https://res.cloudinary.com/drzp9d9jm/image/upload/v1570678507/post/temp07_tj3cty.jpg"
+		fileUrl: [
+			"https://res.cloudinary.com/drzp9d9jm/image/upload/v1570678507/post/temp07_01_ysqz0u.jpg"
+			, "https://res.cloudinary.com/drzp9d9jm/image/upload/v1570678507/post/temp07_02_fjkqbw.jpg"
+		]
 		tags: ["EDITORIAL", "LEAFLET", "BOOKLET"]
 	)
 
 	uploadPortpolio(
 		title: "어벤져스 엔드게임"
 		description: "메인 예고편은 흑백 화면으로 된 지난 MCU의 역사를 되짚는다. 예고편에서 등장한 과거 장면은 아마도 어벤져스가 시간여행으로 가게 될 과거이자,  이를 통해 기억을 되살리고 자신의 존재 이유와 이 전쟁의 본질을 깨닫게 되는 동기부여로 이용될 것으로 보인다.  첫 시작은 2008년 토니 스타크가 동굴에서 \"마크 1\"을 완성해 사막에 추락하는 장면을 보여준다. 이어서 캡틴 아메리카:퍼스트 어벤져의 장면으로 이어진다.  허약했던 스티븐 로저스가 한창 전쟁 중에 미 육군에 지원해 참전하고 싶어 했던 장면이 나오며, 페기 카터의 \"세상은 달라졌어, 우린 이제 돌아갈 수 없어.  그저 최선을 다할 수 밖에 없어. 때론 모든 걸 다시 시작하는 게 최선일 수 있어.\"라는 내레이션은 캡틴 아메리카가 초심을 갖고 다시 일어서야 한다는 것을 보여준다."
-		thumbImg: "https://hyunh84.synology.me:5006/photo/share/temp08.jpg"
-		fileUrl: ["https://hyunh84.synology.me:5006/photo/share/temp08_01.jpg", "https://hyunh84.synology.me:5006/photo/share/temp08_02.jpg", "https://hyunh84.synology.me:5006/photo/share/temp08_03.jpg"]
+		thumbImg: "https://res.cloudinary.com/drzp9d9jm/image/upload/v1570678507/post/temp08_vkjuli.jpg"
+		fileUrl: [
+			"https://res.cloudinary.com/drzp9d9jm/image/upload/v1570678507/post/temp08_01_imvzac.jpg"
+			, "https://res.cloudinary.com/drzp9d9jm/image/upload/v1570678507/post/temp08_02_vjso8w.jpg"
+			, "https://res.cloudinary.com/drzp9d9jm/image/upload/v1570678507/post/temp08_03_rbzfwn.jpg"
+		]
 		tags: ["EDITORIAL", "IDENTITY"]
 	)
 
 	uploadPortpolio(
 		title: "미이라"
 		description: "폭격의 영향으로 지반이 무너지며 싱크홀 같은 큰 구멍이 뚫리고 고대 유물이 나타납니다.  닉은 하룻밤 보낸 여자에게 보물지도(?)를 훔쳐 그 지역으로 온 건데, 그 지도의 원래 주인인 제니가 나타나 조사해야 한다고 합니다. 결국 닉, 제니,  베일이 지하로 들어가게 됩니다. 그곳은 아마네트의 지하 감옥이었는데, 벽에서 떨어지는 수은이 한 곳에 모여있고, 그 주변이 금줄로 둘러놓은 형태입니다."
-		thumbImg: "https://hyunh84.synology.me:5006/photo/share/temp09.jpg"
-		fileUrl: ["https://hyunh84.synology.me:5006/photo/share/temp09_01.jpg", "https://hyunh84.synology.me:5006/photo/share/temp09_02.jpg"]
+		thumbImg: "https://res.cloudinary.com/drzp9d9jm/image/upload/v1570678507/post/temp09_wdrmbo.jpg"
+		fileUrl: [
+			"https://res.cloudinary.com/drzp9d9jm/image/upload/v1570678508/post/temp09_01_o0tm4n.jpg"
+			, "https://res.cloudinary.com/drzp9d9jm/image/upload/v1570678508/post/temp09_02_yq6dar.jpg"
+		]
 		tags: ["POSTER"]
 	)
 
 	uploadPortpolio(
 		title: "트랜스포머 (최후의기사)"
 		description: "베이 감독의 야심은 전에 없이 커진 이야기 규모에서 나타난다. 우주와 인류의 역사를 트랜스포머로 묶은 대서사시랄까. ‘최후의 기사’ 제작진은 라이터스 룸(Writer’s Room)에 모인 12명의 작가진이 함께 스토리를 만들었다고 알렸다.  여기엔 ‘아이언맨’(2008, 존 파브로 감독) 등의 각본을 맡은 아트 마컴 등이 있었다. 결론부터 말하면, ‘최후의 기사’가 관객을 가장 괴롭힌 부분은 이야기다. 영국의 고전 설화 아서 왕부터 세계 제7대 불가사의 유적 스톤헨지까지 여러 모티브를 끌어 왔다. 물론, 실제 사실을 영화에 녹이는 시도는 참신하게 느껴질 수 있다. 단, 개연성을 해치지 않는 자연스러운 도입이라면."
-		thumbImg: "https://hyunh84.synology.me:5006/photo/share/temp10.jpg"
-		fileUrl: ["https://hyunh84.synology.me:5006/photo/share/temp10_01.jpg"]
+		thumbImg: "https://res.cloudinary.com/drzp9d9jm/image/upload/v1570678508/post/temp10_tfnjfz.jpg"
+		fileUrl: [
+			"https://res.cloudinary.com/drzp9d9jm/image/upload/v1570678508/post/temp10_01_dfnsdg.jpg"
+		]
 		tags: ["EDITORIAL", "LEAFLET", "IDENTITY"]
 	)
 
 	uploadPortpolio(
 		title: "걸캅스"
 		description: "민원실 퇴출 0순위 전직 전설의 형사 \"미영\"과 민원실로 밀려난 현직 꼴통 형사 \"지혜\" 집에서는 눈만 마주쳐도 으르렁 대는 시누이 올케 사이인 두 사람은 민원실에 신고접수를 하기 위해 왔다가 차도에 뛰어든 한 여성을 목격하고 그녀가 48시간 후 업로드가 예고된 디지털 성범죄 사건의 피해자란 사실을 알게 된다. 강력반, 사이버 범죄 수사대, 여성청소년계까지 경찰 내 모든 부서들에서 복잡한 절차와 인력 부족을 이유로 사건이 밀려나자 ‘미영’과 ‘지혜’는 비공식 수사에 나서기로 결심한다."
-		thumbImg: "https://hyunh84.synology.me:5006/photo/share/temp11.jpg"
-		fileUrl: ["https://hyunh84.synology.me:5006/photo/share/temp11_01.jpg", "https://hyunh84.synology.me:5006/photo/share/temp11_02.jpg", "https://hyunh84.synology.me:5006/photo/share/temp11_03.jpg"]
+		thumbImg: "https://res.cloudinary.com/drzp9d9jm/image/upload/v1570678508/post/temp11_hhh9dp.jpg"
+		fileUrl: [
+			"https://res.cloudinary.com/drzp9d9jm/image/upload/v1570678508/post/temp11_01_bsgvrh.jpg"
+			, "https://res.cloudinary.com/drzp9d9jm/image/upload/v1570678508/post/temp11_02_smnkwb.jpg"
+			, "https://res.cloudinary.com/drzp9d9jm/image/upload/v1570678508/post/temp11_03_tvsl9a.jpg"
+		]
 		tags: ["", "", ""]
 	)
 
 	uploadPortpolio(
 		title: "1987"
 		description: "무려 30년. 폭력과 야만이 들끓던, 그러나 그에 맞선 민주화의 열기는 더 뜨겁던 ‘1987년’을 영화가 정면으로 응시하는 데 걸린 시간이다.  박종철 고문치사 사건으로 시작해 이한열 사망사건으로 정점을 찍은 ‘87년 6월 항쟁’의 장엄한 역사가 긴 시간을 돌아 스크린에서 되살아난다.  오는 27일 개봉하는 1987은 시대의 부름에 당당히 응했던 열사들의 숭고한 희생과 불의에 대항해 쟁취한 승리의 경험을 되새김질하게 하는 영화다. 1987년 1월, 22살 대학생 박종철(여진구)이 남영동 대공분실에서 고문을 받던 중 사망한다. 증거인멸을 위해 대공수사처 박처장(김윤석)은 사망 당일 화장을 지시하지만,  당직인 최 검사(하정우)는 이를 거부하고 부검을 요구한다. “책상을 탁 하고 치니, 억 하고 죽었다”는 파렴치한 변명으로 일관하던 경찰은 언론이 ‘물고문 도중 질식사’라는  사실을 밝혀내자 말단 두 명만 구속해 꼬리를 자르려 한다. 그러나 교도관 한병용(유해진)이 조카 연희(김태리)를 통해 조작 사실을 폭로하는 옥중서신을 외부로 전하면서 대학가에 시위가  들불처럼 번진다. 그리고 이한열이 시위 도중 경찰이 쏜 직격 최루탄에 맞아 숨지면서 민주화운동은 대학가를 넘어 온 나라로 확산한다."
-		thumbImg: "https://hyunh84.synology.me:5006/photo/share/temp12.jpg"
-		fileUrl: ["https://hyunh84.synology.me:5006/photo/share/temp12_01.jpg"]
+		thumbImg: "https://res.cloudinary.com/drzp9d9jm/image/upload/v1570678508/post/temp12_wa7phu.jpg"
+		fileUrl: [
+			"https://res.cloudinary.com/drzp9d9jm/image/upload/v1570678508/post/temp12_01_dzm1ws.jpg"
+		]
 		tags: ["", "", ""]
 	)
 
 	uploadPortpolio(
 		title: "장사리"
 		description: "이 작전은 학도병 772명이 ‘문산호’라는 화물선을 타고 영덕군 장사동에 상륙하여 북한군 후방을 차단하는 작전이었다. 이 영화는 비장하면서도 잘 알려지지 않았던 작전을 대중에게 소개한다는 점에서 매우 바람직한 영화라고 볼 수 있다. 문제는 영화제작사 측은 물론이고 이 영화를 계기로 해서 이 사건을 매스컴에 소개한 여러 기사가 잘못된 사실을 전하고 있다는 점이다. 장사상륙작전의 간단한 개요 위에 링크한 기사들에서도 설명한 바지만, 장사상륙작전은 낙동강 방어선을 공격하는 북한군의 후방을 차단하면서 인천상륙작전을 적으로부터 숨기기 위한 양동작전이었다. 이를 위해 인민군 군복과 소련제 소총으로 무장한 학도병 772명이 일반 화물선인 문산호를 타고 북한군 후방에 투입되었다. 이런 쉽지 않은 작전에 훈련이 부족한 학도병이 동원된 이유가 정식으로 공개된 적은 없다. 하지만 인천상륙작전과 이에 뒤이은 대반격을 준비하고 있던 유엔군과 국군 지휘부의 입장에 서서 생각해 보면, 나름대로 이유가 없는 건 아니다"
-		thumbImg: "https://hyunh84.synology.me:5006/photo/share/temp13.jpg"
-		fileUrl: ["https://hyunh84.synology.me:5006/photo/share/temp13_01.jpg"]
+		thumbImg: "https://res.cloudinary.com/drzp9d9jm/image/upload/v1570678508/post/temp13_ac5v4n.jpg"
+		fileUrl: [
+			"https://res.cloudinary.com/drzp9d9jm/image/upload/v1570678508/post/temp13_01_a0i0gy.jpg"
+		]
 		tags: ["", "", ""]
 	)
 
 	uploadPortpolio(
 		title: "폐교"
 		description: "2019년 한국영화 첫번째 학원공포 영화 폐교는 그동안 예능과 드라마에서 활약해온 천이슬의 영화 주연배우 데뷔작이다. 또한 영화 폐교에는 여주인공 천이슬과 함께 미래가 기대되는 신인 배우들이 대거 출연해 영화에 대한 기대감을 더욱 높이고 있다. (감독 : 최효원 출연: 천이슬, 이윤수, 서도현, 황명환, 안상은, 임대희 | 제작/배급 : ㈜유니네트워크) 여고괴담 시리즈, 가위 등 한국공포 영화 신인 여배우의 스타 탄생 등용문! 1998년 여고괴담을 시작으로 한국공포 영화는 뚜렷한 흥행성적을 기록하며 그 존재감을 뽐냈다. 또한 한국공포 영화는 신인 여배우의 스타 탄생의 등용문 돼 왔다. 여고괴담 시리즈의 최강희, 박예진, 송지효, 박한별, 김옥빈, 서지예, 가위의 하지원 등 수 많은 신인 여배우들이 호러퀸이 되어 스타가 됐다. 영화 폐교는 그동안 예능과 CF, 드라마에서 자신의 매력을 보여 주었던 천이슬의 영화 주연배우 데뷔작으로 한국공포 영화 여배우 스타 계보를 이을 스타 탄생을 예고하고 있다. 천이슬은 영화 폐교에서 10년 만에 친구들을 불러 모으고 폐교에 함께 가게 되는 모든 사건의 비밀의 열쇠를 쥔 유라 역을 맡아 열연한다."
-		thumbImg: "https://hyunh84.synology.me:5006/photo/share/temp14.jpg"
-		fileUrl: ["https://hyunh84.synology.me:5006/photo/share/temp14_01.jpg", "https://hyunh84.synology.me:5006/photo/share/temp14_02.jpg", "https://hyunh84.synology.me:5006/photo/share/temp14_03.jpg"]
+		thumbImg: "https://res.cloudinary.com/drzp9d9jm/image/upload/v1570678509/post/temp14_iu71l6.jpg"
+		fileUrl: [
+			"https://res.cloudinary.com/drzp9d9jm/image/upload/v1570678509/post/temp14_01_sic6gv.jpg"
+			, "https://res.cloudinary.com/drzp9d9jm/image/upload/v1570678509/post/temp14_02_ekx6qu.jpg"
+			, "https://res.cloudinary.com/drzp9d9jm/image/upload/v1570678509/post/temp14_03_hrnhsc.jpg"
+		]
 		tags: ["", "", ""]
 	)
 
 	uploadPortpolio(
 		title: "협상"
 		description: "개봉과 동시에 관객들에게 뜨거운 호평을 받고 있는 영화 협상이 인질범과 협상가의 숨 막히는 심리 대결을 예고하는 1분짜리 미공개 영상을 전격 공개했다. 협상은 태국에서 사상 최악의 인질극이 발생하고, 제한시간 내 인질범 ‘민태구’를 멈추기 위해 위기 협상가 ‘하채윤’이 일생일대의 협상을 시작하는 범죄 오락 영화. 모니터를 사이에 두고 한치도 물러설 수 없는 팽팽한 신경전을 벌이는 두 사람의 모습에서 사건의 긴박감과 긴장감이 느껴진다. 의문에 찬 목소리로 “왜 나를 다시 부른 거죠?”라고 묻는 ‘하채윤’에게 “나인 일렉트릭스 구관수 회장 불러와요, 그럼 왜 채윤씨 불렀는지 알게 될 거야” 라며 의미심장한 답을 남기는 ‘민태구’는 제한시간 1시간을 제안하며 ‘하채윤’의 숨통을 조여온다."
-		thumbImg: "https://hyunh84.synology.me:5006/photo/share/temp15.jpg"
-		fileUrl: ["https://hyunh84.synology.me:5006/photo/share/temp15_01.jpg", "https://hyunh84.synology.me:5006/photo/share/temp15_02.jpg", "https://hyunh84.synology.me:5006/photo/share/temp15_03.jpg"]
+		thumbImg: "https://res.cloudinary.com/drzp9d9jm/image/upload/v1570678509/post/temp15_ciqbc8.jpg"
+		fileUrl: [
+			"https://res.cloudinary.com/drzp9d9jm/image/upload/v1570678509/post/temp15_01_cafst1.jpg"
+			, "https://res.cloudinary.com/drzp9d9jm/image/upload/v1570678509/post/temp15_02_uxh8ih.jpg"
+			, "https://res.cloudinary.com/drzp9d9jm/image/upload/v1570678509/post/temp15_03_oddgzw.jpg"
+		]
 		tags: ["", "", ""]
 	)
 
 	uploadPortpolio(
 		title: "언니"
-		description: "할리우드 음악영화 "보헤미안 랩소디"(감독 브라이언 싱어, 3위), 사극 "안시성(감독 김광식, 8위), 시대극 "1987"(감독 장준환, 10위) 올해 박스오피스 10위권에 든 영화들이다. 시대적 배경이나 장르 등은 다르지만 한 가지 공통점이 있다. 실화를 바탕으로 만들어졌다는 것이다. 영화 "언니"도 실화에서 모티브를 가져왔다. 메가폰을 잡은 임경택 감독은 "신문 기사를 통해 지적 장애가 있는 여학생을 동네 사람들이 성폭행한 사건을 접했다"며 "거기에서 모티브를 얻어 시나리오 작업을 했다"고 전했다. 플롯은 단순하다. 사라진 여동생 "은혜"(박세완)의 흔적을 찾아갈수록 점점 폭발하는 언니 "인애"(이시영)의 복수를 그렸다.전직 경호원 인애는 과잉 경호 논란에 휘말리며 교도소에 수감된다. 출소 후 동생과 평범한 삶을 꿈꿨으나, 동생이 갑자기 사라진다. 학교와 경찰 누구도 도움을 주지않자 은혜를 직접 찾아 나선다. 그동안 몰랐던 동생의 비밀을 알게 되면서 분노가 폭발한다. "테이큰"(감독 피에르 모렐·2008), "아저씨"(감독 이정범·2010)처럼 소중한 사람을 구하고 복수하는 내용이다. 하지만 이들 영화와 전혀 다른 느낌이다."
-		thumbImg: "https://hyunh84.synology.me:5006/photo/share/temp16.jpg"
-		fileUrl: ["https://hyunh84.synology.me:5006/photo/share/temp16_01.jpg", "https://hyunh84.synology.me:5006/photo/share/temp16_02.jpg", "https://hyunh84.synology.me:5006/photo/share/temp16_03.jpg"]
+		description: "할리우드 음악영화 \"보헤미안 랩소디\"(감독 브라이언 싱어, 3위), 사극 \"안시성(감독 김광식, 8위), 시대극 \"1987\"(감독 장준환, 10위) 올해 박스오피스 10위권에 든 영화들이다. 시대적 배경이나 장르 등은 다르지만 한 가지 공통점이 있다. 실화를 바탕으로 만들어졌다는 것이다. 영화 \"언니\"도 실화에서 모티브를 가져왔다. 메가폰을 잡은 임경택 감독은 \"신문 기사를 통해 지적 장애가 있는 여학생을 동네 사람들이 성폭행한 사건을 접했다\"며 \"거기에서 모티브를 얻어 시나리오 작업을 했다\"고 전했다. 플롯은 단순하다. 사라진 여동생 \"은혜\"(박세완)의 흔적을 찾아갈수록 점점 폭발하는 언니 \"인애\"(이시영)의 복수를 그렸다.전직 경호원 인애는 과잉 경호 논란에 휘말리며 교도소에 수감된다. 출소 후 동생과 평범한 삶을 꿈꿨으나, 동생이 갑자기 사라진다. 학교와 경찰 누구도 도움을 주지않자 은혜를 직접 찾아 나선다. 그동안 몰랐던 동생의 비밀을 알게 되면서 분노가 폭발한다. \"테이큰\"(감독 피에르 모렐·2008), \"아저씨\"(감독 이정범·2010)처럼 소중한 사람을 구하고 복수하는 내용이다. 하지만 이들 영화와 전혀 다른 느낌이다."
+		thumbImg: "https://res.cloudinary.com/drzp9d9jm/image/upload/v1570678509/post/temp16_wsbsnb.jpg"
+		fileUrl: [
+			"https://res.cloudinary.com/drzp9d9jm/image/upload/v1570678509/post/temp16_01_dqfvuc.jpg"
+			, "https://res.cloudinary.com/drzp9d9jm/image/upload/v1570678509/post/temp16_03_levxh9.jpg"
+			, "https://res.cloudinary.com/drzp9d9jm/image/upload/v1570678509/post/temp16_02_kic1gz.jpg"
+		]
 		tags: ["", "", ""]
 	)
 
 	uploadPortpolio(
 		title: "봉오동 전투"
-		description: "봉오동 전투 100주년에 맞춰 영화 봉오동전투가 제작되어 8월 개봉을 앞두고 있다. 5년 전 이 영화가 기획될 때 지인을 통해 소식을 들었다.  잘못 알려진 "봉오동 전투"의 역사를 바로 잡을 수 있는 좋은 기회라 생각했다. 반가운 마음으로 영화제작사에 연락했다.  내가 만주 봉오동에서 무장독립군기지를 건설한 최운산 장군의 손녀라고, 지금까지 알려진 것과 역사적 사실이 다른 부분이 있다는 것을 말했다.  그리고 가족사를 통해 전해진, 알려지지 않은 봉오동의 역사를 말해주고 싶다고 했다. 그러나 제작사는 그것을 원치 않았다. 이미 시나리오가 완성이 되었다고, 역사적 사실을 건드리지 않을테니 걱정하지 말라고 했다. 그래도 걱정이 되어 몇 번 연락을 취했으나 전혀 반응이 없었다."
-		thumbImg: "https://hyunh84.synology.me:5006/photo/share/temp17.jpg"
-		fileUrl: ["https://hyunh84.synology.me:5006/photo/share/temp17_01.jpg", "https://hyunh84.synology.me:5006/photo/share/temp17_02.jpg", "https://hyunh84.synology.me:5006/photo/share/temp17_03.jpg"]
+		description: "봉오동 전투 100주년에 맞춰 영화 봉오동전투가 제작되어 8월 개봉을 앞두고 있다. 5년 전 이 영화가 기획될 때 지인을 통해 소식을 들었다.  잘못 알려진 \"봉오동 전투\"의 역사를 바로 잡을 수 있는 좋은 기회라 생각했다. 반가운 마음으로 영화제작사에 연락했다.  내가 만주 봉오동에서 무장독립군기지를 건설한 최운산 장군의 손녀라고, 지금까지 알려진 것과 역사적 사실이 다른 부분이 있다는 것을 말했다.  그리고 가족사를 통해 전해진, 알려지지 않은 봉오동의 역사를 말해주고 싶다고 했다. 그러나 제작사는 그것을 원치 않았다. 이미 시나리오가 완성이 되었다고, 역사적 사실을 건드리지 않을테니 걱정하지 말라고 했다. 그래도 걱정이 되어 몇 번 연락을 취했으나 전혀 반응이 없었다."
+		thumbImg: "https://res.cloudinary.com/drzp9d9jm/image/upload/v1570678510/post/temp17_nab0kh.jpg"
+		fileUrl: [
+			"https://res.cloudinary.com/drzp9d9jm/image/upload/v1570678510/post/temp17_02_gy0vv3.jpg"
+			, "https://res.cloudinary.com/drzp9d9jm/image/upload/v1570678510/post/temp17_01_yyozkh.jpg"
+			, "https://res.cloudinary.com/drzp9d9jm/image/upload/v1570678510/post/temp17_03_lqkol6.jpg"
+		]
 		tags: ["", "", ""]
 	)
 
 	uploadPortpolio(
 		title: "청년경찰"
 		description: "“우서준, 좌하늘 두 청년이 있으면 여자 관객들이 그 손을 잡고 어딜 가도 무섭지 않았으면 좋겠다.”(‘스타뉴스’) 박서준·강하늘 주연의 영화 ‘청년경찰’이 공개되기 전 김주환 감독은 “15~25세의  여성 관객들이 좋아하지 않을까? 두 배우가 여심을 저격할 것이라 믿는다”며 이렇게 말했다. ‘청년경찰’의 주요 타깃이 젊은 (이성애자) 여성 관객이라는 것은 그만큼 명백해 보인다. ‘청년경찰’은 감독의 기대에 어느 정도 부합한다. 경찰대학교 입학에서부터 권태를 느끼기 시작하는 3학년에 이르기까지, 기준(박서준)과 희열(강하늘)의 모습을 보여주는 초반부는 두 배우가 가진 좋은 이미지와 매력적인 연기의 덕을 톡톡히 본다. 특히 희열이 자연스러운 미소를 연습하는 모습은 박서준의 능청스러운 말투와 강하늘의 해맑은 인상이 완성해낸,  상당히 귀여운 코미디다. 하지만 두 사람이 범죄 현장을 목격하면서부터 영화는 그들의 주 소비층을 배반한다. 희열과 기준이 밤늦은 시각, 호감을 느낀 여성의 번호를 따기 위해 인적이  드문 골목길로 졸졸 쫓아가는 모습은 한국 사회를 살아가는 여성들이 현실에서 겪을 수 있는 각종 범죄를 떠올리게 한다. 희열과 기준이 쫓아가던 여성이 봉고차에 납치를 당하고, 두 사람은  이것이 가출 청소년을 대상으로 한 인신매매범의 소행이라는 것을 알게 된다. 희열이 “성매매”를 우려하는 장면 뒤에, 조선족들에게 납치 피해자가 배 위에 강제로 주사를 맞으며 고통스러워하는 신이 이어진다. 주요 타깃층인 여성들을 대상으로 한 범죄를 보여줌으로써 한껏 공포심을 끌어올리며 영화에 몰입시키려는 의도일 수도 있다. 하지만 필요 이상의 묘사는 작품에 필요한 긴장감을 훌쩍 뛰어넘는 불쾌함을 유발한다. 자꾸 코미디를 시도하는 장면을 이어 붙이는 등 여성 범죄를 다루는 진중한 태도가 결여되면서 사건은 두 청년의 각성과 성장을 위해 손쉽게 이용당한다.  더군다나 이 영화의 젊은 여성들은 남성들의 성취를 증명하는 보상체계를 위해 소모된다. 두 주인공이 경찰이라는 직업에 회의를 느끼는 것은 클럽에서 만난 여성에게 당한 무시 때문이었고,  모든 일이 끝난 후 그들에게 선물처럼 주어지는 것은 그들이 호감을 가졌던 피해 여성의 포옹이다."
-		thumbImg: "https://hyunh84.synology.me:5006/photo/share/temp18.jpg"
-		fileUrl: ["https://hyunh84.synology.me:5006/photo/share/temp18_01.jpg", "https://hyunh84.synology.me:5006/photo/share/temp18_02.jpg", "https://hyunh84.synology.me:5006/photo/share/temp18_03.jpg"]
+		thumbImg: "https://res.cloudinary.com/drzp9d9jm/image/upload/v1570678510/post/temp18_dajchy.jpg"
+		fileUrl: [
+		"https://res.cloudinary.com/drzp9d9jm/image/upload/v1570678510/post/temp18_01_ujrikw.jpg"
+		, "https://res.cloudinary.com/drzp9d9jm/image/upload/v1570678510/post/temp18_03_dbymvh.jpg"
+		, "https://res.cloudinary.com/drzp9d9jm/image/upload/v1570678510/post/temp18_02_vod86f.jpg"
+		]
 		tags: ["", "", ""]
 	)
 
 	uploadPortpolio(
 		title: "알리타"
 		description: "영화 ‘알리타: 배틀 엔젤’(감독 로버트 로드리게즈)가 전세계에서 큰 인기를 끌고 있습니다. 영화 ‘아바타’의 제임스 카메론 감독이 실제 제작에 참여한 만큼, 개봉 때부터 큰 화제를 모았었죠.  ‘알리타’는 액션 블록버스터 영화입니다. 모두가 갈망하는 공중도시와 그들을 위해 존재하는 고철도시로 나누어진 26세기. 그곳에서 기억을 잃은 사이보그 소녀 알리타의 이야기를 그렸는데요.  여주인공인 알리타 역을 맡은 배우 로사 살라자르의 반전(?) 과거 부터 ‘알리타’ 제작의 시작, 그리고 비하인드까지...알차게 모아봤습니다."
-		thumbImg: "https://hyunh84.synology.me:5006/photo/share/temp19.jpg"
-		fileUrl: ["https://hyunh84.synology.me:5006/photo/share/temp19_01.jpg", "https://hyunh84.synology.me:5006/photo/share/temp19_02.jpg"]
+		thumbImg: "https://res.cloudinary.com/drzp9d9jm/image/upload/v1570678510/post/temp19_vafjr1.jpg"
+		fileUrl: [
+			"https://res.cloudinary.com/drzp9d9jm/image/upload/v1570678510/post/temp19_01_vdcj14.jpg"
+			, "https://res.cloudinary.com/drzp9d9jm/image/upload/v1570678510/post/temp19_02_yqjptx.jpg"
+		]
 		tags: ["", "", ""]
 	)
 
 	uploadPortpolio(
 		title: "더킹"
 		description: "조악한 영화다. 하지만 뭔가 내용은 있는 듯 하다. 최근 300만명 이상의 관객을 끌어 들이고 있다는 영화 「더킹」을 말한다. 현실을 너무 과장했다는 느낌을 지울수 없다. 하지만 우리사회의 일단면을 그린 것은 분명하다. 영화를 다 보고 남는게 없다. 우리 사회가 저렇게까지는 썩지 않았다는 자위감에다 영화가 너무 나갔다는 비판도 하면서 두시간 때웠다는 느낌 정도만 남는다.  그런데도 뭔가 찝찝하다. 우리사회의 단면, 권력과 돈, 정치와 검찰의 유착고리가 전연 없는 것은 아니다. 오히려 내가 모르는 사실이 있는게 아닌가 의심도 남게 한 영화다. 관객수가 설 연휴기간을 거치면서 350만을 넘었다고 한다. 영화자체의 질적 우수성보다는 권력의 병폐현상에 대한 사회적 반감이 관객수를 끌어모은 것 같다."
-		thumbImg: "https://hyunh84.synology.me:5006/photo/share/temp20.jpg"
-		fileUrl: ["https://hyunh84.synology.me:5006/photo/share/temp20_01.jpg", "https://hyunh84.synology.me:5006/photo/share/temp20_02.jpg", "https://hyunh84.synology.me:5006/photo/share/temp20_03.jpg"]
+		thumbImg: "https://res.cloudinary.com/drzp9d9jm/image/upload/v1570678510/post/temp20_vwibfp.jpg"
+		fileUrl: [
+			"https://res.cloudinary.com/drzp9d9jm/image/upload/v1570678510/post/temp20_01_nptup8.jpg"
+			, "https://res.cloudinary.com/drzp9d9jm/image/upload/v1570678510/post/temp20_02_fsa1er.jpg"
+			, "https://res.cloudinary.com/drzp9d9jm/image/upload/v1570678511/post/temp20_03_arlgje.jpg"
+		]
 		tags: ["", "", ""]
 	)
 
@@ -164,7 +232,11 @@ mutation{
 		title: ""
 		description: ""
 		thumbImg: ""
-		fileUrl: ["", "", ""]
+		fileUrl: [
+			""
+			, ""
+			, ""
+		]
 		tags: ["", "", ""]
 	)
 }
@@ -182,12 +254,5 @@ query{
 	}
 }
 
-{
-          "_id": "5d9dc52f7f98330017665dfe"
-        },
-        {
-          "_id": "5d9dc4b97f98330017665dfa"
-        },
-        {
-          "_id": "5d9dc18e7f98330017665df6"
-        }
+
+5d9fedd38b76fe0017ba3631
