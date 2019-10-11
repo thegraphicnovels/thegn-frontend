@@ -1,14 +1,26 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { useQuery } from '@apollo/react-hooks';
+import { achiveDetailQuery } from 'apollo/achiveQuery';
+import { swiperFn } from 'common';
 
 const AchiveDetail = ({
-  action,
   match: {
     params: { portpolioId },
   },
 }) => {
-  console.log(portpolioId);
-  if (action === 1) {
+  console.log('achiveDetail ID', portpolioId);
+//   const topSwiperEl  = useRef(null);
+  const { data, loading } = useQuery(achiveDetailQuery, {
+    variables: { id : portpolioId },
+  });
+//   let topSwiper;
+
+//   useEffect(()=>{
+//     topSwiper = swiperFn(topSwiperEl.current);
+//   });
+
+  if (!loading) {
     return (
       <div className="contents achiveDetail">
         <span id="jumpConts" className="blind" tabIndex="achiveDetail">
@@ -24,37 +36,23 @@ const AchiveDetail = ({
 
           <div className="achiveDescriptWrap">
             <div className="descriptThum">
-              <button type="button" className="btnPrev">
-                <em className="blind">이전</em>
-              </button>
+              <button type="button" className="btnPrev"><em className="blind">이전</em></button>
               <ul className="swiper-wrapper">
-                <li className="swiper-slide">
-                  <img
-                    src="resources/images/temp/temp_deatil01_01.jpg"
-                    alt=""
-                  />
-                </li>
-                <li className="swiper-slide">
-                  <img
-                    src="resources/images/temp/temp_deatil01_02.jpg"
-                    alt=""
-                  />
-                </li>
-                <li className="swiper-slide">
-                  <img
-                    src="resources/images/temp/temp_deatil01_03.jpg"
-                    alt=""
-                  />
-                </li>
+                {data && data.detailPortpolio.files.map(imgUrl =>(
+                  <li className="swiper-slide">
+                    <img
+                      src={imgUrl.url}
+                      alt=""
+                    />
+                  </li>
+                ))}
               </ul>
-              <button type="button" className="btnNext">
-                <em className="blind">다음</em>
-              </button>
+              <button type="button" className="btnNext"><em className="blind">다음</em></button>
             </div>
 
             <div className="descriptBox">
               <strong className="tit">
-                MAKE SOME NOISE COMMON GROUND 3RD ANNIVERSARY
+                {}
               </strong>
 
               <p className="date">Date : 2018/7/23</p>
@@ -69,7 +67,7 @@ const AchiveDetail = ({
             </div>
           </div>
 
-          <div className="achiveMoreBox">
+          {/* <div className="achiveMoreBox">
             <h3>MORE PROJECT</h3>
 
             <button type="button" className="btnPrev">
@@ -256,7 +254,7 @@ const AchiveDetail = ({
             <button type="button" className="btnNext">
               <em className="blind">다음</em>
             </button>
-          </div>
+          </div> */}
         </div>
 
         <Link to="/" className="subMenu02">

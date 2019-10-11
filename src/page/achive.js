@@ -9,18 +9,17 @@ const Achive = ({ action }) => {
   const tagMenu = useRef(null);
   let achiveListFn;
   let menuFnc;
-  console.log(menuFnc);
 
   const { data, loading } = useQuery(achiveQuery, {
-    variables: { page: 1, limit: 1 },
+    variables: { page: 1, limit: 10 },
   });
-
-  if (console.log(!loading && data));
 
   useEffect(() => {
     if (action === 1) {
-      achiveListFn = masonryFn(achiveList);
-      menuFnc = tagMenuFn(tagMenu);
+      if(!loading) {
+        menuFnc = tagMenuFn(tagMenu);
+        achiveListFn = masonryFn(achiveList);
+      }
     }
 
     return () => {
@@ -31,7 +30,7 @@ const Achive = ({ action }) => {
     };
   }, [action]);
 
-  if (action === 1) {
+  if (action === 1 && !loading) {
     return (
       <div className="achiveWrap">
         <div className="tagMenu" ref={tagMenu}>

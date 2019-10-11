@@ -5,7 +5,9 @@ import Achive from 'page/achive';
 import About from 'page/about';
 import Contact from 'page/contact';
 
-const Main = () => {
+const Main = (
+	
+) => {
   const conts = useRef(null);
   const [action, setAction] = useState(0);
 

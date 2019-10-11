@@ -26,3 +26,28 @@ export const achiveQuery = gql`
     }
   }
 `;
+
+export const achiveDetailQuery = gql`
+  query detailPortpolio($id: String!) {
+    detailPortpolio(id: $id) {
+        _id
+        title
+        description
+        user {
+          _id
+          name
+        }
+        files {
+          _id
+          url
+        }
+        views
+        tags {
+          _id
+          value
+        }
+        createAt
+        updateAt
+    }
+  }
+`;
