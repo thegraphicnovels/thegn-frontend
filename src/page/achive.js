@@ -15,7 +15,7 @@ const Achive = ({ action }) => {
     variables: { page: 1, limit: 1 },
   });
 
-  if (loading && console.log(!loading && data));
+  if (console.log(!loading && data));
 
   useEffect(() => {
     if (action === 1) {
