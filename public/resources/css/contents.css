@@ -108,3 +108,18 @@
 .contactWrap .contactInfoBox .infoBox .contcInfo li span {display:inline-block;text-decoration:underline;}
 .contactWrap .contactInfoBox .infoBox .corp {margin:70px 0 0;line-height:42px;font-size:32px;}
 .contactWrap .contactInfoBox .infoBox address {display:block;margin:20px 0 0;line-height:36px;font-size:26px;}
+
+/**************************************************************************************
+** Paging
+**************************************************************************************/
+.paging {display:block;position:relative;}
+.paging .pagingPrev {position:absolute;left:0;top:50%;height:30px;padding:0 0 0 110px;background:url('../images/pagin_arrow.png') no-repeat left 5px;z-index:1;transform:translate(0, -50%);}
+.paging .pagingPrev em {display:block;line-height:30px;font-size:23px;font-weight:300;background-color:#fff;}
+.paging .pagingNext {position:absolute;right:0;top:50%;height:30px;padding:0 110px 0 0;background:url('../images/pagin_arrow.png') no-repeat right 5px;z-index:1;transform:translate(0, -50%);}
+.paging .pagingNext em {display:block;line-height:30px;font-size:23px;font-weight:300;background-color:#fff;}
+.paging .pagingPrev.disabled {background:url('../images/pagin_arrow_disabled.png') no-repeat left 5px;}
+.paging .pagingPrev.disabled em {color:#c9caca;}
+.paging .pagingNext.disabled {background:url('../images/pagin_arrow_disabled.png') no-repeat right 5px;}
+.paging .pagingNext.disabled em {color:#c9caca;}
+.paging .viewPageNum {display:block;line-height:30px;font-size:26px;font-weight:300;text-align:center;}
+
