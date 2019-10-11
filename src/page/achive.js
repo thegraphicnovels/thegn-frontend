@@ -8,31 +8,29 @@ import Paging from 'components/paging';
 const Achive = ({ action }) => {
 	const achiveList = useRef(null);
 	const tagMenu = useRef(null);
-	const pagingEl = useRef(null);
 	const [nowPageNum, setPageNum] = useState(1);
 	let achiveListFn;
 	let menuFnc;
-	let pagingPrev;
-	let pagingNext;
 
 	const { data, loading } = useQuery(achiveQuery, {
-		variables: { page: nowPageNum, limit: 10 },
+		variables: { page: nowPageNum, limit: 5 },
 	});
 
 	useEffect(() => {
 		if (action === 1) {
 			if(!loading) {
+				console.log('achive list marsony create');
 				menuFnc = tagMenuFn(tagMenu);
 				achiveListFn = masonryFn(achiveList);
 			}
 		}
 
-		return () => {
-			if (action === 1) {
-				console.log('achiveListFn Masonry destroy');
+		return()=> {
+			if(action === 1) {
+				console.log('achive list marsony destroy')
 				achiveListFn.destroy();
 			}
-		};
+		}
 	}, [action, nowPageNum]);
 
 	if (action === 1 && !loading) {
@@ -79,14 +77,14 @@ const Achive = ({ action }) => {
 				data.seePortpolios.portpolios.map(portpolioData => (
 					<li key={portpolioData._id} className="grid-item">
 					<Link to={`/achiveDetail/${portpolioData._id}`}>
-						<img src={portpolioData.files[0].url} alt={portpolioData.title} />
+						<img src={portpolioData.thumbImg} alt={portpolioData.title} />
 					</Link>
 					</li>
 				))}
 			</ul>
 			</div>
 
-			<Paging nowPageNum={nowPageNum} totalPage={data.seePortpolios.totalPages} setPageFn={setPageNum} />
+			<Paging nowPageNum={nowPageNum} totalPage={data.seePortpolios.totalPages} setPageNum={setPageNum} />
 		</div>
 		);
 	}

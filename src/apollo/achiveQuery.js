@@ -7,6 +7,7 @@ export const achiveQuery = gql`
 			_id
 			title
 			description
+			thumbImg
 			user {
 				_id
 				name
