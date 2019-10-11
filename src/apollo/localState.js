@@ -1,23 +1,23 @@
 export const defaults = {
-  logged: Boolean(localStorage.getItem("token")) || false
+  logged: Boolean(localStorage.getItem('token')) || false,
 };
 
 export const resolvers = {
   Mutation: {
     onLogin: (_, { token }, { cache }) => {
-      localStorage.setItem("token", token);
+      localStorage.setItem('token', token);
       cache.writeData({
         data: {
-          logged: true
-        }
+          logged: true,
+        },
       });
-      window.location = "/";
+      window.location = '/';
       return null;
     },
     onLogout: (_, __, { cache }) => {
-      localStorage.removeItem("token");
-      window.location = "/";
+      localStorage.removeItem('token');
+      window.location = '/';
       return null;
-    }
-  }
+    },
+  },
 };

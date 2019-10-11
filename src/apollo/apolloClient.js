@@ -1,15 +1,15 @@
-import ApolloClient from "apollo-boost";
-import { defaults, resolvers } from "apollo/localState";
+import ApolloClient from 'apollo-boost';
+import { defaults, resolvers } from 'apollo/localState';
 
 const Client = new ApolloClient({
   uri: process.env.REACT_APP_MONGO_URL,
   clientState: {
     defaults,
-    resolvers
+    resolvers,
   },
   headers: {
-    Authorization: `Bearer ${localStorage.getItem("token")}`
-  }
+    Authorization: `Bearer ${localStorage.getItem('token')}`,
+  },
 });
 
 export default Client;

@@ -5,6 +5,8 @@
   "dependencies": {
     "@apollo/react-hooks": "^3.1.2",
     "apollo-boost": "^0.4.4",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-config-prettier": "^6.4.0",
     "filepond": "^4.7.1",
     "filepond-plugin-file-validate-type": "^1.2.4",
     "filepond-plugin-image-exif-orientation": "^1.0.6",
@@ -29,7 +31,24 @@
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": [
+      "airbnb",
+      "prettier"
+    ],
+    "parser": "babel-eslint",
+    "rules": {
+      "react/prefer-stateless-function": 0,
+      "react/jsx-filename-extension": 0,
+      "react/jsx-one-expression-per-line": 0,
+      "import/no-unresolved": 0,
+      "import/prefer-default-export": 0,
+      "no-underscore-dangle": 0,
+      "no-console": 0,
+      "no-unused-vars": 0
+    },
+    "env": {
+      "browser": true
+    }
   },
   "browserslist": {
     "production": [

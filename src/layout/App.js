@@ -1,7 +1,7 @@
-import React from "react";
-import Router from "layout/Router";
-import { useQuery } from "@apollo/react-hooks";
-import { gql } from "apollo-boost";
+import React from 'react';
+import Router from 'layout/Router';
+import { useQuery } from '@apollo/react-hooks';
+import { gql } from 'apollo-boost';
 
 const QUERY = gql`
   {
@@ -9,12 +9,12 @@ const QUERY = gql`
   }
 `;
 
-function App() {
+const App = () => {
   const {
-    data: { logged }
+    data: { logged },
   } = useQuery(QUERY);
 
   return <Router logged={logged} />;
-}
+};
 
 export default App;

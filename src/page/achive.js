@@ -1,30 +1,31 @@
-import React, { useRef, useEffect } from "react";
-import { Link } from "react-router-dom";
-import { useQuery } from "@apollo/react-hooks";
-import { masonryFn, tagMenuFn } from "common";
-import { achiveQuery } from "apollo/achiveQuery";
+import React, { useRef, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { useQuery } from '@apollo/react-hooks';
+import { masonryFn, tagMenuFn } from 'common';
+import { achiveQuery } from 'apollo/achiveQuery';
 
-const Achive = function({ action }) {
+const Achive = ({ action }) => {
   const achiveList = useRef(null);
   const tagMenu = useRef(null);
   let achiveListFn;
   let menuFnc;
+  console.log(menuFnc);
 
   const { data, loading } = useQuery(achiveQuery, {
-    variables: { page: 1, limit: 1 }
+    variables: { page: 1, limit: 1 },
   });
 
-  {!loading && console.log(data)}
+  if (loading && console.log(!loading && data));
 
   useEffect(() => {
     if (action === 1) {
-      achiveListFn = new masonryFn(achiveList);
-      menuFnc = new tagMenuFn(tagMenu);
+      achiveListFn = masonryFn(achiveList);
+      menuFnc = tagMenuFn(tagMenu);
     }
 
     return () => {
       if (action === 1) {
-        console.log("achiveListFn Masonry destroy");
+        console.log('achiveListFn Masonry destroy');
         achiveListFn.destroy();
       }
     };
@@ -40,28 +41,28 @@ const Achive = function({ action }) {
           <div className="swiperScrollBox">
             <ul>
               <li>
-                <Link to="#">PRINTED MATTERS</Link>
+                <Link to="/">PRINTED MATTERS</Link>
               </li>
               <li>
-                <Link to="#">POSTER</Link>
+                <Link to="/">POSTER</Link>
               </li>
               <li>
-                <Link to="#">LEAFLET</Link>
+                <Link to="/">LEAFLET</Link>
               </li>
               <li>
-                <Link to="#">BOOKLET</Link>
+                <Link to="/">BOOKLET</Link>
               </li>
               <li>
-                <Link to="#">EDITORIAL</Link>
+                <Link to="/">EDITORIAL</Link>
               </li>
               <li>
-                <Link to="#">WEB</Link>
+                <Link to="/">WEB</Link>
               </li>
               <li>
-                <Link to="#">IDENTITY</Link>
+                <Link to="/">IDENTITY</Link>
               </li>
               <li>
-                <Link to="#">DRAFT PROPOSAL</Link>
+                <Link to="/">DRAFT PROPOSAL</Link>
               </li>
             </ul>
           </div>
@@ -70,10 +71,13 @@ const Achive = function({ action }) {
         <div className="achiveListWrap">
           <ul className="grid" ref={achiveList}>
             {data &&
-              data.seePortpolios.portpolios.map(data => (
-                <li key={data._id} className="grid-item">
-                  <Link to={`/achiveDetail/${data._id}`}>
-                    <img src={data.files[0].url} alt={data.title} />
+              data.seePortpolios.portpolios.map(portpolioData => (
+                <li key={portpolioData._id} className="grid-item">
+                  <Link to={`/achiveDetail/${portpolioData._id}`}>
+                    <img
+                      src={portpolioData.files[0].url}
+                      alt={portpolioData.title}
+                    />
                   </Link>
                 </li>
               ))}
@@ -81,9 +85,8 @@ const Achive = function({ action }) {
         </div>
       </div>
     );
-  } else {
-    return "";
   }
+  return '';
 };
 
 export default Achive;

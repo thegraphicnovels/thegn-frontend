@@ -1,17 +1,18 @@
-import React from "react";
+import React from 'react';
+import PropTypes from 'prop-types';
 import {
-  BrowserRouter as Router,
+  BrowserRouter as BRouter,
   Route,
   Switch,
-  Redirect
-} from "react-router-dom";
-import Header from "layout/header";
-import Footer from "layout/footer";
-import Main from "page/main";
-import AchiveDetail from "page/achive_detail";
-import Upload from "components/upload";
+  Redirect,
+} from 'react-router-dom';
+import Header from 'layout/header';
+import Footer from 'layout/footer';
+import Main from 'page/main';
+import AchiveDetail from 'page/achive_detail';
+import Upload from 'components/upload';
 
-const PageUrl = function() {
+const PageUrl = () => {
   return (
     <Switch>
       <Route path="/" exact component={Main} />
@@ -22,14 +23,20 @@ const PageUrl = function() {
   );
 };
 
-export default ({ logged }) => {
+const Router = ({ logged }) => {
   return (
-    <Router>
+    <BRouter>
       <Header logged={logged} />
       <div id="container">
         <PageUrl />
       </div>
       <Footer />
-    </Router>
+    </BRouter>
   );
+};
+
+export default Router;
+
+Router.propTypes = {
+  logged: PropTypes.bool.isRequired,
 };
