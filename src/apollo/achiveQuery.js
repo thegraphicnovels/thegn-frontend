@@ -1,6 +1,6 @@
 import { gql } from 'apollo-boost';
 
-const achiveQuery = gql`
+export const achiveQuery = gql`
   query seePortpolios($page: Int, $limit: Int, $tags: [String]) {
     seePortpolios(page: $page, limit: $limit, tags: $tags) {
       portpolios {
@@ -26,5 +26,3 @@ const achiveQuery = gql`
     }
   }
 `;
-
-export { achiveQuery };
