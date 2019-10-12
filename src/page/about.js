@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const About = ({ action }) => {
   if (action === 2) {
@@ -29,6 +30,10 @@ const About = ({ action }) => {
     );
   }
   return '';
+};
+
+About.propTypes = {
+	action: PropTypes.number.isRequired,
 };
 
 export default About;

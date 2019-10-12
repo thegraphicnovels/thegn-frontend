@@ -42,7 +42,7 @@ const Contact = ({ action }) => {
 };
 
 Contact.propTypes = {
-  action: PropTypes.number.isRequired,
+	action: PropTypes.number.isRequired,
 };
 
 export default Contact;

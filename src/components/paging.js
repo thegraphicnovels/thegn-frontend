@@ -6,24 +6,26 @@ const Paging = ({nowPageNum, totalPage, setPageNum})=> {
 	let pagingNext;
 
 	const paginFn = (chNum)=> {
+		console.log('paginFn Start')
 		if(chNum < 1 || chNum > totalPage) {
 			return;
 		}
 		setPageNum(chNum);
+
 	}
 
 	// 페이징 이전
 	if(nowPageNum === 1) {
-		pagingPrev = <button type="button" className="pagingPrev disabled" disabled><em>PREVIOUS</em></button>;
+		pagingPrev = (<button type="button" className="pagingPrev disabled" disabled><em>PREVIOUS</em></button>);
 	}else{
-		pagingPrev = <button type="button" className="pagingPrev" onClick={()=> {paginFn(nowPageNum - 1)}}><em>PREVIOUS</em></button>;
+		pagingPrev = (<button type="button" className="pagingPrev" onClick={()=> {paginFn(nowPageNum - 1)}}><em>PREVIOUS</em></button>);
 	}
 
 	// 페이징 다음
 	if(nowPageNum === totalPage) {
-		pagingNext = <button type="button" className="pagingNext disabled" disabled><em>NEXT</em></button>;
+		pagingNext = (<button type="button" className="pagingNext disabled" disabled><em>NEXT</em></button>);
 	}else{
-		pagingNext = <button type="button" className="pagingNext" onClick={()=> {paginFn(nowPageNum + 1)}}><em>NEXT</em></button>;
+		pagingNext = (<button type="button" className="pagingNext" onClick={()=> {paginFn(nowPageNum + 1)}}><em>NEXT</em></button>);
 	}
 
 	return(

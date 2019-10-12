@@ -1,4 +1,5 @@
 import React, { useRef, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { swiperFn } from 'common';
 
 const Mainswiper = ({ action }) => {
@@ -73,5 +74,9 @@ const Mainswiper = ({ action }) => {
   }
   return '';
 };
+
+Mainswiper.propTypes = {
+	action : PropTypes.number.isRequired,
+}
 
 export default Mainswiper;

@@ -4,11 +4,13 @@ import { useQuery } from '@apollo/react-hooks';
 import { masonryFn, tagMenuFn } from 'common';
 import { achiveQuery } from 'apollo/achiveQuery';
 import Paging from 'components/paging';
+import PropTypes from 'prop-types';
 
 const Achive = ({ action }) => {
 	const achiveList = useRef(null);
 	const tagMenu = useRef(null);
 	const [nowPageNum, setPageNum] = useState(1);
+	const [isLoading, setLoading] = useState(true);
 	let achiveListFn;
 	let menuFnc;
 
@@ -16,22 +18,31 @@ const Achive = ({ action }) => {
 		variables: { page: nowPageNum, limit: 5 },
 	});
 
-	useEffect(() => {
-		if (action === 1) {
-			if(!loading) {
-				console.log('achive list marsony create');
-				menuFnc = tagMenuFn(tagMenu);
-				achiveListFn = masonryFn(achiveList);
-			}
+	const chPaging = ()=> {
+		console.log('useEffect', loading);
+		if (action === 1 && !loading) {
+			console.log('achive list marsony create - useEffect01');
+			menuFnc = tagMenuFn(tagMenu);
+			achiveListFn = masonryFn(achiveList);
 		}
+	}
 
+	useEffect(() => {
+		chPaging();
+		
 		return()=> {
+			console.log('useEffect 01 return');
 			if(action === 1) {
-				console.log('achive list marsony destroy')
-				achiveListFn.destroy();
+				console.log('achive list marsony destroy - useEffect01')
+				// achiveListFn.destroy();
 			}
 		}
-	}, [action, nowPageNum]);
+	}, [action]);
+
+	useEffect(() => {
+		chPaging();
+		
+	}, [nowPageNum, isLoading]);
 
 	if (action === 1 && !loading) {
 		console.log(data);
@@ -76,9 +87,9 @@ const Achive = ({ action }) => {
 				{data &&
 				data.seePortpolios.portpolios.map(portpolioData => (
 					<li key={portpolioData._id} className="grid-item">
-					<Link to={`/achiveDetail/${portpolioData._id}`}>
-						<img src={portpolioData.thumbImg} alt={portpolioData.title} />
-					</Link>
+						<Link to={`/achiveDetail/${portpolioData._id}`}>
+							<img src={portpolioData.thumbImg} alt={portpolioData.title} />
+						</Link>
 					</li>
 				))}
 			</ul>
@@ -89,6 +100,10 @@ const Achive = ({ action }) => {
 		);
 	}
 	return '';
+};
+
+Achive.propTypes = {
+	action: PropTypes.number.isRequired,
 };
 
 export default Achive;
