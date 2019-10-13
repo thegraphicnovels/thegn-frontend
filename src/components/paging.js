@@ -8,22 +8,22 @@ const Paging = ({nowPageNum, totalPage, setPageNum})=> {
 	const paginFn = (chNum)=> {
 		console.log('paginFn Start')
 		if(chNum < 1 || chNum > totalPage) {
+			console.log('block click')
 			return;
 		}
 		setPageNum(chNum);
-
 	}
 
 	// 페이징 이전
 	if(nowPageNum === 1) {
-		pagingPrev = (<button type="button" className="pagingPrev disabled" disabled><em>PREVIOUS</em></button>);
+		pagingPrev = (<span className="pagingPrev disabled" disabled><em>PREVIOUS</em></span>);
 	}else{
 		pagingPrev = (<button type="button" className="pagingPrev" onClick={()=> {paginFn(nowPageNum - 1)}}><em>PREVIOUS</em></button>);
 	}
 
 	// 페이징 다음
 	if(nowPageNum === totalPage) {
-		pagingNext = (<button type="button" className="pagingNext disabled" disabled><em>NEXT</em></button>);
+		pagingNext = (<span className="pagingNext disabled" disabled><em>NEXT</em></span>);
 	}else{
 		pagingNext = (<button type="button" className="pagingNext" onClick={()=> {paginFn(nowPageNum + 1)}}><em>NEXT</em></button>);
 	}

@@ -10,93 +10,89 @@ const Achive = ({ action }) => {
 	const achiveList = useRef(null);
 	const tagMenu = useRef(null);
 	const [nowPageNum, setPageNum] = useState(1);
-	const [isLoading, setLoading] = useState(true);
 	let achiveListFn;
 	let menuFnc;
 
-	const { data, loading } = useQuery(achiveQuery, {
+	const { data, loading, updateQuery } = useQuery(achiveQuery, {
+		variables: { page: nowPageNum, limit: 5 },
+	});
+	const a = useQuery(achiveQuery, {
 		variables: { page: nowPageNum, limit: 5 },
 	});
 
-	const chPaging = ()=> {
-		console.log('useEffect', loading);
+	useEffect(() => {
+		// console.log('achive useEffect loading', loading);
 		if (action === 1 && !loading) {
 			console.log('achive list marsony create - useEffect01');
 			menuFnc = tagMenuFn(tagMenu);
 			achiveListFn = masonryFn(achiveList);
 		}
-	}
-
-	useEffect(() => {
-		chPaging();
 		
 		return()=> {
 			console.log('useEffect 01 return');
 			if(action === 1) {
 				console.log('achive list marsony destroy - useEffect01')
-				// achiveListFn.destroy();
+				achiveListFn.destroy();
 			}
 		}
-	}, [action]);
+	}, [action, nowPageNum]);
 
-	useEffect(() => {
-		chPaging();
-		
-	}, [nowPageNum, isLoading]);
+	if(!a.loading) {
+		console.log(a);
+	}
 
 	if (action === 1 && !loading) {
-		console.log(data);
 		return (
-		<div className="achiveWrap">
-			<div className="tagMenu" ref={tagMenu}>
-			<button type="button">
-				<em className="blind">태그메뉴</em>
-			</button>
-			<div className="swiperScrollBox">
-				<ul>
-				<li>
-					<Link to="/">PRINTED MATTERS</Link>
-				</li>
-				<li>
-					<Link to="/">POSTER</Link>
-				</li>
-				<li>
-					<Link to="/">LEAFLET</Link>
-				</li>
-				<li>
-					<Link to="/">BOOKLET</Link>
-				</li>
-				<li>
-					<Link to="/">EDITORIAL</Link>
-				</li>
-				<li>
-					<Link to="/">WEB</Link>
-				</li>
-				<li>
-					<Link to="/">IDENTITY</Link>
-				</li>
-				<li>
-					<Link to="/">DRAFT PROPOSAL</Link>
-				</li>
-				</ul>
-			</div>
-			</div>
-
-			<div className="achiveListWrap">
-			<ul className="grid" ref={achiveList}>
-				{data &&
-				data.seePortpolios.portpolios.map(portpolioData => (
-					<li key={portpolioData._id} className="grid-item">
-						<Link to={`/achiveDetail/${portpolioData._id}`}>
-							<img src={portpolioData.thumbImg} alt={portpolioData.title} />
-						</Link>
+			<div className="achiveWrap">
+				<div className="tagMenu" ref={tagMenu}>
+				<button type="button">
+					<em className="blind">태그메뉴</em>
+				</button>
+				<div className="swiperScrollBox">
+					<ul>
+					<li>
+						<Link to="/">PRINTED MATTERS</Link>
 					</li>
-				))}
-			</ul>
-			</div>
+					<li>
+						<Link to="/">POSTER</Link>
+					</li>
+					<li>
+						<Link to="/">LEAFLET</Link>
+					</li>
+					<li>
+						<Link to="/">BOOKLET</Link>
+					</li>
+					<li>
+						<Link to="/">EDITORIAL</Link>
+					</li>
+					<li>
+						<Link to="/">WEB</Link>
+					</li>
+					<li>
+						<Link to="/">IDENTITY</Link>
+					</li>
+					<li>
+						<Link to="/">DRAFT PROPOSAL</Link>
+					</li>
+					</ul>
+				</div>
+				</div>
 
-			<Paging nowPageNum={nowPageNum} totalPage={data.seePortpolios.totalPages} setPageNum={setPageNum} />
-		</div>
+				<div className="achiveListWrap">
+					<ul className="grid" ref={achiveList}>
+						{data &&
+						data.seePortpolios.portpolios.map(portpolioData => (
+							<li key={portpolioData._id} className="grid-item">
+								<Link to={`/achiveDetail/${portpolioData._id}`}>
+									<img src={portpolioData.thumbImg} alt={portpolioData.title} />
+								</Link>
+							</li>
+						))}
+					</ul>
+				</div>
+
+				<Paging nowPageNum={nowPageNum} totalPage={data.seePortpolios.totalPages} setPageNum={setPageNum} />
+			</div>
 		);
 	}
 	return '';
