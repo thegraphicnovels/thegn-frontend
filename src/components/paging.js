@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 const Paging = ({nowPageNum, totalPage, setPageNum})=> {

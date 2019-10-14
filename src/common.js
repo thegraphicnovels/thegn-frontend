@@ -34,11 +34,9 @@ export const topSrchFn = (target)=> {
 	
 	inpt.focusin(()=> {
 		console.log('focus in');
-		const _this = $(this);
 		viewTxt.hide();
 	}).focusout(()=> {
 		console.log('focus out');
-		const _this = $(this);
 		if(inpt.val() === '') {
 			viewTxt.show();
 		} else {

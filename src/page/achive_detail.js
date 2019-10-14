@@ -10,15 +10,15 @@ const AchiveDetail = ({
 	},
 }) => {
 	console.log('achiveDetail ID', portpolioId);
+	let topSwiper;
 	const topSwiperEl  = useRef(null);
 	const { data, loading } = useQuery(achiveDetailQuery, {
 		variables: { id : portpolioId },
 	});
-  let topSwiper;
 
 	useEffect(()=>{
 		if(!loading) {topSwiper = swiperFn(topSwiperEl.current);}
-	});
+	}, [loading]);
 
 	if (!loading) {console.log(data);
 		return (

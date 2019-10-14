@@ -13,7 +13,7 @@ const Achive = ({ action }) => {
 	let achiveListFn;
 	let menuFnc;
 
-	const { data, loading, updateQuery } = useQuery(achiveQuery, {
+	const { data, loading } = useQuery(achiveQuery, {
 		variables: { page: nowPageNum, limit: 5 },
 	});
 	const a = useQuery(achiveQuery, {
