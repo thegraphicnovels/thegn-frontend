@@ -155,11 +155,11 @@ export const masonryFn = target => {
 	const _tagMenu = $('.tagMenu', _pageWrap);
 	const _masonryLib = new Masonry(`.${target.current.className}`, {
 		itemSelector: '.grid-item',
-		// columnWidth: '.grid-item',
-		columnWidth: 200,
+		columnWidth: '.grid-item',
+		// columnWidth: 200,
 		// fitWidth: true,
 		gutter: 30,
-		reisze: false,
+		// reisze: false,
 		percentPosition: true,
 	});
 

@@ -14,7 +14,7 @@
 /**************************************************************************************
 ** ACHIVE LIST
 **************************************************************************************/
-.achiveWrap .tagMenu {overflow:hidden;position:fixed;left:66px;top:90px;bottom:100px;width:0;z-index:1;}
+.achiveWrap .tagMenu {overflow:hidden;position:fixed;left:66px;top:90px;bottom:100px;width:0;z-index:5;}
 .achiveWrap .tagMenu > button {position:absolute;left:65px;top:50%;width:20px;height:20px;background-image:url('../images/ico_tag.png');background-repeat:no-repeat;background-position:left bottom;transform:translate(0, -50%);}
 .achiveWrap .tagMenu .swiperScrollBox,
 .achiveWrap .tagMenu .mCustomScrollbar {display:none;margin:0 0 0 100px;}
@@ -35,9 +35,9 @@
 .achiveWrap.active .tagMenu.active .mCustomScrollbar {display:block;}
 
 .achiveWrap {overflow:hidden;}
-.achiveWrap .achiveListWrap {width:100%;margin:0 -5%;}
+.achiveWrap .achiveListWrap {width:100%;margin:0 -4%;}
 .achiveWrap .achiveListWrap .grid {position:relative;box-sizing:border-box;}
-.achiveWrap .achiveListWrap .grid .grid-item {display:inline-block;padding:0 0 5% 5%;}
+.achiveWrap .achiveListWrap .grid .grid-item {display:inline-block;padding:0 4% 5%;}
 .achiveWrap .achiveListWrap .grid .grid-item a {display:block;}
 
 /*************************** 1366 - tablet ***************************/
