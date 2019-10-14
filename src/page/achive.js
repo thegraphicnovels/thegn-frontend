@@ -21,7 +21,7 @@ const Achive = ({ action }) => {
 	});
 
 	useEffect(() => {
-		// console.log('achive useEffect loading', loading);
+		console.log('achive useEffect loading01', loading);
 		if (action === 1 && !loading) {
 			console.log('achive list marsony create - useEffect01');
 			menuFnc = tagMenuFn(tagMenu);
@@ -30,12 +30,12 @@ const Achive = ({ action }) => {
 		
 		return()=> {
 			console.log('useEffect 01 return');
-			if(action === 1) {
+			if(action === 1 && achiveListFn) {
 				console.log('achive list marsony destroy - useEffect01')
 				achiveListFn.destroy();
 			}
 		}
-	}, [action, nowPageNum]);
+	}, [action, loading]);
 
 	if(!a.loading) {
 		console.log(a);
