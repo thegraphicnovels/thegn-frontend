@@ -19,6 +19,7 @@ const PageUrl = () => {
       <Route path="/" exact component={Main} />
       <Route path="/achiveDetail/:portpolioId" component={AchiveDetail} />
       <Route path="/upload" component={Upload} />
+      <Route path="/scratch" component={Scratch} />
       <Redirect from="*" to="/" />
     </Switch>
   );
@@ -32,7 +33,7 @@ const Router = ({ logged }) => {
         <PageUrl />
       </div>
       <Footer />
-	  <Scratch />
+	  {/* <Scratch /> */}
     </BRouter>
   );
 };
