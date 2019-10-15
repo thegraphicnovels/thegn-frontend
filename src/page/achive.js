@@ -7,6 +7,7 @@ import Paging from 'components/paging';
 import PropTypes from 'prop-types';
 
 const Achive = ({ action }) => {
+	const limit = 10;
 	const achiveList = useRef(null);
 	const tagMenu = useRef(null);
 	const [nowPageNum, setPageNum] = useState(1);
@@ -15,7 +16,7 @@ const Achive = ({ action }) => {
 	let menuFnc;
 
 	const { data, loading } = useQuery(achiveQuery, {
-		variables: { page: nowPageNum, limit: 10 },
+		variables: { page: nowPageNum, limit },
 	});
 	
 	useEffect(() => {// action값 변경시 useEffect 실행
@@ -36,7 +37,7 @@ const Achive = ({ action }) => {
 	}, [nowPageNum]);
 
 	useEffect(() => {// 이미지 로드 완료시 useEffect 실행
-		if (action === 1 && imgLoadComplate === 10) {
+		if (action === 1 && imgLoadComplate === limit) {
 			achiveListFn = masonryFn(achiveList);
 		}
 		

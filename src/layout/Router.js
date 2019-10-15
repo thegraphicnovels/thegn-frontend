@@ -8,6 +8,7 @@ import {
 } from 'react-router-dom';
 import Header from 'layout/header';
 import Footer from 'layout/footer';
+import Scratch from 'components/scratch';
 import Main from 'page/main';
 import AchiveDetail from 'page/achive_detail';
 import Upload from 'components/upload';
@@ -31,6 +32,7 @@ const Router = ({ logged }) => {
         <PageUrl />
       </div>
       <Footer />
+	  <Scratch />
     </BRouter>
   );
 };

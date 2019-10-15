@@ -123,3 +123,12 @@
 .paging .pagingNext.disabled em {color:#c9caca;}
 .paging .viewPageNum {display:block;line-height:30px;font-size:26px;font-weight:300;text-align:center;}
 
+/**************************************************************************************
+** Paging
+**************************************************************************************/
+.scratchWrap {position:fixed;left:10px;bottom:10px;width:300px;height:300px;}
+.scratchWrap canvas {position:absolute;left:0;top:0;right:0;bottom:0;}
+.scratchWrap .ScratchCard__Result {display:block;height:80px;line-height:80px;color:#fff;text-align:center;background-color:#000;}
+
+/* .ScratchCard__Container {width:150px;height:80px;}
+.ScratchCard__Container .ScratchCard__Result {display:block;height:80px;line-height:80px;color:#fff;text-align:center;background-color:#000;} */
