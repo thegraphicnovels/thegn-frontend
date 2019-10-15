@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {
-  BrowserRouter as BRouter,
-  Route,
-  Switch,
-  Redirect,
+	BrowserRouter as BRouter,
+	Route,
+	Switch,
+	Redirect,
 } from 'react-router-dom';
 import Header from 'layout/header';
 import Footer from 'layout/footer';
@@ -14,32 +14,31 @@ import AchiveDetail from 'page/achive_detail';
 import Upload from 'components/upload';
 
 const PageUrl = () => {
-  return (
-    <Switch>
-      <Route path="/" exact component={Main} />
-      <Route path="/achiveDetail/:portpolioId" component={AchiveDetail} />
-      <Route path="/upload" component={Upload} />
-      <Route path="/scratch" component={Scratch} />
-      <Redirect from="*" to="/" />
-    </Switch>
-  );
+	return (
+		<Switch>
+			<Route path="/" exact component={Main} />
+			<Route path="/achiveDetail/:portpolioId" component={AchiveDetail} />
+			<Route path="/upload" component={Upload} />
+			<Redirect from="*" to="/" />
+		</Switch>
+	);
 };
 
 const Router = ({ logged }) => {
-  return (
-    <BRouter>
-      <Header logged={logged} />
-      <div id="container">
-        <PageUrl />
-      </div>
-      <Footer />
-	  {/* <Scratch /> */}
-    </BRouter>
-  );
+	return (
+		<BRouter>
+			<Header logged={logged} />
+			<div id="container">
+				<PageUrl />
+			</div>
+			<Footer />
+			{!logged && (<Scratch />)}
+		</BRouter>
+	);
 };
 
 export default Router;
 
 Router.propTypes = {
-  logged: PropTypes.bool.isRequired,
+	logged: PropTypes.bool.isRequired,
 };

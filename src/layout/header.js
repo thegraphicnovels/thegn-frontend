@@ -42,7 +42,7 @@ const Header = ({ logged }) => {
 };
 
 Header.propTypes = {
-  logged: PropTypes.bool.isRequired,
+	logged: PropTypes.bool.isRequired,
 };
 
 export default Header;
