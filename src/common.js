@@ -20,8 +20,11 @@ jQueryBridget('masonry', Masonry, $);
 
 export const fullUrlFn = (url) => {// 파일 full URL경로
 	let domain;
-	if(window.location.href.indexOf('http://localhost:3000/') > -1) {
+	if(window.location.href.indexOf('http://localhost:3000') > -1) {
 		 domain= 'http://localhost:3000/';
+		}else if(window.location.href.indexOf('https://the-gn.com') > -1) {
+			domain= 'https://the-gn.com/';
+
 	}
 	return domain+url;
 }
