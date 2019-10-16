@@ -31,6 +31,8 @@ input[type="password"] {height:26px;padding:0 10px;border:1px solid #00a0e9;back
 
 input[type="radio"], input[type="checkbox"] {appearance:none;-webkit-appearance:none;}
 
+input::placeholder {color:#777;}
+
 img {border:0; vertical-align:middle;}
 
 hr {display:none;}

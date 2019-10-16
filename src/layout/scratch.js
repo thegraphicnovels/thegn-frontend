@@ -12,7 +12,7 @@ const Scratch = ()=> {
 	return(
 		<div className="scratchWrap" ref={scratchWrap}>
 			<canvas className="canvas" width={150} height={80} />
-			<Link to="/login" className="ScratchCard__Result">Admin Login</Link>
+			<button type="button" className="ScratchCard__Result">Admin Login</button>
 		</div>
 	);
 }
