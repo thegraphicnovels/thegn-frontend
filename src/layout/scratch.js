@@ -1,18 +1,33 @@
-import React, {useRef, useEffect} from 'react';
-import {Link} from 'react-router-dom';
-import { scratchFn } from 'common';
+import React, { useRef, useEffect, useState } from 'react';
+import Login from 'page/login';
+import { scratchFn, layerOpenFn } from 'common';
 
 const Scratch = ()=> {
 	const scratchWrap = useRef(null);
+	const [isScratchEnd, setScratchEnd] = useState(false);
+	const [isPopOpen, setPopOpen] = useState('none');
 	
 	useEffect(()=> {
-		scratchFn(scratchWrap.current, 70);
-	});
+		if(!isScratchEnd) {
+			scratchFn(scratchWrap.current, 60, ()=> {
+				// scratch end function
+				console.log('scratch end');
+				setScratchEnd(true);
+			});
+		}
+	}, [isScratchEnd]);
+
+	useEffect(()=> {
+		if(isPopOpen === 'none') {
+			setScratchEnd(false);
+		}
+	}, [isPopOpen]);
 	
 	return(
 		<div className="scratchWrap" ref={scratchWrap}>
-			<canvas className="canvas" width={150} height={80} />
-			<button type="button" className="ScratchCard__Result">Admin Login</button>
+			{!isScratchEnd && (<canvas className="canvas" width={150} height={80} />)}
+			<button type="button" onClick={()=> setPopOpen('block')} className="ScratchCard__Result">Admin Login</button>
+			{isScratchEnd && (<Login isPopOpen={isPopOpen} setPopOpen={setPopOpen} />)}
 		</div>
 	);
 }

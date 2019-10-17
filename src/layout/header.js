@@ -1,12 +1,12 @@
 import React, { useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { topSrchFn, fullUrlFn } from 'common';
+import { placeholderFn, fullUrlFn } from 'common';
 
 const Header = ({ logged }) => {
 	const srchEl = useRef(null);
 	useEffect(()=>{
-		topSrchFn(srchEl.current);
+		placeholderFn(srchEl.current);
 	});
 	return (
 		<header id="header">

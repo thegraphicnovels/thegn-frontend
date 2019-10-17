@@ -22,18 +22,17 @@ export const fullUrlFn = (url) => {// 파일 full URL경로
 	let domain;
 	if(window.location.href.indexOf('http://localhost:3000') > -1) {
 		 domain= 'http://localhost:3000/';
-		}else if(window.location.href.indexOf('https://the-gn.com') > -1) {
-			domain= 'https://the-gn.com/';
-
+	}else if(window.location.href.indexOf('https://the-gn.com') > -1) {
+		domain= 'https://the-gn.com/';
 	}
 	return domain+url;
 }
 
-// 상단 검색박스
-export const topSrchFn = (target)=> {
+// input placeholder 기능
+export const placeholderFn = (target)=> {
 	const searchWrap = $(target);
 	const viewTxt = $('.placeholder', searchWrap);
-	const inpt = $('input[type=text]', searchWrap);
+	const inpt = $('input[type=text], input[type=password]', searchWrap);
 	
 	inpt.focusin(()=> {
 		console.log('focus in');
@@ -188,7 +187,7 @@ export const masonryFn = target => {
 };
 
 // scratch
-export const scratchFn = (target, complatePercent) => {
+export const scratchFn = (target, complatePercent, scratchEndFn) => {
 	let isDrawing; let lastPoint;
 	const container = target;
 	const canvas = container.querySelector('canvas');
@@ -221,7 +220,7 @@ export const scratchFn = (target, complatePercent) => {
 		if (!stride || stride < 1) { stride = 1; }
 	  
 		const pixels = ctx.getImageData(0, 0, canvasWidth, canvasHeight);
-		console.log(pixels);
+		// console.log(pixels);
 		const pdata = pixels.data;
 		const l = pdata.length;
 		const total = (l / stride);
@@ -254,9 +253,10 @@ export const scratchFn = (target, complatePercent) => {
 	
 	const handlePercentage = (filledInPixels)=> {
 		const thisPixels = filledInPixels || 0;
-		console.log(`${filledInPixels  }%`);
+		// console.log(`${filledInPixels  }%`);
 		if (thisPixels > complatePercent) {
-			canvas.parentNode.removeChild(canvas);
+			// canvas.parentNode.removeChild(canvas);
+			if(scratchEndFn) scratchEndFn();
 		}
 	}
 	
@@ -276,13 +276,13 @@ export const scratchFn = (target, complatePercent) => {
 		let x; let y;
 
 		for(let i = 0; i < dist; i++) {
-			x = lastPoint.x + (Math.sin(angle) * i) - (25/3);
-			y = lastPoint.y + (Math.cos(angle) * i) - (25/3);
+			x = lastPoint.x + (Math.sin(angle) * i) - (25/2);
+			y = lastPoint.y + (Math.cos(angle) * i) - (25/2);
 			ctx.globalCompositeOperation = 'destination-out';
-			ctx.drawImage(brush, x, y, brush.width/3, brush.height/3);
+			ctx.drawImage(brush, x, y, brush.width/3, brush.height/2);
 		}
 		lastPoint = currentPoint;
-		console.log(getFilledInPixels(32));
+		// console.log(getFilledInPixels(32));
 		handlePercentage(getFilledInPixels(32));
 	}
   

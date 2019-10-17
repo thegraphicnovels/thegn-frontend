@@ -128,7 +128,7 @@
 **************************************************************************************/
 .scratchWrap {position:fixed;right:10px;bottom:10px;width:150px;height:80px;z-index:10;}
 .scratchWrap .canvas {position:absolute;left:0;top:0;right:0;bottom:0;width:150px;height:80px;}
-.scratchWrap .ScratchCard__Result {display:block;height:80px;line-height:80px;color:#fff;text-align:center;background-color:#000;}
+.scratchWrap .ScratchCard__Result {display:block;width:100%;height:80px;line-height:80px;color:#fff;text-align:center;background-color:#000;}
 
 /**************************************************************************************
 ** Layer Pop
@@ -151,3 +151,4 @@
 .layerWrap .layerpop .layerConts {padding:40px 20px;}
 .layerWrap .layerpop .layerBtn {border-top:1px solid #000;}
 .layerWrap .layerpop .layerBtn button {width:100%;height:40px;font-size:20px;text-align:center;}
+.layerWrap .layerpop .btnClose {position:absolute;right:10px;top:10px;}

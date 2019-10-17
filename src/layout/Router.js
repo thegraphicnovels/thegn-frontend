@@ -11,7 +11,6 @@ import Footer from 'layout/footer';
 import Scratch from 'layout/scratch';
 import Main from 'page/main';
 import AchiveDetail from 'page/achive_detail';
-import Login from 'page/login';
 import Upload from 'components/upload';
 
 const PageUrl = () => {
@@ -34,8 +33,6 @@ const Router = ({ logged }) => {
 			</div>
 			<Footer />
 			{!logged && (<Scratch />)}
-
-			<Login />
 		</BRouter>
 	);
 };
