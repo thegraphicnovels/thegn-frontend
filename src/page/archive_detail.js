@@ -4,7 +4,7 @@ import { useQuery } from '@apollo/react-hooks';
 import { archiveDetailQuery } from 'apollo/archiveQuery';
 import { swiperFn } from 'common';
 
-const AchiveDetail = ({
+const ArchiveDetail = ({
 	match: {
 		params: { portpolioId },
 	},
@@ -23,8 +23,8 @@ const AchiveDetail = ({
 	if (!loading) {console.log(data);
 		return (
 		<div className="contents archiveDetail">
-			<span id="jumpConts" className="blind" tabIndex="achiveDetail">
-			상세 본문영역
+			<span id="jumpConts" className="blind">
+				상세 본문영역
 			</span>
 
 			<Link to={{pathname : '/', state : {menuId : 1}}} className="subMenu01">
@@ -34,7 +34,7 @@ const AchiveDetail = ({
 			<div style={{ display: 'block', width: '100%', height: 'auto' }}>
 			<h2 className="blind">Archive</h2>
 
-			<div className="achiveDescriptWrap">
+			<div className="archiveDescriptWrap">
 				<div className="descriptThum" ref={topSwiperEl}>
 					<button type="button" className="btnPrev"><em className="blind">이전</em></button>
 					<ul className="swiper-wrapper">
@@ -61,7 +61,7 @@ const AchiveDetail = ({
 				</div>
 			</div>
 
-			{/* <div className="achiveMoreBox">
+			{/* <div className="archiveMoreBox">
 				<h3>MORE PROJECT</h3>
 
 				<button type="button" className="btnPrev">
@@ -263,4 +263,4 @@ const AchiveDetail = ({
 	return '';
 };
 
-export default AchiveDetail;
+export default ArchiveDetail;

@@ -6,13 +6,13 @@ import { archiveQuery } from 'apollo/archiveQuery';
 import Paging from 'components/paging';
 import PropTypes from 'prop-types';
 
-const Achive = ({ action }) => {
+const Archive = ({ action }) => {
 	const limit = 10;
-	const achiveList = useRef(null);
+	const archiveList = useRef(null);
 	const tagMenu = useRef(null);
 	const [nowPageNum, setPageNum] = useState(1);
 	const [imgLoadComplate, setLoadComplate] = useState(0);
-	let achiveListFn;
+	let archiveListFn;
 	let menuFnc;
 
 	const { data, loading } = useQuery(archiveQuery, {
@@ -27,8 +27,8 @@ const Achive = ({ action }) => {
 		
 		return()=> {
 			if(action === 1) {
-				console.log('achiveListFn destroy');
-				if(achiveListFn) achiveListFn.destroy();
+				console.log('archiveListFn destroy');
+				if(archiveListFn) archiveListFn.destroy();
 				setPageNum(1);
 				setLoadComplate(0);
 			}
@@ -45,13 +45,13 @@ const Achive = ({ action }) => {
 		console.log('action', action);
 		if (action === 1 && imgLoadComplate === limit) {
 			console.log('masonryFn');
-			achiveListFn = masonryFn(achiveList);
+			archiveListFn = masonryFn(archiveList);
 		}
 		
 		return()=> {
 			console.log('useEffect 02 return');
-			if(action === 1 && achiveListFn) {
-				achiveListFn.destroy();
+			if(action === 1 && archiveListFn) {
+				archiveListFn.destroy();
 			}
 		}
 	}, [imgLoadComplate]);
@@ -95,11 +95,11 @@ const Achive = ({ action }) => {
 				</div>
 
 				<div className="archiveListWrap">
-					<ul className="grid" ref={achiveList}>
+					<ul className="grid" ref={archiveList}>
 						{data &&
 						data.seePortpolios.portpolios.map(portpolioData => (
 							<li key={portpolioData._id} className="grid-item">
-								<Link to={`/achiveDetail/${portpolioData._id}`}>
+								<Link to={`/archiveDetail/${portpolioData._id}`}>
 									<img src={portpolioData.thumbImg} onLoad={()=> setLoadComplate(imgLoadComplate + 1)} alt={portpolioData.title} />
 								</Link>
 							</li>
@@ -114,8 +114,8 @@ const Achive = ({ action }) => {
 	return '';
 };
 
-Achive.propTypes = {
+Archive.propTypes = {
 	action: PropTypes.number.isRequired,
 };
 
-export default Achive;
+export default Archive;
