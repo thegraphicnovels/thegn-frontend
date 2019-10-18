@@ -21,13 +21,16 @@ const Achive = ({ action }) => {
 	
 	useEffect(() => {// action값 변경시 useEffect 실행
 		if (action === 1) {
+			console.log('setPageNum');
 			menuFnc = tagMenuFn(tagMenu);
 		}
 		
 		return()=> {
 			if(action === 1) {
+				console.log('achiveListFn destroy');
 				if(achiveListFn) achiveListFn.destroy();
 				setPageNum(1);
+				setLoadComplate(0);
 			}
 		}
 	}, [action]);
@@ -37,7 +40,11 @@ const Achive = ({ action }) => {
 	}, [nowPageNum]);
 
 	useEffect(() => {// 이미지 로드 완료시 useEffect 실행
+		console.log('imgLoadComplate', imgLoadComplate);
+		console.log('limit', limit);
+		console.log('action', action);
 		if (action === 1 && imgLoadComplate === limit) {
+			console.log('masonryFn');
 			achiveListFn = masonryFn(achiveList);
 		}
 		
