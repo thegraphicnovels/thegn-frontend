@@ -302,3 +302,15 @@ export const scratchFn = (target, complatePercent, scratchEndFn) => {
 	canvas.addEventListener('mouseup', handleMouseUp, false);
 	canvas.addEventListener('touchend', handleMouseUp, false);
 }
+
+// Admin Menu Function
+export const AdminMenuFn = (target)=> {
+	const admMenu = $(target);
+	const admList = $('.admList', admMenu);
+
+	admMenu.mouseenter(function() {
+		admList.show();
+	}).mouseleave(function() {
+		admList.hide();
+	});
+}

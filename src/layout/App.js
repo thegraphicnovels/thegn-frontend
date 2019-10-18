@@ -4,17 +4,17 @@ import { useQuery } from '@apollo/react-hooks';
 import { gql } from 'apollo-boost';
 
 const QUERY = gql`
-  {
-    logged @client
-  }
+{
+	logged @client
+}
 `;
 
 const App = () => {
-  const {
-    data: { logged },
-  } = useQuery(QUERY);
+	const {
+		data: { logged },
+	} = useQuery(QUERY);
 
-  return <Router logged={logged} />;
+	return <Router logged={logged} />;
 };
 
 export default App;

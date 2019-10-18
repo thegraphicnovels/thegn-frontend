@@ -12,11 +12,14 @@
 #header .util .topSrchBox input[type=text] {box-sizing:border-box;width:100%;height:26px;border:none;border-bottom:1px solid #000;outline:none;background:transparent;}
 
 #header .util > a,
-#header .util > span {display:inline-block;height:20px;margin:0 0 0 50px;vertical-align:middle;}
+#header .util > span,
+#header .util > button {display:inline-block;height:20px;margin:0 0 0 50px;vertical-align:middle;text-align:left;}
 #header .util > a:first-child,
-#header .util > span:first-child {margin:0;}
+#header .util > span:first-child,
+#header .util > button:first-child {margin:0;}
 #header .util > a img,
-#header .util > span img {height:100%;}
+#header .util > span img,
+#header .util > button img {height:100%;}
 
 .contents [class^="subMenu"] {position:fixed;top:90px;bottom:100px;box-sizing:border-box;width:47px;background-color:#fff;z-index:5;}
 .contents [class^="subMenu"] em {position:absolute;left:50%;top:50%;height:47px;line-height:47px;font-size:22px;font-weight:700;transform:translate(-50%, -50%) rotate(-90deg);transform-origin:50% 50%;}

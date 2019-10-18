@@ -1,13 +1,17 @@
 import React, { useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { placeholderFn, fullUrlFn } from 'common';
+import { placeholderFn, fullUrlFn, AdminMenuFn } from 'common';
 
 const Header = ({ logged }) => {
 	const srchEl = useRef(null);
+	const adminMenuEl = useRef(null);
 
 	useEffect(()=>{
 		placeholderFn(srchEl.current);
+		if(logged === true) {
+			AdminMenuFn(adminMenuEl.current);
+		}
 	});
 
 	return (
@@ -29,13 +33,29 @@ const Header = ({ logged }) => {
 				<Link to="/upload" className="btnBe">
 					<img src={fullUrlFn("resources/images/icon_Be.svg")} alt="instagram" />
 				</Link>
+
 				{logged === true && (
-					<span>
+					<button type="button" ref={adminMenuEl} className="icoAdm">
 						<em>메뉴</em>
-					</span>
+
+						<span className="admList">
+							<ul>
+								<li>
+									<Link to="/manage/main">MAIN</Link>
+								</li>
+								<li>
+									<Link to="/manage/archive">ARCHIVE</Link>
+								</li>
+								<li>
+									<Link to="/manage/tag">TAG</Link>
+								</li>
+							</ul>
+						</span>
+					</button>
 				)}
+
 				{logged === true && (
-					<Link to="/" className="btnBe">
+					<Link to="/" className="icoLoginState">
 						<img src={fullUrlFn("resources/images/icon_admin.svg")} alt="admin" />
 					</Link>
 				)}
