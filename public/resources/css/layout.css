@@ -43,6 +43,6 @@
 /**************************************************************************************
 ** ACHIVE DETAIL - MENU
 **************************************************************************************/
-.contents.achiveDetail .subMenu01 {left:19px;}
-.contents.achiveDetail .subMenu02 {left:calc(100vw - 133px);}
-.contents.achiveDetail .subMenu03 {left:calc(100vw - 76px);}
+.contents.archiveDetail .subMenu01 {left:19px;}
+.contents.archiveDetail .subMenu02 {left:calc(100vw - 133px);}
+.contents.archiveDetail .subMenu03 {left:calc(100vw - 76px);}
