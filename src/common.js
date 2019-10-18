@@ -33,6 +33,11 @@ export const placeholderFn = (target)=> {
 	const searchWrap = $(target);
 	const viewTxt = $('.placeholder', searchWrap);
 	const inpt = $('input[type=text], input[type=password]', searchWrap);
+	const inptLeng = inpt.val().length;
+
+	if(inptLeng) {
+		viewTxt.hide();
+	}
 	
 	inpt.focusin(()=> {
 		console.log('focus in');
