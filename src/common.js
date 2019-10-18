@@ -314,3 +314,17 @@ export const AdminMenuFn = (target)=> {
 		admList.hide();
 	});
 }
+
+// footer
+export const footOpenFn = (target)=> {
+	const footEl = $(target);
+	const fInfo = $('.fInfo', footEl);
+
+	$('.fInfoBtn button', footEl).click(function() {
+		if(fInfo.is(':visible')) {
+			footEl.removeClass('open');
+		}else{
+			footEl.addClass('open');
+		}
+	});
+}

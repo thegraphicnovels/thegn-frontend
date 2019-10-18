@@ -35,10 +35,16 @@
 .contents:after {display:block;content:"";clear:both;overflow:hidden;width:0;height:0;line-height:0;}
 [class^="pageWrap"] {overflow:hidden;float:left;width:0;height:0;transition:width 0.7s ease;}
 
-#footer {position:absolute;left:0;right:0;bottom:0;padding:100px 0 0;background:#fff;}
+#footer {position:absolute;left:0;right:0;bottom:0;padding:100px 0 0;background:#fff;z-index:5;}
 #footer > .fInfoBtn {position:absolute;top:30px;left:200px;right:200px;border-bottom:5px solid #000;}
 #footer > .fInfoBtn button {width:100%;height:40px;font-size:22px;font-weight:700;text-align:center;}
-#footer .fInfo {display:none;}
+#footer .fInfo {display:none;overflow:hidden;margin:0 200px;}
+#footer .fInfo .fInfoL {float:left;width:415px;line-height:90px;font-size:72px;font-weight:700;}
+#footer .fInfo .fInfoR {position:relative;float:right;width:calc(100% - 500px);}
+#footer .fInfo .fInfoR p {margin:25px 0 0;line-height:36px;font-size:26px;}
+#footer .fInfo .fInfoR .copyright {margin:60px 0 0;color:#707070;}
+#footer.open {background-color:#99ff8d;}
+#footer.open .fInfo {display:block;padding:0 0 30px;}
 
 /**************************************************************************************
 ** ACHIVE DETAIL - MENU
