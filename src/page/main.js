@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { menuClick } from 'common';
 import Mainswiper from 'page/main_slide';
-import Achive from 'page/achive';
+import Achive from 'page/archive';
 import About from 'page/about';
 import Contact from 'page/contact';
 import PropTypes from 'prop-types';

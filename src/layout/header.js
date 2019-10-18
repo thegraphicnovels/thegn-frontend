@@ -5,9 +5,11 @@ import { placeholderFn, fullUrlFn } from 'common';
 
 const Header = ({ logged }) => {
 	const srchEl = useRef(null);
+
 	useEffect(()=>{
 		placeholderFn(srchEl.current);
 	});
+
 	return (
 		<header id="header">
 		<div className="headerIn">
@@ -28,8 +30,13 @@ const Header = ({ logged }) => {
 					<img src={fullUrlFn("resources/images/icon_Be.svg")} alt="instagram" />
 				</Link>
 				{logged === true && (
+					<span>
+						<em>메뉴</em>
+					</span>
+				)}
+				{logged === true && (
 					<Link to="/" className="btnBe">
-					<img src={fullUrlFn("resources/images/icon_admin.svg")} alt="admin" />
+						<img src={fullUrlFn("resources/images/icon_admin.svg")} alt="admin" />
 					</Link>
 				)}
 			</div>

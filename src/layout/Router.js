@@ -10,14 +10,14 @@ import Header from 'layout/header';
 import Footer from 'layout/footer';
 import Scratch from 'layout/scratch';
 import Main from 'page/main';
-import AchiveDetail from 'page/achive_detail';
+import ArchiveDetail from 'page/archive_detail';
 import Upload from 'components/upload';
 
 const PageUrl = () => {
 	return (
 		<Switch>
 			<Route path="/" exact component={Main} />
-			<Route path="/achiveDetail/:portpolioId" component={AchiveDetail} />
+			<Route path="/archiveDetail/:portpolioId" component={ArchiveDetail} />
 			<Route path="/upload" component={Upload} />
 			<Redirect from="*" to="/" />
 		</Switch>

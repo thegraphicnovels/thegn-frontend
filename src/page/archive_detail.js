@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useQuery } from '@apollo/react-hooks';
-import { achiveDetailQuery } from 'apollo/achiveQuery';
+import { archiveDetailQuery } from 'apollo/archiveQuery';
 import { swiperFn } from 'common';
 
 const AchiveDetail = ({
@@ -9,10 +9,10 @@ const AchiveDetail = ({
 		params: { portpolioId },
 	},
 }) => {
-	console.log('achiveDetail ID', portpolioId);
+	console.log('archiveDetail ID', portpolioId);
 	let topSwiper;
 	const topSwiperEl  = useRef(null);
-	const { data, loading } = useQuery(achiveDetailQuery, {
+	const { data, loading } = useQuery(archiveDetailQuery, {
 		variables: { id : portpolioId },
 	});
 
@@ -22,7 +22,7 @@ const AchiveDetail = ({
 
 	if (!loading) {console.log(data);
 		return (
-		<div className="contents achiveDetail">
+		<div className="contents archiveDetail">
 			<span id="jumpConts" className="blind" tabIndex="achiveDetail">
 			상세 본문영역
 			</span>

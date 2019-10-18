@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useQuery } from '@apollo/react-hooks';
 import { masonryFn, tagMenuFn } from 'common';
-import { achiveQuery } from 'apollo/achiveQuery';
+import { archiveQuery } from 'apollo/archiveQuery';
 import Paging from 'components/paging';
 import PropTypes from 'prop-types';
 
@@ -15,7 +15,7 @@ const Achive = ({ action }) => {
 	let achiveListFn;
 	let menuFnc;
 
-	const { data, loading } = useQuery(achiveQuery, {
+	const { data, loading } = useQuery(archiveQuery, {
 		variables: { page: nowPageNum, limit },
 	});
 	
@@ -52,7 +52,7 @@ const Achive = ({ action }) => {
 	if (action === 1 && !loading) {
 		console.log('loading end');
 		return (
-			<div className="achiveWrap">
+			<div className="archiveWrap">
 				<div className="tagMenu" ref={tagMenu}>
 				<button type="button">
 					<em className="blind">태그메뉴</em>
@@ -87,7 +87,7 @@ const Achive = ({ action }) => {
 				</div>
 				</div>
 
-				<div className="achiveListWrap">
+				<div className="archiveListWrap">
 					<ul className="grid" ref={achiveList}>
 						{data &&
 						data.seePortpolios.portpolios.map(portpolioData => (

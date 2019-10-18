@@ -21,10 +21,9 @@ const Login = ({isPopOpen, setPopOpen})=> {
 
 	// apollo Login Mutation, variables 는 따로 뺄 수 있다.
 	const [loginUserMutation] = useMutation(LOGIN_USER, {
-	variables: { id: id.value, password: password.value },
+		variables: { id: id.value, password: password.value },
 	});
 	const [localLogInMutation] = useMutation(LOCAL_LOG_IN);
-
 
 	const placeEl01 = useRef(null);
 	const placeEl02= useRef(null);
