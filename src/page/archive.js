@@ -22,13 +22,13 @@ const Archive = ({ action }) => {
 	
 	useEffect(() => {// action값 변경시 useEffect 실행
 		if (action === 1) {
-			console.log('setPageNum');
+			// console.log('setPageNum');
 			menuFnc = tagMenuFn(tagMenu);
 		}
 		
 		return()=> {
 			if(action === 1) {
-				console.log('archiveListFn destroy');
+				// console.log('archiveListFn destroy');
 				if(archiveListFn) archiveListFn.destroy();
 				setPageNum(1);
 				setLoadComplate(0);
@@ -41,16 +41,16 @@ const Archive = ({ action }) => {
 	}, [nowPageNum]);
 
 	useEffect(() => {// 이미지 로드 완료시 useEffect 실행
-		console.log('imgLoadComplate', imgLoadComplate);
-		console.log('limit', limit);
-		console.log('action', action);
+		// console.log('imgLoadComplate', imgLoadComplate);
+		// console.log('limit', limit);
+		// console.log('action', action);
 		if (action === 1 && imgLoadComplate === limit) {
-			console.log('masonryFn');
+			// console.log('masonryFn');
 			archiveListFn = masonryFn(archiveList);
 		}
 		
 		return()=> {
-			console.log('useEffect 02 return');
+			// console.log('useEffect 02 return');
 			if(action === 1 && archiveListFn) {
 				archiveListFn.destroy();
 			}
