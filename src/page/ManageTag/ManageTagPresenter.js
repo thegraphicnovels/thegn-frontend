@@ -1,7 +1,107 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import ReactTable from 'react-table';
+import 'react-table/react-table.css';
+import { formatDate } from 'common';
+import { RIEInput } from 'riek';
 
-const ManageTagPresenter = () => {
-  return <div>ManageTagPresenter</div>;
+const ManageTagPresenter = ({
+  tag,
+  tagData,
+  loading,
+  handleTagCreate,
+  handleTagModify,
+  handleTagDelete,
+}) => {
+  return (
+    <div>
+      <div>
+        <input
+          id="archiveTitle"
+          placeholder="Title"
+          value={tag.value}
+          onChange={tag.onChange}
+          type="text"
+        />
+        <button type="button" onClick={() => handleTagCreate()}>
+          Add
+        </button>
+      </div>
+      {!loading && tagData && (
+        <ReactTable
+          noDataText="No Tags"
+          data={tagData.seeTags}
+          columns={[
+            {
+              Header: 'Id',
+              accessor: '_id',
+              show: false,
+            },
+            {
+              Header: 'Tag',
+              accessor: 'value',
+              width: 150,
+              Cell: row => (
+                <RIEInput
+                  value={row.value}
+                  change={handleTagModify}
+                  propName={row.row._id}
+                />
+              ),
+            },
+            {
+              Header: 'Creator',
+              accessor: 'user.name',
+              width: 150,
+            },
+            {
+              Header: 'Create Date',
+              id: 'updateAt',
+              accessor: d => {
+                const { updateAt } = d;
+                return formatDate(updateAt);
+              },
+              width: 160,
+            },
+            {
+              Header: 'Action',
+              width: 100,
+              Cell: row => (
+                <button
+                  type="button"
+                  onClick={() => handleTagDelete(row.row._id, row.row.value)}
+                >
+                  delete
+                </button>
+              ),
+            },
+          ]}
+          className="-striped -highlight"
+          minRows={1}
+          defaultSorted={[
+            {
+              id: 'updateAt',
+              desc: true,
+            },
+          ]}
+        />
+      )}
+    </div>
+  );
+};
+
+ManageTagPresenter.defaultProps = {
+  tag: '',
+  tagData: null,
+};
+
+ManageTagPresenter.propTypes = {
+  tag: PropTypes.object,
+  loading: PropTypes.bool.isRequired,
+  tagData: PropTypes.object,
+  handleTagCreate: PropTypes.func.isRequired,
+  handleTagModify: PropTypes.func.isRequired,
+  handleTagDelete: PropTypes.func.isRequired,
 };
 
 export default ManageTagPresenter;

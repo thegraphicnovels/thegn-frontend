@@ -40,6 +40,7 @@ export const archiveDetailQuery = gql`
         _id
         name
       }
+      thumbImg
       files {
         _id
         url
@@ -80,7 +81,7 @@ export const archiveModifyQuery = gql`
     $id: String!
     $title: String!
     $description: String
-    $thumbFileUrl: thumbFileUrl
+    $thumbFileUrl: String
     $fileUrl: [String]
     $tags: [String]
   ) {

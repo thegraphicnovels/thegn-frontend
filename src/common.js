@@ -233,20 +233,21 @@ export const scratchFn = (target, complatePercent, scratchEndFn) => {
   // Only test every `stride` pixel. `stride`x faster,
   // but might lead to inaccuracy
   const getFilledInPixels = stride => {
+    let std = stride;
     if (!stride || stride < 1) {
-      stride = 1;
+      std = 1;
     }
 
     const pixels = ctx.getImageData(0, 0, canvasWidth, canvasHeight);
     // console.log(pixels);
     const pdata = pixels.data;
     const l = pdata.length;
-    const total = l / stride;
+    const total = l / std;
     let count = 0;
 
     // Iterate over all pixels
-    for (let i = (count = 0); i < l; i += stride) {
-      if (parseInt(pdata[i]) === 0) {
+    for (let i = 0; i < l; i += std) {
+      if (pdata[i] === 0) {
         count++;
       }
     }
@@ -345,4 +346,28 @@ export const footOpenFn = target => {
       footEl.addClass('open');
     }
   });
+};
+
+export const formatDate = updateAt => {
+  const date = new Date(Number(updateAt));
+  const monthNames = [
+    'Jan',
+    'Feb',
+    'Mar',
+    'Apr',
+    'May',
+    'Jun',
+    'Jul',
+    'Aug',
+    'Sep',
+    'Oct',
+    'Nov',
+    'Dec',
+  ];
+
+  const day = date.getDate();
+  const monthIndex = date.getMonth();
+  const year = date.getFullYear();
+
+  return `${day} ${monthNames[monthIndex]} ${year}`;
 };

@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { FilePond, registerPlugin } from 'react-filepond';
-// Import FilePond styles
-import 'filepond/dist/filepond.min.css';
+import { FilePond as ReactFilePond, registerPlugin } from 'react-filepond';
 
 // Import the Image EXIF Orientation and Image Preview plugins
 // Note: These need to be installed separately
@@ -10,7 +8,11 @@ import 'filepond/dist/filepond.min.css';
 import FilePondPluginImageExifOrientation from 'filepond-plugin-image-exif-orientation';
 import FilePondPluginImagePreview from 'filepond-plugin-image-preview';
 import FilePondPluginFileValidateType from 'filepond-plugin-file-validate-type';
+
+// Import FilePond styles
+import 'filepond/dist/filepond.min.css';
 import 'filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css';
+
 // Register the plugins
 registerPlugin(
   FilePondPluginImageExifOrientation,
@@ -18,9 +20,9 @@ registerPlugin(
   FilePondPluginFileValidateType,
 );
 
-const FileUpload = ({ filepondEl, files, setFiles, allowMultiple, label }) => {
+const FilePond = ({ filepondEl, files, setFiles, allowMultiple, label }) => {
   return (
-    <FilePond
+    <ReactFilePond
       ref={filepondEl}
       files={files}
       acceptedFileTypes="image/*"
@@ -34,7 +36,7 @@ const FileUpload = ({ filepondEl, files, setFiles, allowMultiple, label }) => {
   );
 };
 
-FileUpload.propTypes = {
+FilePond.propTypes = {
   filepondEl: PropTypes.object.isRequired,
   files: PropTypes.any.isRequired,
   setFiles: PropTypes.func.isRequired,
@@ -42,4 +44,4 @@ FileUpload.propTypes = {
   label: PropTypes.string.isRequired,
 };
 
-export default FileUpload;
+export default FilePond;

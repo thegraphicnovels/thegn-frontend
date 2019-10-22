@@ -22,7 +22,18 @@ const Header = ({ logged }) => {
     <header id="header">
       <div className="headerIn">
         <h1 className="logo">
-          <Link to={process.env.REACT_APP_DOMAIN_URL}>
+          <Link
+            to="/"
+            onClick={() => {
+              // console.log(window.location.pathname);
+              const { pathname } = window.location;
+              if (pathname === '/') {
+                window.location.reload();
+              } else {
+                window.location.href = process.env.REACT_APP_DOMAIN_URL;
+              }
+            }}
+          >
             <img
               src={fullUrlFn('resources/images/logo.png')}
               alt="the graphic novels"

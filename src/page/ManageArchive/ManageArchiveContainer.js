@@ -8,29 +8,33 @@ import {
   archiveModifyQuery,
   archiveDeleteQuery,
 } from 'apollo/archiveQuery';
-import useInput from 'hook/useInput';
+import { useInput } from 'rooks';
 import request from 'superagent';
-import { toast } from 'react-toastify';
 import ManageArchivePresenter from './ManageArchivePresenter';
 
-const thumbUrl = '';
-const fileUrls = [];
-
-const ManageArchiveContainer = ({ history, portpolioId }) => {
+const ManageArchiveContainer = ({
+  history,
+  match: {
+    params: { portpolioId },
+  },
+}) => {
   const filepondEl = useRef(null);
   const thumbFilepondEl = useRef(null);
-  const [thumbFiles, setThumbFiles] = useState(''); // Thumbnail
+  const [thumbFiles, setThumbFiles] = useState([]); // Thumbnail
   const [files, setFiles] = useState([]); // portpolio
-  const [thumbFileUrl, setThumbFileUrl] = useState(thumbUrl); // thumbnail url
-  const [fileUrl, setFileUrl] = useState(fileUrls); // portpolio url
+  const [thumbFileUrl, setThumbFileUrl] = useState([]); // thumbnail url
+  const [fileUrl, setFileUrl] = useState([]); // portpolio url
   const [tags, setTags] = useState([]); // tag
 
   // all tag Query
-  const [seeTagQuery, { data: tagData }] = useLazyQuery(tagQuery);
+  const [seeTagQuery, { data: tagData }] = useLazyQuery(tagQuery, {
+    fetchPolicy: 'network-only',
+  });
 
   // portpolioId 가 있을시 조회한다.
   const { data: portpolioData } = useQuery(archiveDetailQuery, {
     variables: { id: portpolioId },
+    fetchPolicy: 'network-only',
     skip: !portpolioId, // portpolioId가 없으면 건너뛴다.
     onCompleted: ({ detailPortpolio }) => {
       const dTag = detailPortpolio.tags;
@@ -55,23 +59,17 @@ const ManageArchiveContainer = ({ history, portpolioId }) => {
         setFileUrl(fileArr);
       }
 
-      setThumbFileUrl(detailPortpolio.thumbImg);
+      setThumbFileUrl([detailPortpolio.thumbImg]);
     },
   });
 
-  // portpolioId 가 없을때 tag를 조회하기 위함.
+  // portpolioId 가 없을때
   useEffect(() => {
     if (!portpolioId) {
       seeTagQuery();
+      setTags([]);
     }
   }, [portpolioId, seeTagQuery]);
-
-  // archiveUpload Query
-  const [archiveUploadMutation] = useMutation(archiveUploadQuery);
-  // archiveModify Query
-  const [archiveModifyMutation] = useMutation(archiveModifyQuery);
-  // archiveModify Query
-  const [archiveDeleteMutation] = useMutation(archiveDeleteQuery);
 
   const title = useInput(
     portpolioData ? portpolioData.detailPortpolio.title : '',
@@ -79,6 +77,13 @@ const ManageArchiveContainer = ({ history, portpolioId }) => {
   const description = useInput(
     portpolioData ? portpolioData.detailPortpolio.description : '',
   );
+
+  // archiveUpload Query
+  const [archiveUploadMutation] = useMutation(archiveUploadQuery);
+  // archiveModify Query
+  const [archiveModifyMutation] = useMutation(archiveModifyQuery);
+  // archiveModify Query
+  const [archiveDeleteMutation] = useMutation(archiveDeleteQuery);
 
   // Cloudinary upload Function
   const portpolioUpload = async (fileArr, kind) => {
@@ -89,7 +94,7 @@ const ManageArchiveContainer = ({ history, portpolioId }) => {
       preset = process.env.REACT_APP_CLOUDINARY_UPLOAD_THUMBNAIL_PRESET;
     }
     for (let i = 0; i < fileArr.length; i++) {
-      const url = request
+      const url = await request
         .post(process.env.REACT_APP_CLOUDINARY_UPLOAD_URL)
         .field('upload_preset', preset)
         .field('file', fileArr[i])
@@ -97,6 +102,7 @@ const ManageArchiveContainer = ({ history, portpolioId }) => {
           const {
             body: { secure_url: secureUrl },
           } = response;
+
           if (secureUrl) return secureUrl;
           return '';
         });
@@ -107,82 +113,91 @@ const ManageArchiveContainer = ({ history, portpolioId }) => {
           return file;
         });
       } else if (kind === 'thumbnail') {
-        setThumbFileUrl(url);
+        setThumbFileUrl(file => {
+          file.push(url);
+          return file;
+        });
       }
     }
   };
 
   const handleUpload = async action => {
     let _id;
-    try {
-      if (files) {
-        await portpolioUpload(files, 'post');
-      }
-      if (thumbFiles) {
-        await portpolioUpload(thumbFiles, 'thumbnail');
-      }
-      if (action === 'upload') {
-        if (title.value !== '' && files && files.length > 0) {
-          const {
-            data: { uploadPortpolio },
-          } = await archiveUploadMutation({
-            variables: {
-              title: title.value,
-              description: description.value,
-              thumbFileUrl,
-              fileUrl,
-              tags,
-            },
-          });
+    if (files.length > 0 && thumbFiles.length > 0 && title.value !== '') {
+      if (window.confirm('Do you want to upload this archive?')) {
+        try {
+          if (files) {
+            await portpolioUpload(files, 'post');
+          }
+          if (thumbFiles) {
+            await portpolioUpload(thumbFiles, 'thumbnail');
+          }
+          if (action === 'upload') {
+            if (title.value !== '' && files && files.length > 0) {
+              const {
+                data: { uploadPortpolio },
+              } = await archiveUploadMutation({
+                variables: {
+                  title: title.value,
+                  description: description.value,
+                  thumbFileUrl: thumbFileUrl[0],
+                  fileUrl,
+                  tags,
+                },
+              });
 
-          _id = uploadPortpolio._id;
-        } else {
-          toast.error('Title & File is required');
-        }
-      } else if (action === 'edit') {
-        if (title.value !== '') {
-          const {
-            data: { modifyPortpolio },
-          } = await archiveModifyMutation({
-            variables: {
-              id: portpolioId,
-              title: title.value,
-              description: description.value,
-              thumbFileUrl,
-              fileUrl,
-              tags,
-            },
-          });
-          _id = modifyPortpolio;
-        } else {
-          toast.error('Title is required');
+              _id = uploadPortpolio._id;
+            } else {
+              window.alert('Title & File is required');
+            }
+          } else if (action === 'edit') {
+            if (title.value !== '') {
+              const {
+                data: { modifyPortpolio },
+              } = await archiveModifyMutation({
+                variables: {
+                  id: portpolioId,
+                  title: title.value,
+                  description: description.value,
+                  thumbFileUrl: thumbFileUrl[0],
+                  fileUrl,
+                  tags,
+                },
+              });
+              _id = modifyPortpolio;
+            } else {
+              window.alert('Title is required');
+            }
+          }
+          if (_id) {
+            history.push(`/archiveDetail/${_id}`);
+          }
+        } catch (e) {
+          console.log(e);
         }
       }
-      if (_id) {
-        toast.success(`Portpolio ${action} success`, {
-          autoClose: 3000,
-          onClose: () => history.push(`/archiveDetail/${_id}`),
-        });
-      }
-    } catch (e) {
-      console.log(e);
+    } else {
+      window.alert('Title & Thumbnail & Portpolio is Required');
     }
   };
 
   const handleDeleteArchive = async id => {
     try {
-      const {
-        data: { deletePortpolio },
-      } = await archiveDeleteMutation({
-        variables: {
-          id,
-        },
-      });
+      if (window.confirm('This archive Delete?')) {
+        const {
+          data: { deletePortpolio },
+        } = await archiveDeleteMutation({
+          variables: {
+            id,
+          },
+        });
 
-      if (deletePortpolio) {
-        toast.success('This archive Delete success');
-      } else {
-        toast.error('Failed to delete archive');
+        if (deletePortpolio) {
+          window.alert('This archive Delete success');
+          history.push('/');
+        } else {
+          window.alert('Failed to delete archive');
+        }
       }
     } catch (e) {
       console.log(e);
@@ -200,15 +215,16 @@ const ManageArchiveContainer = ({ history, portpolioId }) => {
   };
 
   const handleDelFile = index => {
-    setFileUrl(file => {
-      const filesArr = [];
-      for (let i = 0; i < file.length; i++) {
-        if (index !== i) {
-          filesArr.push(file[i]);
+    if (window.confirm('Do you wnat to delete this Post?'))
+      setFileUrl(file => {
+        const filesArr = [];
+        for (let i = 0; i < file.length; i++) {
+          if (index !== i) {
+            filesArr.push(file[i]);
+          }
         }
-      }
-      return filesArr;
-    });
+        return filesArr;
+      });
   };
 
   const findDuplicates = (array, id) => {
@@ -246,13 +262,11 @@ const ManageArchiveContainer = ({ history, portpolioId }) => {
   );
 };
 
-ManageArchiveContainer.defaultProps = {
-  portpolioId: '',
-};
-
 ManageArchiveContainer.propTypes = {
   history: PropTypes.object.isRequired,
-  portpolioId: PropTypes.string,
+  match: PropTypes.shape({
+    params: PropTypes.object,
+  }).isRequired,
 };
 
 export default ManageArchiveContainer;

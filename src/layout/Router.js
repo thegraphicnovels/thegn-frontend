@@ -19,7 +19,10 @@ const PageUrl = ({ logged }) => {
   return (
     <Switch>
       <Route path="/" exact component={Main} />
-      <Route path="/archiveDetail/:portpolioId" component={ArchiveDetail} />
+      <Route
+        path="/archiveDetail/:portpolioId"
+        render={props => <ArchiveDetail {...props} logged={logged} />}
+      />
       {logged && <Route path="/manage/main" exact component={ManageMain} />}
       {logged && (
         <Route path="/manage/main/:mainId" exact component={ManageMain} />

@@ -28,8 +28,9 @@
     "react-router-dom": "^5.0.1",
     "react-scripts": "3.1.2",
     "react-table": "^6.10.3",
-    "react-toastify": "^5.4.0",
     "react-toggle": "^4.1.1",
+    "riek": "^1.1.0",
+    "rooks": "^3.4.0",
     "superagent": "^5.1.0",
     "swiper": "^5.0.3"
   },
@@ -52,12 +53,17 @@
       "react/jsx-indent": 0,
       "react/forbid-prop-types": 0,
       "react/no-array-index-key": 0,
+      "react/jsx-props-no-spreading": 0,
       "import/no-unresolved": 0,
       "import/prefer-default-export": 0,
       "no-underscore-dangle": 0,
+      "no-await-in-loop": 0,
       "no-console": 0,
       "no-unused-vars": 0,
-      "no-plusplus": 0
+      "no-plusplus": 0,
+      "no-alert": 0,
+      "no-restricted-globals": 0,
+      "no-restricted-properties": 0
     },
     "env": {
       "browser": true
