@@ -40,7 +40,7 @@ const Header = ({ logged }) => {
               alt="instagram"
             />
           </Link>
-          <Link to="/upload" className="btnBe">
+          <Link to="/" className="btnBe">
             <img
               src={fullUrlFn('resources/images/icon_Be.svg')}
               alt="instagram"

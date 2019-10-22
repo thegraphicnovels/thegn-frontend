@@ -11,7 +11,6 @@ import Footer from 'layout/footer';
 import Scratch from 'layout/scratch';
 import Main from 'page/main';
 import ArchiveDetail from 'page/archive_detail';
-import Upload from 'components/upload';
 import ManageMain from 'page/ManageMain';
 import ManageArchive from 'page/ManageArchive';
 import ManageTag from 'page/ManageTag';
@@ -21,7 +20,6 @@ const PageUrl = ({ logged }) => {
     <Switch>
       <Route path="/" exact component={Main} />
       <Route path="/archiveDetail/:portpolioId" component={ArchiveDetail} />
-      <Route path="/upload" component={Upload} />
       {logged && <Route path="/manage/main" exact component={ManageMain} />}
       {logged && (
         <Route path="/manage/main/:mainId" exact component={ManageMain} />
