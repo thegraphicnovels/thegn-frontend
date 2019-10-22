@@ -123,7 +123,7 @@ const ManageArchiveContainer = ({
 
   const handleUpload = async action => {
     let _id;
-    if (files.length > 0 && thumbFiles.length > 0 && title.value !== '') {
+    if (fileUrl.length > 0 && thumbFileUrl.length > 0 && title.value !== '') {
       if (window.confirm('Do you want to upload this archive?')) {
         try {
           if (files) {
