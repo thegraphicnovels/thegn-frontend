@@ -17,6 +17,7 @@ const Archive = ({ action }) => {
 
 	const { data, loading } = useQuery(archiveQuery, {
 		variables: { page: nowPageNum, limit },
+		fetchPolicy : "network-only",
 	});
 	
 	useEffect(() => {// action값 변경시 useEffect 실행
