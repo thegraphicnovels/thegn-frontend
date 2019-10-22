@@ -22,7 +22,7 @@ const Header = ({ logged }) => {
     <header id="header">
       <div className="headerIn">
         <h1 className="logo">
-          <Link to="/">
+          <Link to={process.env.REACT_APP_DOMAIN_URL}>
             <img
               src={fullUrlFn('resources/images/logo.png')}
               alt="the graphic novels"
