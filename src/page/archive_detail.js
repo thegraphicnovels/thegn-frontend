@@ -62,11 +62,18 @@ const ArchiveDetail = ({
 
             <div className="descriptBox">
               {logged && (
-                <div style={{ display: 'flex', flexdirection: 'row' }}>
-                  <Link to={`/manage/archive/${data.detailPortpolio._id}`}>
-                    <button type="button">수정</button>
-                  </Link>
-                </div>
+                <>
+                  <div style={{ display: 'flex', flexdirection: 'row' }}>
+                    <Link to={`/manage/archive/${data.detailPortpolio._id}`}>
+                      <button type="button">수정</button>
+                    </Link>
+                  </div>
+                  <div style={{ display: 'flex', flexdirection: 'row' }}>
+                    <Link to={`/manage/main/${data.detailPortpolio._id}`}>
+                      <button type="button">메인배너수정</button>
+                    </Link>
+                  </div>
+                </>
               )}
               <strong className="tit">{data.detailPortpolio.title}</strong>
 

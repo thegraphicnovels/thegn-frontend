@@ -40,6 +40,7 @@ export const archiveDetailQuery = gql`
         _id
         name
       }
+      mainImg
       thumbImg
       files {
         _id
@@ -99,5 +100,16 @@ export const archiveModifyQuery = gql`
 export const archiveDeleteQuery = gql`
   mutation deletePortpolio($id: String!) {
     deletePortpolio(id: $id)
+  }
+`;
+
+export const archiveSelectQuery = gql`
+  query seePortpolios {
+    seePortpolios {
+      portpolios {
+        _id
+        title
+      }
+    }
   }
 `;

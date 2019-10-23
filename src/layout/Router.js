@@ -25,7 +25,7 @@ const PageUrl = ({ logged }) => {
       />
       {logged && <Route path="/manage/main" exact component={ManageMain} />}
       {logged && (
-        <Route path="/manage/main/:mainId" exact component={ManageMain} />
+        <Route path="/manage/main/:portpolioId" exact component={ManageMain} />
       )}
       {logged && (
         <Route path="/manage/archive" exact component={ManageArchive} />
