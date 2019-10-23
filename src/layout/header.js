@@ -60,7 +60,10 @@ const Header = ({ logged }) => {
 
           {logged === true && (
             <button type="button" ref={adminMenuEl} className="icoAdm">
-              <em>메뉴</em>
+              <img
+                src={fullUrlFn('resources/images/icon_admin.svg')}
+                alt="admin"
+              />
 
               <span className="admList">
                 <ul>
@@ -84,10 +87,7 @@ const Header = ({ logged }) => {
               className="icoLoginState"
               onClick={() => logoutMutation()}
             >
-              <img
-                src={fullUrlFn('resources/images/icon_admin.svg')}
-                alt="admin"
-              />
+              Logout
             </Link>
           )}
         </div>
