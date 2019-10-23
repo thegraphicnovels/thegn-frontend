@@ -1,5 +1,25 @@
 @charset "utf-8";
 
+.registBox {display:block;}
+.registBox h2 {margin:0 0 30px;font-size:30px;}
+.registBox table {border-top:1px solid #000;border-bottom:1px solid #000;}
+.registBox table th {font-size:18px;border-top:1px solid #000;background-color:#cdcdcd;}
+.registBox table td {padding:10px;border-top:1px solid #000;}
+.registBox table tr:first-child th,
+.registBox table tr:first-child td {border-top:none;}
+
+.regImgViewList {margin:50px 0 0;padding:10px;background-color:#f1f0ef;}
+.regImgViewList li {margin:10px 0 0;}
+.regImgViewList li:first-child {margin:0;}
+.regImgViewList li .previewThumbImgBox {padding:0;background-color:transparent;}
+.regImgViewList li .previewThumbImgBox button {left:10px;top:10px;}
+
 .inptFileWrap {display:block;}
-.inptFileWrap strong {display:block;font-size:26px;line-height:36px;}
-.inptFileWrap.filepond--wrapper {}
+.previewThumbImgBox {display:block;position:relative;padding:10px;background-color:#f1f0ef;}
+.previewThumbImgBox > span {display:block;padding:10px;text-align:center;border-radius:10px;background-color:#222;}
+.previewThumbImgBox > span img {max-width:100%;}
+.previewThumbImgBox button {position:absolute;left:20px;top:20px;width:28px;height:28px;color:#fff;border:1px solid #fff;border-radius:100%;}
+
+/* .filepond--wrapper .filepond--root {overflow:hidden;position:relative;}
+.filepond--wrapper .filepond--root .filepond--browser {position:absolute;left:-1px;top:-1px;width:0;height:0;}
+.filepond--wrapper .filepond--root .filepond--drop-label label {display:block;line-height:100px;font-size:20px;text-align:center;border:1px dashed #555;border-radius:10px;} */

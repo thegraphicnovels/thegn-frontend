@@ -3,7 +3,11 @@
 /**************************************************************************************
 ** MAIN SWIPER
 **************************************************************************************/
-[class^="btnCustm"]
+[class^="btnCustm"] {display:inline-block;}
+[class^="btnCustm"] span {display:block;height:32px;padding:0 10px;line-height:32px;font-size:18px;border:1px solid #000;border-radius:5px;}
+
+[class^="btnPageBox"] {margin:50px 0 0;text-align:center;}
+
 
 /**************************************************************************************
 ** MAIN SWIPER
