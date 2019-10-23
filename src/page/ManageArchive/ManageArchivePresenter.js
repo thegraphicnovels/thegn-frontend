@@ -37,13 +37,38 @@ const ManageArchivePresenter = ({
 					<tr>
 						<th>Title</th>
 						<td>
-							<input id="archiveTitle" placeholder="Title" value={title.value} onChange={title.onChange} type="text" />
+							<input type="text" className="inpTxt" id="archiveTitle" placeholder="Title" value={title.value} onChange={title.onChange} />
 						</td>
 					</tr>
 					<tr>
 						<th>Description</th>
 						<td>
-							<textarea placeholder="Description" value={description.value} onChange={description.onChange} />
+							<div className="textArea">
+								<textarea placeholder="Description" value={description.value} onChange={description.onChange} />
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<th>Tags</th>
+						<td>
+							{tags.length > 0 && (
+								<div className="tagListBox">
+									<ul>
+										{tagData && tagData.seeTags.map(tag => {
+											let duplicateChk = false;
+											if (tags) {
+											duplicateChk = findDuplicates(tags, tag._id);
+											}
+			
+											return (
+												<li>
+													<ToggleComponent key={tag._id} defaultChecked={duplicateChk} onChange={handleUseTag} value={tag._id} label={tag.value} />
+												</li>
+											);
+										})}
+									</ul>
+								</div>
+							)}
 						</td>
 					</tr>
 					<tr>
@@ -90,19 +115,6 @@ const ManageArchivePresenter = ({
 					</tr>
 				</tbody>
 			</table>
-			
-
-			{tagData &&
-			tagData.seeTags.map(tag => {
-				let duplicateChk = false;
-				if (tags) {
-				duplicateChk = findDuplicates(tags, tag._id);
-				}
-
-				return (
-				<ToggleComponent key={tag._id} defaultChecked={duplicateChk} onChange={handleUseTag} value={tag._id} label={tag.value} />
-				);
-			})}
 
 			<div className="btnPageBox">
 				{!portpolioData ? (

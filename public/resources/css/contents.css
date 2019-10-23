@@ -1,12 +1,20 @@
 @charset "utf-8";
 
 /**************************************************************************************
-** MAIN SWIPER
+** input style
+**************************************************************************************/
+input[type="text"] {box-sizing:border-box;width:100%;height:32px;font-size:18px;border:1px solid #777;}
+[class^="textArea"] {padding:10px;line-height:0;border:1px solid #777;}
+[class^="textArea"] textarea {width:100%;height:150px;font-size:18px;resize:none;border:none;outline:none;}
+
+/**************************************************************************************
+** button style
 **************************************************************************************/
 [class^="btnCustm"] {display:inline-block;}
 [class^="btnCustm"] span {display:block;height:32px;padding:0 10px;line-height:32px;font-size:18px;border:1px solid #000;border-radius:5px;}
 
 [class^="btnPageBox"] {margin:50px 0 0;text-align:center;}
+[class^="btnPageBox"] button + button {margin:0 0 0 20px;}
 
 
 /**************************************************************************************

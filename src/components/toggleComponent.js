@@ -1,7 +1,6 @@
 import React from 'react';
 import Toggle from 'react-toggle';
 import PropTypes from 'prop-types';
-import 'react-toggle/style.css';
 
 const ToggleComponent = ({ defaultChecked, onChange, value, label }) => {
   return (
