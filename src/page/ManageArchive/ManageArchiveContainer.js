@@ -123,35 +123,20 @@ const ManageArchiveContainer = ({
 
   const handleUpload = async action => {
     let _id;
-    if (fileUrl.length > 0 && thumbFileUrl.length > 0 && title.value !== '') {
-      if (window.confirm('Do you want to upload this archive?')) {
-        try {
-          if (files) {
-            await portpolioUpload(files, 'post');
-          }
-          if (thumbFiles) {
-            await portpolioUpload(thumbFiles, 'thumbnail');
-          }
-          if (action === 'upload') {
-            if (title.value !== '' && files && files.length > 0) {
-              const {
-                data: { uploadPortpolio },
-              } = await archiveUploadMutation({
-                variables: {
-                  title: title.value,
-                  description: description.value,
-                  thumbFileUrl: thumbFileUrl[0],
-                  fileUrl,
-                  tags,
-                },
-              });
-
-              _id = uploadPortpolio._id;
-            } else {
-              window.alert('Title & File is required');
-            }
-          } else if (action === 'edit') {
-            if (title.value !== '') {
+    try {
+      if (action === 'edit') {
+        if (
+          (thumbFileUrl.length > 0 && fileUrl.length > 0) ||
+          (files.length > 0 && thumbFiles.length > 0)
+        ) {
+          if (title.value !== '') {
+            if (window.confirm('Do you want to edit this archive?')) {
+              if (files) {
+                await portpolioUpload(files, 'post');
+              }
+              if (thumbFiles) {
+                await portpolioUpload(thumbFiles, 'thumbnail');
+              }
               const {
                 data: { modifyPortpolio },
               } = await archiveModifyMutation({
@@ -165,19 +150,51 @@ const ManageArchiveContainer = ({
                 },
               });
               _id = modifyPortpolio;
-            } else {
-              window.alert('Title is required');
             }
+          } else {
+            window.alert('Title is required');
           }
-          if (_id) {
-            history.push(`/archiveDetail/${_id}`);
+        } else {
+          window.alert('Thumbnail & Portpolio is required');
+        }
+      } else if (action === 'upload') {
+        if (files.length > 0 && thumbFiles.length > 0) {
+          if (title.value !== '') {
+            if (window.confirm('Do you want to upload this archive?')) {
+              if (files) {
+                await portpolioUpload(files, 'post');
+              }
+              if (thumbFiles) {
+                await portpolioUpload(thumbFiles, 'thumbnail');
+              }
+
+              const {
+                data: { uploadPortpolio },
+              } = await archiveUploadMutation({
+                variables: {
+                  title: title.value,
+                  description: description.value,
+                  thumbFileUrl: thumbFileUrl[0],
+                  fileUrl,
+                  tags,
+                },
+              });
+
+              _id = uploadPortpolio._id;
+            }
+          } else {
+            window.alert('Title is required');
           }
-        } catch (e) {
-          console.log(e);
+        } else {
+          window.alert('Thumbnail & Portpolio is required');
         }
       }
-    } else {
-      window.alert('Title & Thumbnail & Portpolio is Required');
+
+      if (_id) {
+        history.push(`/archiveDetail/${_id}`);
+      }
+    } catch (e) {
+      console.log(e);
     }
   };
 

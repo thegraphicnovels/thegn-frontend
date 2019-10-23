@@ -5,13 +5,13 @@ import 'react-toggle/style.css';
 
 const ToggleComponent = ({ defaultChecked, onChange, value, label }) => {
   return (
-    <label htmlFor>
+    <label htmlFor={value}>
       <Toggle
         defaultChecked={defaultChecked}
         onChange={onChange}
         value={value}
       />
-      <span>{label}</span>
+      <span id={value}>{label}</span>
     </label>
   );
 };
