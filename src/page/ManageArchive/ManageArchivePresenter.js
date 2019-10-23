@@ -37,24 +37,24 @@ const ManageArchivePresenter = ({
 					<tr>
 						<th>Title</th>
 						<td>
-							<input type="text" className="inpTxt" id="archiveTitle" placeholder="Title" value={title.value} onChange={title.onChange} />
+							<input type="text" className="inpTxt" id="archiveTitle" title="title" value={title.value} onChange={title.onChange} />
 						</td>
 					</tr>
 					<tr>
 						<th>Description</th>
 						<td>
 							<div className="textArea">
-								<textarea placeholder="Description" value={description.value} onChange={description.onChange} />
+								<textarea title="description" value={description.value} onChange={description.onChange} />
 							</div>
 						</td>
 					</tr>
 					<tr>
 						<th>Tags</th>
 						<td>
-							{tags.length > 0 && (
+							{tagData && (
 								<div className="tagListBox">
 									<ul>
-										{tagData && tagData.seeTags.map(tag => {
+										{tagData.seeTags.map(tag => {
 											let duplicateChk = false;
 											if (tags) {
 											duplicateChk = findDuplicates(tags, tag._id);

@@ -15,18 +15,13 @@ const ManageTagPresenter = ({
 }) => {
   return (
     <div>
-      <div>
-        <input
-          id="archiveTitle"
-          placeholder="Title"
-          value={tag.value}
-          onChange={tag.onChange}
-          type="text"
-        />
-        <button type="button" onClick={() => handleTagCreate()}>
-          Add
-        </button>
+      <div className="tagAddBox">
+        <span>
+            <input id="archiveTitle" placeholder="Tag를 입력하세요" value={tag.value} onChange={tag.onChange} type="text" />
+        </span>
+        <button type="button" className="btnCustm" onClick={() => handleTagCreate()}><span>Add</span></button>
       </div>
+
       {!loading && tagData && (
         <ReactTable
           noDataText="No Tags"
