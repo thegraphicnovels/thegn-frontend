@@ -24,102 +24,76 @@ const ManageArchivePresenter = ({
   handleDeleteArchive,
   findDuplicates,
 }) => {
-  return (
-    <div>
-      <FilePond
-        filepondEl={thumbFilepondEl}
-        files={thumbFiles}
-        setFiles={setThumbFiles}
-        allowMultiple={false}
-        label="Drag & Drop Thumbnail File"
-      />
-      {portpolioData && thumbFileUrl && (
-        <div style={{ display: 'flex', flexdirection: 'row' }}>
-          <div>
-            <img
-              src={thumbFileUrl[0]}
-              alt={thumbFileUrl[0]}
-              style={{ width: '500px', height: '500px', padding: '10px' }}
-            />
-            <button type="button" onClick={() => setThumbFileUrl('')}>
-              삭제
-            </button>
-          </div>
-        </div>
-      )}
-      <FilePond
-        filepondEl={filepondEl}
-        files={files}
-        setFiles={setFiles}
-        allowMultiple
-        label="Drag & Drop Portpolio File"
-      />
-      {portpolioData && (
-        <div style={{ display: 'flex', flexdirection: 'row' }}>
-          {fileUrl.map((file, i) => (
-            <div key={i}>
-              <img
-                src={file}
-                alt={file}
-                style={{ width: '500px', height: '500px', padding: '10px' }}
-              />
-              <button type="button" onClick={() => handleDelFile(i)}>
-                삭제
-              </button>
-            </div>
-          ))}
-        </div>
-      )}
-      <input
-        id="archiveTitle"
-        placeholder="Title"
-        value={title.value}
-        onChange={title.onChange}
-        type="text"
-      />
-      <textarea
-        placeholder="Description"
-        value={description.value}
-        onChange={description.onChange}
-      />
+	return (
+		<div>
+			<table>
+				<caption>섬네일 이미지 등록</caption>
+				<tbody>
+					<tr>
+						<th>Thumbnail image</th>
+						{!thumbFileUrl.length && (
+							<td>
+								<FilePond filepondEl={thumbFilepondEl} files={thumbFiles} setFiles={setThumbFiles} allowMultiple={false} label="Drag & Drop File" />
+							</td>
+						)}
+						{thumbFileUrl.length > 0 && (
+							<td>
+								<div style={{ display: 'flex', flexdirection: 'row' }}>
+									<div>
+										<img src={thumbFileUrl[0]} alt={thumbFileUrl[0]} style={{ width: '500px', height: '500px', padding: '10px' }} />
+										<button type="button" className="btnDel" onClick={() => setThumbFileUrl('')}>삭제</button>
+									</div>
+								</div>
+							</td>
+						)}
+					</tr>
+				</tbody>
+			</table>
 
-      {tagData &&
-        tagData.seeTags.map(tag => {
-          let duplicateChk = false;
-          if (tags) {
-            duplicateChk = findDuplicates(tags, tag._id);
-          }
+			<FilePond filepondEl={filepondEl} files={files} setFiles={setFiles} allowMultiple label="Drag & Drop Portpolio File" />
+			{portpolioData && (
+			<div style={{ display: 'flex', flexdirection: 'row' }}>
+				{fileUrl.map((file, i) => (
+				<div key={i}>
+					<img src={file} alt={file} style={{ width: '500px', height: '500px', padding: '10px' }} />
+					<button type="button" onClick={() => handleDelFile(i)}>
+					삭제
+					</button>
+				</div>
+				))}
+			</div>
+			)}
+			<input id="archiveTitle" placeholder="Title" value={title.value} onChange={title.onChange} type="text" />
+			<textarea placeholder="Description" value={description.value} onChange={description.onChange} />
 
-          return (
-            <ToggleComponent
-              key={tag._id}
-              defaultChecked={duplicateChk}
-              onChange={handleUseTag}
-              value={tag._id}
-              label={tag.value}
-            />
-          );
-        })}
+			{tagData &&
+			tagData.seeTags.map(tag => {
+				let duplicateChk = false;
+				if (tags) {
+				duplicateChk = findDuplicates(tags, tag._id);
+				}
 
-      {!portpolioData ? (
-        <button type="button" onClick={() => handleUpload('upload')}>
-          Upload Archive
-        </button>
-      ) : (
-        <button type="button" onClick={() => handleUpload('edit')}>
-          Edit Archive
-        </button>
-      )}
-      {portpolioData && (
-        <button
-          type="button"
-          onClick={() => handleDeleteArchive(portpolioData.detailPortpolio._id)}
-        >
-          Delete Archive
-        </button>
-      )}
-    </div>
-  );
+				return (
+				<ToggleComponent key={tag._id} defaultChecked={duplicateChk} onChange={handleUseTag} value={tag._id} label={tag.value} />
+				);
+			})}
+
+			{!portpolioData ? (
+			<button type="button" onClick={() => handleUpload('upload')}>
+				Upload Archive
+			</button>
+			) : (
+			<button type="button" onClick={() => handleUpload('edit')}>
+				Edit Archive
+			</button>
+			)}
+			{portpolioData && (
+			<button type="button" onClick={() => handleDeleteArchive(portpolioData.detailPortpolio._id)}>
+				Delete Archive
+			</button>
+			)}
+		</div>
+	);
 };
 
 ManageArchivePresenter.defaultProps = {
