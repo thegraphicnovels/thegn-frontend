@@ -68,6 +68,8 @@ const ManageArchiveContainer = ({
     if (!portpolioId) {
       seeTagQuery();
       setTags([]);
+      setThumbFileUrl([]);
+      setFileUrl([]);
     }
   }, [portpolioId, seeTagQuery]);
 
