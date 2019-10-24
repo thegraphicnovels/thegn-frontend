@@ -1,36 +1,26 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { useQuery } from '@apollo/react-hooks';
-import { masonryFn, tagMenuFn } from 'common';
-import { archiveQuery } from 'apollo/archiveQuery';
-import Paging from 'components/paging';
 import PropTypes from 'prop-types';
-import { tagQuery } from 'apollo/tagQuery';
+import { useQuery } from '@apollo/react-hooks';
+import { archiveQuery } from 'apollo/archiveQuery';
+import { masonryFn } from 'common';
+import Paging from 'components/paging';
+import TagMenu from 'components/tag_menu';
 
 const Archive = ({ action }) => {
   const limit = 10;
   const archiveList = useRef(null);
-  const tagMenu = useRef(null);
   const [nowPageNum, setPageNum] = useState(1);
   const [imgLoadComplate, setLoadComplate] = useState(0);
   let archiveListFn;
-  let menuFnc;
 
   const { data, loading, refetch } = useQuery(archiveQuery, {
     variables: { page: nowPageNum, limit },
     fetchPolicy: 'network-only',
   });
 
-  const { data: tagData, loading: tagLoading } = useQuery(tagQuery, {
-    fetchPolicy: 'network-only',
-  });
-
   useEffect(() => {
-    // action값 변경시 useEffect 실행
-    if (action === 1) {
-      // console.log('setPageNum');
-      menuFnc = tagMenuFn(tagMenu);
-    }
+	// action값 변경시 useEffect 실행
 
     return () => {
       if (action === 1) {
@@ -66,27 +56,10 @@ const Archive = ({ action }) => {
   }, [imgLoadComplate]);
 
   if (action === 1 && !loading) {
-    console.log('loading end');
+    // console.log('loading end');
     return (
       <div className="archiveWrap">
-        <div className="tagMenu" ref={tagMenu}>
-          <button type="button">
-            <em className="blind">태그메뉴</em>
-          </button>
-          <div className="swiperScrollBox">
-            <ul>
-              {!tagLoading &&
-                tagData &&
-                tagData.seeTags.map(tag => (
-                  <li key={tag._id}>
-                    <Link to="/" onClick={() => refetch({ tags: [tag._id] })}>
-                      {tag.value}
-                    </Link>
-                  </li>
-                ))}
-            </ul>
-          </div>
-        </div>
+        <TagMenu refetch={refetch} setPageNum={setPageNum} />
 
         <div className="archiveListWrap">
           <ul className="grid" ref={archiveList}>
@@ -99,17 +72,28 @@ const Archive = ({ action }) => {
                       onLoad={() => setLoadComplate(imgLoadComplate + 1)}
                       alt={portpolioData.title}
                     />
+
+					<div className="itemFrame">
+						<div className="inner">
+							<span className="descript">{portpolioData.description}</span>
+							<span>
+								{portpolioData.tags.length > 0 && portpolioData.tags.map((item, i) => {
+									if(i === 0) {
+										return item.value;
+									}
+									return `${item.value}, `
+								})}
+							</span>
+						</div>
+					</div>
                   </Link>
                 </li>
               ))}
           </ul>
         </div>
-
-        <Paging
-          nowPageNum={nowPageNum}
-          totalPage={data.seePortpolios.totalPages}
-          setPageNum={setPageNum}
-        />
+		{data.seePortpolios.totalPages > 1 && (
+			<Paging nowPageNum={nowPageNum} totalPage={data.seePortpolios.totalPages} setPageNum={setPageNum} />
+		)}
       </div>
     );
   }

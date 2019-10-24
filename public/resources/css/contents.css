@@ -45,7 +45,9 @@ input[type="text"] {box-sizing:border-box;width:100%;height:32px;font-size:18px;
 .archiveWrap .tagMenu .swiperScrollBox ul li:first-child,
 .archiveWrap .tagMenu .mCustomScrollbar ul li:first-child {margin:0;}
 .archiveWrap .tagMenu .swiperScrollBox ul li a,
-.archiveWrap .tagMenu .mCustomScrollbar ul li a {display:block;line-height:36px;font-size:26px;font-weight:300;color:#fff;text-decoration:underline;}
+.archiveWrap .tagMenu .mCustomScrollbar ul li a,
+.archiveWrap .tagMenu .swiperScrollBox ul li button,
+.archiveWrap .tagMenu .mCustomScrollbar ul li button {display:block;line-height:36px;font-size:26px;font-weight:300;color:#fff;text-decoration:underline;}
 .archiveWrap.active .tagMenu {width:auto;padding:0 0 0 95px;transition:width 0.5s ease, padding 0.5s ease;transition-delay:0.8s;}
 [class^="pageWrap"].active .archiveWrap .tagMenu.active,
 .archiveWrap.active .tagMenu.active {background:#ff5d5d;}
@@ -58,7 +60,10 @@ input[type="text"] {box-sizing:border-box;width:100%;height:32px;font-size:18px;
 .archiveWrap .archiveListWrap {width:100%;margin:0 -4%;}
 .archiveWrap .archiveListWrap .grid {position:relative;box-sizing:border-box;}
 .archiveWrap .archiveListWrap .grid .grid-item {display:inline-block;padding:0 4% 5%;}
-.archiveWrap .archiveListWrap .grid .grid-item a {display:block;}
+.archiveWrap .archiveListWrap .grid .grid-item a {display:block;position:relative;}
+.archiveWrap .archiveListWrap .grid .grid-item a .itemFrame {display:none;overflow:hidden;position:absolute;left:0;top:0;right:0;bottom:0;background-color:rgba(0, 0, 0, 0.4);}
+.archiveWrap .archiveListWrap .grid .grid-item a .itemFrame .inner {position:absolute;left:0;right:0;top:50%;transform:translate(0, -50%);}
+.archiveWrap .archiveListWrap .grid .grid-item a .itemFrame .inner span {display:block; color:#fff;}
 
 /*************************** 1366 - tablet ***************************/
 /* @media screen and (max-width:1370px) {
