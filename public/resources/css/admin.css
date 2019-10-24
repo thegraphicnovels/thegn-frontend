@@ -5,6 +5,7 @@
 .registBox table {border-top:1px solid #000;border-bottom:1px solid #000;}
 .registBox table th {font-size:18px;border-top:1px solid #444;background-color:#cdcdcd;}
 .registBox table td {padding:10px;border-top:1px solid #444;}
+.registBox table td .titS {display:inline-block;line-height:30px;font-size:18px;font-weight:700;}
 .registBox table tr:first-child th,
 .registBox table tr:first-child td {border-top:none;}
 .registBox table td .filepond--root {margin:0;}
