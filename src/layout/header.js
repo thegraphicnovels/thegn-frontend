@@ -68,7 +68,7 @@ const Header = ({ logged }) => {
               <span className="admList">
                 <ul>
                   <li>
-                    <Link to="/manage/main">MAIN</Link>
+                    <Link to="/manage/mainBanner">MAIN BANNER</Link>
                   </li>
                   <li>
                     <Link to="/manage/archive">ARCHIVE</Link>

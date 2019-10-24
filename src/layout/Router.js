@@ -11,9 +11,10 @@ import Footer from 'layout/footer';
 import Scratch from 'layout/scratch';
 import Main from 'page/main';
 import ArchiveDetail from 'page/archive_detail';
-import ManageMain from 'page/ManageMain';
 import ManageArchive from 'page/ManageArchive';
 import ManageTag from 'page/ManageTag';
+import MainBanner from 'page/manage_main_banner';
+import ManageMainBanner from 'page/ManageMainBanner';
 
 const PageUrl = ({ logged }) => {
   return (
@@ -23,9 +24,22 @@ const PageUrl = ({ logged }) => {
         path="/archiveDetail/:portpolioId"
         render={props => <ArchiveDetail {...props} logged={logged} />}
       />
-      {logged && <Route path="/manage/main" exact component={ManageMain} />}
       {logged && (
-        <Route path="/manage/main/:portpolioId" exact component={ManageMain} />
+        <Route path="/manage/mainBanner" exact component={MainBanner} />
+      )}
+      {logged && (
+        <Route
+          path="/manage/edit/mainBanner/:mainBannerId"
+          exact
+          component={ManageMainBanner}
+        />
+      )}
+      {logged && (
+        <Route
+          path="/manage/upload/mainBanner"
+          exact
+          component={ManageMainBanner}
+        />
       )}
       {logged && (
         <Route path="/manage/archive" exact component={ManageArchive} />

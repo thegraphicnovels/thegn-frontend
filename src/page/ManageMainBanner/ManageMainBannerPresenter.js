@@ -8,10 +8,10 @@ const ManageMainPresenter = ({
   setFiles,
   setPortId,
   fileUrl,
-  portpolioData,
+  mainBannerData,
   selectPortpolioData,
   handleUpload,
-  handleMainArchiveDelete,
+  handleMainBannerDelete,
   handleDelFile,
 }) => {
   return (
@@ -29,18 +29,25 @@ const ManageMainPresenter = ({
             <tr>
               <th>Portpolio</th>
               <td>
-                {portpolioData && (
-                  <span className="titS">{portpolioData.detailPortpolio.title}</span>
+                {mainBannerData && (
+                  <span className="titS">
+                    {mainBannerData.detailBanner.portpolio.title}
+                  </span>
                 )}
-                {!portpolioData && selectPortpolioData && (
+                {!mainBannerData && selectPortpolioData && (
                   <label htmlFor="selectPortpolio" className="selectBox">
-                    <select id="selectPortpolio" onChange={e => setPortId(e.target.value)}>
+                    <select
+                      id="selectPortpolio"
+                      onChange={e => setPortId(e.target.value)}
+                    >
                       <option value="">- Choose Portpolio -</option>
-                      {selectPortpolioData.seePortpolios.portpolios.map(portpolio => (
-                        <option key={portpolio._id} value={portpolio._id}>
-                          {portpolio.title}
-                        </option>
-                      ))}
+                      {selectPortpolioData.seePortpolios.portpolios.map(
+                        portpolio => (
+                          <option key={portpolio._id} value={portpolio._id}>
+                            {portpolio.title}
+                          </option>
+                        ),
+                      )}
                     </select>
                   </label>
                 )}
@@ -64,7 +71,10 @@ const ManageMainPresenter = ({
                           <span>
                             <img src={file} alt={file} />
                           </span>
-                          <button type="button" onClick={() => handleDelFile(i)}>
+                          <button
+                            type="button"
+                            onClick={() => handleDelFile(i)}
+                          >
                             <em className="blind">삭제</em>
                             <svg
                               width="26"
@@ -91,30 +101,40 @@ const ManageMainPresenter = ({
       </div>
 
       <div className="btnPageBox">
-        {!portpolioData ? (
-          <button className="btnCustm" type="button" onClick={() => handleUpload('upload')}>
+        {!mainBannerData ? (
+          <button
+            className="btnCustm"
+            type="button"
+            onClick={() => handleUpload('upload')}
+          >
             <span>Upload</span>
           </button>
         ) : (
-          <button className="btnCustm" type="button" onClick={() => handleUpload('edit')}>
+          <button
+            className="btnCustm"
+            type="button"
+            onClick={() => handleUpload('edit')}
+          >
             <span>Edit</span>
           </button>
         )}
-        {portpolioData && (
-          <button className="btnCustm" type="button" onClick={() => handleMainArchiveDelete(portpolioData.detailPortpolio._id)}>
+        {mainBannerData && (
+          <button
+            className="btnCustm"
+            type="button"
+            onClick={() => handleMainBannerDelete(mainBannerData._id)}
+          >
             <span>Delete</span>
           </button>
         )}
       </div>
-
-
     </div>
   );
 };
 
 ManageMainPresenter.defaultProps = {
   fileUrl: '',
-  portpolioData: null,
+  mainBannerData: null,
   selectPortpolioData: null,
 };
 
@@ -124,10 +144,10 @@ ManageMainPresenter.propTypes = {
   setFiles: PropTypes.func.isRequired,
   setPortId: PropTypes.func.isRequired,
   fileUrl: PropTypes.array,
-  portpolioData: PropTypes.object,
+  mainBannerData: PropTypes.object,
   selectPortpolioData: PropTypes.object,
   handleUpload: PropTypes.func.isRequired,
-  handleMainArchiveDelete: PropTypes.func.isRequired,
+  handleMainBannerDelete: PropTypes.func.isRequired,
   handleDelFile: PropTypes.func.isRequired,
 };
 

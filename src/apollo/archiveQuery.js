@@ -40,7 +40,6 @@ export const archiveDetailQuery = gql`
         _id
         name
       }
-      mainImg
       thumbImg
       files {
         _id

@@ -13,8 +13,8 @@ const ManageTagContainer = () => {
   const tag = useInput('');
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
-  const [order, setOrder] = React.useState('desc');
-  const [orderBy, setOrderBy] = React.useState('updateAt');
+  const [order, setOrder] = useState('desc');
+  const [orderBy, setOrderBy] = useState('updateAt');
 
   const { data: tagData, loading, refetch } = useQuery(tagQuery);
   const [tagCreateMutation] = useMutation(tagCreateQuery, {
