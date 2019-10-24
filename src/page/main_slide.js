@@ -2,13 +2,13 @@ import React, { useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { swiperFn } from 'common';
 import { useQuery } from '@apollo/react-hooks';
-import { mainArchiveQuery } from 'apollo/mainArchiveQuery';
+import { mainBannerQuery } from 'apollo/mainBannerQuery';
 
 const Mainswiper = ({ action }) => {
   const swiperEl = useRef(null);
   let mainSwiper;
 
-  const { data: mainImgData, loading } = useQuery(mainArchiveQuery);
+  const { data: mainBannerData, loading } = useQuery(mainBannerQuery);
 
   useEffect(() => {
     if (action === 0) {
@@ -30,23 +30,25 @@ const Mainswiper = ({ action }) => {
           <em className="blind">이전</em>
         </button>
         <ul className="swiper-wrapper">
-          {/* {mainImgData &&
-            mainImgData.seeMainPortpolios.map((main, index) => (
-              <li
-                key={index}
-                className="swiper-slide"
-                style={{
-                  backgroundImage: `url(${main.mainImg})`,
-                }}
-              >
-                <span className="imgTxt">
-                  <img
-                    src="resources/images/temp/img_main_swipe_txt01.png"
-                    alt={main.tags.map(tag => tag.value)}
-                  />
-                </span>
-              </li>
-            ))} */}
+          {/* {mainBannerData &&
+            mainBannerData.seeBanners.map(banner =>
+              banner.files.map((file, index) => (
+                <li
+                  key={index}
+                  className="swiper-slide"
+                  style={{
+                    backgroundImage: `url(${file.url})`,
+                  }}
+                >
+                  <span className="imgTxt">
+                    <img
+                      src="resources/images/temp/img_main_swipe_txt01.png"
+                      alt={banner.portpolio.tags.map(tag => tag.value)}
+                    />
+                  </span>
+                </li>
+              )),
+            )} */}
           <li
             className="swiper-slide"
             style={{

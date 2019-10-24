@@ -1,56 +1,56 @@
 import React, { useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { useQuery, useMutation } from '@apollo/react-hooks';
-import { archiveSelectQuery, archiveDetailQuery } from 'apollo/archiveQuery';
+import { archiveSelectQuery } from 'apollo/archiveQuery';
 import request from 'superagent';
 import {
-  mainArchiveUploadQuery,
-  mainArchiveModifyQuery,
-  mainArchiveDeleteQuery,
-} from 'apollo/mainArchiveQuery';
-import ManageMainPresenter from './ManageMainPresenter';
+  mainBannerUploadQuery,
+  mainBannerModifyQuery,
+  mainBannerDeleteQuery,
+  mainBannerDetailQuery,
+} from 'apollo/mainBannerQuery';
 
-const ManageMainContainer = ({
+import ManageMainBannerPresenter from './ManageMainBannerPresenter';
+
+const ManageMainBannerContainer = ({
   history,
   match: {
-    params: { portpolioId },
+    params: { mainBannerId },
   },
 }) => {
   const filepondEl = useRef(null);
-  const [files, setFiles] = useState([]); // mainfile
-  const [fileUrl, setFileUrl] = useState([]); // mainfile url
-  const [portId, setPortId] = useState(portpolioId);
+  const [files, setFiles] = useState([]); // bannerfile
+  const [fileUrl, setFileUrl] = useState([]); // bannerfile url
+  const [portId, setPortId] = useState('');
 
-  const { data: portpolioData } = useQuery(archiveDetailQuery, {
-    variables: { id: portpolioId },
+  const { data: mainBannerData } = useQuery(mainBannerDetailQuery, {
+    variables: { id: mainBannerId },
     fetchPolicy: 'network-only',
-    skip: !portpolioId, // portpolioId가 없으면 건너뛴다.
-    onCompleted: ({ detailPortpolio }) => {
-      const { mainImg } = detailPortpolio;
-      console.log(mainImg);
-      if (mainImg) {
+    skip: !mainBannerId,
+    onCompleted: ({ detailBanner }) => {
+      const bannerFile = detailBanner.files;
+      if (bannerFile) {
         const fileArr = [];
-        for (let i = 0; i < mainImg.length; i++) {
-          fileArr.push(mainImg[i]);
+        for (let i = 0; i < bannerFile.length; i++) {
+          fileArr.push(bannerFile[i].url);
         }
         setFileUrl(fileArr);
       }
-      setPortId(detailPortpolio._id);
+      setPortId(detailBanner.portpolio._id);
     },
   });
 
   const { data: selectPortpolioData } = useQuery(archiveSelectQuery, {
-    variables: { id: portpolioId },
     fetchPolicy: 'network-only',
-    skip: portpolioId, // portpolioId가 있으면 건너뛴다.
+    skip: mainBannerId, // portpolioId가 있으면 건너뛴다.
   });
 
-  const [mainArchiveUploadMutation] = useMutation(mainArchiveUploadQuery);
-  const [mainArchiveModifyMutation] = useMutation(mainArchiveModifyQuery);
-  const [mainArchiveDeleteMutation] = useMutation(mainArchiveDeleteQuery);
+  const [mainBannerUploadMutation] = useMutation(mainBannerUploadQuery);
+  const [mainBannerModifyMutation] = useMutation(mainBannerModifyQuery);
+  const [mainBannerDeleteMutation] = useMutation(mainBannerDeleteQuery);
 
   // Cloudinary upload Function
-  const portpolioUpload = async fileArr => {
+  const bannerUpload = async fileArr => {
     for (let i = 0; i < fileArr.length; i++) {
       const url = await request
         .post(process.env.REACT_APP_CLOUDINARY_UPLOAD_URL)
@@ -82,19 +82,19 @@ const ManageMainContainer = ({
         if (files.length > 0) {
           if (portId) {
             if (files) {
-              await portpolioUpload(files, 'post');
+              await bannerUpload(files);
             }
 
             const {
-              data: { uploadPortpolio },
-            } = await mainArchiveUploadMutation({
+              data: { uploadBanner },
+            } = await mainBannerUploadMutation({
               variables: {
                 fileUrl,
                 portpolioId: portId,
               },
             });
 
-            _id = uploadPortpolio._id;
+            _id = uploadBanner._id;
           } else {
             window.alert('Choose Connection Portfolio');
           }
@@ -103,45 +103,50 @@ const ManageMainContainer = ({
         }
       } else if (action === 'edit') {
         if (files.length > 0 || fileUrl.length > 0) {
+          if (files) {
+            await bannerUpload(files);
+          }
+
           const {
-            data: { modifyPortpolio },
-          } = await mainArchiveModifyMutation({
+            data: { modifyBanner },
+          } = await mainBannerModifyMutation({
             variables: {
+              id: mainBannerId,
               fileUrl,
               portpolioId: portId,
             },
           });
-          _id = modifyPortpolio;
+          _id = modifyBanner;
         } else {
           window.alert('Main image file is required');
         }
       }
 
       if (_id) {
-        history.push(`/archiveDetail/${_id}`);
+        history.push('/manage/mainBanner');
       }
     } catch (e) {
       console.log(e);
     }
   };
 
-  const handleMainArchiveDelete = async id => {
+  const handleMainBannerDelete = async () => {
     try {
       if (files.length > 0 || fileUrl.length > 0) {
         if (window.confirm('Do you wnat to delete Main Img?')) {
           const {
-            data: { deletePortpolio },
-          } = await mainArchiveDeleteMutation({
+            data: { deleteBanner },
+          } = await mainBannerDeleteMutation({
             variables: {
-              portpolioId: id,
+              id: mainBannerId,
             },
           });
 
-          if (deletePortpolio) {
-            window.alert('This archive main Img Delete success');
+          if (deleteBanner) {
+            window.alert('This Banner main Img Delete success');
             history.push('/');
           } else {
-            window.alert('Failed to delete archive main Img');
+            window.alert('Failed to delete Banner main Img');
           }
         }
       } else {
@@ -166,26 +171,26 @@ const ManageMainContainer = ({
   };
 
   return (
-    <ManageMainPresenter
+    <ManageMainBannerPresenter
       filepondEl={filepondEl}
       files={files}
       setFiles={setFiles}
       setPortId={setPortId}
       fileUrl={fileUrl}
-      portpolioData={portpolioData}
+      mainBannerData={mainBannerData}
       selectPortpolioData={selectPortpolioData}
       handleUpload={handleUpload}
-      handleMainArchiveDelete={handleMainArchiveDelete}
+      handleMainBannerDelete={handleMainBannerDelete}
       handleDelFile={handleDelFile}
     />
   );
 };
 
-ManageMainContainer.propTypes = {
+ManageMainBannerContainer.propTypes = {
   history: PropTypes.object.isRequired,
   match: PropTypes.shape({
     params: PropTypes.object,
   }).isRequired,
 };
 
-export default ManageMainContainer;
+export default ManageMainBannerContainer;
