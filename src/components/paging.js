@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Paging = ({nowPageNum, totalPage, setPageNum})=> {
+const Paging = ({nowPageNum, totalPage, setPageNum, setLoadComplate})=> {
 	let pagingPrev;
 	let pagingNext;
 
@@ -12,6 +12,7 @@ const Paging = ({nowPageNum, totalPage, setPageNum})=> {
 			return;
 		}
 		setPageNum(chNum);
+		setLoadComplate(0);
 	}
 
 	// 페이징 이전
@@ -43,6 +44,7 @@ Paging.propTypes = {
 	nowPageNum : PropTypes.number.isRequired,
 	totalPage : PropTypes.number.isRequired,
 	setPageNum : PropTypes.func.isRequired,
+	setLoadComplate : PropTypes.func.isRequired,
 }
 
 export default Paging;

@@ -13,6 +13,7 @@ const Archive = ({ action }) => {
   const [nowPageNum, setPageNum] = useState(1);
   const [imgLoadComplate, setLoadComplate] = useState(0);
   let archiveListFn;
+  const listNum = 0;
 
   const { data, loading, refetch } = useQuery(archiveQuery, {
     variables: { page: nowPageNum, limit },
@@ -33,16 +34,11 @@ const Archive = ({ action }) => {
   }, [action]);
 
   useEffect(() => {
-    // 페이징 클릭시 useEffect 실행
-    setLoadComplate(0);
-  }, [nowPageNum]);
-
-  useEffect(() => {
     // 이미지 로드 완료시 useEffect 실행
     // console.log('imgLoadComplate', imgLoadComplate);
     // console.log('limit', limit);
     // console.log('action', action);
-    if (action === 1 && imgLoadComplate === limit) {
+    if (action === 1 && imgLoadComplate === data.seePortpolios.portpolios.length) {
       // console.log('masonryFn');
       archiveListFn = masonryFn(archiveList);
     }
@@ -59,7 +55,7 @@ const Archive = ({ action }) => {
     // console.log('loading end');
     return (
       <div className="archiveWrap">
-        <TagMenu refetch={refetch} setPageNum={setPageNum} />
+        <TagMenu refetch={refetch} />
 
         <div className="archiveListWrap">
           <ul className="grid" ref={archiveList}>
@@ -92,7 +88,7 @@ const Archive = ({ action }) => {
           </ul>
         </div>
 		{data.seePortpolios.totalPages > 1 && (
-			<Paging nowPageNum={nowPageNum} totalPage={data.seePortpolios.totalPages} setPageNum={setPageNum} />
+			<Paging nowPageNum={nowPageNum} totalPage={data.seePortpolios.totalPages} setPageNum={setPageNum} setLoadComplate={setLoadComplate} />
 		)}
       </div>
     );

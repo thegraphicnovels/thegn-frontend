@@ -4,7 +4,7 @@ import { useQuery } from '@apollo/react-hooks';
 import { tagQuery } from 'apollo/tagQuery';
 import { tagMenuFn } from 'common';
 
-const TagMenu = ({refetch, setPageNum})=> {
+const TagMenu = ({refetch})=> {
 	let menuFn;
 	const tagMenuEl = useRef(null);
 	const { data: tagData, loading: tagLoading } = useQuery(tagQuery, {
@@ -49,7 +49,6 @@ const TagMenu = ({refetch, setPageNum})=> {
 }
 
 TagMenu.propTypes = {
-	setPageNum : PropTypes.func.isRequired,
 	refetch : PropTypes.func.isRequired,
 }
 
