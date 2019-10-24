@@ -87,56 +87,58 @@ const ManageTagPresenter = ({
         </button>
       </div>
       {tagData && (
-        <Table stickyHeader aria-label="sticky table">
-          <TableHead>
-            <TableRow>
-              {columns.map(column => (
-                <TableCell
-                  key={column.id}
-                  align={column.align}
-                  style={{ minWidth: column.minWidth }}
-                  sortDirection={orderBy === columns.id ? order : false}
-                >
-                  <TableSortLabel
-                    active={orderBy === column.id}
-                    direction={order}
-                    onClick={createSortHandler(column.id)}
+        <div className="listTblWrap">
+          <Table stickyHeader aria-label="sticky table">
+            <TableHead>
+              <TableRow>
+                {columns.map(column => (
+                  <TableCell
+                    key={column.id}
+                    align={column.align}
+                    style={{ minWidth: column.minWidth }}
+                    sortDirection={orderBy === columns.id ? order : false}
                   >
-                    {column.label}
-                  </TableSortLabel>
-                </TableCell>
-              ))}
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {stableSort(tagData.seeTags, getSorting(order, orderBy))
-              .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-              .map((row, index) => {
-                return (
-                  <TableRow hover role="checkbox" tabIndex={-1} key={index}>
-                    {columns.map(column => {
-                      let value = row[column.id];
-                      if (column.id === 'user') {
-                        value = row.user.name;
-                      }
-                      if (column.id === '_id') {
-                        value = column.format(value, row.value);
-                      } else if (column.id === 'updateAt') {
-                        value = formatDate(value);
-                      } else if (column.id === 'value') {
-                        value = column.format(value, row._id);
-                      }
-                      return (
-                        <TableCell key={column.id} align={column.align}>
-                          {value}
-                        </TableCell>
-                      );
-                    })}
-                  </TableRow>
-                );
-              })}
-          </TableBody>
-        </Table>
+                    <TableSortLabel
+                      active={orderBy === column.id}
+                      direction={order}
+                      onClick={createSortHandler(column.id)}
+                    >
+                      {column.label}
+                    </TableSortLabel>
+                  </TableCell>
+                ))}
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {stableSort(tagData.seeTags, getSorting(order, orderBy))
+                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                .map((row, index) => {
+                  return (
+                    <TableRow hover role="checkbox" tabIndex={-1} key={index}>
+                      {columns.map(column => {
+                        let value = row[column.id];
+                        if (column.id === 'user') {
+                          value = row.user.name;
+                        }
+                        if (column.id === '_id') {
+                          value = column.format(value, row.value);
+                        } else if (column.id === 'updateAt') {
+                          value = formatDate(value);
+                        } else if (column.id === 'value') {
+                          value = column.format(value, row._id);
+                        }
+                        return (
+                          <TableCell key={column.id} align={column.align}>
+                            {value}
+                          </TableCell>
+                        );
+                      })}
+                    </TableRow>
+                  );
+                })}
+            </TableBody>
+          </Table>
+        </div>
       )}
 
       {!loading && tagData && (
