@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useInput } from 'rooks';
 import { useMutation, useQuery } from '@apollo/react-hooks';
 import {
@@ -11,6 +11,10 @@ import ManageTagPresenter from './ManageTagPresenter';
 
 const ManageTagContainer = () => {
   const tag = useInput('');
+  const [page, setPage] = useState(0);
+  const [rowsPerPage, setRowsPerPage] = useState(10);
+  const [order, setOrder] = React.useState('desc');
+  const [orderBy, setOrderBy] = React.useState('updateAt');
 
   const { data: tagData, loading, refetch } = useQuery(tagQuery);
   const [tagCreateMutation] = useMutation(tagCreateQuery, {
@@ -31,7 +35,7 @@ const ManageTagContainer = () => {
         window.alert('You dont create Tag');
       } else {
         window.alert('Tag create Success');
-        refetch();
+        window.location.reload();
       }
     } catch {
       window.alert('This Tag is already taken');
@@ -62,6 +66,8 @@ const ManageTagContainer = () => {
       } catch {
         window.alert('This Tag is already taken');
       }
+    } else {
+      window.location.reload();
     }
   };
 
@@ -79,12 +85,57 @@ const ManageTagContainer = () => {
           window.alert('You dont delete Tag');
         } else {
           window.alert('Tag delete Success');
-          refetch();
+          window.location.reload();
         }
       } catch {
         window.alert('This tag is delete failed');
       }
     }
+  };
+
+  const handleChangePage = (event, newPage) => {
+    setPage(newPage);
+  };
+
+  const handleChangeRowsPerPage = event => {
+    setRowsPerPage(+event.target.value);
+    setPage(0);
+  };
+
+  const handleRequestSort = (event, property) => {
+    const isDesc = orderBy === property && order === 'desc';
+    setOrder(isDesc ? 'asc' : 'desc');
+    setOrderBy(property);
+  };
+
+  const createSortHandler = property => event => {
+    handleRequestSort(event, property);
+  };
+
+  const desc = (a, b, orderedBy) => {
+    if (b[orderedBy] < a[orderedBy]) {
+      return -1;
+    }
+    if (b[orderedBy] > a[orderedBy]) {
+      return 1;
+    }
+    return 0;
+  };
+
+  const stableSort = (array, cmp) => {
+    const stabilizedThis = array.map((el, index) => [el, index]);
+    stabilizedThis.sort((a, b) => {
+      const ordered = cmp(a[0], b[0]);
+      if (ordered !== 0) return ordered;
+      return a[1] - b[1];
+    });
+    return stabilizedThis.map(el => el[0]);
+  };
+
+  const getSorting = (ordered, orderedBy) => {
+    return ordered === 'desc'
+      ? (a, b) => desc(a, b, orderedBy)
+      : (a, b) => -desc(a, b, orderedBy);
   };
 
   return (
@@ -95,6 +146,15 @@ const ManageTagContainer = () => {
       handleTagCreate={handleTagCreate}
       handleTagModify={handleTagModify}
       handleTagDelete={handleTagDelete}
+      page={page}
+      rowsPerPage={rowsPerPage}
+      handleChangePage={handleChangePage}
+      handleChangeRowsPerPage={handleChangeRowsPerPage}
+      order={order}
+      orderBy={orderBy}
+      createSortHandler={createSortHandler}
+      stableSort={stableSort}
+      getSorting={getSorting}
     />
   );
 };

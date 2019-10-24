@@ -1,7 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ReactTable from 'react-table';
-import 'react-table/react-table.css';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableHead from '@material-ui/core/TableHead';
+import TablePagination from '@material-ui/core/TablePagination';
+import TableRow from '@material-ui/core/TableRow';
+import TableSortLabel from '@material-ui/core/TableSortLabel';
 import { formatDate } from 'common';
 import { RIEInput } from 'riek';
 
@@ -12,73 +17,143 @@ const ManageTagPresenter = ({
   handleTagCreate,
   handleTagModify,
   handleTagDelete,
+  page,
+  rowsPerPage,
+  handleChangePage,
+  handleChangeRowsPerPage,
+  order,
+  orderBy,
+  createSortHandler,
+  stableSort,
+  getSorting,
 }) => {
+  const columns = [
+    {
+      id: 'value',
+      label: 'Name',
+      minWidth: 170,
+      format: (value, id) => (
+        <RIEInput value={value} change={handleTagModify} propName={id} />
+      ),
+    },
+    {
+      id: 'user',
+      label: 'Creator',
+      minWidth: 170,
+      align: 'center',
+    },
+    {
+      id: 'updateAt',
+      label: 'Create Date',
+      minWidth: 170,
+      align: 'center',
+    },
+    {
+      id: '_id',
+      label: 'Action',
+      minWidth: 170,
+      align: 'center',
+      format: (id, value) => (
+        <button
+          className="btnCustm01"
+          style={{ color: 'red' }}
+          type="button"
+          onClick={() => handleTagDelete(id, value)}
+        >
+          <span>Delete</span>
+        </button>
+      ),
+    },
+  ];
+
   return (
     <div>
       <div className="tagAddBox">
         <span>
-            <input id="archiveTitle" placeholder="Tag를 입력하세요" value={tag.value} onChange={tag.onChange} type="text" />
+          <input
+            id="archiveTitle"
+            placeholder="Tag를 입력하세요"
+            value={tag.value}
+            onChange={tag.onChange}
+            type="text"
+          />
         </span>
-        <button type="button" className="btnCustm" onClick={() => handleTagCreate()}><span>Add</span></button>
+        <button
+          type="button"
+          className="btnCustm"
+          onClick={() => handleTagCreate()}
+        >
+          <span>Add</span>
+        </button>
       </div>
+      {tagData && (
+        <Table stickyHeader aria-label="sticky table">
+          <TableHead>
+            <TableRow>
+              {columns.map(column => (
+                <TableCell
+                  key={column.id}
+                  align={column.align}
+                  style={{ minWidth: column.minWidth }}
+                  sortDirection={orderBy === columns.id ? order : false}
+                >
+                  <TableSortLabel
+                    active={orderBy === column.id}
+                    direction={order}
+                    onClick={createSortHandler(column.id)}
+                  >
+                    {column.label}
+                  </TableSortLabel>
+                </TableCell>
+              ))}
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {stableSort(tagData.seeTags, getSorting(order, orderBy))
+              .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+              .map((row, index) => {
+                return (
+                  <TableRow hover role="checkbox" tabIndex={-1} key={index}>
+                    {columns.map(column => {
+                      let value = row[column.id];
+                      if (column.id === 'user') {
+                        value = row.user.name;
+                      }
+                      if (column.id === '_id') {
+                        value = column.format(value, row.value);
+                      } else if (column.id === 'updateAt') {
+                        value = formatDate(value);
+                      } else if (column.id === 'value') {
+                        value = column.format(value, row._id);
+                      }
+                      return (
+                        <TableCell key={column.id} align={column.align}>
+                          {value}
+                        </TableCell>
+                      );
+                    })}
+                  </TableRow>
+                );
+              })}
+          </TableBody>
+        </Table>
+      )}
 
       {!loading && tagData && (
-        <ReactTable
-          noDataText="No Tags"
-          data={tagData.seeTags}
-          columns={[
-            {
-              Header: 'Id',
-              accessor: '_id',
-              show: false,
-            },
-            {
-              Header: 'Tag',
-              accessor: 'value',
-              width: 150,
-              Cell: row => (
-                <RIEInput
-                  value={row.value}
-                  change={handleTagModify}
-                  propName={row.row._id}
-                />
-              ),
-            },
-            {
-              Header: 'Creator',
-              accessor: 'user.name',
-              width: 150,
-            },
-            {
-              Header: 'Create Date',
-              id: 'updateAt',
-              accessor: d => {
-                const { updateAt } = d;
-                return formatDate(updateAt);
-              },
-              width: 160,
-            },
-            {
-              Header: 'Action',
-              width: 100,
-              Cell: row => (
-                <button
-                  type="button"
-                  onClick={() => handleTagDelete(row.row._id, row.row.value)}
-                >
-                  delete
-                </button>
-              ),
-            },
-          ]}
-          className="-striped -highlight"
-          minRows={1}
-          defaultSorted={[
-            {
-              id: 'updateAt',
-              desc: true,
-            },
-          ]}
+        <TablePagination
+          rowsPerPageOptions={[5, 10, 25, 100]}
+          component="div"
+          count={tagData.seeTags.length}
+          rowsPerPage={rowsPerPage}
+          page={page}
+          backIconButtonProps={{
+            'aria-label': 'previous page',
+          }}
+          nextIconButtonProps={{
+            'aria-label': 'next page',
+          }}
+          onChangePage={handleChangePage}
+          onChangeRowsPerPage={handleChangeRowsPerPage}
         />
       )}
     </div>
@@ -97,6 +172,15 @@ ManageTagPresenter.propTypes = {
   handleTagCreate: PropTypes.func.isRequired,
   handleTagModify: PropTypes.func.isRequired,
   handleTagDelete: PropTypes.func.isRequired,
+  page: PropTypes.number.isRequired,
+  rowsPerPage: PropTypes.number.isRequired,
+  handleChangePage: PropTypes.func.isRequired,
+  handleChangeRowsPerPage: PropTypes.func.isRequired,
+  order: PropTypes.string.isRequired,
+  orderBy: PropTypes.string.isRequired,
+  createSortHandler: PropTypes.func.isRequired,
+  stableSort: PropTypes.func.isRequired,
+  getSorting: PropTypes.func.isRequired,
 };
 
 export default ManageTagPresenter;
