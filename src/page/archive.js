@@ -21,7 +21,7 @@ const Archive = ({ action }) => {
   });
 
   useEffect(() => {
-	// action값 변경시 useEffect 실행
+    // action값 변경시 useEffect 실행
 
     return () => {
       if (action === 1) {
@@ -38,7 +38,10 @@ const Archive = ({ action }) => {
     // console.log('imgLoadComplate', imgLoadComplate);
     // console.log('limit', limit);
     // console.log('action', action);
-    if (action === 1 && imgLoadComplate === data.seePortpolios.portpolios.length) {
+    if (
+      action === 1 &&
+      imgLoadComplate === data.seePortpolios.portpolios.length
+    ) {
       // console.log('masonryFn');
       archiveListFn = masonryFn(archiveList);
     }
@@ -69,27 +72,33 @@ const Archive = ({ action }) => {
                       alt={portpolioData.title}
                     />
 
-					<div className="itemFrame">
-						<div className="inner">
-							<span className="tits">{portpolioData.title}</span>
-							<span className="tags">
-								{portpolioData.tags.length > 0 && portpolioData.tags.map((item, i) => {
-									if(i === 0) {
-										return item.value;
-									}
-									return `, ${item.value}`
-								})}
-							</span>
-						</div>
-					</div>
+                    <div className="itemFrame">
+                      <div className="inner">
+                        <span className="tits">{portpolioData.title}</span>
+                        <span className="tags">
+                          {portpolioData.tags.length > 0 &&
+                            portpolioData.tags.map((item, i) => {
+                              if (i === 0) {
+                                return item.value;
+                              }
+                              return `, ${item.value}`;
+                            })}
+                        </span>
+                      </div>
+                    </div>
                   </Link>
                 </li>
               ))}
           </ul>
         </div>
-		{data.seePortpolios.totalPages > 1 && (
-			<Paging nowPageNum={nowPageNum} totalPage={data.seePortpolios.totalPages} setPageNum={setPageNum} setLoadComplate={setLoadComplate} />
-		)}
+        {data.seePortpolios.totalPages > 1 && (
+          <Paging
+            nowPageNum={nowPageNum}
+            totalPage={data.seePortpolios.totalPages}
+            setPageNum={setPageNum}
+            setLoadComplate={setLoadComplate}
+          />
+        )}
       </div>
     );
   }
