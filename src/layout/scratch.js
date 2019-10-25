@@ -11,7 +11,6 @@ const Scratch = () => {
     if (!isScratchEnd) {
       scratchFn(scratchWrap.current, 60, () => {
         // scratch end function
-        console.log('scratch end');
         setScratchEnd(true);
       });
     }

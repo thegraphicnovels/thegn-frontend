@@ -33,7 +33,6 @@ const ManageTagPresenter = ({
           <span>Add</span>
         </button>
       </div>
-      {console.log(tagData)}
       {!loading && tagData && (
         <ReactTable
           noDataText="No Tags"

@@ -2,7 +2,7 @@ import React, { useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { useMutation } from '@apollo/react-hooks';
-import { placeholderFn, fullUrlFn, AdminMenuFn } from 'common';
+import { placeholderFn, AdminMenuFn } from 'common';
 import { LOCAL_LOG_OUT } from 'apollo/loginQuery';
 
 const Header = ({ logged }) => {
