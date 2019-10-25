@@ -10,9 +10,9 @@ import {
   mainBannerDetailQuery,
 } from 'apollo/mainBannerQuery';
 
-import ManageMainBannerPresenter from './ManageMainBannerPresenter';
+import ManageMainBannerEditPresenter from './ManageMainBannerEditPresenter';
 
-const ManageMainBannerContainer = ({
+const ManageMainBannerEditContainer = ({
   history,
   match: {
     params: { mainBannerId },
@@ -133,7 +133,7 @@ const ManageMainBannerContainer = ({
   const handleMainBannerDelete = async () => {
     try {
       if (files.length > 0 || fileUrl.length > 0) {
-        if (window.confirm('Do you wnat to delete Main Img?')) {
+        if (window.confirm('Do you wnat to delete Main Banner?')) {
           const {
             data: { deleteBanner },
           } = await mainBannerDeleteMutation({
@@ -143,10 +143,10 @@ const ManageMainBannerContainer = ({
           });
 
           if (deleteBanner) {
-            window.alert('This Banner main Img Delete success');
+            window.alert('This Main Banner Delete success');
             history.push('/');
           } else {
-            window.alert('Failed to delete Banner main Img');
+            window.alert('Failed to delete Main Banner');
           }
         }
       } else {
@@ -157,40 +157,41 @@ const ManageMainBannerContainer = ({
     }
   };
 
-  const handleDelFile = index => {
-    if (window.confirm('Do you wnat to delete this Img?'))
-      setFileUrl(file => {
-        const filesArr = [];
-        for (let i = 0; i < file.length; i++) {
-          if (index !== i) {
-            filesArr.push(file[i]);
-          }
-        }
-        return filesArr;
-      });
-  };
+  // const handleDelFile = index => {
+  //   if (window.confirm('Do you wnat to delete this Img?'))
+  //     setFileUrl(file => {
+  //       const filesArr = [];
+  //       for (let i = 0; i < file.length; i++) {
+  //         if (index !== i) {
+  //           filesArr.push(file[i]);
+  //         }
+  //       }
+  //       return filesArr;
+  //     });
+  // };
 
   return (
-    <ManageMainBannerPresenter
+    <ManageMainBannerEditPresenter
       filepondEl={filepondEl}
       files={files}
       setFiles={setFiles}
       setPortId={setPortId}
       fileUrl={fileUrl}
+      setFileUrl={setFileUrl}
       mainBannerData={mainBannerData}
       selectPortpolioData={selectPortpolioData}
       handleUpload={handleUpload}
       handleMainBannerDelete={handleMainBannerDelete}
-      handleDelFile={handleDelFile}
+      // handleDelFile={handleDelFile}
     />
   );
 };
 
-ManageMainBannerContainer.propTypes = {
+ManageMainBannerEditContainer.propTypes = {
   history: PropTypes.object.isRequired,
   match: PropTypes.shape({
     params: PropTypes.object,
   }).isRequired,
 };
 
-export default ManageMainBannerContainer;
+export default ManageMainBannerEditContainer;

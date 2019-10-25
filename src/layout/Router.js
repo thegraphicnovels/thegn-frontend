@@ -11,10 +11,10 @@ import Footer from 'layout/footer';
 import Scratch from 'layout/scratch';
 import Main from 'page/main';
 import ArchiveDetail from 'page/archive_detail';
-import ManageArchive from 'page/ManageArchive';
+import ManageArchiveEdit from 'page/ManageArchive/ManageArchiveEdit';
 import ManageTag from 'page/ManageTag';
-import MainBanner from 'page/manage_main_banner';
-import ManageMainBanner from 'page/ManageMainBanner';
+import MainBanner from 'page/ManageMainBanner/ManageMainBannerList';
+import ManageMainBannerEdit from 'page/ManageMainBanner/ManageMainBannerEdit';
 
 const PageUrl = ({ logged }) => {
   return (
@@ -31,24 +31,28 @@ const PageUrl = ({ logged }) => {
         <Route
           path="/manage/edit/mainBanner/:mainBannerId"
           exact
-          component={ManageMainBanner}
+          component={ManageMainBannerEdit}
         />
       )}
       {logged && (
         <Route
           path="/manage/upload/mainBanner"
           exact
-          component={ManageMainBanner}
+          component={ManageMainBannerEdit}
         />
       )}
       {logged && (
-        <Route path="/manage/archive" exact component={ManageArchive} />
+        <Route
+          path="/manage/upload/archive"
+          exact
+          component={ManageArchiveEdit}
+        />
       )}
       {logged && (
         <Route
-          path="/manage/archive/:portpolioId"
+          path="/manage/edit/archive/:portpolioId"
           exact
-          component={ManageArchive}
+          component={ManageArchiveEdit}
         />
       )}
       {logged && <Route path="/manage/tag" exact component={ManageTag} />}

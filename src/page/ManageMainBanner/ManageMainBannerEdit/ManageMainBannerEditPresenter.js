@@ -2,17 +2,18 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import FilePond from 'components/filePond';
 
-const ManageMainPresenter = ({
+const ManageMainBannerEditPresenter = ({
   filepondEl,
   files,
   setFiles,
   setPortId,
   fileUrl,
+  setFileUrl,
   mainBannerData,
   selectPortpolioData,
   handleUpload,
   handleMainBannerDelete,
-  handleDelFile,
+  // handleDelFile,
 }) => {
   return (
     <div>
@@ -55,46 +56,41 @@ const ManageMainPresenter = ({
             </tr>
             <tr>
               <th>Banner</th>
-              <td>
-                <FilePond
-                  filepondEl={filepondEl}
-                  files={files}
-                  setFiles={setFiles}
-                  allowMultiple
-                  label="Drag & Drop Main Banner"
-                />
-                {fileUrl.length > 0 && (
-                  <ul className="regImgViewList">
-                    {fileUrl.map((file, i) => (
-                      <li key={i}>
-                        <div className="previewThumbImgBox">
-                          <span>
-                            <img src={file} alt={file} />
-                          </span>
-                          <button
-                            type="button"
-                            onClick={() => handleDelFile(i)}
-                          >
-                            <em className="blind">삭제</em>
-                            <svg
-                              width="26"
-                              height="26"
-                              viewBox="0 0 26 26"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <path
-                                d="M11.586 13l-2.293 2.293a1 1 0 0 0 1.414 1.414L13 14.414l2.293 2.293a1 1 0 0 0 1.414-1.414L14.414 13l2.293-2.293a1 1 0 0 0-1.414-1.414L13 11.586l-2.293-2.293a1 1 0 0 0-1.414 1.414L11.586 13z"
-                                fill="currentColor"
-                                fillRule="nonzero"
-                              />
-                            </svg>
-                          </button>
-                        </div>
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </td>
+              {!fileUrl.length && (
+                <td>
+                  <FilePond
+                    filepondEl={filepondEl}
+                    files={files}
+                    setFiles={setFiles}
+                    allowMultiple
+                    label="Drag & Drop Main Banner"
+                  />
+                </td>
+              )}
+              {fileUrl.length > 0 && (
+                <td>
+                  <div className="previewThumbImgBox">
+                    <span>
+                      <img src={fileUrl[0]} alt={fileUrl[0]} />
+                    </span>
+                    <button type="button" onClick={() => setFileUrl([])}>
+                      <em className="blind">삭제</em>
+                      <svg
+                        width="26"
+                        height="26"
+                        viewBox="0 0 26 26"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M11.586 13l-2.293 2.293a1 1 0 0 0 1.414 1.414L13 14.414l2.293 2.293a1 1 0 0 0 1.414-1.414L14.414 13l2.293-2.293a1 1 0 0 0-1.414-1.414L13 11.586l-2.293-2.293a1 1 0 0 0-1.414 1.414L11.586 13z"
+                          fill="currentColor"
+                          fillRule="nonzero"
+                        />
+                      </svg>
+                    </button>
+                  </div>
+                </td>
+              )}
             </tr>
           </tbody>
         </table>
@@ -132,23 +128,24 @@ const ManageMainPresenter = ({
   );
 };
 
-ManageMainPresenter.defaultProps = {
-  fileUrl: '',
+ManageMainBannerEditPresenter.defaultProps = {
+  fileUrl: [],
   mainBannerData: null,
   selectPortpolioData: null,
 };
 
-ManageMainPresenter.propTypes = {
+ManageMainBannerEditPresenter.propTypes = {
   filepondEl: PropTypes.object.isRequired,
   files: PropTypes.array.isRequired,
   setFiles: PropTypes.func.isRequired,
   setPortId: PropTypes.func.isRequired,
   fileUrl: PropTypes.array,
+  setFileUrl: PropTypes.func.isRequired,
   mainBannerData: PropTypes.object,
   selectPortpolioData: PropTypes.object,
   handleUpload: PropTypes.func.isRequired,
   handleMainBannerDelete: PropTypes.func.isRequired,
-  handleDelFile: PropTypes.func.isRequired,
+  // handleDelFile: PropTypes.func.isRequired,
 };
 
-export default ManageMainPresenter;
+export default ManageMainBannerEditPresenter;
