@@ -11,6 +11,7 @@ import Footer from 'layout/footer';
 import Scratch from 'layout/scratch';
 import Main from 'page/main';
 import ArchiveDetail from 'page/archive_detail';
+import ArchiveSearch from 'page/archive_search';
 import ManageArchiveEdit from 'page/ManageArchive/ManageArchiveEdit';
 import ManageTag from 'page/ManageTag';
 import MainBanner from 'page/ManageMainBanner/ManageMainBannerList';
@@ -20,6 +21,10 @@ const PageUrl = ({ logged }) => {
   return (
     <Switch>
       <Route path="/" exact component={Main} />
+      <Route
+        path="/archive/:keyword"
+        render={props => <ArchiveSearch {...props} />}
+      />
       <Route
         path="/archiveDetail/:portpolioId"
         render={props => <ArchiveDetail {...props} logged={logged} />}
@@ -64,7 +69,8 @@ const PageUrl = ({ logged }) => {
 const Router = ({ logged }) => {
   return (
     <BRouter>
-      <Header logged={logged} />
+      <Route path="/" render={props => <Header {...props} logged={logged} />} />
+      {/* <Header logged={logged} /> */}
       <div id="container">
         <PageUrl logged={logged} />
       </div>

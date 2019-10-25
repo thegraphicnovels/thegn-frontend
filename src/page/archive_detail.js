@@ -21,6 +21,7 @@ const ArchiveDetail = ({
 
   useEffect(() => {
     window.onpopstate = e => {
+      console.log(history);
       history.push({ url: '/', state: { menuId: 1 } });
     };
   }, []);

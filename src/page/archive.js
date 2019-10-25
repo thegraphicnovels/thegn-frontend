@@ -58,7 +58,7 @@ const Archive = ({ action }) => {
     // console.log('loading end');
     return (
       <div className="archiveWrap">
-        <TagMenu refetch={refetch} />
+        {!loading && <TagMenu refetch={refetch} />}
 
         <div className="archiveListWrap">
           <ul className="grid" ref={archiveList}>

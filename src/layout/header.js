@@ -4,10 +4,12 @@ import PropTypes from 'prop-types';
 import { useMutation } from '@apollo/react-hooks';
 import { placeholderFn, AdminMenuFn } from 'common';
 import { LOCAL_LOG_OUT } from 'apollo/loginQuery';
+import { useInput } from 'rooks';
 
-const Header = ({ logged }) => {
+const Header = ({ history, logged }) => {
   const srchEl = useRef(null);
   const adminMenuEl = useRef(null);
+  const keyword = useInput('');
 
   const [logoutMutation] = useMutation(LOCAL_LOG_OUT);
 
@@ -17,6 +19,13 @@ const Header = ({ logged }) => {
       AdminMenuFn(adminMenuEl.current);
     }
   });
+
+  const handleKeywordArchive = e => {
+    if (e.key === 'Enter') {
+      // console.log(history);
+      history.push(`/archive/${keyword.value}`);
+    }
+  };
 
   return (
     <header id="header">
@@ -40,13 +49,19 @@ const Header = ({ logged }) => {
         <div className="util">
           <label htmlFor="search" className="topSrchBox" ref={srchEl}>
             <span className="placeholder">Search</span>
-            <input type="text" id="search" />
+            <input
+              type="text"
+              id="search"
+              value={keyword.val}
+              onChange={keyword.onChange}
+              onKeyDown={e => handleKeywordArchive(e)}
+            />
           </label>
           <Link to="/" className="btnInsta">
             <img src="/resources/images/icon_insta.svg" alt="instagram" />
           </Link>
           <Link to="/" className="btnBe">
-            <img src="resources/images/icon_Be.svg" alt="instagram" />
+            <img src="/resources/images/icon_Be.svg" alt="instagram" />
           </Link>
 
           {logged === true && (
@@ -88,6 +103,7 @@ const Header = ({ logged }) => {
 };
 
 Header.propTypes = {
+  history: PropTypes.object.isRequired,
   logged: PropTypes.bool.isRequired,
 };
 
