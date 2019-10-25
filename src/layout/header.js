@@ -34,10 +34,7 @@ const Header = ({ logged }) => {
               }
             }}
           >
-            <img
-              src={fullUrlFn('resources/images/logo.png')}
-              alt="the graphic novels"
-            />
+            <img src="/resources/images/logo.png" alt="the graphic novels" />
           </Link>
         </h1>
         <div className="util">
@@ -46,24 +43,15 @@ const Header = ({ logged }) => {
             <input type="text" id="search" />
           </label>
           <Link to="/" className="btnInsta">
-            <img
-              src={fullUrlFn('resources/images/icon_insta.svg')}
-              alt="instagram"
-            />
+            <img src="/resources/images/icon_insta.svg" alt="instagram" />
           </Link>
           <Link to="/" className="btnBe">
-            <img
-              src={fullUrlFn('resources/images/icon_Be.svg')}
-              alt="instagram"
-            />
+            <img src="resources/images/icon_Be.svg" alt="instagram" />
           </Link>
 
           {logged === true && (
             <button type="button" ref={adminMenuEl} className="icoAdm">
-              <img
-                src={fullUrlFn('resources/images/icon_admin.svg')}
-                alt="admin"
-              />
+              <img src="/resources/images/icon_admin.svg" alt="admin" />
 
               <span className="admList">
                 <ul>
