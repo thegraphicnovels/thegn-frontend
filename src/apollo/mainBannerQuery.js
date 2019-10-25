@@ -10,6 +10,9 @@ export const mainBannerQuery = gql`
       portpolio {
         _id
         title
+        tags {
+          value
+        }
       }
       user {
         name

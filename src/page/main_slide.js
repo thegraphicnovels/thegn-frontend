@@ -11,26 +11,29 @@ const Mainswiper = ({ action }) => {
   const { data: mainBannerData, loading } = useQuery(mainBannerQuery);
 
   useEffect(() => {
-    if (action === 0) {
+    if (action === 0 && !loading) {
+      console.log('loading end swipefn');
       mainSwiper = swiperFn(swiperEl.current);
     }
 
     return () => {
-      if (action === 0) {
+      if (action === 0 && mainSwiper) {
         console.log('main swiper destroy');
         mainSwiper.destroy();
       }
     };
-  }, [action]);
+  }, [action, loading]);
 
-  if (action === 0) {
+  if(!loading) console.log(mainBannerData);
+
+  if (action === 0 && !loading) {
     return (
       <div className="mainSwipeWrap" ref={swiperEl}>
         <button type="button" className="btnPrev">
           <em className="blind">이전</em>
         </button>
         <ul className="swiper-wrapper">
-          {/* {mainBannerData &&
+          {mainBannerData &&
             mainBannerData.seeBanners.map(banner =>
               banner.files.map((file, index) => (
                 <li
@@ -41,27 +44,21 @@ const Mainswiper = ({ action }) => {
                   }}
                 >
                   <span className="imgTxt">
-                    <img
-                      src="resources/images/temp/img_main_swipe_txt01.png"
-                      alt={banner.portpolio.tags.map(tag => tag.value)}
-                    />
+                    <strong className="tits">{banner.portpolio.title}</strong>
+                    {banner.portpolio.tags.length > 0 && (
+                      <span className="tags">
+                        {banner.portpolio.tags.map((tag, i) => {
+                          if(i === 0) {
+                            return tag.value;
+                          }
+                          return `, ${tag.value}`;
+                        })}
+                      </span>
+                    )}
                   </span>
                 </li>
               )),
-            )} */}
-          <li
-            className="swiper-slide"
-            style={{
-              backgroundImage: "url('resources/images/temp/temp_main02.jpg')",
-            }}
-          >
-            <span className="imgTxt">
-              <img
-                src="resources/images/temp/img_main_swipe_txt01.png"
-                alt="MAKE SOME NOISE COMMON GROUND 3RD ANNIVERSARY POSTER, IDENTITY, EI, DRAFT"
-              />
-            </span>
-          </li>
+            )}
         </ul>
         <button type="button" className="btnNext">
           <em className="blind">다음</em>
