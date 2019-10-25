@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import ToggleComponent from 'components/toggleComponent';
 import FilePond from 'components/filePond';
 
-const ManageArchivePresenter = ({
+const ManageArchiveEditPresenter = ({
   filepondEl,
   thumbFilepondEl,
   thumbFiles,
@@ -106,7 +106,7 @@ const ManageArchivePresenter = ({
                   <span>
                     <img src={thumbFileUrl[0]} alt={thumbFileUrl[0]} />
                   </span>
-                  <button type="button" onClick={() => setThumbFileUrl('')}>
+                  <button type="button" onClick={() => setThumbFileUrl([])}>
                     <em className="blind">삭제</em>
                     <svg
                       width="26"
@@ -202,9 +202,9 @@ const ManageArchivePresenter = ({
   );
 };
 
-ManageArchivePresenter.defaultProps = {
-  thumbFileUrl: '',
-  fileUrl: '',
+ManageArchiveEditPresenter.defaultProps = {
+  thumbFileUrl: [],
+  fileUrl: [],
   tagData: null,
   tags: '',
   portpolioData: null,
@@ -212,7 +212,7 @@ ManageArchivePresenter.defaultProps = {
   description: '',
 };
 
-ManageArchivePresenter.propTypes = {
+ManageArchiveEditPresenter.propTypes = {
   filepondEl: PropTypes.object.isRequired,
   thumbFilepondEl: PropTypes.object.isRequired,
   thumbFiles: PropTypes.array.isRequired,
@@ -234,4 +234,4 @@ ManageArchivePresenter.propTypes = {
   findDuplicates: PropTypes.func.isRequired,
 };
 
-export default ManageArchivePresenter;
+export default ManageArchiveEditPresenter;

@@ -62,9 +62,15 @@ const ArchiveDetail = ({
 
             <div className="descriptBox">
               {logged && (
+<<<<<<< HEAD
                 <div className="btnDescriptBox">
                   <Link to={`/manage/archive/${data.detailPortpolio._id}`} className="btnCustm02">
                     <span>수정</span>
+=======
+                <div style={{ display: 'flex', flexdirection: 'row' }}>
+                  <Link to={`/manage/edit/archive/${data.detailPortpolio._id}`}>
+                    <button type="button">수정</button>
+>>>>>>> 1d103e1797806a55cd2cfad66333c050f6b39caa
                   </Link>
                 </div>
               )}

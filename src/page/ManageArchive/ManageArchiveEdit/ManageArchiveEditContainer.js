@@ -10,9 +10,9 @@ import {
 } from 'apollo/archiveQuery';
 import { useInput } from 'rooks';
 import request from 'superagent';
-import ManageArchivePresenter from './ManageArchivePresenter';
+import ManageArchiveEditPresenter from './ManageArchiveEditPresenter';
 
-const ManageArchiveContainer = ({
+const ManageArchiveEditContainer = ({
   history,
   match: {
     params: { portpolioId },
@@ -128,8 +128,8 @@ const ManageArchiveContainer = ({
     try {
       if (action === 'edit') {
         if (
-          (thumbFileUrl.length > 0 && fileUrl.length > 0) ||
-          (files.length > 0 && thumbFiles.length > 0)
+          (thumbFileUrl.length > 0 || thumbFiles.length > 0) &&
+          (files.length > 0 || fileUrl.length > 0)
         ) {
           if (title.value !== '') {
             if (window.confirm('Do you want to edit this archive?')) {
@@ -257,7 +257,7 @@ const ManageArchiveContainer = ({
   };
 
   return (
-    <ManageArchivePresenter
+    <ManageArchiveEditPresenter
       filepondEl={filepondEl}
       thumbFilepondEl={thumbFilepondEl}
       thumbFiles={thumbFiles}
@@ -281,11 +281,11 @@ const ManageArchiveContainer = ({
   );
 };
 
-ManageArchiveContainer.propTypes = {
+ManageArchiveEditContainer.propTypes = {
   history: PropTypes.object.isRequired,
   match: PropTypes.shape({
     params: PropTypes.object,
   }).isRequired,
 };
 
-export default ManageArchiveContainer;
+export default ManageArchiveEditContainer;
