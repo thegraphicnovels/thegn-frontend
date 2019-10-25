@@ -5,6 +5,7 @@ import { archiveDetailQuery } from 'apollo/archiveQuery';
 import { swiperFn, formatDate } from 'common';
 
 const ArchiveDetail = ({
+  history,
   match: {
     params: { portpolioId },
   },
@@ -17,6 +18,12 @@ const ArchiveDetail = ({
     variables: { id: portpolioId },
     fetchPolicy: 'network-only',
   });
+
+  useEffect(() => {
+    window.onpopstate = e => {
+      history.push({ url: '/', state: { menuId: 1 } });
+    };
+  }, []);
 
   useEffect(() => {
     if (!loading) {
