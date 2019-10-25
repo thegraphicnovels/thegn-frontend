@@ -25,7 +25,7 @@ const Mainswiper = ({ action }) => {
     };
   }, [action, loading]);
 
-  if(!loading) console.log(mainBannerData);
+  // if(!loading) console.log(mainBannerData);
 
   if (action === 0 && !loading) {
     return (
@@ -44,13 +44,16 @@ const Mainswiper = ({ action }) => {
                     backgroundImage: `url(${file.url})`,
                   }}
                 >
-                  <Link to={`/archiveDetail/${banner.portpolio._id}`} className="imgTxt">
+                  <Link
+                    to={`/archiveDetail/${banner.portpolio._id}`}
+                    className="imgTxt"
+                  >
                     <div className="imgTxtIn">
                       <strong className="tits">{banner.portpolio.title}</strong>
                       {banner.portpolio.tags.length > 0 && (
                         <span className="tags">
                           {banner.portpolio.tags.map((tag, i) => {
-                            if(i === 0) {
+                            if (i === 0) {
                               return tag.value;
                             }
                             return `, ${tag.value}`;
