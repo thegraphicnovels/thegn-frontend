@@ -1,4 +1,5 @@
 import React, { useRef, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { swiperFn } from 'common';
 import { useQuery } from '@apollo/react-hooks';
@@ -43,19 +44,21 @@ const Mainswiper = ({ action }) => {
                     backgroundImage: `url(${file.url})`,
                   }}
                 >
-                  <span className="imgTxt">
-                    <strong className="tits">{banner.portpolio.title}</strong>
-                    {banner.portpolio.tags.length > 0 && (
-                      <span className="tags">
-                        {banner.portpolio.tags.map((tag, i) => {
-                          if(i === 0) {
-                            return tag.value;
-                          }
-                          return `, ${tag.value}`;
-                        })}
-                      </span>
-                    )}
-                  </span>
+                  <Link to={`/archiveDetail/${banner.portpolio._id}`} className="imgTxt">
+                    <div className="imgTxtIn">
+                      <strong className="tits">{banner.portpolio.title}</strong>
+                      {banner.portpolio.tags.length > 0 && (
+                        <span className="tags">
+                          {banner.portpolio.tags.map((tag, i) => {
+                            if(i === 0) {
+                              return tag.value;
+                            }
+                            return `, ${tag.value}`;
+                          })}
+                        </span>
+                      )}
+                    </div>
+                  </Link>
                 </li>
               )),
             )}
