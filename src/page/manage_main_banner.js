@@ -89,11 +89,12 @@ const MainBanner = ({ history }) => {
 
   return (
     <div>
-      <Link to="/manage/upload/mainBanner">
-        <button type="button" className="btnCustm">
+      <div className="listBarWrap">
+        <Link to="/manage/upload/mainBanner" className="btnCustm">
           <span>Add</span>
-        </button>
-      </Link>
+        </Link>
+      </div>
+
       <div className="listTblWrap">
         <Table stickyHeader aria-label="sticky table">
           <TableHead>

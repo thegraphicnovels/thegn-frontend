@@ -51,7 +51,7 @@ const ArchiveDetail = ({
                 {data &&
                   data.detailPortpolio.files.map(imgUrl => (
                     <li key={imgUrl._id} className="swiper-slide">
-                      <img src={imgUrl.url} alt="" />
+                      <span><img src={imgUrl.url} alt="" /></span>
                     </li>
                   ))}
               </ul>
@@ -62,9 +62,9 @@ const ArchiveDetail = ({
 
             <div className="descriptBox">
               {logged && (
-                <div style={{ display: 'flex', flexdirection: 'row' }}>
-                  <Link to={`/manage/archive/${data.detailPortpolio._id}`}>
-                    <button type="button">수정</button>
+                <div className="btnDescriptBox">
+                  <Link to={`/manage/archive/${data.detailPortpolio._id}`} className="btnCustm02">
+                    <span>수정</span>
                   </Link>
                 </div>
               )}

@@ -62,8 +62,10 @@ input[type="text"] {box-sizing:border-box;width:100%;height:32px;font-size:18px;
 .archiveWrap .archiveListWrap .grid .grid-item {display:inline-block;padding:0 4% 5%;}
 .archiveWrap .archiveListWrap .grid .grid-item a {display:block;position:relative;}
 .archiveWrap .archiveListWrap .grid .grid-item a .itemFrame {display:none;overflow:hidden;position:absolute;left:0;top:0;right:0;bottom:0;background-color:rgba(0, 0, 0, 0.4);}
-.archiveWrap .archiveListWrap .grid .grid-item a .itemFrame .inner {position:absolute;left:0;right:0;top:50%;transform:translate(0, -50%);}
-.archiveWrap .archiveListWrap .grid .grid-item a .itemFrame .inner span {display:block; color:#fff;}
+.archiveWrap .archiveListWrap .grid .grid-item a .itemFrame .inner {position:absolute;left:0;right:0;top:50%;padding:0 10px;transform:translate(0, -50%);}
+.archiveWrap .archiveListWrap .grid .grid-item a .itemFrame .inner .descript {display:block;overflow:hidden;max-height:60px;line-height:20px;font-size:18px;color:#fff;}
+.archiveWrap .archiveListWrap .grid .grid-item a .itemFrame .inner .tags {display:block;margin:20px 0 0;line-height:20px;font-size:18px;color:#fff;}
+.archiveWrap .archiveListWrap .grid .grid-item a:hover .itemFrame {display:block;}
 
 /*************************** 1366 - tablet ***************************/
 /* @media screen and (max-width:1370px) {
@@ -77,12 +79,14 @@ input[type="text"] {box-sizing:border-box;width:100%;height:32px;font-size:18px;
 .archiveDescriptWrap .descriptThum {overflow:hidden;position:relative;float:left;width:60%;}
 .archiveDescriptWrap .descriptThum .swiper-wrapper {overflow:hidden;width:9999em;}
 .archiveDescriptWrap .descriptThum .swiper-wrapper .swiper-slide {position:relative;float:left;}
-.archiveDescriptWrap .descriptThum .swiper-wrapper .swiper-slide img {width:100%;}
+.archiveDescriptWrap .descriptThum .swiper-wrapper .swiper-slide:before {display:block;content:"";padding:84.0345199568501% 0 0;}
+.archiveDescriptWrap .descriptThum .swiper-wrapper .swiper-slide span {display:block;position:absolute;left:0;top:0;right:0;bottom:0;}
+.archiveDescriptWrap .descriptThum .swiper-wrapper .swiper-slide img {width:100%;height:100%;}
 .archiveDescriptWrap .descriptThum .swiper-wrapper .swiper-slide:after {display:block;content:"";position:absolute;left:0;top:0;right:0;bottom:0;background-color:rgba(0, 0, 0, 0.5);}
 .archiveDescriptWrap .descriptThum .btnPrev {position:absolute;left:40px;top:50%;width:112px;height:40px;background:url('../images/btn_main_swiper.png') no-repeat left top;z-index:1;transform:translate(0, -50%);}
 .archiveDescriptWrap .descriptThum .btnNext {position:absolute;right:40px;top:50%;width:112px;height:40px;background:url('../images/btn_main_swiper.png') no-repeat right top;z-index:1;transform:translate(0, -50%);}
 
-.archiveDescriptWrap .descriptBox {float:right;width:38%;padding:20px 0 0;}
+.archiveDescriptWrap .descriptBox {float:right;position:relative;width:38%;padding:20px 0 0;}
 .archiveDescriptWrap .descriptBox strong {display:block;line-height:50px;font-size:32px;font-weight:400;text-decoration:underline;}
 .archiveDescriptWrap .descriptBox .date {line-height:36px;font-size:26px;font-weight:300;}
 .archiveDescriptWrap .descriptBox .tag {line-height:36px;font-size:26px;font-weight:300;}
@@ -91,6 +95,7 @@ input[type="text"] {box-sizing:border-box;width:100%;height:32px;font-size:18px;
 .archiveDescriptWrap .descriptBox strong + .tag {margin:20px 0 0;}
 .archiveDescriptWrap .descriptBox .date +  .txt,
 .archiveDescriptWrap .descriptBox .tag +  .txt {margin:20px 0 0;}
+.archiveDescriptWrap .descriptBox .btnDescriptBox {position:absolute;right:0;top:0;}
 
 .archiveMoreBox {position:relative;margin:50px 0 0;padding:0 220px 130px;}
 .archiveMoreBox h3 {margin:0 0 100px;line-height:36px;font-size:26px;font-weight:300;text-align:center;}

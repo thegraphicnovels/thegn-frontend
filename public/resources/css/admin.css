@@ -53,5 +53,8 @@
 .tagAddBox > span input[type="text"] {height:32px;border:none;}
 .tagAddBox .btnCustm {position:absolute;right:0;top:0;width:80px;}
 
+.listBarWrap {text-align:right;}
+
 .listTblWrap {border-top:2px solid #000;}
+.listBarWrap + .listTblWrap {margin:10px 0 0;}
 .tagAddBox  + .listTblWrap {margin:50px 0 0;}
