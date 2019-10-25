@@ -10,7 +10,7 @@ const ArchiveDetail = ({
   },
   logged,
 }) => {
-  console.log('archiveDetail ID', portpolioId);
+//   console.log('archiveDetail ID', portpolioId);
   let topSwiper;
   const topSwiperEl = useRef(null);
   const { data, loading } = useQuery(archiveDetailQuery, {
@@ -63,7 +63,7 @@ const ArchiveDetail = ({
             <div className="descriptBox">
               {logged && (
                 <div className="btnDescriptBox">
-                  <Link to={`/manage/archive/${data.detailPortpolio._id}`} className="btnCustm02">
+                  <Link to={`/manage/edit/archive/${data.detailPortpolio._id}`} className="btnCustm02">
                     <span>수정</span>
                   </Link>
                 </div>
