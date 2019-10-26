@@ -58,8 +58,16 @@ export const placeholderFn = target => {
 // Main swiper Function
 export const swiperFn = target => {
   const mainWrap = $(target);
+  const itemNum = $('li', mainWrap).length;
+  let loopOpt = true;
+
+  if(itemNum <= 1) {
+	loopOpt = false;
+	$('.btnPrev', mainWrap).hide();
+	$('.btnNext', mainWrap).hide();
+  }
   const swiperLib = new Swiper(target, {
-    loop: true,
+    loop: loopOpt,
     on: {
       init() {
         const wrapW = mainWrap.outerWidth();
@@ -184,6 +192,20 @@ export const tagMenuFn = target => {
     },
   };
 };
+
+export const scrollFn = target => {
+	const scrollWrap = $(target);
+
+	const swiperScrollLib = new Swiper(target, {
+		direction: 'vertical',
+		slidesPerView: 'auto',
+		freeMode: true,
+		scrollbar: {
+		  el: '.swiper-scrollbar',
+		},
+		mousewheel: true,
+	});
+}
 
 // Achive list masonry
 export const masonryFn = target => {

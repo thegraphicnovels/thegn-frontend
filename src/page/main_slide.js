@@ -13,13 +13,12 @@ const Mainswiper = ({ action }) => {
 
   useEffect(() => {
     if (action === 0 && !loading) {
-      console.log('loading end swipefn');
       mainSwiper = swiperFn(swiperEl.current);
     }
 
     return () => {
       if (action === 0 && mainSwiper) {
-        console.log('main swiper destroy');
+        // console.log('main swiper destroy');
         mainSwiper.destroy();
       }
     };
