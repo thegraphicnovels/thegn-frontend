@@ -8,7 +8,6 @@ const TagMenu = ({refetch})=> {
 	let menuFn;
 	let tagScrollFn;
 	const tagMenuEl = useRef(null);
-	const scrollEl = useRef(null);
 	const { data: tagData, loading: tagLoading } = useQuery(tagQuery, {
 		fetchPolicy: 'network-only',
 	});
@@ -19,7 +18,6 @@ const TagMenu = ({refetch})=> {
 	useEffect(()=> {
 		if(!tagLoading) {
 			menuFn = tagMenuFn(tagMenuEl);
-			tagScrollFn = scrollFn(scrollEl.current);
 		}
 
 		return ()=> {
@@ -35,7 +33,7 @@ const TagMenu = ({refetch})=> {
 				<button type="button">
 				<em className="blind">태그메뉴</em>
 				</button>
-				<div className="swiperScrollBox" ref={scrollEl}>
+				<div className="swiperScrollBox">
 					<div className="swiper-wrapper">
 						<ul className="swiper-slide">
 							{tagData.seeTags.map(tag => (

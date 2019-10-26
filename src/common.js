@@ -62,9 +62,9 @@ export const swiperFn = target => {
   let loopOpt = true;
 
   if(itemNum <= 1) {
-	loopOpt = false;
-	$('.btnPrev', mainWrap).hide();
-	$('.btnNext', mainWrap).hide();
+  loopOpt = false;
+  $('.btnPrev', mainWrap).hide();
+  $('.btnNext', mainWrap).hide();
   }
   const swiperLib = new Swiper(target, {
     loop: loopOpt,
@@ -75,9 +75,9 @@ export const swiperFn = target => {
         eleItem.css('width', wrapW);
         this.update();
       },
-      //   resize(swiper) {
-      //     this.update();
-      //   },
+      resize() {
+        this.update();
+      },
       //   transitionEnd(swiper) {},
     },
     allowTouchMove: false,
@@ -156,9 +156,9 @@ export const menuClick = (target, setAction, action) => {
 
 // Achive Tag Menu
 export const tagMenuFn = target => {
-  console.log('tagMenuFn');
   const _tagWrap = $(target.current);
   const _button = $('> button', _tagWrap);
+  const _scrollWrap = $('.swiperScrollBox', _tagWrap);
   const _tagPageWrap = _tagWrap.parents('.pageWrap');
 
   _tagWrap.css({
@@ -171,12 +171,31 @@ export const tagMenuFn = target => {
     'transition-timing-function': 'ease, ease',
   });
 
+  const _swiperScrollLib = new Swiper(_scrollWrap, {
+    direction: 'vertical',
+    slidesPerView: 'auto',
+    freeMode: true,
+    scrollbar: {
+      el: '.swiper-scrollbar',
+    },
+    on : {
+      resize() {
+        if(_scrollWrap.is(':visible')) {
+          console.log('resize');
+          this.update();
+        }
+      },
+    },
+    mousewheel: true,
+  });
+
   _button.click(() => {
-    console.log(_tagWrap);
+    // console.log(_tagWrap);
     if (_tagWrap.hasClass('active')) {
       _tagWrap.removeClass('active');
     } else {
       _tagWrap.addClass('active');
+      _swiperScrollLib.update();
     }
   });
 
@@ -189,23 +208,10 @@ export const tagMenuFn = target => {
       });
       _tagPageWrap.unbind();
       _button.unbind();
+      _swiperScrollLib.destroy();
     },
   };
 };
-
-export const scrollFn = target => {
-	const scrollWrap = $(target);
-
-	const swiperScrollLib = new Swiper(target, {
-		direction: 'vertical',
-		slidesPerView: 'auto',
-		freeMode: true,
-		scrollbar: {
-		  el: '.swiper-scrollbar',
-		},
-		mousewheel: true,
-	});
-}
 
 // Achive list masonry
 export const masonryFn = target => {
