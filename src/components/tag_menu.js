@@ -17,6 +17,7 @@ const TagMenu = ({refetch})=> {
 
 	useEffect(()=> {
 		if(!tagLoading) {
+			console.log('tagData', tagData);
 			menuFn = tagMenuFn(tagMenuEl);
 		}
 
