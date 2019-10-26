@@ -160,6 +160,7 @@ export const tagMenuFn = target => {
   const _button = $('> button', _tagWrap);
   const _scrollWrap = $('.swiperScrollBox', _tagWrap);
   const _tagPageWrap = _tagWrap.parents('.pageWrap');
+  let _scrollbarTime;
 
   _tagWrap.css({
     // tag menu icon display
@@ -176,7 +177,9 @@ export const tagMenuFn = target => {
     slidesPerView: 'auto',
     freeMode: true,
     scrollbar: {
-      el: '.swiper-scrollbar',
+      el: $('.swiper-scrollbar', _tagWrap),
+      draggable : true,
+      hide : true,
     },
     on : {
       resize() {
