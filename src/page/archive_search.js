@@ -72,7 +72,7 @@ const ArchiveSearch = ({
         </Link>
 
         <div className="archiveWrap">
-          {/* {!loading && <TagMenu refetch={refetch} />} */}
+          {!loading && <TagMenu refetch={refetch} />}
 
           <div className="archiveListWrap">
             <ul className="grid" ref={archiveList}>
