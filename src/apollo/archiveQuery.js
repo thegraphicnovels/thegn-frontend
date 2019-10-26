@@ -1,8 +1,13 @@
 import { gql } from 'apollo-boost';
 
 export const archiveQuery = gql`
-  query seePortpolios($page: Int, $limit: Int, $tags: [String]) {
-    seePortpolios(page: $page, limit: $limit, tags: $tags) {
+  query seePortpolios(
+    $page: Int
+    $limit: Int
+    $tags: [String]
+    $keyword: String
+  ) {
+    seePortpolios(page: $page, limit: $limit, tags: $tags, keyword: $keyword) {
       portpolios {
         _id
         title
