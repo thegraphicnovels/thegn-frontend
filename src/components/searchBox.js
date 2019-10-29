@@ -1,12 +1,13 @@
 import React, { useEffect, useRef } from 'react';
+import { withRouter } from 'react-router-dom';
 import { useInput } from 'rooks';
 import PropTypes from 'prop-types';
-import { placeholderFn} from 'common';
+import { placeholderFn } from 'common';
 
-const SearchBox = ({history}) => {
+const SearchBox = ({ history }) => {
   const srchEl = useRef(null);
   const keyword = useInput('');
-  
+
   const onSearchSubmit = e => {
     e.preventDefault();
     // if (e.key === 'Enter') {
@@ -14,7 +15,7 @@ const SearchBox = ({history}) => {
     // }
   };
 
-  useEffect(()=> {
+  useEffect(() => {
     placeholderFn(srchEl.current);
   });
 
@@ -37,4 +38,4 @@ SearchBox.propTypes = {
   history: PropTypes.object.isRequired,
 };
 
-export default SearchBox;
+export default withRouter(SearchBox);

@@ -1,12 +1,12 @@
 import React, { useRef, useEffect } from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { useMutation } from '@apollo/react-hooks';
 import { LOCAL_LOG_OUT } from 'apollo/loginQuery';
 import { AdminMenuFn, moGnbOpenFn } from 'common';
 import SearchBox from 'components/searchBox';
 
-const Header = ({ history, logged }) => {
+const Header = ({ logged }) => {
   const adminMenuEl = useRef(null);
   const btnHambergEl = useRef(null);
   const [logoutMutation] = useMutation(LOCAL_LOG_OUT);
@@ -22,8 +22,6 @@ const Header = ({ history, logged }) => {
       gnbOpenFn.destroy();
     };
   });
-
-  
 
   return (
     <header id="header">
@@ -45,8 +43,8 @@ const Header = ({ history, logged }) => {
           </Link>
         </h1>
         <div className="util">
-          <SearchBox history={history} />
-          
+          <SearchBox />
+
           <Link to="/" className="btnInsta">
             <img src="/resources/images/icon_insta.svg" alt="instagram" />
           </Link>
@@ -93,8 +91,7 @@ const Header = ({ history, logged }) => {
 };
 
 Header.propTypes = {
-  history: PropTypes.object.isRequired,
   logged: PropTypes.bool.isRequired,
 };
 
-export default withRouter(Header);
+export default Header;
