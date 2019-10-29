@@ -107,7 +107,12 @@ const ArchiveDetail = ({
               </p>
               <p className="tag">
                 {data.detailPortpolio.tags &&
-                  data.detailPortpolio.tags.map(tag => `${tag.value} `)}
+                  data.detailPortpolio.tags.map((tag, i) =>{
+                    if(i === 0) {
+                      return `${tag.value}`
+                    }
+                    return `, ${tag.value}`
+                  })}
               </p>
 
               <div className="txt">{data.detailPortpolio.description}</div>
