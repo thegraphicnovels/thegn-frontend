@@ -34,14 +34,22 @@
 .contents .naviListWrap ul {position:absolute;left:40px;right:40px;top:50%;transform:translate(0, -50%);}
 .contents .naviListWrap ul li {margin:30px 0 0;}
 .contents .naviListWrap ul li:first-child {margin:0;}
-.contents .naviListWrap ul li button {width:100%;text-align:center;}
-.contents .naviListWrap ul li button em {height:47px;line-height:47px;font-size:22px;font-weight:700;}
-.contents .naviListWrap ul li:nth-child(1) button {border-bottom:5px solid #ff5d5d;}
-.contents .naviListWrap ul li:nth-child(1) button em {color:#ff5d5d;}
-.contents .naviListWrap ul li:nth-child(2) button {border-bottom:5px solid #99ff8d;}
-.contents .naviListWrap ul li:nth-child(2) button em {color:#99ff8d;}
-.contents .naviListWrap ul li:nth-child(3) button {border-bottom:5px solid #537bff;}
-.contents .naviListWrap ul li:nth-child(3) button em {color:#537bff;}
+.contents .naviListWrap ul li button,
+.contents .naviListWrap ul li a {display:block;width:100%;text-align:center;}
+.contents .naviListWrap ul li button em,
+.contents .naviListWrap ul li a em {display:inline-block;height:47px;line-height:47px;font-size:22px;font-weight:700;}
+.contents .naviListWrap ul li:nth-child(1) button,
+.contents .naviListWrap ul li:nth-child(1) a {border-bottom:5px solid #ff5d5d;}
+.contents .naviListWrap ul li:nth-child(1) button em,
+.contents .naviListWrap ul li:nth-child(1) a em {color:#ff5d5d;}
+.contents .naviListWrap ul li:nth-child(2) button,
+.contents .naviListWrap ul li:nth-child(2) a {border-bottom:5px solid #99ff8d;}
+.contents .naviListWrap ul li:nth-child(2) button em,
+.contents .naviListWrap ul li:nth-child(2) a em {color:#99ff8d;}
+.contents .naviListWrap ul li:nth-child(3) button,
+.contents .naviListWrap ul li:nth-child(3) a {border-bottom:5px solid #537bff;}
+.contents .naviListWrap ul li:nth-child(3) button em,
+.contents .naviListWrap ul li:nth-child(3) a em {color:#537bff;}
 
 .contents [class^="subMenu"] {position:fixed;top:90px;bottom:100px;box-sizing:border-box;width:47px;background-color:#fff;z-index:5;}
 .contents [class^="subMenu"] em {position:absolute;left:50%;top:50%;height:47px;line-height:47px;font-size:22px;font-weight:700;transform:translate(-50%, -50%) rotate(-90deg);transform-origin:50% 50%;}
@@ -81,11 +89,11 @@
 
 /*************************** 1024 ***************************/
 @media screen and (max-width:1024px) {
-	#header {left:0;right:0;padding:27px 40px 0;height:70px;box-shadow:0 3px 7px rgba(0, 0, 0, 0.1);}
+	#header {left:0;right:0;padding:27px 40px 0;height:70px;box-shadow:0 3px 7px rgba(0, 0, 0, 0.1);background-color:#fff;z-index:6;}
 	#header .logo a {height:15px;line-height:15px;}
 	#header .logo a img {height:100%;}
  
-	#header .util {float:none;position:fixed;bottom:0;left:40px;right:40px;height:26px;padding:0 0 15px;margin:0;text-align:right;background:#fff;}
+	#header .util {float:none;position:fixed;bottom:0;left:40px;right:40px;height:26px;padding:10px 0 15px;margin:0;text-align:right;background:#fff;}
 	#header .util .topSrchBox {position:absolute;left:0;top:0;text-align:left;}
 
 	#header .btnHamberg {display:block;}
@@ -94,6 +102,6 @@
 	.contents [class^="subMenu"] {display:none;}
 	[class^="pageWrap"] {overflow:visible;display:block;}
 
-	#footer {bottom:41px;padding:60px 0 0;}
+	#footer {bottom:51px;padding:45px 0 0;}
 	#footer .fInfoBtn {left:40px;right:40px;top:0;}
 }

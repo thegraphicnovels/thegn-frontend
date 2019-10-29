@@ -2,22 +2,29 @@ import React, { useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { useMutation } from '@apollo/react-hooks';
-import { placeholderFn, AdminMenuFn } from 'common';
 import { LOCAL_LOG_OUT } from 'apollo/loginQuery';
 import { useInput } from 'rooks';
+import { placeholderFn, AdminMenuFn, moGnbOpenFn } from 'common';
 
 const Header = ({ history, logged }) => {
   const srchEl = useRef(null);
   const adminMenuEl = useRef(null);
   const keyword = useInput('');
 
+  const btnHambergEl = useRef(null);
+  let gnbOpenFn;
+
   const [logoutMutation] = useMutation(LOCAL_LOG_OUT);
 
   useEffect(() => {
     placeholderFn(srchEl.current);
+    gnbOpenFn = moGnbOpenFn(btnHambergEl.current);
     if (logged === true) {
       AdminMenuFn(adminMenuEl.current);
     }
+    return ()=> {
+      gnbOpenFn.destroy();
+    };
   });
 
   const handleKeywordArchive = e => {
@@ -94,7 +101,7 @@ const Header = ({ history, logged }) => {
             </Link>
           )}
         </div>
-        <button type="button" className="btnHamberg">
+        <button type="button" className="btnHamberg" ref={btnHambergEl}>
           <span className="blind">메뉴 열기</span>
         </button>
       </div>

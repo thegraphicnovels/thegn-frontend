@@ -55,6 +55,33 @@ export const placeholderFn = target => {
     });
 };
 
+export const moGnbOpenFn = target=> {
+  const btnHamberg = $(target);
+
+  $(window).resize(()=> {
+    const winW = $(window).width();
+
+    if(winW > 1024 && $('.naviListWrap').hasClass('active')) {
+      $('.naviListWrap').removeClass('active');
+    }
+  });
+
+  btnHamberg.click(()=> {
+    console.log($('.naviListWrap'));
+    if($('.naviListWrap').hasClass('active')) {
+      $('.naviListWrap').removeClass('active');
+    }else{
+      $('.naviListWrap').addClass('active');
+    }
+  });
+
+  return {
+    destroy: () => {
+      btnHamberg.unbind('click');
+    }
+  }
+}
+
 // Main swiper Function
 export const swiperFn = target => {
   const mainWrap = $(target);
@@ -96,6 +123,8 @@ export const swiperFn = target => {
 export const menuClick = (target, setAction, action) => {
   const buttons = $('> button', target.current);
   const pageWraps = $('.pageWrap', target.current);
+  const naviListWrap = $('.naviListWrap');
+  const winW = $(window).width();
   setAction(action);
   if (action === 1) {
     buttons.eq(0).css({
@@ -143,14 +172,15 @@ export const menuClick = (target, setAction, action) => {
     height: 'calc(100vh - 100px - 90px)',
     transition: 'width 0.7s ease',
   });
-  pageWraps
-    .eq(action)
-    .addClass('active')
-    .css({
-      width: '100%',
-      height: 'auto',
-      transition: 'width 0.7s ease',
-    });
+  pageWraps.eq(action).addClass('active').css({
+    width: '100%',
+    height: 'auto',
+    transition: 'width 0.7s ease',
+  });
+
+  if(winW <= 1024) {
+    naviListWrap.removeClass('active');
+  }
   $('body, html').scrollTop(0);
 };
 
