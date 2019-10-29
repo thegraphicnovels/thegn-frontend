@@ -163,11 +163,17 @@ input[type="text"] {box-sizing:border-box;width:100%;height:32px;font-size:18px;
 .paging .viewPageNum {display:block;line-height:30px;font-size:26px;font-weight:300;text-align:center;}
 
 /**************************************************************************************
-** Paging
+** SCRATCH
 **************************************************************************************/
 .scratchWrap {position:fixed;right:10px;bottom:10px;width:150px;height:80px;z-index:10;}
 .scratchWrap .canvas {position:absolute;left:0;top:0;right:0;bottom:0;width:150px;height:80px;}
 .scratchWrap .ScratchCard__Result {display:block;width:100%;height:80px;line-height:80px;color:#fff;text-align:center;background-color:#000;}
+
+/*************************** 1024 ***************************/
+@media screen and (max-width:1024px) {
+	.scratchWrap {right:-100%;transition:right 0.7s ease;}
+	.scratchWrap.active {right:10px;transition:right 0.7s ease;}
+}
 
 /**************************************************************************************
 ** Layer Pop
