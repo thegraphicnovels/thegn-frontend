@@ -5,6 +5,7 @@ import { archiveQuery } from 'apollo/archiveQuery';
 import { masonryFn } from 'common';
 import Paging from 'components/paging';
 import TagMenu from 'components/tag_menu';
+import NaviList from 'components/naviList';
 
 const ArchiveSearch = ({ history, location: { search } }) => {
   const limit = 10;
@@ -14,7 +15,6 @@ const ArchiveSearch = ({ history, location: { search } }) => {
   const keyword = new URLSearchParams(search).get('keyword');
 
   const { data, loading, refetch } = useQuery(archiveQuery, {
-    skip: !keyword,
     variables: { page: nowPageNum, limit, keyword },
     fetchPolicy: 'network-only',
   });
@@ -58,6 +58,8 @@ const ArchiveSearch = ({ history, location: { search } }) => {
         <span id="jumpConts" className="blind">
           상세 본문영역
         </span>
+
+        <NaviList />
 
         <Link
           to={{ pathname: '/', state: { menuId: 1 } }}

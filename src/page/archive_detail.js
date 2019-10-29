@@ -3,6 +3,7 @@ import { Link, withRouter } from 'react-router-dom';
 import { useQuery } from '@apollo/react-hooks';
 import { archiveDetailQuery } from 'apollo/archiveQuery';
 import { swiperFn, formatDate } from 'common';
+import NaviList from 'components/naviList';
 
 const ArchiveDetail = ({
   history,
@@ -38,25 +39,7 @@ const ArchiveDetail = ({
           상세 본문영역
         </span>
 
-        <nav className="naviListWrap">
-          <ul>
-            <li>
-              <Link to={{ pathname: '/', state: { menuId: 1 } }}>
-                <em>&lt;Archive&gt;</em>
-              </Link>
-            </li>
-            <li>
-              <Link to={{ pathname: '/', state: { menuId: 2 } }}>
-                <em>&lt;About&gt;</em>
-              </Link>
-            </li>
-            <li>
-              <Link to={{ pathname: '/', state: { menuId: 3 } }}>
-                <em>&lt;About&gt;</em>
-              </Link>
-            </li>
-          </ul>
-        </nav>
+        <NaviList />
 
         <Link
           to={{ pathname: '/', state: { menuId: 1 } }}

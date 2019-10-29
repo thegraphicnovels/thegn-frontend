@@ -17,7 +17,7 @@ const Header = ({ history, logged }) => {
 
   useEffect(() => {
     let gnbOpenFn = srchEl.current;
-    placeholderFn(srchEl.current);
+    placeholderFn(gnbOpenFn);
     gnbOpenFn = moGnbOpenFn(btnHambergEl.current);
     if (logged === true) {
       AdminMenuFn(adminMenuEl.current);
