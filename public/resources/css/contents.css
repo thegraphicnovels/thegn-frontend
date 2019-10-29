@@ -59,8 +59,7 @@ input[type="text"] {box-sizing:border-box;width:100%;height:32px;font-size:18px;
 .archiveWrap.active .tagMenu.active {background:#ff5d5d;}
 [class^="pageWrap"].active .archiveWrap .tagMenu.active > button,
 .archiveWrap.active .tagMenu.active > button {background-position:left top;}
-[class^="pageWrap"].active .archiveWrap .tagMenu.active .swiperScrollBox,
-.archiveWrap.active .tagMenu.active .mCustomScrollbar {display:block;}
+[class^="pageWrap"].active .archiveWrap .tagMenu.active .swiperScrollBox {display:block;}
 
 .archiveWrap {overflow:hidden;}
 .archiveWrap .archiveListWrap {width:100%;margin:0 -4%;}

@@ -54,7 +54,7 @@ const ArchiveSearch = ({ history, location: { search } }) => {
 
   if (!loading) {
     return (
-      <div className="contents archiveDetail">
+      <div className="contents searchResultWrap">
         <span id="jumpConts" className="blind">
           상세 본문영역
         </span>
@@ -68,48 +68,52 @@ const ArchiveSearch = ({ history, location: { search } }) => {
           <em>&lt;Archive&gt;</em>
         </Link>
 
-        <div className="archiveWrap">
-          <TagMenu refetch={refetch} />
 
-          <div className="archiveListWrap">
-            <ul className="grid" ref={archiveList}>
-              {data &&
-                data.seePortpolios.portpolios.map(portpolioData => (
-                  <li key={portpolioData._id} className="grid-item">
-                    <Link to={`/archiveDetail/${portpolioData._id}`}>
-                      <img
-                        src={portpolioData.thumbImg}
-                        onLoad={() => setLoadComplate(imgLoadComplate + 1)}
-                        alt={portpolioData.title}
-                      />
+        <div className="pageWrap active" style={{ display: 'block', width: '100%', height: 'auto' }}>
+          <h2 className="blind">Search result</h2>
+          <div className="archiveWrap">
+            <TagMenu refetch={refetch} />
 
-                      <div className="itemFrame">
-                        <div className="inner">
-                          <span className="tits">{portpolioData.title}</span>
-                          <span className="tags">
-                            {portpolioData.tags.length > 0 &&
-                              portpolioData.tags.map((item, i) => {
-                                if (i === 0) {
-                                  return item.value;
-                                }
-                                return `, ${item.value}`;
-                              })}
-                          </span>
+            <div className="archiveListWrap">
+              <ul className="grid" ref={archiveList}>
+                {data &&
+                  data.seePortpolios.portpolios.map(portpolioData => (
+                    <li key={portpolioData._id} className="grid-item">
+                      <Link to={`/archiveDetail/${portpolioData._id}`}>
+                        <img
+                          src={portpolioData.thumbImg}
+                          onLoad={() => setLoadComplate(imgLoadComplate + 1)}
+                          alt={portpolioData.title}
+                        />
+
+                        <div className="itemFrame">
+                          <div className="inner">
+                            <span className="tits">{portpolioData.title}</span>
+                            <span className="tags">
+                              {portpolioData.tags.length > 0 &&
+                                portpolioData.tags.map((item, i) => {
+                                  if (i === 0) {
+                                    return item.value;
+                                  }
+                                  return `, ${item.value}`;
+                                })}
+                            </span>
+                          </div>
                         </div>
-                      </div>
-                    </Link>
-                  </li>
-                ))}
-            </ul>
+                      </Link>
+                    </li>
+                  ))}
+              </ul>
+            </div>
+            {data && data.seePortpolios.totalPages > 1 && (
+              <Paging
+                nowPageNum={nowPageNum}
+                totalPage={data.seePortpolios.totalPages}
+                setPageNum={setPageNum}
+                setLoadComplate={setLoadComplate}
+              />
+            )}
           </div>
-          {data && data.seePortpolios.totalPages > 1 && (
-            <Paging
-              nowPageNum={nowPageNum}
-              totalPage={data.seePortpolios.totalPages}
-              setPageNum={setPageNum}
-              setLoadComplate={setLoadComplate}
-            />
-          )}
         </div>
 
         <Link
