@@ -1,36 +1,31 @@
 import React, { useRef, useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import { useQuery } from '@apollo/react-hooks';
 import { archiveQuery } from 'apollo/archiveQuery';
 import { masonryFn } from 'common';
 import Paging from 'components/paging';
 import TagMenu from 'components/tag_menu';
 
-const ArchiveSearch = ({
-  history,
-  match: {
-    params: { keyword },
-  },
-}) => {
+const ArchiveSearch = ({ history, location: { search } }) => {
   const limit = 10;
   const archiveList = useRef(null);
   const [nowPageNum, setPageNum] = useState(1);
   const [imgLoadComplate, setLoadComplate] = useState(0);
-  let archiveListFn;
+  const keyword = new URLSearchParams(search).get('keyword');
 
   const { data, loading, refetch } = useQuery(archiveQuery, {
+    skip: !keyword,
     variables: { page: nowPageNum, limit, keyword },
     fetchPolicy: 'network-only',
   });
 
   useEffect(() => {
     window.onpopstate = e => {
-      console.log(history);
-      history.push('/');
-      //   history.replace({ url: '/', state: { menuId: 1 } });
+      history.push({ pathname: '/', state: { menuId: 1 } });
     };
-  }, []);
+  }, [history]);
 
+  let archiveListFn;
   useEffect(() => {
     return () => {
       // console.log('archiveListFn destroy');
@@ -38,7 +33,7 @@ const ArchiveSearch = ({
       setPageNum(1);
       setLoadComplate(0);
     };
-  }, []);
+  }, [archiveListFn]);
 
   useEffect(() => {
     // 이미지 로드 완료시 useEffect 실행
@@ -105,7 +100,7 @@ const ArchiveSearch = ({
                 ))}
             </ul>
           </div>
-          {data.seePortpolios.totalPages > 1 && (
+          {data && data.seePortpolios.totalPages > 1 && (
             <Paging
               nowPageNum={nowPageNum}
               totalPage={data.seePortpolios.totalPages}
@@ -133,4 +128,4 @@ const ArchiveSearch = ({
   return '';
 };
 
-export default ArchiveSearch;
+export default withRouter(ArchiveSearch);

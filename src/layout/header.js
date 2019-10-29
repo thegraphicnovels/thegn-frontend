@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { useMutation } from '@apollo/react-hooks';
 import { LOCAL_LOG_OUT } from 'apollo/loginQuery';
@@ -12,26 +12,26 @@ const Header = ({ history, logged }) => {
   const keyword = useInput('');
 
   const btnHambergEl = useRef(null);
-  let gnbOpenFn;
 
   const [logoutMutation] = useMutation(LOCAL_LOG_OUT);
 
   useEffect(() => {
+    let gnbOpenFn = srchEl.current;
     placeholderFn(srchEl.current);
     gnbOpenFn = moGnbOpenFn(btnHambergEl.current);
     if (logged === true) {
       AdminMenuFn(adminMenuEl.current);
     }
-    return ()=> {
+    return () => {
       gnbOpenFn.destroy();
     };
   });
 
-  const handleKeywordArchive = e => {
-    if (e.key === 'Enter') {
-      // console.log(history);
-      history.push(`/archive/${keyword.value}`);
-    }
+  const onSearchSubmit = e => {
+    e.preventDefault();
+    // if (e.key === 'Enter') {
+    history.push(`/search?keyword=${keyword.value}`);
+    // }
   };
 
   return (
@@ -56,13 +56,14 @@ const Header = ({ history, logged }) => {
         <div className="util">
           <label htmlFor="search" className="topSrchBox" ref={srchEl}>
             <span className="placeholder">Search</span>
-            <input
-              type="text"
-              id="search"
-              value={keyword.val}
-              onChange={keyword.onChange}
-              onKeyDown={e => handleKeywordArchive(e)}
-            />
+            <form onSubmit={onSearchSubmit}>
+              <input
+                type="text"
+                id="search"
+                value={keyword.val}
+                onChange={keyword.onChange}
+              />
+            </form>
           </label>
           <Link to="/" className="btnInsta">
             <img src="/resources/images/icon_insta.svg" alt="instagram" />
@@ -114,4 +115,4 @@ Header.propTypes = {
   logged: PropTypes.bool.isRequired,
 };
 
-export default Header;
+export default withRouter(Header);

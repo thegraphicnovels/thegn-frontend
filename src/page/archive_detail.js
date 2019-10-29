@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import { useQuery } from '@apollo/react-hooks';
 import { archiveDetailQuery } from 'apollo/archiveQuery';
 import { swiperFn, formatDate } from 'common';
@@ -21,8 +21,7 @@ const ArchiveDetail = ({
 
   useEffect(() => {
     window.onpopstate = e => {
-      console.log(history);
-      history.push({ url: '/', state: { menuId: 1 } });
+      history.push({ pathname: '/', state: { menuId: 1 } });
     };
   }, []);
 
@@ -107,206 +106,17 @@ const ArchiveDetail = ({
               </p>
               <p className="tag">
                 {data.detailPortpolio.tags &&
-                  data.detailPortpolio.tags.map((tag, i) =>{
-                    if(i === 0) {
-                      return `${tag.value}`
+                  data.detailPortpolio.tags.map((tag, i) => {
+                    if (i === 0) {
+                      return `${tag.value}`;
                     }
-                    return `, ${tag.value}`
+                    return `, ${tag.value}`;
                   })}
               </p>
 
               <div className="txt">{data.detailPortpolio.description}</div>
             </div>
           </div>
-
-          {/* <div className="archiveMoreBox">
-        <h3>MORE PROJECT</h3>
-
-        <button type="button" className="btnPrev">
-        <em className="blind">이전</em>
-        </button>
-        <div className="moreListWrap">
-        <div className="swiper-wrapper">
-          <div className="swiper-slide">
-          <ul>
-            <li>
-            <Link to="/">
-              <img
-              src="resources/images/temp/temp_deatil02_01.jpg"
-              alt=""
-              />
-              <div className="guideFrame">
-              <div className="guideInner">
-                <strong className="tit">
-                MAKE SOME NOISE COMMON GROUND 3RD ANNIVERSARY
-                </strong>
-                <span className="tag">
-                POSTER, IDENTITY, EI, DRAFT
-                </span>
-              </div>
-              </div>
-            </Link>
-            </li>
-            <li>
-            <Link to="/">
-              <img
-              src="resources/images/temp/temp_deatil02_01.jpg"
-              alt=""
-              />
-              <div className="guideFrame">
-              <div className="guideInner">
-                <strong className="tit">
-                MAKE SOME NOISE COMMON GROUND 3RD ANNIVERSARY
-                </strong>
-                <span className="tag">
-                POSTER, IDENTITY, EI, DRAFT
-                </span>
-              </div>
-              </div>
-            </Link>
-            </li>
-            <li>
-            <Link to="/">
-              <img
-              src="resources/images/temp/temp_deatil02_01.jpg"
-              alt=""
-              />
-              <div className="guideFrame">
-              <div className="guideInner">
-                <strong className="tit">
-                MAKE SOME NOISE COMMON GROUND 3RD ANNIVERSARY
-                </strong>
-                <span className="tag">
-                POSTER, IDENTITY, EI, DRAFT
-                </span>
-              </div>
-              </div>
-            </Link>
-            </li>
-          </ul>
-          </div>
-          <div className="swiper-slide">
-          <ul>
-            <li>
-            <Link to="/">
-              <img
-              src="resources/images/temp/temp_deatil02_02.jpg"
-              alt=""
-              />
-              <div className="guideFrame">
-              <div className="guideInner">
-                <strong className="tit">
-                MAKE SOME NOISE COMMON GROUND 3RD ANNIVERSARY
-                </strong>
-                <span className="tag">
-                POSTER, IDENTITY, EI, DRAFT
-                </span>
-              </div>
-              </div>
-            </Link>
-            </li>
-            <li>
-            <Link to="/">
-              <img
-              src="resources/images/temp/temp_deatil02_02.jpg"
-              alt=""
-              />
-              <div className="guideFrame">
-              <div className="guideInner">
-                <strong className="tit">
-                MAKE SOME NOISE COMMON GROUND 3RD ANNIVERSARY
-                </strong>
-                <span className="tag">
-                POSTER, IDENTITY, EI, DRAFT
-                </span>
-              </div>
-              </div>
-            </Link>
-            </li>
-            <li>
-            <Link to="/">
-              <img
-              src="resources/images/temp/temp_deatil02_02.jpg"
-              alt=""
-              />
-              <div className="guideFrame">
-              <div className="guideInner">
-                <strong className="tit">
-                MAKE SOME NOISE COMMON GROUND 3RD ANNIVERSARY
-                </strong>
-                <span className="tag">
-                POSTER, IDENTITY, EI, DRAFT
-                </span>
-              </div>
-              </div>
-            </Link>
-            </li>
-          </ul>
-          </div>
-          <div className="swiper-slide">
-          <ul>
-            <li>
-            <Link to="/">
-              <img
-              src="resources/images/temp/temp_deatil02_03.jpg"
-              alt=""
-              />
-              <div className="guideFrame">
-              <div className="guideInner">
-                <strong className="tit">
-                MAKE SOME NOISE COMMON GROUND 3RD ANNIVERSARY
-                </strong>
-                <span className="tag">
-                POSTER, IDENTITY, EI, DRAFT
-                </span>
-              </div>
-              </div>
-            </Link>
-            </li>
-            <li>
-            <Link to="/">
-              <img
-              src="resources/images/temp/temp_deatil02_03.jpg"
-              alt=""
-              />
-              <div className="guideFrame">
-              <div className="guideInner">
-                <strong className="tit">
-                MAKE SOME NOISE COMMON GROUND 3RD ANNIVERSARY
-                </strong>
-                <span className="tag">
-                POSTER, IDENTITY, EI, DRAFT
-                </span>
-              </div>
-              </div>
-            </Link>
-            </li>
-            <li>
-            <Link to="/">
-              <img
-              src="resources/images/temp/temp_deatil02_03.jpg"
-              alt=""
-              />
-              <div className="guideFrame">
-              <div className="guideInner">
-                <strong className="tit">
-                MAKE SOME NOISE COMMON GROUND 3RD ANNIVERSARY
-                </strong>
-                <span className="tag">
-                POSTER, IDENTITY, EI, DRAFT
-                </span>
-              </div>
-              </div>
-            </Link>
-            </li>
-          </ul>
-          </div>
-        </div>
-        </div>
-        <button type="button" className="btnNext">
-        <em className="blind">다음</em>
-        </button>
-      </div> */}
         </div>
 
         <Link
@@ -327,4 +137,4 @@ const ArchiveDetail = ({
   return '';
 };
 
-export default ArchiveDetail;
+export default withRouter(ArchiveDetail);

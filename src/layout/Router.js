@@ -21,46 +21,30 @@ const PageUrl = ({ logged }) => {
   return (
     <Switch>
       <Route path="/" exact component={Main} />
-      <Route
-        path="/archive/:keyword"
-        render={props => <ArchiveSearch {...props} />}
-      />
+      <Route path="/search" component={ArchiveSearch} />
       <Route
         path="/archiveDetail/:portpolioId"
-        render={props => <ArchiveDetail {...props} logged={logged} />}
+        render={() => <ArchiveDetail logged={logged} />}
       />
       {logged && (
-        <Route path="/manage/mainBanner" exact component={MainBanner} />
+        <>
+          <Route path="/manage/mainBanner" component={MainBanner} />
+          <Route
+            path="/manage/edit/mainBanner/:mainBannerId"
+            component={ManageMainBannerEdit}
+          />
+          <Route
+            path="/manage/upload/mainBanner"
+            component={ManageMainBannerEdit}
+          />
+          <Route path="/manage/upload/archive" component={ManageArchiveEdit} />
+          <Route
+            path="/manage/edit/archive/:portpolioId"
+            component={ManageArchiveEdit}
+          />
+          <Route path="/manage/tag" component={ManageTag} />
+        </>
       )}
-      {logged && (
-        <Route
-          path="/manage/edit/mainBanner/:mainBannerId"
-          exact
-          component={ManageMainBannerEdit}
-        />
-      )}
-      {logged && (
-        <Route
-          path="/manage/upload/mainBanner"
-          exact
-          component={ManageMainBannerEdit}
-        />
-      )}
-      {logged && (
-        <Route
-          path="/manage/upload/archive"
-          exact
-          component={ManageArchiveEdit}
-        />
-      )}
-      {logged && (
-        <Route
-          path="/manage/edit/archive/:portpolioId"
-          exact
-          component={ManageArchiveEdit}
-        />
-      )}
-      {logged && <Route path="/manage/tag" exact component={ManageTag} />}
       <Redirect from="*" to="/" />
     </Switch>
   );
@@ -69,8 +53,7 @@ const PageUrl = ({ logged }) => {
 const Router = ({ logged }) => {
   return (
     <BRouter>
-      <Route path="/" render={props => <Header {...props} logged={logged} />} />
-      {/* <Header logged={logged} /> */}
+      <Header logged={logged} />
       <div id="container">
         <PageUrl logged={logged} />
       </div>

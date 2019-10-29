@@ -7,7 +7,7 @@ import { masonryFn } from 'common';
 import Paging from 'components/paging';
 import TagMenu from 'components/tag_menu';
 
-const Archive = ({ action }) => {
+const Archive = ({ history, action }) => {
   const limit = 10;
   const archiveList = useRef(null);
   const [nowPageNum, setPageNum] = useState(1);
@@ -40,6 +40,7 @@ const Archive = ({ action }) => {
     // console.log('action', action);
     if (
       action === 1 &&
+      data &&
       imgLoadComplate === data.seePortpolios.portpolios.length
     ) {
       // console.log('masonryFn');
@@ -91,7 +92,7 @@ const Archive = ({ action }) => {
               ))}
           </ul>
         </div>
-        {data.seePortpolios.totalPages > 1 && (
+        {data && data.seePortpolios.totalPages > 1 && (
           <Paging
             nowPageNum={nowPageNum}
             totalPage={data.seePortpolios.totalPages}
