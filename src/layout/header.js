@@ -3,21 +3,17 @@ import { Link, withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { useMutation } from '@apollo/react-hooks';
 import { LOCAL_LOG_OUT } from 'apollo/loginQuery';
-import { useInput } from 'rooks';
-import { placeholderFn, AdminMenuFn, moGnbOpenFn } from 'common';
+import { AdminMenuFn, moGnbOpenFn } from 'common';
+import SearchBox from 'components/searchBox';
 
 const Header = ({ history, logged }) => {
-  const srchEl = useRef(null);
   const adminMenuEl = useRef(null);
-  const keyword = useInput('');
-
   const btnHambergEl = useRef(null);
-
   const [logoutMutation] = useMutation(LOCAL_LOG_OUT);
 
+  let gnbOpenFn;
+
   useEffect(() => {
-    let gnbOpenFn = srchEl.current;
-    placeholderFn(gnbOpenFn);
     gnbOpenFn = moGnbOpenFn(btnHambergEl.current);
     if (logged === true) {
       AdminMenuFn(adminMenuEl.current);
@@ -27,12 +23,7 @@ const Header = ({ history, logged }) => {
     };
   });
 
-  const onSearchSubmit = e => {
-    e.preventDefault();
-    // if (e.key === 'Enter') {
-    history.push(`/search?keyword=${keyword.value}`);
-    // }
-  };
+  
 
   return (
     <header id="header">
@@ -54,17 +45,8 @@ const Header = ({ history, logged }) => {
           </Link>
         </h1>
         <div className="util">
-          <label htmlFor="search" className="topSrchBox" ref={srchEl}>
-            <span className="placeholder">Search</span>
-            <form onSubmit={onSearchSubmit}>
-              <input
-                type="text"
-                id="search"
-                value={keyword.val}
-                onChange={keyword.onChange}
-              />
-            </form>
-          </label>
+          <SearchBox history={history} />
+          
           <Link to="/" className="btnInsta">
             <img src="/resources/images/icon_insta.svg" alt="instagram" />
           </Link>

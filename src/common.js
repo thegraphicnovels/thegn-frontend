@@ -42,11 +42,11 @@ export const placeholderFn = target => {
 
   inpt
     .focusin(() => {
-      console.log('focus in');
+    //   console.log('focus in');
       viewTxt.hide();
     })
     .focusout(() => {
-      console.log('focus out');
+    //   console.log('focus out');
       if (inpt.val() === '') {
         viewTxt.show();
       } else {

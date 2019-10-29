@@ -7,7 +7,7 @@ import Contact from 'page/contact';
 import PropTypes from 'prop-types';
 import NaviList from 'components/naviList';
 
-const Main = ({ location: { state } }) => {
+const Main = ({ history,  location: { state } }) => {
   const conts = useRef(null);
   const [action, setAction] = useState(0);
 
@@ -19,7 +19,7 @@ const Main = ({ location: { state } }) => {
 
   return (
     <div className="contents" ref={conts}>
-      <NaviList />
+      <NaviList history={history} />
 
       <div
         className="pageWrap"
@@ -72,6 +72,7 @@ const Main = ({ location: { state } }) => {
 };
 
 Main.propTypes = {
+  history: PropTypes.object.isRequired,
   location: PropTypes.shape({
     state: PropTypes.object,
   }).isRequired,
