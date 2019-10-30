@@ -4,6 +4,7 @@ export const mainBannerQuery = gql`
   query seeBanners {
     seeBanners {
       _id
+      title
       files {
         url
       }
@@ -23,8 +24,9 @@ export const mainBannerQuery = gql`
 `;
 
 export const mainBannerDetailQuery = gql`
-  query detailBanner($id: String, $portpolioId: String) {
-    detailBanner(id: $id, portpolioId: $portpolioId) {
+  query detailBanner($id: String!) {
+    detailBanner(id: $id) {
+      title
       files {
         url
       }
@@ -41,8 +43,12 @@ export const mainBannerDetailQuery = gql`
 `;
 
 export const mainBannerUploadQuery = gql`
-  mutation uploadBanner($fileUrl: [String!]!, $portpolioId: String!) {
-    uploadBanner(fileUrl: $fileUrl, portpolioId: $portpolioId) {
+  mutation uploadBanner(
+    $title: String!
+    $fileUrl: [String!]!
+    $portpolioId: String
+  ) {
+    uploadBanner(title: $title, fileUrl: $fileUrl, portpolioId: $portpolioId) {
       _id
     }
   }
@@ -51,10 +57,16 @@ export const mainBannerUploadQuery = gql`
 export const mainBannerModifyQuery = gql`
   mutation modifyBanner(
     $id: String!
+    $title: String!
     $fileUrl: [String!]!
-    $portpolioId: String!
+    $portpolioId: String
   ) {
-    modifyBanner(id: $id, fileUrl: $fileUrl, portpolioId: $portpolioId)
+    modifyBanner(
+      id: $id
+      title: $title
+      fileUrl: $fileUrl
+      portpolioId: $portpolioId
+    )
   }
 `;
 

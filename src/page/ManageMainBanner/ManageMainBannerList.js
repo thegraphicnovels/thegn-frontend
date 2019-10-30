@@ -71,7 +71,12 @@ const MainBanner = ({ history }) => {
   const columns = [
     {
       id: 'title',
-      label: 'Portpolio Title',
+      label: 'Title',
+      minWidth: 170,
+    },
+    {
+      id: 'pTitle',
+      label: 'Connection Portpolio',
       minWidth: 170,
     },
     {
@@ -135,8 +140,10 @@ const MainBanner = ({ history }) => {
                         if (column.id === 'updateAt') {
                           value = formatDate(value);
                         }
-                        if (column.id === 'title') {
-                          value = row.portpolio.title;
+                        if (column.id === 'pTitle') {
+                          if (row.portpolio) {
+                            value = row.portpolio.title;
+                          }
                         }
                         return (
                           <TableCell

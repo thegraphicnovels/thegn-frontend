@@ -72,22 +72,24 @@ const ManageTagPresenter = ({
       <NaviList />
 
       <div className="tagAddBox">
-        <span>
-          <input
-            id="archiveTitle"
-            placeholder="Tag를 입력하세요"
-            value={tag.value}
-            onChange={tag.onChange}
-            type="text"
-          />
-        </span>
-        <button
-          type="button"
-          className="btnCustm"
-          onClick={() => handleTagCreate()}
-        >
-          <span>Add</span>
-        </button>
+        <form onSubmit={handleTagCreate}>
+          <span>
+            <input
+              id="archiveTitle"
+              placeholder="Tag를 입력하세요"
+              value={tag.value}
+              onChange={tag.onChange}
+              type="text"
+            />
+          </span>
+          <button
+            type="submit"
+            className="btnCustm"
+            //  onClick={() => handleTagCreate()}
+          >
+            <span>Add</span>
+          </button>
+        </form>
       </div>
       {tagData && (
         <div className="listTblWrap">

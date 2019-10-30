@@ -25,7 +25,8 @@ const ManageTagContainer = () => {
   const [tagModifyMutation] = useMutation(tagModifyQuery);
   const [tagDeleteMutation] = useMutation(tagDeleteQuery);
 
-  const handleTagCreate = async () => {
+  const handleTagCreate = async e => {
+    e.preventDefault();
     try {
       const {
         data: { createTag },

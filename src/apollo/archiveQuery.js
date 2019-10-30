@@ -117,3 +117,10 @@ export const archiveSelectQuery = gql`
     }
   }
 `;
+
+// 조회수 update Query
+export const archiveViewsQuery = gql`
+  mutation viewsPortpolio($id: String!) {
+    viewsPortpolio(id: $id)
+  }
+`;

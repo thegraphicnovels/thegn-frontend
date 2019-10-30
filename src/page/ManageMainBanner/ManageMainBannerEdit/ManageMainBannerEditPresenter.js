@@ -4,9 +4,11 @@ import FilePond from 'components/filePond';
 import NaviList from 'components/naviList';
 
 const ManageMainBannerEditPresenter = ({
+  title,
   filepondEl,
   files,
   setFiles,
+  portId,
   setPortId,
   fileUrl,
   setFileUrl,
@@ -31,14 +33,43 @@ const ManageMainBannerEditPresenter = ({
           </colgroup>
           <tbody>
             <tr>
-              <th>Portpolio</th>
+              <th>Title</th>
               <td>
-                {mainBannerData && (
-                  <span className="titS">
-                    {mainBannerData.detailBanner.portpolio.title}
-                  </span>
+                <input
+                  type="text"
+                  className="inpTxt"
+                  id="bannerTitle"
+                  title="title"
+                  value={title.value}
+                  onChange={title.onChange}
+                />
+              </td>
+            </tr>
+            <tr>
+              <th>Connect Portpolio</th>
+              <td>
+                {selectPortpolioData && (
+                  // <span className="titS">
+                  //   {mainBannerData.detailBanner.portpolio.title}
+                  // </span>
+                  <label htmlFor="selectPortpolio" className="selectBox">
+                    <select
+                      id="selectPortpolio"
+                      onChange={e => setPortId(e.target.value)}
+                      defaultValue={portId}
+                    >
+                      <option value="">- Choose Portpolio -</option>
+                      {selectPortpolioData.seePortpolios.portpolios.map(
+                        portpolio => (
+                          <option key={portpolio._id} value={portpolio._id}>
+                            {portpolio.title}
+                          </option>
+                        ),
+                      )}
+                    </select>
+                  </label>
                 )}
-                {!mainBannerData && selectPortpolioData && (
+                {/* {!mainBannerData && selectPortpolioData && (
                   <label htmlFor="selectPortpolio" className="selectBox">
                     <select
                       id="selectPortpolio"
@@ -54,7 +85,7 @@ const ManageMainBannerEditPresenter = ({
                       )}
                     </select>
                   </label>
-                )}
+                )} */}
               </td>
             </tr>
             <tr>
@@ -132,15 +163,19 @@ const ManageMainBannerEditPresenter = ({
 };
 
 ManageMainBannerEditPresenter.defaultProps = {
+  title: '',
   fileUrl: [],
+  portId: '',
   mainBannerData: null,
   selectPortpolioData: null,
 };
 
 ManageMainBannerEditPresenter.propTypes = {
+  title: PropTypes.object,
   filepondEl: PropTypes.object.isRequired,
   files: PropTypes.array.isRequired,
   setFiles: PropTypes.func.isRequired,
+  portId: PropTypes.string,
   setPortId: PropTypes.func.isRequired,
   fileUrl: PropTypes.array,
   setFileUrl: PropTypes.func.isRequired,

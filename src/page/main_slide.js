@@ -43,24 +43,28 @@ const Mainswiper = ({ action }) => {
                     backgroundImage: `url(${file.url})`,
                   }}
                 >
-                  <Link
-                    to={`/archiveDetail/${banner.portpolio._id}`}
-                    className="imgTxt"
-                  >
-                    <div className="imgTxtIn">
-                      <strong className="tits">{banner.portpolio.title}</strong>
-                      {banner.portpolio.tags.length > 0 && (
-                        <span className="tags">
-                          {banner.portpolio.tags.map((tag, i) => {
-                            if (i === 0) {
-                              return tag.value;
-                            }
-                            return `, ${tag.value}`;
-                          })}
-                        </span>
-                      )}
-                    </div>
-                  </Link>
+                  {banner.portpolio && (
+                    <Link
+                      to={`/archiveDetail/${banner.portpolio._id}`}
+                      className="imgTxt"
+                    >
+                      <div className="imgTxtIn">
+                        <strong className="tits">
+                          {banner.portpolio.title}
+                        </strong>
+                        {banner.portpolio.tags.length > 0 && (
+                          <span className="tags">
+                            {banner.portpolio.tags.map((tag, i) => {
+                              if (i === 0) {
+                                return tag.value;
+                              }
+                              return `, ${tag.value}`;
+                            })}
+                          </span>
+                        )}
+                      </div>
+                    </Link>
+                  )}
                 </li>
               )),
             )}

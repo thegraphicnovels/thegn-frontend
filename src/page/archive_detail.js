@@ -1,9 +1,10 @@
 import React, { useRef, useEffect } from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import { useQuery } from '@apollo/react-hooks';
+import { useQuery, useMutation } from '@apollo/react-hooks';
 import { archiveDetailQuery } from 'apollo/archiveQuery';
 import { swiperFn, formatDate } from 'common';
 import NaviList from 'components/naviList';
+import { archiveViewsQuery } from '../apollo/archiveQuery';
 
 const ArchiveDetail = ({
   history,
@@ -15,9 +16,16 @@ const ArchiveDetail = ({
   //   console.log('archiveDetail ID', portpolioId);
   let topSwiper;
   const topSwiperEl = useRef(null);
+
+  // 조회수 update
+  const [archiveViewsMutation] = useMutation(archiveViewsQuery);
+
   const { data, loading } = useQuery(archiveDetailQuery, {
     variables: { id: portpolioId },
     fetchPolicy: 'network-only',
+    onCompleted: () => {
+      archiveViewsMutation({ variables: { id: portpolioId } });
+    },
   });
 
   useEffect(() => {

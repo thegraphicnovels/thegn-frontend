@@ -1,6 +1,6 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { useQuery, useMutation } from '@apollo/react-hooks';
+import { useQuery, useMutation, useLazyQuery } from '@apollo/react-hooks';
 import { archiveSelectQuery } from 'apollo/archiveQuery';
 import request from 'superagent';
 import {
@@ -10,6 +10,7 @@ import {
   mainBannerDetailQuery,
 } from 'apollo/mainBannerQuery';
 
+import { useInput } from 'rooks';
 import ManageMainBannerEditPresenter from './ManageMainBannerEditPresenter';
 
 const ManageMainBannerEditContainer = ({
@@ -22,6 +23,13 @@ const ManageMainBannerEditContainer = ({
   const [files, setFiles] = useState([]); // bannerfile
   const [fileUrl, setFileUrl] = useState([]); // bannerfile url
   const [portId, setPortId] = useState('');
+
+  const [archiveSelectQeury, { data: selectPortpolioData }] = useLazyQuery(
+    archiveSelectQuery,
+    {
+      fetchPolicy: 'network-only',
+    },
+  );
 
   const { data: mainBannerData } = useQuery(mainBannerDetailQuery, {
     variables: { id: mainBannerId },
@@ -36,14 +44,24 @@ const ManageMainBannerEditContainer = ({
         }
         setFileUrl(fileArr);
       }
-      setPortId(detailBanner.portpolio._id);
+
+      if (detailBanner.portpolio) {
+        setPortId(detailBanner.portpolio._id);
+      }
+      archiveSelectQeury();
     },
   });
 
-  const { data: selectPortpolioData } = useQuery(archiveSelectQuery, {
-    fetchPolicy: 'network-only',
-    skip: mainBannerId, // portpolioId가 있으면 건너뛴다.
-  });
+  const title = useInput(
+    mainBannerData ? mainBannerData.detailBanner.title : '',
+  );
+
+  // portpolioId 가 없을때
+  useEffect(() => {
+    if (!mainBannerId) {
+      archiveSelectQeury();
+    }
+  }, [mainBannerId, archiveSelectQeury]);
 
   const [mainBannerUploadMutation] = useMutation(mainBannerUploadQuery);
   const [mainBannerModifyMutation] = useMutation(mainBannerModifyQuery);
@@ -80,7 +98,7 @@ const ManageMainBannerEditContainer = ({
     try {
       if (action === 'upload') {
         if (files.length > 0) {
-          if (portId) {
+          if (title.value) {
             if (files) {
               await bannerUpload(files);
             }
@@ -89,6 +107,7 @@ const ManageMainBannerEditContainer = ({
               data: { uploadBanner },
             } = await mainBannerUploadMutation({
               variables: {
+                title: title.value,
                 fileUrl,
                 portpolioId: portId,
               },
@@ -96,27 +115,32 @@ const ManageMainBannerEditContainer = ({
 
             _id = uploadBanner._id;
           } else {
-            window.alert('Choose Connection Portfolio');
+            window.alert('Title is required');
           }
         } else {
           window.alert('Main image file is required');
         }
       } else if (action === 'edit') {
         if (files.length > 0 || fileUrl.length > 0) {
-          if (files) {
-            await bannerUpload(files);
-          }
+          if (title.value) {
+            if (files) {
+              await bannerUpload(files);
+            }
 
-          const {
-            data: { modifyBanner },
-          } = await mainBannerModifyMutation({
-            variables: {
-              id: mainBannerId,
-              fileUrl,
-              portpolioId: portId,
-            },
-          });
-          _id = modifyBanner;
+            const {
+              data: { modifyBanner },
+            } = await mainBannerModifyMutation({
+              variables: {
+                id: mainBannerId,
+                title: title.value,
+                fileUrl,
+                portpolioId: portId,
+              },
+            });
+            _id = modifyBanner;
+          } else {
+            window.alert('Title is required');
+          }
         } else {
           window.alert('Main image file is required');
         }
@@ -172,9 +196,11 @@ const ManageMainBannerEditContainer = ({
 
   return (
     <ManageMainBannerEditPresenter
+      title={title}
       filepondEl={filepondEl}
       files={files}
       setFiles={setFiles}
+      portId={portId}
       setPortId={setPortId}
       fileUrl={fileUrl}
       setFileUrl={setFileUrl}
