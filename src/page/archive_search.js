@@ -68,8 +68,10 @@ const ArchiveSearch = ({ history, location: { search } }) => {
           <em>&lt;Archive&gt;</em>
         </Link>
 
-
-        <div className="pageWrap active" style={{ display: 'block', width: '100%', height: 'auto' }}>
+        <div
+          className="pageWrap active"
+          style={{ display: 'block', width: '100%', height: 'auto' }}
+        >
           <h2 className="blind">Search result</h2>
           <div className="archiveWrap">
             <TagMenu refetch={refetch} />

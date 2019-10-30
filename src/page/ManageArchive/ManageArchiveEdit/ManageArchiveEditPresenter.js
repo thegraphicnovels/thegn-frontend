@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ToggleComponent from 'components/toggleComponent';
+import ToggleComponent from 'components/toggle';
 import FilePond from 'components/filePond';
 import NaviList from 'components/naviList';
 
