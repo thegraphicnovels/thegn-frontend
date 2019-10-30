@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect, useState, useContext } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { useQuery } from '@apollo/react-hooks';
 import { archiveQuery } from 'apollo/archiveQuery';
@@ -6,6 +6,7 @@ import { masonryFn } from 'common';
 import Paging from 'components/paging';
 import TagMenu from 'components/tag_menu';
 import NaviList from 'components/naviList';
+import { Store } from 'store';
 
 const ArchiveSearch = ({ history, location: { search } }) => {
   const limit = 10;
@@ -13,17 +14,27 @@ const ArchiveSearch = ({ history, location: { search } }) => {
   const [nowPageNum, setPageNum] = useState(1);
   const [imgLoadComplate, setLoadComplate] = useState(0);
   const keyword = new URLSearchParams(search).get('keyword');
+  const [oldKeyword, setOldKeyword] = useState('');
 
   const { data, loading, refetch } = useQuery(archiveQuery, {
     variables: { page: nowPageNum, limit, keyword },
     fetchPolicy: 'network-only',
+    onCompleted: () => {
+      if (oldKeyword !== keyword) {
+        setOldKeyword(keyword);
+        setPageNum(1);
+      }
+    },
   });
+
+  const { setAction } = useContext(Store); // Context Api Store 에 주입된 value 사용
 
   useEffect(() => {
     window.onpopstate = e => {
-      history.push({ pathname: '/', state: { menuId: 1 } });
+      setAction(1);
+      history.push('/');
     };
-  }, [history]);
+  }, [history, setAction]);
 
   let archiveListFn;
   useEffect(() => {
@@ -61,11 +72,8 @@ const ArchiveSearch = ({ history, location: { search } }) => {
 
         <NaviList />
 
-        <Link
-          to={{ pathname: '/', state: { menuId: 1 } }}
-          className="subMenu01"
-        >
-          <em>&lt;Archive&gt;</em>
+        <Link to="/" onClick={() => setAction(1)} className="subMenu01">
+          <em>Archive</em>
         </Link>
 
         <div
@@ -118,17 +126,11 @@ const ArchiveSearch = ({ history, location: { search } }) => {
           </div>
         </div>
 
-        <Link
-          to={{ pathname: '/', state: { menuId: 2 } }}
-          className="subMenu02"
-        >
-          <em>&lt;About&gt;</em>
+        <Link to="/" onClick={() => setAction(2)} className="subMenu02">
+          <em>About</em>
         </Link>
-        <Link
-          to={{ pathname: '/', state: { menuId: 3 } }}
-          className="subMenu03"
-        >
-          <em>&lt;Contact&gt;</em>
+        <Link to="/" onClick={() => setAction(3)} className="subMenu03">
+          <em>Contact</em>
         </Link>
       </div>
     );
