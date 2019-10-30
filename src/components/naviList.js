@@ -1,23 +1,24 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
-const NaviList = () => {
+const NaviList = ({ history }) => {
   return (
     <nav className="naviListWrap">
       <ul>
         <li>
           <Link to={{ pathname: '/', state: { menuId: 1 } }}>
-            <em>&lt;Archive&gt;</em>
+            <em>Archive</em>
           </Link>
         </li>
         <li>
           <Link to={{ pathname: '/', state: { menuId: 2 } }}>
-            <em>&lt;About&gt;</em>
+            <em>About</em>
           </Link>
         </li>
         <li>
           <Link to={{ pathname: '/', state: { menuId: 3 } }}>
-            <em>&lt;About&gt;</em>
+            <em>About</em>
           </Link>
         </li>
       </ul>
@@ -25,4 +26,8 @@ const NaviList = () => {
   );
 };
 
-export default NaviList;
+NaviList.propTypes = {
+  history: PropTypes.object.isRequired,
+};
+
+export default withRouter(NaviList);

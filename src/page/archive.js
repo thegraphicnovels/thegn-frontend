@@ -1,19 +1,17 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { useQuery } from '@apollo/react-hooks';
-import { archiveQuery } from 'apollo/archiveQuery';
 import { masonryFn } from 'common';
 import Paging from 'components/paging';
 import TagMenu from 'components/tag_menu';
+import { useQuery } from '@apollo/react-hooks';
+import { archiveQuery } from 'apollo/archiveQuery';
 
-const Archive = ({ history, action }) => {
+const Archive = ({ action }) => {
   const limit = 10;
   const archiveList = useRef(null);
   const [nowPageNum, setPageNum] = useState(1);
   const [imgLoadComplate, setLoadComplate] = useState(0);
-  let archiveListFn;
-  const listNum = 0;
 
   const { data, loading, refetch } = useQuery(archiveQuery, {
     variables: { page: nowPageNum, limit },
@@ -26,7 +24,6 @@ const Archive = ({ history, action }) => {
     return () => {
       if (action === 1) {
         // console.log('archiveListFn destroy');
-        if (archiveListFn) archiveListFn.destroy();
         setPageNum(1);
         setLoadComplate(0);
       }
@@ -38,6 +35,7 @@ const Archive = ({ history, action }) => {
     // console.log('imgLoadComplate', imgLoadComplate);
     // console.log('limit', limit);
     // console.log('action', action);
+    let archiveListFn = null;
     if (
       action === 1 &&
       data &&
@@ -53,14 +51,13 @@ const Archive = ({ history, action }) => {
         archiveListFn.destroy();
       }
     };
-  }, [imgLoadComplate]);
+  }, [imgLoadComplate, data, action]);
 
   if (action === 1 && !loading) {
     // console.log('loading end');
     return (
       <div className="archiveWrap">
         <TagMenu refetch={refetch} />
-
         <div className="archiveListWrap">
           <ul className="grid" ref={archiveList}>
             {data &&

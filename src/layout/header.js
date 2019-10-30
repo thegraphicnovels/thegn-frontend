@@ -1,20 +1,19 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
 import { useMutation } from '@apollo/react-hooks';
 import { LOCAL_LOG_OUT } from 'apollo/loginQuery';
 import { AdminMenuFn, moGnbOpenFn } from 'common';
 import SearchBox from 'components/searchBox';
+import { Store } from 'store';
 
-const Header = ({ logged }) => {
+const Header = () => {
+  const { logged } = useContext(Store);
   const adminMenuEl = useRef(null);
   const btnHambergEl = useRef(null);
   const [logoutMutation] = useMutation(LOCAL_LOG_OUT);
 
-  let gnbOpenFn;
-
   useEffect(() => {
-    gnbOpenFn = moGnbOpenFn(btnHambergEl.current);
+    const gnbOpenFn = moGnbOpenFn(btnHambergEl.current);
     if (logged === true) {
       AdminMenuFn(adminMenuEl.current);
     }
@@ -88,10 +87,6 @@ const Header = ({ logged }) => {
       </div>
     </header>
   );
-};
-
-Header.propTypes = {
-  logged: PropTypes.bool.isRequired,
 };
 
 export default Header;

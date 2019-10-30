@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import {
   BrowserRouter as BRouter,
@@ -16,16 +16,14 @@ import ManageArchiveEdit from 'page/ManageArchive/ManageArchiveEdit';
 import ManageTag from 'page/ManageTag';
 import MainBanner from 'page/ManageMainBanner/ManageMainBannerList';
 import ManageMainBannerEdit from 'page/ManageMainBanner/ManageMainBannerEdit';
+import { Store } from 'store';
 
 const PageUrl = ({ logged }) => {
   return (
     <Switch>
       <Route path="/" exact component={Main} />
       <Route path="/search" component={ArchiveSearch} />
-      <Route
-        path="/archiveDetail/:portpolioId"
-        render={() => <ArchiveDetail logged={logged} />}
-      />
+      <Route path="/archiveDetail/:portpolioId" component={ArchiveDetail} />
       {logged && (
         <>
           <Route path="/manage/mainBanner" component={MainBanner} />
@@ -50,10 +48,11 @@ const PageUrl = ({ logged }) => {
   );
 };
 
-const Router = ({ logged }) => {
+const Router = () => {
+  const { logged } = useContext(Store);
   return (
     <BRouter>
-      <Header logged={logged} />
+      <Header />
       <div id="container">
         <PageUrl logged={logged} />
       </div>
@@ -63,12 +62,8 @@ const Router = ({ logged }) => {
   );
 };
 
-export default Router;
-
 PageUrl.propTypes = {
   logged: PropTypes.bool.isRequired,
 };
 
-Router.propTypes = {
-  logged: PropTypes.bool.isRequired,
-};
+export default Router;

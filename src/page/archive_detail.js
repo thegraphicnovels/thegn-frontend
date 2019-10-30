@@ -1,20 +1,19 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useContext } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { useQuery, useMutation } from '@apollo/react-hooks';
-import { archiveDetailQuery } from 'apollo/archiveQuery';
+import { archiveDetailQuery, archiveViewsQuery } from 'apollo/archiveQuery';
 import { swiperFn, formatDate } from 'common';
 import NaviList from 'components/naviList';
-import { archiveViewsQuery } from '../apollo/archiveQuery';
+import { Store } from 'store';
 
 const ArchiveDetail = ({
   history,
   match: {
     params: { portpolioId },
   },
-  logged,
 }) => {
   //   console.log('archiveDetail ID', portpolioId);
-  let topSwiper;
+  const { logged, setAction } = useContext(Store);
   const topSwiperEl = useRef(null);
 
   // 조회수 update
@@ -30,13 +29,14 @@ const ArchiveDetail = ({
 
   useEffect(() => {
     window.onpopstate = e => {
-      history.push({ pathname: '/', state: { menuId: 1 } });
+      setAction(1);
+      history.push({ pathname: '/' });
     };
-  }, []);
+  }, [history, setAction]);
 
   useEffect(() => {
     if (!loading) {
-      topSwiper = swiperFn(topSwiperEl.current);
+      swiperFn(topSwiperEl.current);
     }
   }, [loading]);
 
@@ -49,10 +49,7 @@ const ArchiveDetail = ({
 
         <NaviList />
 
-        <Link
-          to={{ pathname: '/', state: { menuId: 1 } }}
-          className="subMenu01"
-        >
+        <Link to="/" onClick={() => setAction(1)} className="subMenu01">
           <em>&lt;Archive&gt;</em>
         </Link>
 
@@ -110,16 +107,10 @@ const ArchiveDetail = ({
           </div>
         </div>
 
-        <Link
-          to={{ pathname: '/', state: { menuId: 2 } }}
-          className="subMenu02"
-        >
+        <Link to="/" onClick={() => setAction(2)} className="subMenu02">
           <em>&lt;About&gt;</em>
         </Link>
-        <Link
-          to={{ pathname: '/', state: { menuId: 3 } }}
-          className="subMenu03"
-        >
+        <Link to="/" onClick={() => setAction(3)} className="subMenu03">
           <em>&lt;Contact&gt;</em>
         </Link>
       </div>

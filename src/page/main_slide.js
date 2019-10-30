@@ -7,11 +7,11 @@ import { mainBannerQuery } from 'apollo/mainBannerQuery';
 
 const Mainswiper = ({ action }) => {
   const swiperEl = useRef(null);
-  let mainSwiper;
 
   const { data: mainBannerData, loading } = useQuery(mainBannerQuery);
 
   useEffect(() => {
+    let mainSwiper;
     if (action === 0 && !loading) {
       mainSwiper = swiperFn(swiperEl.current);
     }
