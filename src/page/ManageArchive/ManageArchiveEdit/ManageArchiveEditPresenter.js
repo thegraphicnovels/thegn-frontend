@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ToggleComponent from 'components/toggleComponent';
 import FilePond from 'components/filePond';
+import NaviList from 'components/naviList';
 
 const ManageArchiveEditPresenter = ({
   filepondEl,
@@ -25,7 +26,9 @@ const ManageArchiveEditPresenter = ({
   findDuplicates,
 }) => {
   return (
-    <div className="registBox">
+    <div className="contents registBox">
+      <NaviList />
+
       <h2>Archive</h2>
       <table>
         <caption>섬네일 이미지 등록</caption>

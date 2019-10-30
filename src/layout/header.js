@@ -78,7 +78,7 @@ const Header = ({ logged }) => {
               className="icoLoginState"
               onClick={() => logoutMutation()}
             >
-              Logout
+              <img src="/resources/images/icon_logout.svg" alt="logout" />
             </Link>
           )}
         </div>

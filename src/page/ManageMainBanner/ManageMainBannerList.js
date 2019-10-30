@@ -11,6 +11,7 @@ import TableSortLabel from '@material-ui/core/TableSortLabel';
 import { formatDate } from 'common';
 import { useQuery } from '@apollo/react-hooks';
 import { mainBannerQuery } from 'apollo/mainBannerQuery';
+import NaviList from 'components/naviList';
 
 const MainBanner = ({ history }) => {
   const [page, setPage] = useState(0);
@@ -88,7 +89,9 @@ const MainBanner = ({ history }) => {
   ];
 
   return (
-    <div>
+    <div className="contents">
+      <NaviList />
+
       <div className="listBarWrap">
         <Link to="/manage/upload/mainBanner" className="btnCustm">
           <span>Add</span>

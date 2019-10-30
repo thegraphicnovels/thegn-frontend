@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import FilePond from 'components/filePond';
+import NaviList from 'components/naviList';
 
 const ManageMainBannerEditPresenter = ({
   filepondEl,
@@ -16,7 +17,9 @@ const ManageMainBannerEditPresenter = ({
   // handleDelFile,
 }) => {
   return (
-    <div>
+    <div className="contents">
+      <NaviList />
+
       <div className="registBox">
         <h2>Main Banner</h2>
 

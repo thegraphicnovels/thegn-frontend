@@ -9,6 +9,7 @@ import TableRow from '@material-ui/core/TableRow';
 import TableSortLabel from '@material-ui/core/TableSortLabel';
 import { formatDate } from 'common';
 import { RIEInput } from 'riek';
+import NaviList from 'components/naviList';
 
 const ManageTagPresenter = ({
   tag,
@@ -67,7 +68,9 @@ const ManageTagPresenter = ({
   ];
 
   return (
-    <div>
+    <div className="contents">
+      <NaviList />
+
       <div className="tagAddBox">
         <span>
           <input
