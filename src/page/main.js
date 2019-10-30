@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useContext } from 'react';
 import { menuClick } from 'common';
 import Mainswiper from 'page/main_slide';
 import Achive from 'page/archive';
@@ -6,10 +6,15 @@ import About from 'page/about';
 import Contact from 'page/contact';
 import PropTypes from 'prop-types';
 import NaviList from 'components/naviList';
+import Store from 'store';
 
-const Main = ({ history,  location: { state } }) => {
+const Main = ({ history, location: { state } }) => {
   const conts = useRef(null);
-  const [action, setAction] = useState(0);
+  // const [action, setAction] = useState(0);
+
+  // const actions = useContext(Store);
+  // console.log(actions)
+  const { action, setAction } = useContext(Store); // Context Api Store 에 주입된 action 과 setAction을 사용 upPack으로 가져온것.
 
   useEffect(() => {
     if (state) {
