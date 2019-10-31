@@ -27,6 +27,7 @@ const ArchiveDetail = ({
     },
   });
 
+  // 뒤로가기 클릭시
   useEffect(() => {
     window.onpopstate = e => {
       setAction(1);

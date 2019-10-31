@@ -63,6 +63,13 @@ const ManageMainBannerEditContainer = ({
     }
   }, [mainBannerId, archiveSelectQeury]);
 
+  // 뒤로가기 클릭시
+  useEffect(() => {
+    window.onpopstate = e => {
+      history.push('/manage/mainBanner');
+    };
+  }, []);
+
   const [mainBannerUploadMutation] = useMutation(mainBannerUploadQuery);
   const [mainBannerModifyMutation] = useMutation(mainBannerModifyQuery);
   const [mainBannerDeleteMutation] = useMutation(mainBannerDeleteQuery);

@@ -73,6 +73,13 @@ const ManageArchiveEditContainer = ({
     }
   }, [portpolioId, seeTagQuery]);
 
+  // 뒤로가기 클릭시
+  useEffect(() => {
+    window.onpopstate = e => {
+      history.push('/manage/archive');
+    };
+  }, []);
+
   const title = useInput(
     portpolioData ? portpolioData.detailPortpolio.title : '',
   );
