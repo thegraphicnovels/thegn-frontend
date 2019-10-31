@@ -193,7 +193,7 @@ const ManageArchiveEditContainer = ({
       }
 
       if (_id) {
-        history.push(`/archiveDetail/${_id}`);
+        history.push(`/manage/archive`);
       }
     } catch (e) {
       console.log(e);

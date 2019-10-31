@@ -10,9 +10,9 @@ import TableHead from '@material-ui/core/TableHead';
 import TablePagination from '@material-ui/core/TablePagination';
 import TableRow from '@material-ui/core/TableRow';
 import TableSortLabel from '@material-ui/core/TableSortLabel';
-import { formatDate } from 'common';
+import { archiveListQuery } from 'apollo/archiveQuery';
 import { useQuery } from '@apollo/react-hooks';
-import { mainBannerQuery } from 'apollo/mainBannerQuery';
+import { formatDate } from 'common';
 import NaviList from 'components/naviList';
 
 const useStyles = makeStyles({
@@ -20,7 +20,7 @@ const useStyles = makeStyles({
     width: '100%',
   },
   tableWrapper: {
-    maxHeight: 680,
+    maxHeight: 600,
     overflow: 'auto',
   },
 });
@@ -32,14 +32,24 @@ const columns = [
     minWidth: 150,
   },
   {
-    id: 'pTitle',
-    label: 'Connection Portpolio',
+    id: 'description',
+    label: 'Description',
     minWidth: 150,
   },
   {
     id: 'user',
     label: 'Creator',
-    minWidth: 150,
+    minWidth: 100,
+  },
+  {
+    id: 'tag',
+    label: 'Tag',
+    minWidth: 100,
+  },
+  {
+    id: 'views',
+    label: 'View Count',
+    minWidth: 100,
   },
   {
     id: 'createAt',
@@ -53,14 +63,14 @@ const columns = [
   },
 ];
 
-const MainBanner = ({ history }) => {
+const ManageArchive = ({ history }) => {
   const classes = useStyles();
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
   const [order, setOrder] = useState('desc');
   const [orderBy, setOrderBy] = useState('updateAt');
 
-  const { data, loading } = useQuery(mainBannerQuery, {
+  const { data, loading } = useQuery(archiveListQuery, {
     fetchPolicy: 'network-only',
   });
 
@@ -114,12 +124,13 @@ const MainBanner = ({ history }) => {
       <NaviList />
 
       <div className="registBox">
-        <h2>Main Banner</h2>
+        <h2>Archive</h2>
         <div className="listBarWrap">
-          <Link to="/manage/upload/mainBanner" className="btnCustm">
+          <Link to="/manage/upload/archive" className="btnCustm">
             <span>Add</span>
           </Link>
         </div>
+
         <div className="listTblWrap">
           <Paper className={classes.root}>
             <div className={classes.tableWrapper}>
@@ -146,7 +157,10 @@ const MainBanner = ({ history }) => {
                 </TableHead>
                 <TableBody>
                   {data &&
-                    stableSort(data.seeBanners, getSorting(order, orderBy))
+                    stableSort(
+                      data.seePortpoliosList,
+                      getSorting(order, orderBy),
+                    )
                       .slice(
                         page * rowsPerPage,
                         page * rowsPerPage + rowsPerPage,
@@ -161,6 +175,15 @@ const MainBanner = ({ history }) => {
                           >
                             {columns.map(column => {
                               let value = row[column.id];
+
+                              if (column.id === 'description') {
+                                if (value) {
+                                  if (value.length > 80) {
+                                    value = `${value.substr(0, 80)}...`;
+                                  }
+                                }
+                              }
+
                               if (column.id === 'user') {
                                 value = row.user.name;
                               }
@@ -170,9 +193,15 @@ const MainBanner = ({ history }) => {
                               if (column.id === 'createAt') {
                                 value = formatDate(value);
                               }
-                              if (column.id === 'pTitle') {
-                                if (row.portpolio) {
-                                  value = row.portpolio.title;
+
+                              if (column.id === 'tag') {
+                                if (row.tags) {
+                                  value = row.tags.map((tag, i) => {
+                                    if (i === 0) {
+                                      return tag.value;
+                                    }
+                                    return `, ${tag.value}`;
+                                  });
                                 }
                               }
                               return (
@@ -181,7 +210,7 @@ const MainBanner = ({ history }) => {
                                   align={column.align}
                                   onClick={() =>
                                     history.push(
-                                      `/manage/edit/mainBanner/${row._id}`,
+                                      `/manage/edit/archive/${row._id}`,
                                     )}
                                 >
                                   {value}
@@ -198,7 +227,7 @@ const MainBanner = ({ history }) => {
                 <TablePagination
                   rowsPerPageOptions={[5, 10, 25, 100]}
                   component="div"
-                  count={data.seeBanners.length}
+                  count={data.seePortpoliosList.length}
                   rowsPerPage={rowsPerPage}
                   page={page}
                   backIconButtonProps={{
@@ -219,8 +248,8 @@ const MainBanner = ({ history }) => {
   );
 };
 
-MainBanner.propTypes = {
+ManageArchive.propTypes = {
   history: PropTypes.object.isRequired,
 };
 
-export default MainBanner;
+export default ManageArchive;

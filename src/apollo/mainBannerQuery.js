@@ -18,6 +18,7 @@ export const mainBannerQuery = gql`
       user {
         name
       }
+      createAt
       updateAt
     }
   }

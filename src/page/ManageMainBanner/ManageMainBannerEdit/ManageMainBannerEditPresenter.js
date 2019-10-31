@@ -153,6 +153,7 @@ const ManageMainBannerEditPresenter = ({
             className="btnCustm"
             type="button"
             onClick={() => handleMainBannerDelete(mainBannerData._id)}
+            style={{ color: 'red' }}
           >
             <span>Delete</span>
           </button>

@@ -12,6 +12,7 @@ import Scratch from 'layout/scratch';
 import Main from 'page/main';
 import ArchiveDetail from 'page/archive_detail';
 import ArchiveSearch from 'page/archive_search';
+import ManageArchive from 'page/ManageArchive/ManageArchiveList';
 import ManageArchiveEdit from 'page/ManageArchive/ManageArchiveEdit';
 import ManageTag from 'page/ManageTag';
 import MainBanner from 'page/ManageMainBanner/ManageMainBannerList';
@@ -35,6 +36,7 @@ const PageUrl = ({ logged }) => {
             path="/manage/upload/mainBanner"
             component={ManageMainBannerEdit}
           />
+          <Route path="/manage/archive" component={ManageArchive} />
           <Route path="/manage/upload/archive" component={ManageArchiveEdit} />
           <Route
             path="/manage/edit/archive/:portpolioId"

@@ -1,5 +1,6 @@
 import { gql } from 'apollo-boost';
 
+// archive paging
 export const archiveQuery = gql`
   query seePortpolios(
     $page: Int
@@ -14,16 +15,13 @@ export const archiveQuery = gql`
         description
         thumbImg
         user {
-          _id
           name
         }
         files {
-          _id
           url
         }
         views
         tags {
-          _id
           value
         }
         createAt
@@ -35,6 +33,7 @@ export const archiveQuery = gql`
   }
 `;
 
+// archive detail
 export const archiveDetailQuery = gql`
   query detailPortpolio($id: String!) {
     detailPortpolio(id: $id) {
@@ -42,7 +41,6 @@ export const archiveDetailQuery = gql`
       title
       description
       user {
-        _id
         name
       }
       thumbImg
@@ -61,6 +59,7 @@ export const archiveDetailQuery = gql`
   }
 `;
 
+// archive upload
 export const archiveUploadQuery = gql`
   mutation uploadPortpolio(
     $title: String!
@@ -81,6 +80,7 @@ export const archiveUploadQuery = gql`
   }
 `;
 
+// archive modify
 export const archiveModifyQuery = gql`
   mutation modifyPortpolio(
     $id: String!
@@ -101,12 +101,14 @@ export const archiveModifyQuery = gql`
   }
 `;
 
+// archive delete
 export const archiveDeleteQuery = gql`
   mutation deletePortpolio($id: String!) {
     deletePortpolio(id: $id)
   }
 `;
 
+// archive select box
 export const archiveSelectQuery = gql`
   query seePortpolios {
     seePortpolios {
@@ -118,9 +120,32 @@ export const archiveSelectQuery = gql`
   }
 `;
 
-// 조회수 update Query
+// archive views update
 export const archiveViewsQuery = gql`
   mutation viewsPortpolio($id: String!) {
     viewsPortpolio(id: $id)
+  }
+`;
+
+// archive manage list
+export const archiveListQuery = gql`
+  query seePortpoliosList($keyword: String) {
+    seePortpoliosList(keyword: $keyword) {
+      _id
+      title
+      description
+      user {
+        name
+      }
+      files {
+        _id
+      }
+      views
+      tags {
+        value
+      }
+      createAt
+      updateAt
+    }
   }
 `;

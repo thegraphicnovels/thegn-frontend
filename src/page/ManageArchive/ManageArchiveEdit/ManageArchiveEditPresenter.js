@@ -196,6 +196,7 @@ const ManageArchiveEditPresenter = ({
             type="button"
             onClick={() =>
               handleDeleteArchive(portpolioData.detailPortpolio._id)}
+            style={{ color: 'red' }}
           >
             <span>Delete Archive</span>
           </button>

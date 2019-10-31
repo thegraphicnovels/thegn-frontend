@@ -61,7 +61,7 @@ const Header = () => {
                     <Link to="/manage/mainBanner">MAIN BANNER</Link>
                   </li>
                   <li>
-                    <Link to="/manage/upload/archive">ARCHIVE</Link>
+                    <Link to="/manage/archive">ARCHIVE</Link>
                   </li>
                   <li>
                     <Link to="/manage/tag">TAG</Link>
