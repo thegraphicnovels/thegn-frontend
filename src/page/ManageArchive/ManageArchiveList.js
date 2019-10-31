@@ -48,7 +48,7 @@ const columns = [
   },
   {
     id: 'views',
-    label: 'View Count',
+    label: 'Views',
     minWidth: 100,
   },
   {
