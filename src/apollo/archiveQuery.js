@@ -129,11 +129,12 @@ export const archiveViewsQuery = gql`
 
 // archive manage list
 export const archiveListQuery = gql`
-  query seePortpoliosList($keyword: String) {
-    seePortpoliosList(keyword: $keyword) {
+  query seePortpoliosList($tags: [String], $keyword: String) {
+    seePortpoliosList(tags: $tags, keyword: $keyword) {
       _id
       title
       description
+      thumbImg
       user {
         name
       }

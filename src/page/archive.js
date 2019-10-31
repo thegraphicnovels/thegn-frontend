@@ -10,6 +10,7 @@ import { archiveQuery } from 'apollo/archiveQuery';
 const Archive = ({ action }) => {
   const limit = 10;
   const archiveList = useRef(null);
+  const [tag, setTag] = useState('');
   const [nowPageNum, setPageNum] = useState(1);
   const [imgLoadComplate, setLoadComplate] = useState(0);
 
@@ -56,48 +57,57 @@ const Archive = ({ action }) => {
   if (action === 1 && !loading) {
     // console.log('loading end');
     return (
-      <div className="archiveWrap">
-        <TagMenu refetch={refetch} />
-        <div className="archiveListWrap">
-          <ul className="grid" ref={archiveList}>
-            {data &&
-              data.seePortpolios.portpolios.map(portpolioData => (
-                <li key={portpolioData._id} className="grid-item">
-                  <Link to={`/archiveDetail/${portpolioData._id}`}>
-                    <img
-                      src={portpolioData.thumbImg}
-                      onLoad={() => setLoadComplate(imgLoadComplate + 1)}
-                      alt={portpolioData.title}
-                    />
-
-                    <div className="itemFrame">
-                      <div className="inner">
-                        <span className="tits">{portpolioData.title}</span>
-                        <span className="tags">
-                          {portpolioData.tags.length > 0 &&
-                            portpolioData.tags.map((item, i) => {
-                              if (i === 0) {
-                                return item.value;
-                              }
-                              return `, ${item.value}`;
-                            })}
-                        </span>
-                      </div>
-                    </div>
-                  </Link>
-                </li>
-              ))}
-          </ul>
+      <>
+        <div className="registBox">
+          <h2>
+            {tag !== '' && data
+              ? `${data.seePortpolios.portpolios.length} SEARCH RESULTS FOR TAG : ${tag}`
+              : ''}
+          </h2>
         </div>
-        {data && data.seePortpolios.totalPages > 1 && (
-          <Paging
-            nowPageNum={nowPageNum}
-            totalPage={data.seePortpolios.totalPages}
-            setPageNum={setPageNum}
-            setLoadComplate={setLoadComplate}
-          />
-        )}
-      </div>
+        <div className="archiveWrap">
+          <TagMenu refetch={refetch} setTag={setTag} />
+          <div className="archiveListWrap">
+            <ul className="grid" ref={archiveList}>
+              {data &&
+                data.seePortpolios.portpolios.map(portpolioData => (
+                  <li key={portpolioData._id} className="grid-item">
+                    <Link to={`/archiveDetail/${portpolioData._id}`}>
+                      <img
+                        src={portpolioData.thumbImg}
+                        onLoad={() => setLoadComplate(imgLoadComplate + 1)}
+                        alt={portpolioData.title}
+                      />
+
+                      <div className="itemFrame">
+                        <div className="inner">
+                          <span className="tits">{portpolioData.title}</span>
+                          <span className="tags">
+                            {portpolioData.tags.length > 0 &&
+                              portpolioData.tags.map((item, i) => {
+                                if (i === 0) {
+                                  return item.value;
+                                }
+                                return `, ${item.value}`;
+                              })}
+                          </span>
+                        </div>
+                      </div>
+                    </Link>
+                  </li>
+                ))}
+            </ul>
+          </div>
+          {data && data.seePortpolios.totalPages > 1 && (
+            <Paging
+              nowPageNum={nowPageNum}
+              totalPage={data.seePortpolios.totalPages}
+              setPageNum={setPageNum}
+              setLoadComplate={setLoadComplate}
+            />
+          )}
+        </div>
+      </>
     );
   }
   return '';

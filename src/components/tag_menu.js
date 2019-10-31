@@ -4,13 +4,14 @@ import { useQuery } from '@apollo/react-hooks';
 import { tagQuery } from 'apollo/tagQuery';
 import { tagMenuFn } from 'common';
 
-const TagMenu = ({ refetch }) => {
+const TagMenu = ({ refetch, setTag }) => {
   const tagMenuEl = useRef(null);
   const { data: tagData, loading: tagLoading } = useQuery(tagQuery, {
     fetchPolicy: 'network-only',
   });
   const chTagListFn = tag => {
     refetch({ tags: [tag._id], page: 1 });
+    setTag(tag.value);
   };
 
   useEffect(() => {
@@ -56,6 +57,7 @@ const TagMenu = ({ refetch }) => {
 
 TagMenu.propTypes = {
   refetch: PropTypes.func.isRequired,
+  setTag: PropTypes.func.isRequired,
 };
 
 export default TagMenu;
