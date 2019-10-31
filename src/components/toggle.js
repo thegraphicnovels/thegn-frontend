@@ -6,11 +6,12 @@ const ToggleComponent = ({ defaultChecked, onChange, value, label }) => {
   return (
     <label htmlFor={value}>
       <Toggle
+        id={value}
         defaultChecked={defaultChecked}
         onChange={onChange}
         value={value}
       />
-      <span id={value}>{label}</span>
+      <span>{label}</span>
     </label>
   );
 };
