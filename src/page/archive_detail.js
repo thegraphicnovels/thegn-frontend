@@ -1,7 +1,11 @@
-import React, { useRef, useEffect, useContext } from 'react';
+import React, { useRef, useEffect, useContext, useState } from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import { useQuery, useMutation } from '@apollo/react-hooks';
-import { archiveDetailQuery, archiveViewsQuery } from 'apollo/archiveQuery';
+import { useQuery, useMutation, useLazyQuery } from '@apollo/react-hooks';
+import {
+  archiveDetailQuery,
+  archiveViewsQuery,
+  archiveListQuery,
+} from 'apollo/archiveQuery';
 import { swiperFn, formatDate } from 'common';
 import NaviList from 'components/naviList';
 import { Store } from 'store';
@@ -16,14 +20,32 @@ const ArchiveDetail = ({
   const { logged, setAction } = useContext(Store);
   const topSwiperEl = useRef(null);
 
+  const [related, setRelated] = useState([]);
+
   // 조회수 update
   const [archiveViewsMutation] = useMutation(archiveViewsQuery);
+
+  // 연관 tag Archive
+  const [relatedArchiveFn] = useLazyQuery(archiveListQuery, {
+    fetchPolicy: 'network-only',
+    onCompleted: async ({ seePortpoliosList }) => {
+      setRelated(seePortpoliosList);
+    },
+  });
 
   const { data, loading } = useQuery(archiveDetailQuery, {
     variables: { id: portpolioId },
     fetchPolicy: 'network-only',
-    onCompleted: () => {
+    onCompleted: ({ detailPortpolio }) => {
       archiveViewsMutation({ variables: { id: portpolioId } });
+      const { tags } = detailPortpolio;
+      if (tags) {
+        const tagIds = [];
+        for (let i = 0; i < tags.length; i++) {
+          tagIds.push(tags[i]._id);
+        }
+        relatedArchiveFn({ variables: { tags: tagIds } });
+      }
     },
   });
 
@@ -106,6 +128,34 @@ const ArchiveDetail = ({
               <div className="txt">{data.detailPortpolio.description}</div>
             </div>
           </div>
+          {related.length > 0 &&
+            related.map(relatedData => {
+              if (portpolioId !== relatedData._id) {
+                return (
+                  <li key={relatedData._id} className="grid-item">
+                    <Link to={`/archiveDetail/${relatedData._id}`}>
+                      <img src={relatedData.thumbImg} alt={relatedData.title} />
+
+                      {/* <div className="itemFrame">
+                        <div className="inner">
+                          <span className="tits">{relatedData.title}</span>
+                          <span className="tags">
+                            {relatedData.tags.length > 0 &&
+                              relatedData.tags.map((item, i) => {
+                                if (i === 0) {
+                                  return item.value;
+                                }
+                                return `, ${item.value}`;
+                              })}
+                          </span>
+                        </div>
+                      </div> */}
+                    </Link>
+                  </li>
+                );
+              }
+              return '';
+            })}
         </div>
 
         <Link to="/" onClick={() => setAction(2)} className="subMenu02">

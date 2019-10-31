@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState, useContext } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { useQuery } from '@apollo/react-hooks';
 import { archiveListQuery } from 'apollo/archiveQuery';
@@ -10,6 +10,12 @@ const ArchiveSearch = ({ history, location: { search } }) => {
   const [imgLoadComplate, setLoadComplate] = useState(0);
   const [tag, setTag] = useState('');
   const keyword = new URLSearchParams(search).get('keyword');
+
+  useEffect(() => {
+    if (keyword === '') {
+      setTag('');
+    }
+  }, [keyword]);
 
   const { data, loading, refetch } = useQuery(archiveListQuery, {
     variables: { keyword },
@@ -41,7 +47,7 @@ const ArchiveSearch = ({ history, location: { search } }) => {
         <div className="registBox">
           <h2>
             {data && data.seePortpoliosList.length} SEARCH RESULTS FOR:{' '}
-            {keyword} {tag !== '' && ` & TAG: ${tag}`}
+            {keyword} {keyword && tag !== '' ? ` & TAG: ${tag}` : tag}
           </h2>
         </div>
 

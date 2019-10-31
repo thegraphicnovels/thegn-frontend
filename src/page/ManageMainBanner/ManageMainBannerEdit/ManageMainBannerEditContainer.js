@@ -68,7 +68,7 @@ const ManageMainBannerEditContainer = ({
     window.onpopstate = e => {
       history.push('/manage/mainBanner');
     };
-  }, []);
+  }, [history]);
 
   const [mainBannerUploadMutation] = useMutation(mainBannerUploadQuery);
   const [mainBannerModifyMutation] = useMutation(mainBannerModifyQuery);

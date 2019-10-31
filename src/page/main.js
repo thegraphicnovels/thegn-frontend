@@ -32,7 +32,13 @@ const Main = () => {
         type="button"
         className="subMenu01"
         onClick={() => {
-          menuClick(conts, setAction, 1);
+          if (action === 1) {
+            // console.log(action);
+            // window.location.reload();
+            menuClick(conts, setAction, 1);
+          } else {
+            menuClick(conts, setAction, 1);
+          }
         }}
       >
         <em>Archive</em>

@@ -78,7 +78,7 @@ const ManageArchiveEditContainer = ({
     window.onpopstate = e => {
       history.push('/manage/archive');
     };
-  }, []);
+  }, [history]);
 
   const title = useInput(
     portpolioData ? portpolioData.detailPortpolio.title : '',
