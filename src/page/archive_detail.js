@@ -31,7 +31,6 @@ const ArchiveDetail = ({
     fetchPolicy: 'network-only',
     onCompleted: async ({ seePortpoliosList }) => {
       setRelated(seePortpoliosList);
-      console.log(seePortpoliosList);
     },
   });
 
