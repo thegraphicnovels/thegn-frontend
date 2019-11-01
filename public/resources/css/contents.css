@@ -107,14 +107,14 @@ input[type="text"] {box-sizing:border-box;width:100%;height:32px;font-size:18px;
 .archiveMoreBox .moreListWrap {overflow:hidden;}
 .archiveMoreBox .moreListWrap .swiper-wrapper {overflow:hidden;width:9999em;}
 .archiveMoreBox .moreListWrap .swiper-wrapper .swiper-slide {position:relative;float:left;}
-.archiveMoreBox .moreListWrap .swiper-wrapper .swiper-slide ul li {margin:90px 0 0;}
-.archiveMoreBox .moreListWrap .swiper-wrapper .swiper-slide ul li:first-child {margin:0;}
-.archiveMoreBox .moreListWrap .swiper-wrapper .swiper-slide ul li a {display:block;position:relative;}
-.archiveMoreBox .moreListWrap .swiper-wrapper .swiper-slide ul li a img {width:100%;}
-.archiveMoreBox .moreListWrap .swiper-wrapper .swiper-slide ul li .guideFrame {position:absolute;top:0;right:0;bottom:0;left:0;text-align:center;background-color:rgba(0, 0, 0, 0.5);}
-.archiveMoreBox .moreListWrap .swiper-wrapper .swiper-slide ul li .guideFrame .guideInner {position:absolute;left:0;right:0;top:50%;padding:0 50px;transform:translate(0, -50%);}
-.archiveMoreBox .moreListWrap .swiper-wrapper .swiper-slide ul li .guideFrame .tit {display:block;line-height:42px;font-size:32px;font-weight:400;color:#fff;text-decoration:underline;word-break:keep-all;}
-.archiveMoreBox .moreListWrap .swiper-wrapper .swiper-slide ul li .guideFrame .tag {display:block;margin:30px 0 0;line-height:32px;font-size:22px;color:#fff;}
+/* .archiveMoreBox .moreListWrap .swiper-wrapper .swiper-slide{margin:90px 0 0;} */
+.archiveMoreBox .moreListWrap .swiper-wrapper .swiper-slide:first-child {margin:0;}
+.archiveMoreBox .moreListWrap .swiper-wrapper .swiper-slide a {display:block;position:relative;}
+.archiveMoreBox .moreListWrap .swiper-wrapper .swiper-slide a img {width:100%;}
+.archiveMoreBox .moreListWrap .swiper-wrapper .swiper-slide .guideFrame {position:absolute;top:0;right:0;bottom:0;left:0;text-align:center;background-color:rgba(0, 0, 0, 0.5);}
+.archiveMoreBox .moreListWrap .swiper-wrapper .swiper-slide .guideFrame .guideInner {position:absolute;left:0;right:0;top:50%;padding:0 50px;transform:translate(0, -50%);}
+.archiveMoreBox .moreListWrap .swiper-wrapper .swiper-slide .guideFrame .tit {display:block;line-height:42px;font-size:32px;font-weight:400;color:#fff;text-decoration:underline;word-break:keep-all;}
+.archiveMoreBox .moreListWrap .swiper-wrapper .swiper-slide .guideFrame .tag {display:block;margin:30px 0 0;line-height:32px;font-size:22px;color:#fff;}
 
 .archiveMoreBox .btnPrev {position:absolute;left:40px;top:325px;width:112px;height:40px;background:url('../images/btn_swiper_arrow.png') no-repeat left top;z-index:1;}
 .archiveMoreBox .btnNext {position:absolute;right:40px;top:325px;width:112px;height:40px;background:url('../images/btn_swiper_arrow.png') no-repeat right top;z-index:1;}
