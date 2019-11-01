@@ -447,6 +447,12 @@ export const footOpenFn = target => {
 	  footEl.addClass('open');
 	}
   });
+
+  return {
+	  destroy : ()=> {
+		$('.fInfoBtn button', footEl).unbind('click');
+	  }
+  }
 };
 
 export const formatDate = updateAt => {

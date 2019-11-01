@@ -3,9 +3,13 @@ import { footOpenFn } from 'common';
 
 const Footer = () => {
 	const footEl = useRef(null);
+	let footEvenFn;
 	// const [isFootOpen, setFootOpen] = useState(false);
 	useEffect(()=> {
-		footOpenFn(footEl.current);
+		footEvenFn = footOpenFn(footEl.current);
+		return ()=> {
+			if(footEvenFn) {footEvenFn.destroy();}
+		};
 	});
 
 	return (
