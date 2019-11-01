@@ -74,7 +74,7 @@ const ArchiveDetail = ({
         <NaviList />
 
         <Link to="/" onClick={() => setAction(1)} className="subMenu01">
-          <em>&lt;Archive&gt;</em>
+          <em>Archive</em>
         </Link>
 
         <div style={{ display: 'block', width: '100%', height: 'auto' }}>
@@ -139,10 +139,10 @@ const ArchiveDetail = ({
         </div>
 
         <Link to="/" onClick={() => setAction(2)} className="subMenu02">
-          <em>&lt;About&gt;</em>
+          <em>About</em>
         </Link>
         <Link to="/" onClick={() => setAction(3)} className="subMenu03">
-          <em>&lt;Contact&gt;</em>
+          <em>Contact</em>
         </Link>
       </div>
     );
