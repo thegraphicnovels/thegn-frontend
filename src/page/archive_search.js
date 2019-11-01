@@ -12,9 +12,7 @@ const ArchiveSearch = ({ history, location: { search } }) => {
   const keyword = new URLSearchParams(search).get('keyword');
 
   useEffect(() => {
-    if (keyword === '') {
-      setTag('');
-    }
+    setTag('');
   }, [keyword]);
 
   const { data, loading, refetch } = useQuery(archiveListQuery, {
