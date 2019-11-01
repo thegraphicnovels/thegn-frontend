@@ -35,7 +35,8 @@ const Login = ({ isPopOpen, setPopOpen }) => {
   });
 
   // Login Function
-  const loginFn = async () => {
+  const loginFn = async e => {
+    e.preventDefault();
     if (id.value !== '' && password.value !== '') {
       try {
         const {
@@ -62,52 +63,52 @@ const Login = ({ isPopOpen, setPopOpen }) => {
       style={{ display: isPopOpen }}
     >
       <div className="layerpop" style={{ width: '400px' }}>
-        <header>
-          <h1>Login</h1>
-        </header>
+        <form onSubmit={loginFn}>
+          <header>
+            <h1>Login</h1>
+          </header>
 
-        <div className="layerConts">
-          <ul className="loginWrap">
-            <li>
-              <label htmlFor="loginID" ref={placeEl01}>
-                <span className="placeholder">아이디를 입력하세요.</span>
-                <input
-                  id="loginID"
-                  value={id.value}
-                  onChange={id.onChange}
-                  type="text"
-                />
-                {/* <input type="text" id="loginID" /> */}
-              </label>
-            </li>
-            <li>
-              <label htmlFor="loginPW" ref={placeEl02}>
-                <span className="placeholder">비밀번호를 입력하세요.</span>
-                {/* <input type="password" id="loginPW" /> */}
-                <input
-                  id="loginPW"
-                  value={password.value}
-                  onChange={password.onChange}
-                  type="password"
-                />
-              </label>
-            </li>
-          </ul>
-        </div>
+          <div className="layerConts">
+            <ul className="loginWrap">
+              <li>
+                <label htmlFor="loginID" ref={placeEl01}>
+                  <span className="placeholder">아이디를 입력하세요.</span>
+                  <input
+                    id="loginID"
+                    value={id.value}
+                    onChange={id.onChange}
+                    type="text"
+                  />
+                  {/* <input type="text" id="loginID" /> */}
+                </label>
+              </li>
+              <li>
+                <label htmlFor="loginPW" ref={placeEl02}>
+                  <span className="placeholder">비밀번호를 입력하세요.</span>
+                  {/* <input type="password" id="loginPW" /> */}
+                  <input
+                    id="loginPW"
+                    value={password.value}
+                    onChange={password.onChange}
+                    type="password"
+                  />
+                </label>
+              </li>
+            </ul>
+          </div>
 
-        <div className="layerBtn">
-          <button type="button" onClick={() => loginFn()}>
-            확인
+          <div className="layerBtn">
+            <button type="submit">확인</button>
+          </div>
+
+          <button
+            type="button"
+            className="btnClose"
+            onClick={() => setPopOpen('none')}
+          >
+            <em>닫기</em>
           </button>
-        </div>
-
-        <button
-          type="button"
-          className="btnClose"
-          onClick={() => setPopOpen('none')}
-        >
-          <em>닫기</em>
-        </button>
+        </form>
       </div>
     </article>
   );
