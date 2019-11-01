@@ -32,33 +32,13 @@
 
 #header .btnHamberg {display:none;float:right;width:21px;height:17px;background:url('../images/btn_hamberg.png') no-repeat center;}
 
-#container {margin:0 200px;padding:90px 0 100px;}
+.naviListWrap {display:none;}
+.naviListWrap .topSrchBox {display:none;}
 
+#container {margin:0 200px;padding:90px 0 100px;}
 .contents:after {display:block;content:"";clear:both;overflow:hidden;width:0;height:0;line-height:0;}
 [class^="pageWrap"] {overflow:hidden;float:left;width:0;height:0;transition:width 0.7s ease;}
 
-
-.contents .naviListWrap {display:none;position:fixed;top:70px;left:0;right:0;bottom:0;padding:0;background:#fff;z-index:10;}
-.contents .naviListWrap.active {display:block;}
-.contents .naviListWrap ul {position:absolute;left:40px;right:40px;top:50%;transform:translate(0, -50%);}
-.contents .naviListWrap ul li {margin:30px 0 0;}
-.contents .naviListWrap ul li:first-child {margin:0;}
-.contents .naviListWrap ul li button,
-.contents .naviListWrap ul li a {display:block;width:100%;text-align:center;}
-.contents .naviListWrap ul li button em,
-.contents .naviListWrap ul li a em {display:inline-block;height:47px;line-height:47px;font-size:22px;font-weight:700;}
-.contents .naviListWrap ul li:nth-child(1) button,
-.contents .naviListWrap ul li:nth-child(1) a {border-bottom:5px solid #ff5d5d;}
-.contents .naviListWrap ul li:nth-child(1) button em,
-.contents .naviListWrap ul li:nth-child(1) a em {color:#ff5d5d;}
-.contents .naviListWrap ul li:nth-child(2) button,
-.contents .naviListWrap ul li:nth-child(2) a {border-bottom:5px solid #99ff8d;}
-.contents .naviListWrap ul li:nth-child(2) button em,
-.contents .naviListWrap ul li:nth-child(2) a em {color:#99ff8d;}
-.contents .naviListWrap ul li:nth-child(3) button,
-.contents .naviListWrap ul li:nth-child(3) a {border-bottom:5px solid #537bff;}
-.contents .naviListWrap ul li:nth-child(3) button em,
-.contents .naviListWrap ul li:nth-child(3) a em {color:#537bff;}
 
 .contents [class^="subMenu"] {position:fixed;top:90px;bottom:100px;box-sizing:border-box;width:47px;background-color:#fff;z-index:5;}
 .contents [class^="subMenu"] em {position:absolute;left:50%;top:50%;height:47px;line-height:47px;font-size:22px;font-weight:700;transform:translate(-50%, -50%) rotate(-90deg);transform-origin:50% 50%;}
@@ -96,11 +76,39 @@
 
 /*************************** 1200 ***************************/
 @media screen and (max-width:1200px) {
-	#header .util .topSrchBox {width:170px;}
+	#header .util .topSrchBox {display:none;}
 
 	#header .util > a,
 	#header .util > span,
 	#header .util > button {margin:0 0 0 20px;}
+	#header .util > button {margin:0 0 0 20px;}
+
+	.naviListWrap {position:fixed;top:70px;left:0;right:0;bottom:0;padding:0;background:#fff;z-index:10;}
+	.naviListWrap.active {display:block;}
+
+	.naviListWrap .topSrchBox {display:block;position:relative;vertical-align:middle;}
+	.naviListWrap .topSrchBox span {display:block;position:absolute;top:0;left:0;right:0;bottom:0;line-height:26px;font-size:22px;}
+	.naviListWrap .topSrchBox input[type=text] {box-sizing:border-box;width:100%;height:26px;border:none;border-bottom:1px solid #000;outline:none;background:transparent;}
+
+	.naviListWrap ul {position:absolute;left:40px;right:40px;top:50%;transform:translate(0, -50%);}
+	.naviListWrap ul li {margin:30px 0 0;}
+	.naviListWrap ul li:first-child {margin:0;}
+	.naviListWrap ul li button,
+	.naviListWrap ul li a {display:block;width:100%;text-align:center;}
+	.naviListWrap ul li button em,
+	.naviListWrap ul li a em {display:inline-block;height:47px;line-height:47px;font-size:22px;font-weight:700;}
+	.naviListWrap ul li:nth-child(1) button,
+	.naviListWrap ul li:nth-child(1) a {border-bottom:5px solid #ff5d5d;}
+	.naviListWrap ul li:nth-child(1) button em,
+	.naviListWrap ul li:nth-child(1) a em {color:#ff5d5d;}
+	.naviListWrap ul li:nth-child(2) button,
+	.naviListWrap ul li:nth-child(2) a {border-bottom:5px solid #99ff8d;}
+	.naviListWrap ul li:nth-child(2) button em,
+	.naviListWrap ul li:nth-child(2) a em {color:#99ff8d;}
+	.naviListWrap ul li:nth-child(3) button,
+	.naviListWrap ul li:nth-child(3) a {border-bottom:5px solid #537bff;}
+	.naviListWrap ul li:nth-child(3) button em,
+	.naviListWrap ul li:nth-child(3) a em {color:#537bff;}
 }
 
 /*************************** 1024 ***************************/
