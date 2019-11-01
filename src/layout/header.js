@@ -85,10 +85,10 @@ const Header = () => {
 							<img src="/resources/images/icon_logout.svg" alt="logout" />
 						</Link>
 					)}
+					<button type="button" className="btnHamberg" ref={btnHambergEl}>
+						<span className="blind">메뉴 열기</span>
+					</button>
 				</div>
-				<button type="button" className="btnHamberg" ref={btnHambergEl}>
-					<span className="blind">메뉴 열기</span>
-				</button>
 			</div>
 
 			<NaviList />
