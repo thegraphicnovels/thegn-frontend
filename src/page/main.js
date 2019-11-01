@@ -4,7 +4,6 @@ import Mainswiper from 'page/main_slide';
 import Achive from 'page/archive';
 import About from 'page/about';
 import Contact from 'page/contact';
-import NaviList from 'components/naviList';
 import { Store } from 'store';
 
 const Main = () => {
@@ -19,8 +18,6 @@ const Main = () => {
 
   return (
     <div className="contents" ref={conts}>
-      <NaviList />
-
       <div
         className="pageWrap"
         style={{ display: 'block', width: '100%', height: 'auto' }}

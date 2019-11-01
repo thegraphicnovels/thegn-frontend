@@ -15,7 +15,7 @@ const Footer = () => {
 	return (
 		<footer id="footer" ref={footEl}>
 			<span className="fInfoBtn">
-				<button type="button">&lt;Information&gt;</button>
+				<button type="button">Information</button>
 			</span>
 			<div className="fInfo">
 				<div className="fInfoL">

@@ -4,7 +4,7 @@ import { useInput } from 'rooks';
 import PropTypes from 'prop-types';
 import { placeholderFn } from 'common';
 
-const SearchBox = ({ history }) => {
+const SearchBox = ({ history, searchId }) => {
   const srchEl = useRef(null);
   const keyword = useInput('');
 
@@ -20,12 +20,12 @@ const SearchBox = ({ history }) => {
   });
 
   return (
-    <label htmlFor="search" className="topSrchBox" ref={srchEl}>
+    <label htmlFor={searchId} className="topSrchBox" ref={srchEl}>
       <span className="placeholder">Search</span>
       <form onSubmit={onSearchSubmit}>
         <input
           type="text"
-          id="search"
+          id={searchId}
           value={keyword.val}
           onChange={keyword.onChange}
         />
@@ -36,6 +36,7 @@ const SearchBox = ({ history }) => {
 
 SearchBox.propTypes = {
   history: PropTypes.object.isRequired,
+  searchId: PropTypes.string.isRequired,
 };
 
 export default withRouter(SearchBox);

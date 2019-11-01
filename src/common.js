@@ -114,7 +114,7 @@ export const swiperFn = target => {
 	  },
 	  //   transitionEnd(swiper) {},
 	},
-	allowTouchMove: false,
+	// allowTouchMove: false,
 	navigation: {
 	  prevEl: $('.btnPrev', mainWrap),
 	  nextEl: $('.btnNext', mainWrap),
@@ -437,22 +437,25 @@ export const AdminMenuFn = target => {
 
 // footer
 export const footOpenFn = target => {
-  const footEl = $(target);
-  const fInfo = $('.fInfo', footEl);
+	const footEl = $(target);
+	const fInfo = $('.fInfo', footEl);
+	const scratchWrap = $('.scratchWrap');
 
-  $('.fInfoBtn button', footEl).click(() => {
-	if (fInfo.is(':visible')) {
-	  footEl.removeClass('open');
-	} else {
-	  footEl.addClass('open');
+	$('.fInfoBtn button', footEl).click(() => {
+		if (fInfo.is(':visible')) {
+			footEl.removeClass('open');
+			scratchWrap.removeClass('hide');
+		} else {
+			footEl.addClass('open');
+			scratchWrap.addClass('hide');
+		}
+	});
+
+	return {
+		destroy : ()=> {
+			$('.fInfoBtn button', footEl).unbind('click');
+		}
 	}
-  });
-
-  return {
-	  destroy : ()=> {
-		$('.fInfoBtn button', footEl).unbind('click');
-	  }
-  }
 };
 
 export const formatDate = updateAt => {

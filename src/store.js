@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import { gql } from 'apollo-boost';
 import PropTypes from 'prop-types';
@@ -20,12 +20,16 @@ const StoreProvider = ({ children }) => {
 
   // page action
   const [action, setAction] = useState(0);
+  // scratch element
+  const scratchEl = useRef(null);
 
   const value = {
     action,
     setAction,
-    logged,
+	logged,
+	scratchEl,
   };
+
 
   return <Store.Provider value={value}>{children}</Store.Provider>;
 };
