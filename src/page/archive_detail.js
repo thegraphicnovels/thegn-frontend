@@ -40,7 +40,7 @@ const ArchiveDetail = ({
     onCompleted: ({ detailPortpolio }) => {
       archiveViewsMutation({ variables: { id: portpolioId } });
       const { tags } = detailPortpolio;
-      if (tags) {
+      if (tags.length > 0) {
         const tagIds = [];
         for (let i = 0; i < tags.length; i++) {
           tagIds.push(tags[i]._id);

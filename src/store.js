@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import { gql } from 'apollo-boost';
 import PropTypes from 'prop-types';
@@ -23,13 +23,16 @@ const StoreProvider = ({ children }) => {
   // scratch element
   const scratchEl = useRef(null);
 
+  useEffect(() => {
+    document.cookie = 'SameSite=None;';
+  }, []);
+
   const value = {
     action,
     setAction,
-	logged,
-	scratchEl,
+    logged,
+    scratchEl,
   };
-
 
   return <Store.Provider value={value}>{children}</Store.Provider>;
 };
