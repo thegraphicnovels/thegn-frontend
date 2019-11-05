@@ -44,8 +44,9 @@ const ArchiveSearch = ({ history, location: { search } }) => {
 
         <div className="registBox">
           <h2>
-            {data && data.seePortpoliosList.length} SEARCH RESULTS FOR:{' '}
-            {keyword} {keyword && tag !== '' ? ` & TAG: ${tag}` : tag}
+            {data && data.seePortpoliosList.length} SEARCH RESULTS FOR:
+            {keyword && tag !== '' ? ` ${keyword} & ${tag}` : ` ${keyword}`}
+            <br />
           </h2>
         </div>
 
