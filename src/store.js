@@ -24,7 +24,7 @@ const StoreProvider = ({ children }) => {
   const scratchEl = useRef(null);
 
   useEffect(() => {
-    document.cookie = 'SameSite=None;';
+    document.cookie = 'SameSite=None; Secure';
   }, []);
 
   const value = {
