@@ -17,6 +17,7 @@ import ManageArchiveEdit from 'page/ManageArchive/ManageArchiveEdit';
 import ManageTag from 'page/ManageTag';
 import MainBanner from 'page/ManageMainBanner/ManageMainBannerList';
 import ManageMainBannerEdit from 'page/ManageMainBanner/ManageMainBannerEdit';
+import NaviList from 'components/naviList';
 import { Store } from 'store';
 
 const PageUrl = ({ logged }) => {
@@ -55,6 +56,7 @@ const Router = () => {
   return (
     <BRouter>
       <Header />
+	  <NaviList />
       <div id="container">
         <PageUrl logged={logged} />
       </div>

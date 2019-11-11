@@ -4,7 +4,6 @@ import { useMutation } from '@apollo/react-hooks';
 import { LOCAL_LOG_OUT } from 'apollo/loginQuery';
 import { AdminMenuFn, moGnbOpenFn } from 'common';
 import SearchBox from 'components/searchBox';
-import NaviList from 'components/naviList';
 import { Store } from 'store';
 
 const Header = () => {
@@ -95,8 +94,6 @@ const Header = () => {
           </button>
         </div>
       </div>
-
-      <NaviList />
     </header>
   );
 };

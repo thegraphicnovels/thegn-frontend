@@ -81,6 +81,10 @@
 	#header .util > a,
 	#header .util > span,
 	#header .util > button {margin:0 0 0 20px;}
+
+	#footer .fInfo .fInfoL {width:350px;line-height:70px;font-size:52px;}
+	#footer .fInfo .fInfoR {width:calc(100% - 400px);}
+	#footer .fInfo .fInfoR p {margin:15px 0 0;line-height:30px;font-size:20px;}
 }
 
 /*************************** 1024 ***************************/
@@ -122,10 +126,47 @@
 	.naviListWrap ul li:nth-child(3) button em,
 	.naviListWrap ul li:nth-child(3) a em {color:#537bff;}
 
-	#container {margin:0 40px;padding:70px 0 100px;}
+	#container {margin:0 40px;padding:70px 0 50px;}
 	.contents [class^="subMenu"] {display:none;}
 	[class^="pageWrap"] {overflow:visible;display:block;}
 
-	#footer {bottom:51px;padding:45px 0 0;}
+
+	#footer {padding:50px 0 0;}
 	#footer .fInfoBtn {left:40px;right:40px;top:0;}
+	#footer .fInfoBtn button {height:30px;font-size:22px;}
+	#footer .fInfo {margin:0 40px;}
+	#footer .fInfo .fInfoL {width:100%;line-height:42px;font-size:32px;}
+	#footer .fInfo .fInfoR {width:100%;}
+	#footer .fInfo .fInfoR p {margin:15px 0 0;line-height:30px;font-size:20px;}
+	#footer .fInfo .fInfoR .copyright {margin:20px 0 0;}
+}
+
+/*************************** 768 ***************************/
+@media screen and (max-width:768px) {
+	#header {padding:20px 20px 0;height:60px;z-index:6;}
+	#header .logo a {height:18px;}
+
+	.naviListWrap {top:60px;}
+	.naviListWrap .topSrchBox {margin:20px 20px 0;}
+	.naviListWrap .topSrchBox span {line-height:24px;font-size:17px;}
+	.naviListWrap .topSrchBox input[type=text] {height:26px;border:none;border-bottom:1px solid #000;}
+	.naviListWrap ul {left:20px;right:20px;}
+	.naviListWrap ul li {margin:15px 0 0;}
+	.naviListWrap ul li button em,
+	.naviListWrap ul li a em {height:37px;line-height:37px;font-size:17px;}
+	.naviListWrap ul li:nth-child(1) button,
+	.naviListWrap ul li:nth-child(1) a {border-bottom:2px solid #ff5d5d;}
+	.naviListWrap ul li:nth-child(2) button,
+	.naviListWrap ul li:nth-child(2) a {border-bottom:2px solid #99ff8d;}
+	.naviListWrap ul li:nth-child(3) button,
+	.naviListWrap ul li:nth-child(3) a {border-bottom:2px solid #537bff;}
+
+	#container {margin:0 20px;padding:60px 0 50px;}
+
+	#footer .fInfoBtn {left:20px;right:20px;top:5px;border-bottom:2px solid #000;}
+	#footer .fInfoBtn button {font-size:18px;}
+	#footer .fInfo {margin:0 20px;}
+	#footer .fInfo .fInfoL {width:100%;line-height:32px;font-size:22px;}
+	#footer .fInfo .fInfoR p {margin:5px 0 0;line-height:25px;font-size:15px;}
+	#footer .fInfo .fInfoR .copyright {margin:15px 0 0;line-height:25px;font-size:15px;}
 }

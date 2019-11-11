@@ -38,11 +38,14 @@ input[type="text"] {box-sizing:border-box;width:100%;height:32px;font-size:18px;
 /*************************** 1024 ***************************/
 @media screen and (max-width:1024px) {
 	.mainSwipeWrap {margin:0 -40px;}
+	.mainSwipeWrap .swiper-wrapper .swiper-slide {height:calc(100vh - 130px);}
 	.mainSwipeWrap .btnPrev {left:40px;width:60px;background-position:left center;background-size:60px auto;}
 	.mainSwipeWrap .btnNext {right:40px;width:60px;background-position:right center;background-size:60px auto;}
 }
 /*************************** 769 ***************************/
 @media screen and (max-width:768px) {
+	.mainSwipeWrap {margin:0 -20px;}
+	.mainSwipeWrap .swiper-wrapper .swiper-slide {height:calc(100vh - 110px);}
 	.mainSwipeWrap .btnPrev {left:10px;width:40px;}
 	.mainSwipeWrap .btnNext {right:10px;width:40px;}
 }
