@@ -62,7 +62,7 @@ const Login = ({ isPopOpen, setPopOpen }) => {
       id="loginLayer"
       style={{ display: isPopOpen }}
     >
-      <div className="layerpop" style={{ width: '400px' }}>
+      <div className="layerpop">
         <form onSubmit={loginFn}>
           <header>
             <h1>Login</h1>
