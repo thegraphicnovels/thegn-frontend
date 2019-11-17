@@ -20,6 +20,11 @@ input[type="text"] {box-sizing:border-box;width:100%;height:32px;font-size:18px;
 [class^="btnPageBox"] {margin:50px 0 0;text-align:center;}
 [class^="btnPageBox"] button + button {margin:0 0 0 20px;}
 
+/*************************** 769 ***************************/
+@media screen and (max-width:768px) {
+	[class^="btnCustm"] {display:inline-block;}
+[class^="btnCustm"] span {height:22px;line-height:22px;font-size:14px;}
+}
 
 /**************************************************************************************
 ** MAIN SWIPER
@@ -138,7 +143,7 @@ input[type="text"] {box-sizing:border-box;width:100%;height:32px;font-size:18px;
 .archiveDescriptWrap .descriptBox .tag +  .txt {margin:20px 0 0;}
 .archiveDescriptWrap .descriptBox .btnDescriptBox {position:absolute;right:0;top:0;}
 
-.archiveMoreBox {position:relative;margin:50px 0 0;padding:0 220px 130px;}
+.archiveMoreBox {position:relative;margin:50px 0 0;padding:0 100px 100px;}
 .archiveMoreBox h3 {margin:0 0 100px;line-height:36px;font-size:26px;font-weight:300;text-align:center;}
 .archiveMoreBox .moreListWrap {overflow:hidden;}
 .archiveMoreBox .moreListWrap .swiper-wrapper {overflow:hidden;width:9999em;}
@@ -152,21 +157,56 @@ input[type="text"] {box-sizing:border-box;width:100%;height:32px;font-size:18px;
 .archiveMoreBox .moreListWrap .swiper-wrapper .swiper-slide .relateItem .guideFrame .guideInner {position:absolute;left:0;right:0;top:50%;padding:0 50px;transform:translate(0, -50%);}
 .archiveMoreBox .moreListWrap .swiper-wrapper .swiper-slide .relateItem .guideFrame .tits {display:block;line-height:42px;font-size:32px;font-weight:400;color:#fff;text-decoration:underline;word-break:keep-all;}
 .archiveMoreBox .moreListWrap .swiper-wrapper .swiper-slide .relateItem .guideFrame .tags {display:block;margin:30px 0 0;line-height:32px;font-size:22px;color:#fff;}
-.archiveMoreBox .moreListWrap  .btnPrev {position:absolute;left:40px;top:390px;width:112px;height:40px;background:url('../images/btn_swiper_arrow.png') no-repeat left top;z-index:1;}
-.archiveMoreBox .moreListWrap  .btnNext {position:absolute;right:40px;top:390px;width:112px;height:40px;background:url('../images/btn_swiper_arrow.png') no-repeat right top;z-index:1;}
+.archiveMoreBox .moreListWrap  .btnPrev {position:absolute;left:0;top:390px;width:100px;height:40px;background:url('../images/btn_swiper_arrow.png') no-repeat left top;z-index:1;}
+.archiveMoreBox .moreListWrap  .btnNext {position:absolute;right:0;top:390px;width:100px;height:40px;background:url('../images/btn_swiper_arrow.png') no-repeat right top;z-index:1;}
 
 /*************************** 1024 ***************************/
 @media screen and (max-width:1024px) {
 	.archiveDescriptWrap {padding:30px 0 0;}
+	.archiveDescriptWrap .descriptThum {float:none;width:100%;}
+	.archiveDescriptWrap .descriptThum .btnPrev {left:20px;top:50%;width:90px;height:20px;background-size:auto 100%;}
+	.archiveDescriptWrap .descriptThum .btnNext {right:20px;top:50%;width:90px;height:20px;background-size:auto 100%;}
+
+	.archiveDescriptWrap .descriptBox {float:none;width:100%;}
+	.archiveDescriptWrap .descriptBox strong {padding:0 70px 0 0;}
+	.archiveDescriptWrap .descriptBox .btnDescriptBox {top:20px;}
+
+	.archiveMoreBox {margin:100px 0 0;padding:0 0 100px;}
+	.archiveMoreBox h3 {margin:0 0 50px;}
+	.archiveMoreBox .moreListWrap  .btnPrev {top:5px;left:70px;width:70px;height:20px;background-size:auto 100%;}
+	.archiveMoreBox .moreListWrap  .btnNext {top:5px;right:70px;width:70px;height:20px;background-size:auto 100%;}
+}
+
+/*************************** 768 ***************************/
+@media screen and (max-width:768px) {
+	.archiveDescriptWrap .descriptThum .btnPrev {left:10px;top:50%;width:30px;height:10px;}
+	.archiveDescriptWrap .descriptThum .btnNext {right:10px;top:50%;width:30px;height:10px;}
+	.archiveDescriptWrap .descriptBox .btnDescriptBox {top:0;}
+
+	.archiveDescriptWrap .descriptBox {margin:20px 0 0;padding:0;}
+	.archiveDescriptWrap .descriptBox strong {line-height:22px;font-size:18px;}
+	.archiveDescriptWrap .descriptBox .date {line-height:22px;font-size:15px;}
+	.archiveDescriptWrap .descriptBox .tag {line-height:22px;font-size:15px;font-weight:300;}
+	.archiveDescriptWrap .descriptBox .txt {line-height:22px;font-size:14px;}
+	.archiveDescriptWrap .descriptBox .date + .txt,
+	.archiveDescriptWrap .descriptBox .tag + .txt {margin:10px 0 0;}
+
+	.archiveMoreBox {margin:30px 0 0;padding:0 0 20px;}
+	.archiveMoreBox h3 {margin:0 0 40px;line-height:30px;font-size:20px;}
+	.archiveMoreBox .moreListWrap .swiper-wrapper .swiper-slide a {height:400px;}
+	.archiveMoreBox .moreListWrap  .btnPrev {top:10px;left:0;width:40px;height:10px;}
+	.archiveMoreBox .moreListWrap  .btnNext {top:10px;right:0;width:40px;height:10px;}
 }
 
 /**************************************************************************************
 ** About
 **************************************************************************************/
 .aboutWrap {padding:0 0 100px;}
-.aboutWrap .aboutLogo02 {height:141px;margin:50px 0 0;background:url('../images/about_logo02.png') no-repeat center top;background-size:auto 100%;}
+.aboutWrap .aboutLogo02 {margin:50px 0 0;text-align:center;}
+.aboutWrap .aboutLogo02 img {max-width:100%;}
 .aboutWrap .aboutIntro:after {display:block;content:"";clear:both;overflow:hidden;width:0;height:0;line-height:0;}
-.aboutWrap .aboutIntro .aboutLogo {display:block;float:left;width:455px;padding:50px;}
+.aboutWrap .aboutIntro .aboutLogo {display:block;float:left;width:455px;padding:50px;text-align:center;}
+.aboutWrap .aboutIntro .aboutLogo img {max-width:100%;}
 .aboutWrap .aboutIntro .intro {float:right;width:calc(100% - 600px);padding:40px 10px 40px;line-height:35px;font-size:20px;}
 
 .aboutWrap .snsBox {padding:0 0 0 590px;}
@@ -174,13 +214,42 @@ input[type="text"] {box-sizing:border-box;width:100%;height:32px;font-size:18px;
 .aboutWrap .snsBox a:first-child {margin:0;}
 .aboutWrap .snsBox a img {height:100%;}
 
+/*************************** 1400 ***************************/
+@media screen and (max-width:1400px) {
+	.aboutWrap .aboutIntro .aboutLogo {width:300px;padding:20px;}
+	.aboutWrap .aboutIntro .intro {width:calc(100% - 400px);}
+	.aboutWrap .snsBox {padding:0 0 0 400px;}
+}
+
+/*************************** 1024 ***************************/
+@media screen and (max-width:1024px) {
+	.aboutWrap .aboutIntro .aboutLogo {float:none;width:100%;padding:0;margin:50px 0 0;}
+	.aboutWrap .aboutIntro .intro {float:none;width:100%;}
+	.aboutWrap .snsBox {float:none;width:100%;padding:0;text-align:center;}
+}
+
+/*************************** 768 ***************************/
+@media screen and (max-width:768px) {
+	.aboutWrap {padding:0 0 50px;}
+	.aboutWrap .aboutLogo02 {margin:25px 0 0;}
+	.aboutWrap .aboutIntro .aboutLogo {width:100%;padding:0;margin:20px 0 0;}
+	.aboutWrap .aboutIntro .intro {margin:20px 0 0;padding:0;line-height:24px;font-size:14px;}
+	.aboutWrap .snsBox {margin:10px 0 0;}
+	.aboutWrap .snsBox a {height:15px;margin:0 0 0 10px;}
+}
+
 /**************************************************************************************
 ** Contact
 **************************************************************************************/
 .contactWrap .contactInfoBox {padding:0 0 100px;}
 .contactWrap .contactInfoBox:after {display:block;content:"";clear:both;overflow:hidden;width:0;height:0;line-height:0;}
-.contactWrap .contactInfoBox .img {display:block;float:left;width:600px;}
+.contactWrap .contactInfoBox .img {display:block;position:relative;float:left;width:600px;text-align:center;}
 .contactWrap .contactInfoBox .img img {width:100%;}
+.contactWrap .contactInfoBox .img:before {display:block;content:"";position:absolute;top:0;bottom:0;right:0;left:0;background-color:rgba(0, 0, 0, 0.4);}
+.contactWrap .contactInfoBox .img .moCorpInfo {display:none;position:absolute;left:20px;right:20px; top:50%;transform:translate(0, -50%);}
+.contactWrap .contactInfoBox .img .moCorpInfo .corp {line-height:42px;font-size:32px;}
+.contactWrap .contactInfoBox .img .moCorpInfo address {display:block;margin:20px 0 0;line-height:36px;font-size:26px;}
+
 .contactWrap .contactInfoBox .infoBox {float:right;width:calc(100% - 650px);}
 .contactWrap .contactInfoBox .infoBox .contcInfo li {margin:20px 0 0;line-height:42px;font-size:32px;}
 .contactWrap .contactInfoBox .infoBox .contcInfo li:first-child {margin:0;}
@@ -188,6 +257,35 @@ input[type="text"] {box-sizing:border-box;width:100%;height:32px;font-size:18px;
 .contactWrap .contactInfoBox .infoBox .contcInfo li span {display:inline-block;text-decoration:underline;}
 .contactWrap .contactInfoBox .infoBox .corp {margin:70px 0 0;line-height:42px;font-size:32px;}
 .contactWrap .contactInfoBox .infoBox address {display:block;margin:20px 0 0;line-height:36px;font-size:26px;}
+
+/*************************** 1400 ***************************/
+@media screen and (max-width:1400px) {
+	.contactWrap .contactInfoBox .img {width:400px;}
+	.contactWrap .contactInfoBox .infoBox {width:calc(100% - 450px);}
+	.contactWrap .contactInfoBox .infoBox .contcInfo li {line-height:38px;font-size:28px;}
+	.contactWrap .contactInfoBox .infoBox .corp {margin:50px 0 0;line-height:38px;font-size:28px;}
+	.contactWrap .contactInfoBox .infoBox address {margin:20px 0 0;line-height:32px;font-size:22px;}
+
+}
+
+/*************************** 1024 ***************************/
+@media screen and (max-width:1024px) {
+	.contactWrap .contactInfoBox {margin:50px 0 0;}
+	.contactWrap .contactInfoBox .img {float:none;width:100%;margin:50px 0 0;}
+	.contactWrap .contactInfoBox .img .moCorpInfo {display:block;color:#fff;}
+	.contactWrap .contactInfoBox .infoBox {float:none;width:100%;margin:30px 0 0;}
+	.contactWrap .contactInfoBox .infoBox .corp {display:none;}
+	.contactWrap .contactInfoBox .infoBox address {display:none;}
+}
+
+/*************************** 768 ***************************/
+@media screen and (max-width:768px) {
+	.contactWrap .contactInfoBox {margin:20px 0 0;}
+	.contactWrap .contactInfoBox .img {margin:20px 0 0;}
+	.contactWrap .contactInfoBox .img .moCorpInfo .corp {line-height:22px;font-size:20px;}
+	.contactWrap .contactInfoBox .img .moCorpInfo address {display:block;margin:20px 0 0;line-height:22px;font-size:16px;}
+	.contactWrap .contactInfoBox .infoBox .contcInfo li {line-height:22px;font-size:16px;}
+}
 
 /**************************************************************************************
 ** Paging
@@ -202,6 +300,11 @@ input[type="text"] {box-sizing:border-box;width:100%;height:32px;font-size:18px;
 .paging .pagingNext.disabled {background:url('../images/pagin_arrow_disabled.png') no-repeat right 5px;}
 .paging .pagingNext.disabled em {color:#c9caca;}
 .paging .viewPageNum {display:block;line-height:30px;font-size:26px;font-weight:300;text-align:center;}
+
+/*************************** 1024 ***************************/
+@media screen and (max-width:1024px) {
+	.paging {margin:50px 0;}
+}
 
 /**************************************************************************************
 ** SCRATCH
