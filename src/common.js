@@ -238,11 +238,6 @@ export const tagMenuFn = target => {
 		}
 	}
 
-	const transitionEndFn = ()=> {
-		if(_swiperScrollLib) _swiperScrollLib.update();
-	}
-	
-
 	const _swiperScrollLib = new Swiper(_scrollWrap, {
 	direction: 'vertical',
 	slidesPerView: 'auto',
@@ -272,6 +267,11 @@ export const tagMenuFn = target => {
 		_swiperScrollLib.update();
 	}
 	});
+
+	
+	const transitionEndFn = ()=> {
+		if(_swiperScrollLib) _swiperScrollLib.update();
+	}
 
 	const reBrowser = ()=>{
 		console.log('reBrowser');
