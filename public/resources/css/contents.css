@@ -288,12 +288,12 @@ input[type="text"] {box-sizing:border-box;width:100%;height:32px;font-size:18px;
 }
 
 /**************************************************************************************
-** Paging
+** Paging 
 **************************************************************************************/
 .paging {display:block;position:relative;}
-.paging .pagingPrev {display:block;position:absolute;left:0;top:50%;height:30px;padding:0 0 0 110px;background:url('../images/pagin_arrow.png') no-repeat left 5px;z-index:1;transform:translate(0, -50%);}
+.paging .pagingPrev {display:block;position:absolute;left:0;top:50%;width:110px;height:30px;background:url('../images/pagin_arrow.png') no-repeat left 5px;z-index:1;transform:translate(0, -50%);}
 .paging .pagingPrev em {display:block;line-height:30px;font-size:23px;font-weight:300;background-color:#fff;}
-.paging .pagingNext {display:block;position:absolute;right:0;top:50%;height:30px;padding:0 110px 0 0;background:url('../images/pagin_arrow.png') no-repeat right 5px;z-index:1;transform:translate(0, -50%);}
+.paging .pagingNext {display:block;position:absolute;right:0;top:50%;width:110px;height:30px;background:url('../images/pagin_arrow.png') no-repeat right 5px;z-index:1;transform:translate(0, -50%);}
 .paging .pagingNext em {display:block;line-height:30px;font-size:23px;font-weight:300;background-color:#fff;}
 .paging .pagingPrev.disabled {background:url('../images/pagin_arrow_disabled.png') no-repeat left 5px;}
 .paging .pagingPrev.disabled em {color:#c9caca;}
@@ -304,6 +304,17 @@ input[type="text"] {box-sizing:border-box;width:100%;height:32px;font-size:18px;
 /*************************** 1024 ***************************/
 @media screen and (max-width:1024px) {
 	.paging {margin:50px 0;}
+}
+/*************************** 768 ***************************/
+@media screen and (max-width:768px) {
+	.paging {margin:30px 0;}
+	.paging .pagingPrev {overflow:hidden;width:60px;height:10px;background-position:left top;background-size:auto 100%;}
+	.paging .pagingNext {overflow:hidden;width:60px;height:10px;background-position:right top;background-size:auto 100%;}
+	.paging .pagingPrev em,
+	.paging .pagingNext em {position:absolute;left:-999em;top:-999em;}
+	.paging .pagingPrev.disabled {background-position:left top;background-size:auto 100%;}
+	.paging .pagingNext.disabled {background-position:right top;background-size:auto 100%;}
+	.paging .viewPageNum {line-height:20px;font-size:18px;}
 }
 
 /**************************************************************************************
