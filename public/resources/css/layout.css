@@ -2,7 +2,7 @@
 
 #wrap {position:relative;min-height:100vh;margin:0 auto;}
 
-#header {display:block;position:fixed;left:200px;top:0;right:200px;box-sizing:border-box;height:90px;padding:35px 0 0;z-index:5;}
+#header {display:block;position:fixed;left:200px;top:0;right:200px;box-sizing:border-box;height:90px;padding:35px 0 0;z-index:6;}
 #header .headerIn:after {display:block;content:"";clear:both;}
 #header .logo {display:block;float:left;}
 #header .logo a {display:block;height:26px;line-height:26px;}
@@ -38,6 +38,7 @@
 #container {margin:0 200px;padding:90px 0 100px;}
 .contents:after {display:block;content:"";clear:both;overflow:hidden;width:0;height:0;line-height:0;}
 [class^="pageWrap"] {overflow:hidden;float:left;width:0;height:0;transition:width 0.7s ease;}
+[class^="pageWrap"].active {overflow:visible;}
 
 
 .contents [class^="subMenu"] {position:fixed;top:90px;bottom:100px;box-sizing:border-box;width:47px;background-color:#fff;z-index:5;}
@@ -49,7 +50,7 @@
 .contents .subMenu03 {left:calc(100vw - 76px);border-right:5px solid #537bff;}
 .contents .subMenu03 em {color:#537bff;}
 
-#footer {position:absolute;left:0;right:0;bottom:0;padding:100px 0 0;background:#fff;z-index:5;}
+#footer {position:absolute;left:0;right:0;bottom:0;padding:100px 0 0;background:#fff;z-index:6;}
 #footer > .fInfoBtn {position:absolute;top:30px;left:200px;right:200px;border-bottom:5px solid #000;}
 #footer > .fInfoBtn button {width:100%;height:40px;font-size:22px;font-weight:700;text-align:center;}
 #footer .fInfo {display:none;overflow:hidden;margin:0 200px;}
@@ -89,7 +90,7 @@
 
 /*************************** 1024 ***************************/
 @media screen and (max-width:1024px) {
-	#header {left:0;right:0;padding:27px 40px 0;height:70px;box-shadow:0 3px 7px rgba(0, 0, 0, 0.1);background-color:#fff;z-index:6;}
+	#header {left:0;right:0;padding:27px 40px 0;height:70px;box-shadow:0 3px 7px rgba(0, 0, 0, 0.1);background-color:#fff;}
 	#header .logo a {height:20px;line-height:20px;}
 	#header .logo a img {height:100%;}
  
@@ -98,7 +99,6 @@
 	#header .util > a,
 	#header .util > span,
 	#header .util > button {height:17px;}
-	#header .util .icoAdm .admList {top:auto;bottom:100%;padding:0 0 6px;}
 	#header .util button.btnHamberg {display:inline-block;width:21px;height:17px;margin:0 0 0 20px;background:url('../images/btn_hamberg.png') no-repeat center;}
 
 	.naviListWrap {position:fixed;top:70px;left:0;right:0;bottom:0;padding:0;background:#fff;z-index:10;}
@@ -128,7 +128,7 @@
 
 	#container {margin:0 40px;padding:70px 0 50px;}
 	.contents [class^="subMenu"] {display:none;}
-	[class^="pageWrap"] {overflow:visible;display:block;}
+	[class^="pageWrap"] {display:block;}
 
 
 	#footer {padding:50px 0 0;}
@@ -139,6 +139,17 @@
 	#footer .fInfo .fInfoR {width:100%;}
 	#footer .fInfo .fInfoR p {margin:15px 0 0;line-height:30px;font-size:20px;}
 	#footer .fInfo .fInfoR .copyright {margin:20px 0 0;}
+}
+
+
+/*************************** 1024 ***************************/
+@media screen and (max-width:1024px) {
+	[class^="subMenu"] + [class^="pageWrap"] {padding:20px 0 0;}
+	[class^="subMenu"] + [class^="pageWrap"] > h2.blind {display:block;position:static;width:100%;height:47px;line-height:47px;font-size:22px;font-weight:700;text-align:center;}
+	.subMenu01 + [class^="pageWrap"] > h2.blind {color:#ff5d5d; border-bottom:5px solid #ff5d5d;}
+	.subMenu02 + [class^="pageWrap"] > h2.blind {color:#99ff8d; border-bottom:5px solid #99ff8d;}
+	.subMenu03 + [class^="pageWrap"] > h2.blind {color:#537bff; border-bottom:5px solid #537bff;}
+
 }
 
 /*************************** 768 ***************************/
@@ -162,6 +173,12 @@
 	.naviListWrap ul li:nth-child(3) a {border-bottom:2px solid #537bff;}
 
 	#container {margin:0 20px;padding:60px 0 50px;}
+
+	[class^="subMenu"] + [class^="pageWrap"] {padding:10px 0 0;}
+	[class^="subMenu"] + [class^="pageWrap"] > h2.blind {height:24px;line-height:24px;font-size:17px;}
+	.subMenu01 + [class^="pageWrap"] > h2.blind {color:#ff5d5d; border-bottom:2px solid #ff5d5d;}
+	.subMenu02 + [class^="pageWrap"] > h2.blind {color:#99ff8d; border-bottom:2px solid #99ff8d;}
+	.subMenu03 + [class^="pageWrap"] > h2.blind {color:#537bff; border-bottom:2px solid #537bff;}
 
 	#footer .fInfoBtn {left:20px;right:20px;top:5px;border-bottom:2px solid #000;}
 	#footer .fInfoBtn button {font-size:18px;}

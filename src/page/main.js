@@ -19,7 +19,7 @@ const Main = () => {
   return (
     <div className="contents" ref={conts}>
       <div
-        className="pageWrap"
+        className="pageWrap active"
         style={{ display: 'block', width: '100%', height: 'auto' }}
       >
         <h2 className="blind">Home</h2>

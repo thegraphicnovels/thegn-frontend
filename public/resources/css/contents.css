@@ -82,10 +82,36 @@ input[type="text"] {box-sizing:border-box;width:100%;height:32px;font-size:18px;
 .archiveWrap .archiveListWrap .grid .grid-item a .itemFrame .inner .tags {display:block;margin:20px 0 0;line-height:30px;font-size:22px;color:#fff;text-align:center;}
 .archiveWrap .archiveListWrap .grid .grid-item a:hover .itemFrame {display:block;}
 
-/*************************** 1366 - tablet ***************************/
-/* @media screen and (max-width:1370px) {
-	.achiveListWrap .grid .grid-item img {width:60%;max-width:60%;}
-} */
+/*************************** 1024 - tablet ***************************/
+@media screen and (max-width:1024px) {
+	.archiveWrap .tagMenu {position:relative;top:auto;bottom:auto;left:auto;}
+	.archiveWrap .tagMenu > button {left:50%;top:20px;transform:translate(-50%, 0);}
+	.archiveWrap .tagMenu .swiperScrollBox {overflow:hidden;margin:0;}
+	.archiveWrap .tagMenu.active {position:fixed;left:0;right:0;top:0;bottom:0;z-index:100;}
+
+	.archiveWrap .archiveListWrap .grid .grid-item a {text-align:center;}
+	.archiveWrap .archiveListWrap .grid .grid-item a .itemFrame {display:block;position:static;margin:15px 0 0;background-color:transparent;}
+	.archiveWrap .archiveListWrap .grid .grid-item a .itemFrame .inner {position:static;transform:translate(0, 0);}
+	.archiveWrap .archiveListWrap .grid .grid-item a .itemFrame .inner .tits {line-height:36px;font-size:26px;color:#000;}
+	.archiveWrap .archiveListWrap .grid .grid-item a .itemFrame .inner .tags {margin:10px 0 0;line-height:28px;font-size:18px;color:#000;}
+}
+
+/*************************** 768 - tablet ***************************/
+@media screen and (max-width:768px) {
+	.archiveWrap .tagMenu > button {width:14px;height:14px;background-size:100% auto;}
+	.archiveWrap .tagMenu .swiperScrollBox ul {padding:20px;}
+	.archiveWrap .tagMenu .swiperScrollBox ul li {margin:20px 0 0;}
+	.archiveWrap .tagMenu .swiperScrollBox ul li a,
+	.archiveWrap .tagMenu .swiperScrollBox ul li button {line-height:26px;font-size:18px;}
+
+	.archiveWrap .archiveListWrap .grid .grid-item a {text-align:center;}
+	.archiveWrap .archiveListWrap .grid .grid-item a .itemFrame {display:block;position:static;margin:10px 0 0;background-color:transparent;}
+	.archiveWrap .archiveListWrap .grid .grid-item a .itemFrame .inner {position:static;transform:translate(0, 0);}
+	.archiveWrap .archiveListWrap .grid .grid-item a .itemFrame .inner .tits {line-height:30px;font-size:20px;color:#000;}
+	.archiveWrap .archiveListWrap .grid .grid-item a .itemFrame .inner .tags {margin:5px 0 0;line-height:20px;font-size:14px;color:#000;}
+
+
+}
 
 /**************************************************************************************
 ** ACHIVE DETAIL
