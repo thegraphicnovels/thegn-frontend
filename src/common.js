@@ -28,6 +28,30 @@ jQueryBridget('masonry', Masonry, $);
 //	 }
 //	 return domain + url;
 // };
+class rebrowserQueue {
+	constructor() {
+		this.queue={};
+	}
+	addQueue(key, callback) {
+		this.queue[key] = callback;
+	}
+	removeQueue(key) {
+		delete this.queue[key]
+	}
+	actionFunc() {
+		var queueKey = Object.keys(this.queue);
+		// console.log(queueKey.length);
+		if(queueKey.length < 1) return;
+		for(var i=0; i < queueKey.length; i++) {
+			this.queue[queueKey[i]]();
+		}
+	}
+}
+const winResizeQueue = new rebrowserQueue();
+
+window.addEventListener('resize', function() {
+	winResizeQueue.actionFunc();
+});
 
 // input placeholder 기능
 export const placeholderFn = target => {
@@ -239,23 +263,23 @@ export const tagMenuFn = target => {
 	}
 
 	const _swiperScrollLib = new Swiper(_scrollWrap, {
-	direction: 'vertical',
-	slidesPerView: 'auto',
-	freeMode: true,
-	scrollbar: {
-		el: $('.swiper-scrollbar', _tagWrap),
-		draggable: true,
-		hide: true,
-	},
-	on: {
-		resize() {
-		if (_scrollWrap.is(':visible')) {
-			console.log('resize');
-			this.update();
-		}
+		direction: 'vertical',
+		slidesPerView: 'auto',
+		freeMode: true,
+		scrollbar: {
+			el: $('.swiper-scrollbar', _tagWrap),
+			draggable: true,
+			hide: true,
 		},
-	},
-	mousewheel: true,
+		on: {
+			resize() {
+			if (_scrollWrap.is(':visible')) {
+				console.log('resize');
+				this.update();
+			}
+			},
+		},
+		mousewheel: true,
 	});
 
 	_button.click(() => {
@@ -273,13 +297,12 @@ export const tagMenuFn = target => {
 		if(_swiperScrollLib) _swiperScrollLib.update();
 	}
 
-	const reBrowser = ()=>{
-		console.log('reBrowser');
+	winResizeQueue.addQueue('tagMenu', ()=> {
+		// console.log('reBrowser');
 		_thisWinW = window.innerWidth;
 		initFn();
-	}
+	});
 
-	window.addEventListener('resize', reBrowser);
 	_tagWrap.bind('transitionend', function() {
 		transitionEndFn();
 	});
@@ -296,6 +319,7 @@ export const tagMenuFn = target => {
 		_tagPageWrap.unbind();
 		_button.unbind();
 		_swiperScrollLib.destroy();
+		winResizeQueue.removeQueue('tagMenu');
 	},
 	};
 };
@@ -306,33 +330,64 @@ export const masonryFn = target => {
 	const _grid = $(target.current);
 	const _pageWrap = _grid.parents('.pageWrap');
 	const _masonryLib = new Masonry(`.${target.current.className}`, {
-	itemSelector: '.grid-item',
-	columnWidth: '.grid-item',
-	// columnWidth: 200,
-	// fitWidth: true,
-	gutter: 30,
-	// reisze: false,
-	percentPosition: true,
+		itemSelector: '.grid-item',
+		columnWidth: '.grid-item',
+		// columnWidth: 100,
+		// fitWidth: true,
+		gutter: 30,
+		// reisze: false,
+		percentPosition: true,
 	});
 
-	_pageWrap.bind('transitionend', () => {
-	// 아카이브 아코디언 인터렉션 완료후 작업
+	const setSizeFnc = ()=> {
+		var winW = $(window).width();
+		if(winW  <= 768) {
+			$('.grid-item', _grid).css({
+				'width' : '100%'
+			});
+		}else{
+			$('.grid-item', _grid).each(function() {
+				var imgEle = $('img', this);
+				var imgW = imgEle.outerWidth();
+				var imgH = imgEle.outerHeight();
+				var rateSize = imgH/imgW;
+				var sizeW;
+		
+				if(rateSize < 0.9) {
+					sizeW = 60 + '%';
+				}else if(rateSize > 0.9 && rateSize < 1.1) {
+					sizeW = 50 + '%';
+				}else{
+					sizeW = 30 + '%';
+				}
+				
+				// console.log(imgW);
+				$(this).css({
+					'width' : sizeW
+				});
+			});
+		}
+		
+	}
+	
+	setSizeFnc();
 	_masonryLib.layout(); // 아카이브 리스트 정렬 맞춤
-	// _tagMenu.css({
-	//	 // tag menu icon display
-	//	 width: 'auto',
-	//	 padding: '0 0 0 95px',
-	//	 'transition-property': 'width, padding',
-	//	 'transition-duration': '0.5s, 0.5s',
-	//	 'transition-timing-function': 'ease, ease',
-	// });
+	_pageWrap.bind('transitionend', () => {
+		_masonryLib.layout(); // 아카이브 리스트 정렬 맞춤
 	});
+	
+	winResizeQueue.addQueue('archiveListResize', ()=> {
+		// console.log('archiveListResize');
+		setSizeFnc();
+	});
+
 
 	return {
-	destroy() {
-		_masonryLib.destroy();
-		_pageWrap.unbind('transitionend');
-	},
+		destroy() {
+			_masonryLib.destroy();
+			_pageWrap.unbind('transitionend');
+			winResizeQueue.removeQueue('archiveListResize');
+		},
 	};
 };
 
