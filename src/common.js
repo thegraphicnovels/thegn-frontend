@@ -32,17 +32,20 @@ class rebrowserQueue {
 	constructor() {
 		this.queue={};
 	}
+
 	addQueue(key, callback) {
-		this.queue[key] = callback;
+		if(!this.queue[key]) this.queue[key] = callback;
 	}
+
 	removeQueue(key) {
-		delete this.queue[key]
+		if(this.queue[key]) delete this.queue[key];
 	}
-	actionFunc() {
-		var queueKey = Object.keys(this.queue);
+
+	resizeFunc() {
+		const queueKey = Object.keys(this.queue);
 		// console.log(queueKey.length);
 		if(queueKey.length < 1) return;
-		for(var i=0; i < queueKey.length; i++) {
+		for(let i=0; i < queueKey.length; i++) {
 			this.queue[queueKey[i]]();
 		}
 	}
@@ -50,7 +53,7 @@ class rebrowserQueue {
 const winResizeQueue = new rebrowserQueue();
 
 window.addEventListener('resize', function() {
-	winResizeQueue.actionFunc();
+	winResizeQueue.resizeFunc();
 });
 
 // input placeholder 기능
@@ -340,25 +343,25 @@ export const masonryFn = target => {
 	});
 
 	const setSizeFnc = ()=> {
-		var winW = $(window).width();
+		const winW = $(window).width();
 		if(winW  <= 768) {
 			$('.grid-item', _grid).css({
 				'width' : '100%'
 			});
 		}else{
 			$('.grid-item', _grid).each(function() {
-				var imgEle = $('img', this);
-				var imgW = imgEle.outerWidth();
-				var imgH = imgEle.outerHeight();
-				var rateSize = imgH/imgW;
-				var sizeW;
+				const imgEle = $('img', this);
+				const imgW = imgEle.outerWidth();
+				const imgH = imgEle.outerHeight();
+				const rateSize = imgH/imgW;
+				let sizeW;
 		
 				if(rateSize < 0.9) {
-					sizeW = 60 + '%';
+					sizeW = `${60  }%`;
 				}else if(rateSize > 0.9 && rateSize < 1.1) {
-					sizeW = 40 + '%';
+					sizeW = `${40  }%`;
 				}else{
-					sizeW = 30 + '%';
+					sizeW = `${30  }%`;
 				}
 				
 				// console.log(imgW);
@@ -367,14 +370,14 @@ export const masonryFn = target => {
 				});
 			});
 		}
-		
+		_masonryLib.layout(); 
 	}
 	
-	setSizeFnc();
-	_masonryLib.layout(); // 아카이브 리스트 정렬 맞춤
 	_pageWrap.bind('transitionend', () => {
 		_masonryLib.layout(); // 아카이브 리스트 정렬 맞춤
+		setSizeFnc();
 	});
+	setSizeFnc();
 	
 	winResizeQueue.addQueue('archiveListResize', ()=> {
 		// console.log('archiveListResize');
