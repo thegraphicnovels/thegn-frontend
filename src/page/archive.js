@@ -52,7 +52,7 @@ const Archive = ({ action }) => {
 		archiveListFn.destroy();
 		}
 	};
-	}, [imgLoadComplate, data, action]);
+	}, [imgLoadComplate, data]);
 
 	if (action === 1 && !loading) {
 	// console.log('loading end');

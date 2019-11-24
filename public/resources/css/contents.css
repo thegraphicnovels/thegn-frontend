@@ -292,10 +292,10 @@ input[type="text"] {box-sizing:border-box;width:100%;height:32px;font-size:18px;
 ** Paging 
 **************************************************************************************/
 .paging {display:block;position:relative;}
-.paging .pagingPrev {display:block;position:absolute;left:0;top:50%;width:110px;height:30px;background:url('../images/pagin_arrow.png') no-repeat left 5px;z-index:1;transform:translate(0, -50%);}
-.paging .pagingPrev em {display:block;line-height:30px;font-size:23px;font-weight:300;background-color:#fff;}
-.paging .pagingNext {display:block;position:absolute;right:0;top:50%;width:110px;height:30px;background:url('../images/pagin_arrow.png') no-repeat right 5px;z-index:1;transform:translate(0, -50%);}
-.paging .pagingNext em {display:block;line-height:30px;font-size:23px;font-weight:300;background-color:#fff;}
+.paging .pagingPrev {display:block;position:absolute;left:0;top:50%;width:220px;height:30px;text-align:right;background:url('../images/pagin_arrow.png') no-repeat left 5px;z-index:1;transform:translate(0, -50%);}
+.paging .pagingPrev em {display:inline-block;width:110px;line-height:30px;font-size:23px;font-weight:300;background-color:#fff;}
+.paging .pagingNext {display:block;position:absolute;right:0;top:50%;width:220px;height:30px;text-align:left;background:url('../images/pagin_arrow.png') no-repeat right 5px;z-index:1;transform:translate(0, -50%);}
+.paging .pagingNext em {display:inline-block;width:110px;line-height:30px;font-size:23px;font-weight:300;background-color:#fff;}
 .paging .pagingPrev.disabled {background:url('../images/pagin_arrow_disabled.png') no-repeat left 5px;}
 .paging .pagingPrev.disabled em {color:#c9caca;}
 .paging .pagingNext.disabled {background:url('../images/pagin_arrow_disabled.png') no-repeat right 5px;}

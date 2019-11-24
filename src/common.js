@@ -356,7 +356,7 @@ export const masonryFn = target => {
 				if(rateSize < 0.9) {
 					sizeW = 60 + '%';
 				}else if(rateSize > 0.9 && rateSize < 1.1) {
-					sizeW = 50 + '%';
+					sizeW = 40 + '%';
 				}else{
 					sizeW = 30 + '%';
 				}
@@ -387,6 +387,7 @@ export const masonryFn = target => {
 			_masonryLib.destroy();
 			_pageWrap.unbind('transitionend');
 			winResizeQueue.removeQueue('archiveListResize');
+			$('.grid-item', _grid).css({'width' : 'auto'});
 		},
 	};
 };
