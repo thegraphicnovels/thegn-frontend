@@ -12,6 +12,7 @@
     "apollo-link": "^1.2.13",
     "apollo-link-http": "^1.5.16",
     "apollo-link-persisted-queries": "^0.2.2",
+    "core-js": "^3.4.2",
     "eslint-config-airbnb": "^18.0.1",
     "eslint-config-prettier": "^6.4.0",
     "filepond": "^4.7.1",
@@ -78,13 +79,14 @@
     "production": [
       ">0.2%",
       "not dead",
-      "not op_mini all"
+      "not op_mini all",
+      "ie 11"
     ],
     "development": [
-      "ie 11",
       "last 1 chrome version",
       "last 1 firefox version",
-      "last 1 safari version"
+      "last 1 safari version",
+      "ie 11"
     ]
   }
 }
