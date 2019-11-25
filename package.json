@@ -26,6 +26,7 @@
     "masonry-layout": "^4.2.2",
     "prop-types": "^15.7.2",
     "react": "^16.9.0",
+    "react-app-polyfill": "^1.0.4",
     "react-dom": "^16.9.0",
     "react-filepond": "^7.0.1",
     "react-router-dom": "^5.0.1",
@@ -80,6 +81,7 @@
       "not op_mini all"
     ],
     "development": [
+      "ie 11",
       "last 1 chrome version",
       "last 1 firefox version",
       "last 1 safari version"
