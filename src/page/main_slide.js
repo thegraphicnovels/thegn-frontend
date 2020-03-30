@@ -13,27 +13,23 @@ const Mainswiper = ({ action }) => {
 	useEffect(() => {
 		let mainSwiper;
 		if (action === 0 && !loading) {
-			mainSwiper = swiperFn(swiperEl.current, {
-			autoPlay : {
-				dealy : 5000,
-			}
-		});
+			mainSwiper = swiperFn(swiperEl.current);
 
-		swiperEl.current.addEventListener('mouseover', ()=>{
-			mainSwiper.autoStop();
-		});
-		swiperEl.current.addEventListener('mouseout', ()=>{
-			mainSwiper.autoStart();
-		});
-	}
-
-	return () => {
-		if (action === 0 && mainSwiper) {
-				// console.log('main swiper destroy');
-				mainSwiper.destroy();
+			swiperEl.current.addEventListener('mouseover', ()=>{
+				mainSwiper.autoStop();
+			});
+			swiperEl.current.addEventListener('mouseout', ()=>{
+				mainSwiper.autoStart();
+			});
 		}
-	};
-}, [action, loading]);
+
+		return () => {
+			if (action === 0 && mainSwiper) {
+					// console.log('main swiper destroy');
+					mainSwiper.destroy();
+			}
+		};
+	}, [action, loading]);
 
 	// if(!loading) console.log(mainBannerData);
 

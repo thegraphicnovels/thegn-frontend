@@ -119,7 +119,7 @@ export const moGnbOpenFn = target => {
 };
 
 // Main swiper Function
-export const swiperFn = (target, options) => {
+export const swiperFn = (target, options = {}) => {
   const mainWrap = $(target);
   const itemNum = $('li', mainWrap).length;
   let loopOpt = true;
@@ -335,6 +335,19 @@ export const masonryFn = target => {
   // ()=>{} 는 new masonryFn()으로 사용하지 못함
   const _grid = $(target.current);
   const _pageWrap = _grid.parents('.pageWrap');
+
+  const setSizeFnc = () => {
+	console.log('window', window);
+	console.log('window.innerWidth', window.innerWidth);
+	console.log('typeof window.innerWidth', typeof window.innerWidth);
+	console.log('window.innerWidth <= 768', window.innerWidth <= 768);
+	if(window.innerWidth <= 768) {
+		$('.grid-item', _grid).css({'width' : '100%'});
+	}else{
+		$('.grid-item', _grid).css({'width' : '33%'});
+	}
+  }
+  setSizeFnc();
   const _masonryLib = new Masonry(`.${target.current.className}`, {
     itemSelector: '.grid-item',
     // columnWidth: '.grid-item',
@@ -345,42 +358,9 @@ export const masonryFn = target => {
     percentPosition: true,
   });
 
-  const setSizeFnc = () => {
-    const winW = $(window).width();
-    if (winW <= 768) {
-      $('.grid-item', _grid).css({
-        width: '100%',
-      });
-    } else {
-      $('.grid-item', _grid).each(() => {
-        const imgEle = $('img', this);
-        const imgW = imgEle.outerWidth();
-        const imgH = imgEle.outerHeight();
-        const rateSize = imgH / imgW;
-        let sizeW;
-
-        if (rateSize < 0.9) {
-          sizeW = `${60}%`;
-        } else if (rateSize > 0.9 && rateSize < 1.1) {
-          sizeW = `${40}%`;
-        } else {
-          sizeW = `${30}%`;
-        }
-
-        // console.log(imgW);
-        $(this).css({
-          width: sizeW,
-        });
-      });
-    }
-    _masonryLib.layout();
-  };
-
   _pageWrap.bind('transitionend', () => {
     _masonryLib.layout(); // 아카이브 리스트 정렬 맞춤
-    setSizeFnc();
   });
-  setSizeFnc();
 
   winResizeQueue.addQueue('archiveListResize', () => {
     // console.log('archiveListResize');
@@ -392,7 +372,7 @@ export const masonryFn = target => {
       _masonryLib.destroy();
       _pageWrap.unbind('transitionend');
       winResizeQueue.removeQueue('archiveListResize');
-      $('.grid-item', _grid).css({ width: 'auto' });
+    //   $('.grid-item', _grid).css({ width: 'auto' });
     },
   };
 };
