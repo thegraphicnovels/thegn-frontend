@@ -119,10 +119,11 @@ export const moGnbOpenFn = target => {
 };
 
 // Main swiper Function
-export const swiperFn = target => {
+export const swiperFn = (target, options) => {
   const mainWrap = $(target);
   const itemNum = $('li', mainWrap).length;
   let loopOpt = true;
+  const autoPlay = options.autoPlay ? options.autoPlay : false;
 
   if (itemNum <= 1) {
     loopOpt = false;
@@ -131,13 +132,14 @@ export const swiperFn = target => {
   }
   const swiperLib = new Swiper(target, {
     loop: loopOpt,
+	autoplay : autoPlay,
     on: {
       init() {
         const wrapW = mainWrap.outerWidth();
         const eleItem = $('li', mainWrap);
         eleItem.css('width', wrapW);
         this.update();
-      },
+	  },
       resize() {
         this.update();
       },
@@ -151,6 +153,8 @@ export const swiperFn = target => {
   });
 
   return {
+	autoStart : () => swiperLib.autoplay.start(),
+	autoStop : () => swiperLib.autoplay.stop(),
     destroy: () => swiperLib.destroy(),
   };
 };
