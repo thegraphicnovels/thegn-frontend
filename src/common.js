@@ -333,10 +333,10 @@ export const masonryFn = target => {
   const _pageWrap = _grid.parents('.pageWrap');
   const _masonryLib = new Masonry(`.${target.current.className}`, {
     itemSelector: '.grid-item',
-    columnWidth: '.grid-item',
-    // columnWidth: 100,
+    // columnWidth: '.grid-item',
+    // columnWidth: 200,
     // fitWidth: true,
-    gutter: 30,
+    // gutter: 30,
     // reisze: false,
     percentPosition: true,
   });

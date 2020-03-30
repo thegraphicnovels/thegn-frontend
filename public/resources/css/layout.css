@@ -35,13 +35,14 @@
 .naviListWrap {display:none;}
 .naviListWrap .topSrchBox {display:none;}
 
-#container {margin:0 200px;padding:90px 0 100px;}
+/* #container {margin:0 200px;padding:90px 0 100px;} */
+#container {padding:90px 0 100px;}
 .contents:after {display:block;content:"";clear:both;overflow:hidden;width:0;height:0;line-height:0;}
 [class^="pageWrap"] {overflow:hidden;float:left;width:0;height:0;transition:width 0.7s ease;}
 [class^="pageWrap"].active {overflow:visible;}
 
 
-.contents [class^="subMenu"] {position:fixed;top:90px;bottom:100px;box-sizing:border-box;width:47px;background-color:#fff;z-index:5;}
+.contents [class^="subMenu"] {position:fixed;top:90px;bottom:100px;box-sizing:border-box;width:47px;/*background-color:#fff;*/z-index:5;}
 .contents [class^="subMenu"] em {position:absolute;left:50%;top:50%;height:47px;line-height:47px;font-size:22px;font-weight:700;transform:translate(-50%, -50%) rotate(-90deg);transform-origin:50% 50%;}
 .contents .subMenu01 {left:calc(100vw - 190px);border-right:5px solid #ff5d5d;}
 .contents .subMenu01 em {color:#ff5d5d;}
