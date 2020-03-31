@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import ToggleComponent from 'components/toggle';
 import FilePond from 'components/filePond';
 import NaviList from 'components/naviList';
+import Loader from '../../../components/loader';
 
 const ManageArchiveEditPresenter = ({
   filepondEl,
@@ -24,8 +25,11 @@ const ManageArchiveEditPresenter = ({
   handleDelFile,
   handleDeleteArchive,
   findDuplicates,
+  loading,
 }) => {
-  return (
+  return loading ? (
+    <Loader />
+  ) : (
     <div className="contents registBox">
       <NaviList />
 
@@ -195,7 +199,8 @@ const ManageArchiveEditPresenter = ({
             className="btnCustm01"
             type="button"
             onClick={() =>
-              handleDeleteArchive(portpolioData.detailPortpolio._id)}
+              handleDeleteArchive(portpolioData.detailPortpolio._id)
+            }
             style={{ color: 'red' }}
           >
             <span>Delete Archive</span>
@@ -236,6 +241,7 @@ ManageArchiveEditPresenter.propTypes = {
   handleDelFile: PropTypes.func.isRequired,
   handleDeleteArchive: PropTypes.func.isRequired,
   findDuplicates: PropTypes.func.isRequired,
+  loading: PropTypes.bool.isRequired,
 };
 
 export default ManageArchiveEditPresenter;

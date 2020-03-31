@@ -36,6 +36,7 @@
     "react-toggle": "^4.1.1",
     "riek": "^1.1.0",
     "rooks": "^3.4.0",
+    "styled-components": "^5.0.1",
     "superagent": "^5.1.0",
     "swiper": "^5.0.3"
   },
@@ -60,6 +61,7 @@
       "react/no-array-index-key": 0,
       "react/jsx-props-no-spreading": 0,
       "react/jsx-indent-props": 0,
+      "react/jsx-curly-newline": 0,
       "import/no-unresolved": 0,
       "import/prefer-default-export": 0,
       "no-underscore-dangle": 0,

@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import FilePond from 'components/filePond';
 import NaviList from 'components/naviList';
+import Loader from '../../../components/loader';
 
 const ManageMainBannerEditPresenter = ({
   title,
@@ -17,8 +18,11 @@ const ManageMainBannerEditPresenter = ({
   handleUpload,
   handleMainBannerDelete,
   // handleDelFile,
+  loading,
 }) => {
-  return (
+  return loading ? (
+    <Loader />
+  ) : (
     <div className="contents">
       <NaviList />
 
@@ -185,6 +189,7 @@ ManageMainBannerEditPresenter.propTypes = {
   handleUpload: PropTypes.func.isRequired,
   handleMainBannerDelete: PropTypes.func.isRequired,
   // handleDelFile: PropTypes.func.isRequired,
+  loading: PropTypes.bool.isRequired,
 };
 
 export default ManageMainBannerEditPresenter;

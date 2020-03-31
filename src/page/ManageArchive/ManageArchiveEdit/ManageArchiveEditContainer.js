@@ -88,6 +88,7 @@ const ManageArchiveEditContainer = ({
   );
 
   // archiveUpload Query
+  const [loading, setLoading] = useState(false);
   const [archiveUploadMutation] = useMutation(archiveUploadQuery);
   // archiveModify Query
   const [archiveModifyMutation] = useMutation(archiveModifyQuery);
@@ -132,6 +133,8 @@ const ManageArchiveEditContainer = ({
 
   const handleUpload = async action => {
     let _id;
+    setLoading(true);
+
     try {
       if (action === 'edit') {
         if (
@@ -200,16 +203,24 @@ const ManageArchiveEditContainer = ({
       }
 
       if (_id) {
+        if (action === 'edit') {
+          window.alert('This archive Edit success');
+        } else if (action === 'upload') {
+          window.alert('This archive Upload success');
+        }
         history.push(`/manage/archive`);
       }
     } catch (e) {
       console.log(e);
+    } finally {
+      setLoading(false);
     }
   };
 
   const handleDeleteArchive = async id => {
     try {
       if (window.confirm('This archive Delete?')) {
+        setLoading(true);
         const {
           data: { deletePortpolio },
         } = await archiveDeleteMutation({
@@ -220,13 +231,15 @@ const ManageArchiveEditContainer = ({
 
         if (deletePortpolio) {
           window.alert('This archive Delete success');
-          history.push('/');
+          history.push(`/manage/archive`);
         } else {
           window.alert('Failed to delete archive');
         }
       }
     } catch (e) {
       console.log(e);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -284,6 +297,7 @@ const ManageArchiveEditContainer = ({
       handleDelFile={handleDelFile}
       handleDeleteArchive={handleDeleteArchive}
       findDuplicates={findDuplicates}
+      loading={loading}
     />
   );
 };

@@ -70,6 +70,7 @@ const ManageMainBannerEditContainer = ({
     };
   }, [history]);
 
+  const [loading, setLoading] = useState(false);
   const [mainBannerUploadMutation] = useMutation(mainBannerUploadQuery);
   const [mainBannerModifyMutation] = useMutation(mainBannerModifyQuery);
   const [mainBannerDeleteMutation] = useMutation(mainBannerDeleteQuery);
@@ -102,6 +103,8 @@ const ManageMainBannerEditContainer = ({
 
   const handleUpload = async action => {
     let _id;
+    setLoading(true);
+
     try {
       if (action === 'upload') {
         if (files.length > 0) {
@@ -154,37 +157,47 @@ const ManageMainBannerEditContainer = ({
       }
 
       if (_id) {
+        if (action === 'edit') {
+          window.alert('This Main Banner Edit success');
+        } else if (action === 'upload') {
+          window.alert('This Main Banner Upload success');
+        }
         history.push('/manage/mainBanner');
       }
     } catch (e) {
       console.log(e);
+    } finally {
+      setLoading(false);
     }
   };
 
   const handleMainBannerDelete = async () => {
     try {
-      if (files.length > 0 || fileUrl.length > 0) {
-        if (window.confirm('Do you wnat to delete Main Banner?')) {
-          const {
-            data: { deleteBanner },
-          } = await mainBannerDeleteMutation({
-            variables: {
-              id: mainBannerId,
-            },
-          });
+      // if (files.length > 0 || fileUrl.length > 0) {
+      if (window.confirm('Do you wnat to delete Main Banner?')) {
+        setLoading(true);
+        const {
+          data: { deleteBanner },
+        } = await mainBannerDeleteMutation({
+          variables: {
+            id: mainBannerId,
+          },
+        });
 
-          if (deleteBanner) {
-            window.alert('This Main Banner Delete success');
-            history.push('/');
-          } else {
-            window.alert('Failed to delete Main Banner');
-          }
+        if (deleteBanner) {
+          window.alert('This Main Banner Delete success');
+          history.push('/manage/mainBanner');
+        } else {
+          window.alert('Failed to delete Main Banner');
         }
-      } else {
-        window.alert('No images to delete');
       }
+      // } else {
+      //   window.alert('No images to delete');
+      // }
     } catch (e) {
       console.log(e);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -216,6 +229,7 @@ const ManageMainBannerEditContainer = ({
       handleUpload={handleUpload}
       handleMainBannerDelete={handleMainBannerDelete}
       // handleDelFile={handleDelFile}
+      loading={loading}
     />
   );
 };
