@@ -6,6 +6,8 @@ import Paging from 'components/paging';
 import TagMenu from 'components/tag_menu';
 import { useQuery } from '@apollo/react-hooks';
 import { archiveQuery } from 'apollo/archiveQuery';
+import { querySelectorAll } from 'dom-helpers';
+import { isCompositeType } from 'graphql';
 
 const Archive = ({ action }) => {
   const limit = 10;
@@ -18,6 +20,13 @@ const Archive = ({ action }) => {
     variables: { page: nowPageNum, limit },
     fetchPolicy: 'network-only',
   });
+
+  const loadImagesFn = (e, loadComplate) => {
+
+    const target = e.target;
+    setTimeout(()=>target.parentElement.parentElement.style.width = `${target.width}px`, 100)
+    setLoadComplate(loadComplate);
+  }
 
   useEffect(() => {
     // action값 변경시 useEffect 실행
@@ -78,14 +87,17 @@ const Archive = ({ action }) => {
           <div className="archiveListWrap">
             <ul className="grid" ref={archiveList}>
               {data &&
-                data.seePortpolios.portpolios.map(portpolioData => (
+                data.seePortpolios.portpolios.map((portpolioData, i) => (
                   <li key={portpolioData._id} className="grid-item">
                     <Link to={`/archiveDetail/${portpolioData._id}`}>
-                      <img
-                        src={portpolioData.thumbImg}
-                        onLoad={() => setLoadComplate(imgLoadComplate + 1)}
-                        alt={portpolioData.title}
-                      />
+                      <span className="img">
+                        <img
+                          id={`achiveImg${i}`}
+                          src={portpolioData.thumbImg}
+                          onLoad={(e) => loadImagesFn(e, imgLoadComplate + 1)}
+                          alt={portpolioData.title}
+                        />
+                      </span>
 
                       <div className="itemFrame">
                         <div className="inner">

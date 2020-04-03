@@ -168,24 +168,24 @@ export const menuClick = (target, setAction, action) => {
   setAction(action);
   if (action === 1) {
     buttons.eq(0).css({
-      left: '19px',
+      left: '35px',
       transition: 'left 0.7s ease',
     });
     buttons.eq(1).css({
-      left: 'calc(100vw - 133px)',
+      left: 'calc(100vw - 185px)',
       transition: 'left 0.7s ease',
     });
     buttons.eq(2).css({
-      left: 'calc(100vw - 76px)',
+      left: 'calc(100vw - 130px)',
       transition: 'left 0.7s ease',
     });
   } else if (action === 2) {
     buttons.eq(0).css({
-      left: '19px',
+      left: '35px',
       transition: 'left 0.7s ease',
     });
     buttons.eq(1).css({
-      left: '76px',
+      left: '90px',
       transition: 'left 0.7s ease',
     });
     buttons.eq(2).css({
@@ -194,15 +194,15 @@ export const menuClick = (target, setAction, action) => {
     });
   } else if (action === 3) {
     buttons.eq(0).css({
-      left: '19px',
+      left: '35px',
       transition: 'left 0.7s ease',
     });
     buttons.eq(1).css({
-      left: '76px',
+      left: '90px',
       transition: 'left 0.7s ease',
     });
     buttons.eq(2).css({
-      left: '133px',
+      left: '145px',
       transition: 'left 0.7s ease',
     });
   }
@@ -240,7 +240,7 @@ export const tagMenuFn = target => {
       _tagWrap.css({
         // tag menu icon display
         width: 'auto',
-        padding: '0 0 0 95px',
+        padding: '0 65px 0 145px',
         'transition-delay': '1s, 1s',
         'transition-property': 'width, padding',
         'transition-duration': '0.7s, 0.7s',
@@ -317,7 +317,6 @@ export const tagMenuFn = target => {
 
   return {
     destroy: () => {
-      console.log('destroy');
       _tagWrap.css({
         padding: '0',
         width: '0',
@@ -337,15 +336,15 @@ export const masonryFn = target => {
   const _pageWrap = _grid.parents('.pageWrap');
 
   const setSizeFnc = () => {
-	console.log('window', window);
-	console.log('window.innerWidth', window.innerWidth);
-	console.log('typeof window.innerWidth', typeof window.innerWidth);
-	console.log('window.innerWidth <= 768', window.innerWidth <= 768);
-	if(window.innerWidth <= 768) {
-		$('.grid-item', _grid).css({'width' : '100%'});
-	}else{
-		$('.grid-item', _grid).css({'width' : '33%'});
-	}
+    // console.log('window', window);
+    // console.log('window.innerWidth', window.innerWidth);
+    // console.log('typeof window.innerWidth', typeof window.innerWidth);
+    // console.log('window.innerWidth <= 768', window.innerWidth <= 768);
+    // if(window.innerWidth <= 768) {
+    //   $('.grid-item', _grid).css({'width' : '100%'});
+    // }else{
+    //   $('.grid-item', _grid).css({'width' : '50%'});
+    // }
   }
   setSizeFnc();
   const _masonryLib = new Masonry(`.${target.current.className}`, {
@@ -566,4 +565,32 @@ export const formatDate = updateAt => {
   const year = date.getFullYear();
 
   return `${day} ${monthNames[monthIndex]} ${year}`;
+};
+
+// srchBoxFn 기능
+export const srchBoxFn = target => {
+  const searchWrap = $(target);
+  const viewTxt = $('.placeholder', searchWrap);
+  const inpt = $('input[type=text], input[type=password]', searchWrap);
+  const inptLeng = inpt.val().length;
+
+  if (inptLeng) {
+    viewTxt.hide();
+  }
+
+  inpt
+    .focusin(() => {
+      //	 console.log('focus in');
+      viewTxt.hide();
+      searchWrap.addClass('active');
+    })
+    .focusout(() => {
+      //	 console.log('focus out');
+      if (inpt.val() === '') {
+        viewTxt.show();
+      } else {
+        viewTxt.hide();
+      }
+      searchWrap.removeClass('active');
+    });
 };

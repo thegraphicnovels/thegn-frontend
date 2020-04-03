@@ -2,7 +2,8 @@ import React, { useEffect, useRef } from 'react';
 import { withRouter } from 'react-router-dom';
 import { useInput } from 'rooks';
 import PropTypes from 'prop-types';
-import { placeholderFn } from 'common';
+// import { placeholderFn } from 'common';
+import { srchBoxFn } from 'common';
 
 const SearchBox = ({ history, searchId, chMainPageFn }) => {
   const srchEl = useRef(null);
@@ -19,21 +20,21 @@ const SearchBox = ({ history, searchId, chMainPageFn }) => {
   };
 
   useEffect(() => {
-    placeholderFn(srchEl.current);
+    srchBoxFn(srchEl.current);
   });
 
   return (
-    <label htmlFor={searchId} className="topSrchBox" ref={srchEl}>
-      <span className="placeholder">Search</span>
-      <form onSubmit={onSearchSubmit}>
+    <form onSubmit={onSearchSubmit}>
+      <label htmlFor={searchId} className="topSrchBox" ref={srchEl}>
+        <span className="placeholder">Search</span>
         <input
           type="text"
           id={searchId}
           value={keyword.val}
           onChange={keyword.onChange}
         />
-      </form>
-    </label>
+      </label>
+    </form>
   );
 };
 

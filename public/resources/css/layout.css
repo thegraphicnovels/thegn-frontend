@@ -4,13 +4,16 @@
 
 #header {display:block;position:fixed;left:14vw;top:0;right:14vw;box-sizing:border-box;height:90px;padding:35px 0 0;z-index:6;}
 #header .headerIn:after {display:block;content:"";clear:both;}
-#header .logo {display:block;float:left;}
+#header .logo {display:block;float:left;padding:0 0 0 35px;}
 #header .logo a {display:block;height:26px;line-height:26px;}
 #header .util {float:right;}
 
 #header .util .topSrchBox {display:inline-block;position:relative;vertical-align:middle;}
-#header .util .topSrchBox span {display:block;position:absolute;top:0;left:0;right:0;bottom:0;line-height:26px;font-size:22px;}
-#header .util .topSrchBox input[type=text] {box-sizing:border-box;width:100%;height:26px;border:none;border-bottom:1px solid #000;outline:none;background:transparent;}
+#header .util .topSrchBox:after {display:block;content:"";position:absolute;left:0;bottom:0;width:0;height:1px;transition:width .5s ease;}
+#header .util .topSrchBox span {display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:26px;line-height:26px;font-size:19px;}
+#header .util .topSrchBox input[type=text] {box-sizing:border-box;width:70px;height:26px;padding:0;font-size:19px;border:none;outline:none;background:transparent;transition:width .5s ease;}
+#header .util .topSrchBox.active input[type=text] {width:300px;transition:width .5s ease;} 
+#header .util .topSrchBox.active:after {width:100%;background-color:#000;transition:width .5s ease;}
 
 #header .util > a,
 #header .util > span,
@@ -36,29 +39,29 @@
 .naviListWrap .topSrchBox {display:none;}
 
 /* #container {margin:0 200px;padding:90px 0 100px;} */
-#container {padding:90px 0 100px;}
+#container {padding:90px 0;}
 .contents:after {display:block;content:"";clear:both;overflow:hidden;width:0;height:0;line-height:0;}
 [class^="pageWrap"] {overflow:hidden;float:left;width:0;height:0;transition:width 0.7s ease;}
 [class^="pageWrap"].active {overflow:visible;}
 
 
-.contents [class^="subMenu"] {position:fixed;top:90px;bottom:100px;box-sizing:border-box;width:47px;/*background-color:#fff;*/z-index:5;}
-.contents [class^="subMenu"] em {position:absolute;left:50%;top:50%;height:47px;line-height:47px;font-size:22px;font-weight:700;transform:translate(-50%, -50%) rotate(-90deg);transform-origin:50% 50%;}
-.contents .subMenu01 {left:calc(100vw - 190px);border-right:2px solid #ff5d5d;}
+.contents [class^="subMenu"] {position:fixed;top:90px;bottom:100px;box-sizing:border-box;width:55px;/*background-color:#fff;*/z-index:5;}
+.contents [class^="subMenu"] em {position:absolute;left:0;top:50%;line-height:32px;font-size:19px;font-weight:700;transform:translate(0, -50%) rotate(-90deg);transform-origin:50% 50%;}
+.contents .subMenu01 {left:calc(100vw - 240px);border-right:2px solid #ff5d5d;}
 .contents .subMenu01 em {color:#ff5d5d;}
-.contents .subMenu02 {left:calc(100vw - 133px);border-right:2px solid #99ff8d;}
+.contents .subMenu02 {left:calc(100vw - 185px);border-right:2px solid #99ff8d;}
 .contents .subMenu02 em {color:#99ff8d;}
-.contents .subMenu03 {left:calc(100vw - 76px);border-right:2px solid #537bff;}
+.contents .subMenu03 {left:calc(100vw - 130px);border-right:2px solid #537bff;}
 .contents .subMenu03 em {color:#537bff;}
 
-#footer {position:absolute;left:0;right:0;bottom:0;padding:100px 0 0;background:#fff;z-index:6;}
-#footer > .fInfoBtn {position:absolute;top:30px;left:14vw;right:14vw;border-bottom:5px solid #000;}
-#footer > .fInfoBtn button {width:100%;height:40px;font-size:22px;font-weight:700;text-align:center;}
+#footer {position:absolute;left:0;right:0;bottom:0;padding:90px 0 0;background:#fff;z-index:6;}
+#footer > .fInfoBtn {display:block;position:absolute;top:25px;left:14vw;right:14vw;border-bottom:2px solid #000;}
+#footer > .fInfoBtn button {width:100%;height:40px;font-size:19px;font-weight:700;text-align:center;}
 #footer .fInfo {display:none;overflow:hidden;margin:0 200px;}
 #footer .fInfo .fInfoL {float:left;width:415px;line-height:90px;font-size:72px;font-weight:700;}
 #footer .fInfo .fInfoR {position:relative;float:right;width:calc(100% - 500px);}
 #footer .fInfo .fInfoR p {margin:25px 0 0;line-height:36px;font-size:26px;}
-#footer .fInfo .fInfoR .copyright {margin:60px 0 0;color:#707070;}
+#footer .fInfo .fInfoR .copyright {margin:60px 0 0;color:#707070;}s
 #footer.open {background-color:#99ff8d;}
 #footer.open .fInfo {display:block;padding:0 0 30px;}
 
@@ -104,9 +107,13 @@
 
 	.naviListWrap {position:fixed;top:70px;left:0;right:0;bottom:0;padding:0;background:#fff;z-index:10;}
 	.naviListWrap.active {display:block;}
+
+
 	.naviListWrap .topSrchBox {display:block;position:relative;margin:20px 40px 0;vertical-align:middle;}
-	.naviListWrap .topSrchBox span {display:block;position:absolute;top:0;left:0;right:0;bottom:0;line-height:26px;font-size:22px;}
-	.naviListWrap .topSrchBox input[type=text] {box-sizing:border-box;width:100%;height:26px;border:none;border-bottom:1px solid #000;outline:none;background:transparent;}
+	.naviListWrap .topSrchBox:after {display:block;content:"";position:absolute;left:0;bottom:0;width:100%;height:1px;transition:width .5s ease;}
+	.naviListWrap .topSrchBox span {display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:26px;line-height:26px;font-size:19px;}
+	.naviListWrap .topSrchBox input[type=text] {box-sizing:border-box;width:100%;height:26px;padding:0;font-size:19px;border:none;outline:none;border-radius:0;background:transparent;}
+
 	.naviListWrap ul {position:absolute;left:40px;right:40px;top:50%;transform:translate(0, -50%);}
 	.naviListWrap ul li {margin:30px 0 0;}
 	.naviListWrap ul li:first-child {margin:0;}
@@ -147,9 +154,9 @@
 @media screen and (max-width:1024px) {
 	[class^="subMenu"] + [class^="pageWrap"] {padding:20px 0 0;}
 	[class^="subMenu"] + [class^="pageWrap"] > h2.blind {display:block;position:static;width:100%;height:47px;line-height:47px;font-size:22px;font-weight:700;text-align:center;}
-	.subMenu01 + [class^="pageWrap"] > h2.blind {color:#ff5d5d; border-bottom:5px solid #ff5d5d;}
-	.subMenu02 + [class^="pageWrap"] > h2.blind {color:#99ff8d; border-bottom:5px solid #99ff8d;}
-	.subMenu03 + [class^="pageWrap"] > h2.blind {color:#537bff; border-bottom:5px solid #537bff;}
+	.subMenu01 + [class^="pageWrap"] > h2.blind {color:#ff5d5d; border-bottom:2px solid #ff5d5d;}
+	.subMenu02 + [class^="pageWrap"] > h2.blind {color:#99ff8d; border-bottom:2px solid #99ff8d;}
+	.subMenu03 + [class^="pageWrap"] > h2.blind {color:#537bff; border-bottom:2px solid #537bff;}
 
 }
 

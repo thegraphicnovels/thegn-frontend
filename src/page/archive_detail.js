@@ -128,14 +128,14 @@ const ArchiveDetail = ({
               <div className="txt">{data.detailPortpolio.description}</div>
             </div>
           </div>
-          {related.length > 0 &&
+          {/* {related.length > 0 &&
             (related.length === 1 ? (
               portpolioId !== related[0]._id && (
                 <RelatedList related={related} portpolioId={portpolioId} />
               )
             ) : (
               <RelatedList related={related} portpolioId={portpolioId} />
-            ))}
+            ))} */}
         </div>
 
         <Link to="/" onClick={() => setAction(2)} className="subMenu02">
