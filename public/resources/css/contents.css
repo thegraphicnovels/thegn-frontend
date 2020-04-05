@@ -235,50 +235,34 @@ input[type="text"] {box-sizing:border-box;width:100%;height:32px;font-size:18px;
 /**************************************************************************************
 ** Contact
 **************************************************************************************/
-.contactWrap .contactInfoBox {padding:0 0 100px;}
-.contactWrap .contactInfoBox:after {display:block;content:"";clear:both;overflow:hidden;width:0;height:0;line-height:0;}
-.contactWrap .contactInfoBox .img {display:block;position:relative;float:left;width:600px;text-align:center;}
-.contactWrap .contactInfoBox .img img {width:100%;}
-.contactWrap .contactInfoBox .img:before {display:block;content:"";position:absolute;top:0;bottom:0;right:0;left:0;background-color:rgba(0, 0, 0, 0.4);}
-.contactWrap .contactInfoBox .img .moCorpInfo {display:none;position:absolute;left:20px;right:20px; top:50%;transform:translate(0, -50%);}
-.contactWrap .contactInfoBox .img .moCorpInfo .corp {line-height:42px;font-size:32px;}
-.contactWrap .contactInfoBox .img .moCorpInfo address {display:block;margin:20px 0 0;line-height:36px;font-size:26px;}
-
-.contactWrap .contactInfoBox .infoBox {float:right;width:calc(100% - 650px);}
-.contactWrap .contactInfoBox .infoBox .contcInfo li {margin:20px 0 0;line-height:42px;font-size:32px;}
-.contactWrap .contactInfoBox .infoBox .contcInfo li:first-child {margin:0;}
-.contactWrap .contactInfoBox .infoBox .contcInfo li strong {display:inline-block;font-weight:400;}
-.contactWrap .contactInfoBox .infoBox .contcInfo li span {display:inline-block;text-decoration:underline;}
-.contactWrap .contactInfoBox .infoBox .corp {margin:70px 0 0;line-height:42px;font-size:32px;}
-.contactWrap .contactInfoBox .infoBox address {display:block;margin:20px 0 0;line-height:36px;font-size:26px;}
-
-/*************************** 1400 ***************************/
-@media screen and (max-width:1400px) {
-	.contactWrap .contactInfoBox .img {width:400px;}
-	.contactWrap .contactInfoBox .infoBox {width:calc(100% - 450px);}
-	.contactWrap .contactInfoBox .infoBox .contcInfo li {line-height:38px;font-size:28px;}
-	.contactWrap .contactInfoBox .infoBox .corp {margin:50px 0 0;line-height:38px;font-size:28px;}
-	.contactWrap .contactInfoBox .infoBox address {margin:20px 0 0;line-height:32px;font-size:22px;}
-
-}
+.contactWrap {overflow:hidden;}
+.contactWrap .contactInfoBox {float:left;box-sizing:border-box;width:52%;padding:0 28px 0 230px;background-color:#6666ff;}
+.contactWrap .contactInfoBox .infoInner {position:relative;height:calc(100vh - 180px);color:#fff;}
+.contactWrap .contactInfoBox .infoInner > strong {display:block;padding:20px 0 0;line-height:40px;font-size:30px;font-weight:300;}
+.contactWrap .contactInfoBox .infoInner > strong span {font-weight:700;}
+.contactWrap .contactInfoBox .infoInner .infoBox {position:absolute;left:0;right:0;bottom:20px;}
+.contactWrap .contactInfoBox .infoInner .infoBox .contcInfo li {margin:10px 0 0;line-height:24px;font-size:18px;}
+.contactWrap .contactInfoBox .infoInner .infoBox .contcInfo li:after {display:block;content:"";overflow:hidden;clear:both;width:0;height:0;line-height:0;}
+.contactWrap .contactInfoBox .infoInner .infoBox .contcInfo li:first-child {margin:0;}
+.contactWrap .contactInfoBox .infoInner .infoBox .contcInfo li strong {display:block;float:left;width:70px;font-weight:700;}
+.contactWrap .contactInfoBox .infoInner .infoBox .contcInfo li span {display:block;float:left;}
+.contactWrap .contactInfoBox .infoInner .infoBox address {margin:40px 0 0;line-height:24px;font-size:18px;}
+.contactWrap .contactInfoBox .infoInner .infoBox address .addrEn {display:block;margin:30px 0 0;}
+.contactWrap .mapWrap {float:right;width:48%;height:calc(100vh - 180px)}
+.contactWrap .mapWrap img {width:100%;height:100%;}
 
 /*************************** 1024 ***************************/
 @media screen and (max-width:1024px) {
-	.contactWrap .contactInfoBox {margin:50px 0 0;}
-	.contactWrap .contactInfoBox .img {float:none;width:100%;margin:50px 0 0;}
-	.contactWrap .contactInfoBox .img .moCorpInfo {display:block;color:#fff;}
-	.contactWrap .contactInfoBox .infoBox {float:none;width:100%;margin:30px 0 0;}
-	.contactWrap .contactInfoBox .infoBox .corp {display:none;}
-	.contactWrap .contactInfoBox .infoBox address {display:none;}
+	.contactWrap .contactInfoBox {width:100%;padding:77px 10px 25px;}
+	.contactWrap .contactInfoBox .infoInner {height:auto;}
+	.contactWrap .contactInfoBox .infoInner .infoBox {position:static;}
+
+	.contactWrap .mapWrap {width:100%;height:250px;}
 }
 
 /*************************** 768 ***************************/
 @media screen and (max-width:768px) {
-	.contactWrap .contactInfoBox {margin:20px 0 0;}
-	.contactWrap .contactInfoBox .img {margin:20px 0 0;}
-	.contactWrap .contactInfoBox .img .moCorpInfo .corp {line-height:22px;font-size:20px;}
-	.contactWrap .contactInfoBox .img .moCorpInfo address {display:block;margin:20px 0 0;line-height:22px;font-size:16px;}
-	.contactWrap .contactInfoBox .infoBox .contcInfo li {line-height:22px;font-size:16px;}
+	
 }
 
 /**************************************************************************************
