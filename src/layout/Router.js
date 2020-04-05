@@ -8,8 +8,9 @@ import {
 } from 'react-router-dom';
 import Header from 'layout/header';
 import Footer from 'layout/footer';
-import Scratch from 'layout/scratch';
+// import Scratch from 'layout/scratch';
 import Main from 'page/main';
+import Login from 'page/login_page';
 import ArchiveDetail from 'page/archive_detail';
 import ArchiveSearch from 'page/archive_search';
 import ManageArchive from 'page/ManageArchive/ManageArchiveList';
@@ -26,6 +27,11 @@ const PageUrl = ({ logged }) => {
       <Route path="/" exact component={Main} />
       <Route path="/search" component={ArchiveSearch} />
       <Route path="/archiveDetail/:portpolioId" component={ArchiveDetail} />
+	  {!logged && (
+		<>
+	  		<Route path="/login" component={Login} />
+		</>
+	  )}
       {logged && (
         <>
           <Route path="/manage/mainBanner" component={MainBanner} />
@@ -61,7 +67,7 @@ const Router = () => {
         <PageUrl logged={logged} />
       </div>
       <Footer />
-      {!logged && <Scratch />}
+      {/* {!logged && <Scratch />} */}
     </BRouter>
   );
 };

@@ -6,6 +6,7 @@
 #header .headerIn:after {display:block;content:"";clear:both;}
 #header .logo {display:block;float:left;padding:0 0 0 35px;}
 #header .logo a {display:block;height:26px;line-height:26px;}
+#header .logo a img {vertical-align:top;}
 #header .util {float:right;}
 
 #header .util .topSrchBox {display:inline-block;position:relative;vertical-align:middle;}
@@ -45,7 +46,7 @@
 [class^="pageWrap"].active {overflow:visible;}
 
 
-.contents [class^="subMenu"] {position:fixed;top:90px;bottom:100px;box-sizing:border-box;width:55px;/*background-color:#fff;*/z-index:5;}
+.contents [class^="subMenu"] {position:fixed;top:90px;bottom:90px;box-sizing:border-box;width:55px;/*background-color:#fff;*/z-index:5;}
 .contents [class^="subMenu"] em {position:absolute;left:0;top:50%;line-height:32px;font-size:19px;font-weight:700;transform:translate(0, -50%) rotate(-90deg);transform-origin:50% 50%;}
 .contents .subMenu01 {left:calc(100vw - 240px);border-right:2px solid #ff5d5d;}
 .contents .subMenu01 em {color:#ff5d5d;}
@@ -94,54 +95,55 @@
 
 /*************************** 1024 ***************************/
 @media screen and (max-width:1024px) {
-	#header {left:0;right:0;padding:27px 40px 0;height:70px;box-shadow:0 3px 7px rgba(0, 0, 0, 0.1);background-color:#fff;}
-	#header .logo a {height:20px;line-height:20px;}
-	#header .logo a img {height:100%;}
+	#header {left:0;right:0;padding:20px 10px 0;height:50px;box-shadow:0 3px 7px rgba(0, 0, 0, 0.1);background-color:#fff;z-index:6;}
+	#header .logo {padding:0;}
+	#header .logo a {width:190px;height:auto;}
+	#header .logo a img {width:100%;}
  
-	#header .util {float:none;height:26px;padding:0;margin:0;text-align:right;background:#fff;}
+	#header .util {float:right;height:26px;padding:0 25px 0 0;margin:0;text-align:right;background:#fff;}
 	#header .util .topSrchBox {display:none;}
 	#header .util > a,
 	#header .util > span,
 	#header .util > button {height:17px;}
 	#header .util button.btnHamberg {display:inline-block;width:21px;height:17px;margin:0 0 0 20px;background:url('../images/btn_hamberg.png') no-repeat center;}
 
-	.naviListWrap {position:fixed;top:70px;left:0;right:0;bottom:0;padding:0;background:#fff;z-index:10;}
+	.naviListWrap {position:fixed;top:50px;left:0;right:0;bottom:0;padding:0;background:#fff;z-index:10;}
 	.naviListWrap.active {display:block;}
 
 
-	.naviListWrap .topSrchBox {display:block;position:relative;margin:20px 40px 0;vertical-align:middle;}
-	.naviListWrap .topSrchBox:after {display:block;content:"";position:absolute;left:0;bottom:0;width:100%;height:1px;transition:width .5s ease;}
+	.naviListWrap .topSrchBox {display:block;position:relative;margin:60px 10px 0;vertical-align:middle;}
+	.naviListWrap .topSrchBox:after {display:block;content:"";position:absolute;left:0;bottom:0;width:100%;height:1px;transition:width .5s ease;background-color:#000;}
 	.naviListWrap .topSrchBox span {display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:26px;line-height:26px;font-size:19px;}
 	.naviListWrap .topSrchBox input[type=text] {box-sizing:border-box;width:100%;height:26px;padding:0;font-size:19px;border:none;outline:none;border-radius:0;background:transparent;}
 
-	.naviListWrap ul {position:absolute;left:40px;right:40px;top:50%;transform:translate(0, -50%);}
+	.naviListWrap ul {position:absolute;left:10px;right:10px;top:50%;transform:translate(0, -50%);}
 	.naviListWrap ul li {margin:30px 0 0;}
 	.naviListWrap ul li:first-child {margin:0;}
 	.naviListWrap ul li button,
 	.naviListWrap ul li a {display:block;width:100%;text-align:center;}
 	.naviListWrap ul li button em,
-	.naviListWrap ul li a em {display:inline-block;height:47px;line-height:47px;font-size:22px;font-weight:700;}
+	.naviListWrap ul li a em {display:inline-block;height:20px;line-height:20px;font-size:12px;font-weight:700;}
 	.naviListWrap ul li:nth-child(1) button,
-	.naviListWrap ul li:nth-child(1) a {border-bottom:5px solid #ff5d5d;}
+	.naviListWrap ul li:nth-child(1) a {border-bottom:2px solid #ff5d5d;}
 	.naviListWrap ul li:nth-child(1) button em,
 	.naviListWrap ul li:nth-child(1) a em {color:#ff5d5d;}
 	.naviListWrap ul li:nth-child(2) button,
-	.naviListWrap ul li:nth-child(2) a {border-bottom:5px solid #99ff8d;}
+	.naviListWrap ul li:nth-child(2) a {border-bottom:2px solid #99ff8d;}
 	.naviListWrap ul li:nth-child(2) button em,
 	.naviListWrap ul li:nth-child(2) a em {color:#99ff8d;}
 	.naviListWrap ul li:nth-child(3) button,
-	.naviListWrap ul li:nth-child(3) a {border-bottom:5px solid #537bff;}
+	.naviListWrap ul li:nth-child(3) a {border-bottom:2px solid #537bff;}
 	.naviListWrap ul li:nth-child(3) button em,
 	.naviListWrap ul li:nth-child(3) a em {color:#537bff;}
 
-	#container {margin:0 40px;padding:70px 0 50px;}
+	#container {margin:0;padding:50px 0;}
 	.contents [class^="subMenu"] {display:none;}
 	[class^="pageWrap"] {display:block;}
 
 
 	#footer {padding:50px 0 0;}
-	#footer .fInfoBtn {left:40px;right:40px;top:0;}
-	#footer .fInfoBtn button {height:30px;font-size:22px;}
+	#footer .fInfoBtn {left:10px;right:10px;top:0;}
+	#footer .fInfoBtn button {height:30px;font-size:12px;}
 	#footer .fInfo {margin:0 40px;}
 	#footer .fInfo .fInfoL {width:100%;line-height:42px;font-size:32px;}
 	#footer .fInfo .fInfoR {width:100%;}
@@ -153,7 +155,7 @@
 /*************************** 1024 ***************************/
 @media screen and (max-width:1024px) {
 	[class^="subMenu"] + [class^="pageWrap"] {padding:20px 0 0;}
-	[class^="subMenu"] + [class^="pageWrap"] > h2.blind {display:block;position:static;width:100%;height:47px;line-height:47px;font-size:22px;font-weight:700;text-align:center;}
+	[class^="subMenu"] + [class^="pageWrap"] > h2.blind {display:block;box-sizing:border-box;position:static;width:auto;height:47px;margin:0 10px;line-height:47px;font-size:22px;font-weight:700;text-align:center;}
 	.subMenu01 + [class^="pageWrap"] > h2.blind {color:#ff5d5d; border-bottom:2px solid #ff5d5d;}
 	.subMenu02 + [class^="pageWrap"] > h2.blind {color:#99ff8d; border-bottom:2px solid #99ff8d;}
 	.subMenu03 + [class^="pageWrap"] > h2.blind {color:#537bff; border-bottom:2px solid #537bff;}
@@ -162,17 +164,14 @@
 
 /*************************** 768 ***************************/
 @media screen and (max-width:768px) {
-	#header {padding:20px 20px 0;height:60px;z-index:6;}
-	#header .logo a {height:18px;}
-
-	.naviListWrap {top:60px;}
+	.naviListWrap {top:50px;}
 	.naviListWrap .topSrchBox {margin:20px 20px 0;}
 	.naviListWrap .topSrchBox span {line-height:24px;font-size:17px;}
-	.naviListWrap .topSrchBox input[type=text] {height:26px;border:none;border-bottom:1px solid #000;}
+	.naviListWrap .topSrchBox input[type=text] {height:26px;border:none;}
 	.naviListWrap ul {left:20px;right:20px;}
 	.naviListWrap ul li {margin:15px 0 0;}
 	.naviListWrap ul li button em,
-	.naviListWrap ul li a em {height:37px;line-height:37px;font-size:17px;}
+	.naviListWrap ul li a em {height:37px;line-height:37px;font-size:12px;}
 	.naviListWrap ul li:nth-child(1) button,
 	.naviListWrap ul li:nth-child(1) a {border-bottom:2px solid #ff5d5d;}
 	.naviListWrap ul li:nth-child(2) button,
@@ -180,16 +179,14 @@
 	.naviListWrap ul li:nth-child(3) button,
 	.naviListWrap ul li:nth-child(3) a {border-bottom:2px solid #537bff;}
 
-	#container {margin:0 20px;padding:60px 0 50px;}
-
 	[class^="subMenu"] + [class^="pageWrap"] {padding:10px 0 0;}
 	[class^="subMenu"] + [class^="pageWrap"] > h2.blind {height:24px;line-height:24px;font-size:17px;}
 	.subMenu01 + [class^="pageWrap"] > h2.blind {color:#ff5d5d; border-bottom:2px solid #ff5d5d;}
 	.subMenu02 + [class^="pageWrap"] > h2.blind {color:#99ff8d; border-bottom:2px solid #99ff8d;}
 	.subMenu03 + [class^="pageWrap"] > h2.blind {color:#537bff; border-bottom:2px solid #537bff;}
 
-	#footer .fInfoBtn {left:20px;right:20px;top:5px;border-bottom:2px solid #000;}
-	#footer .fInfoBtn button {font-size:18px;}
+	#footer .fInfoBtn {border-bottom:2px solid #000;}
+
 	#footer .fInfo {margin:0 20px;}
 	#footer .fInfo .fInfoL {width:100%;line-height:32px;font-size:22px;}
 	#footer .fInfo .fInfoR p {margin:5px 0 0;line-height:25px;font-size:15px;}

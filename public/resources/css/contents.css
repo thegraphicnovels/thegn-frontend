@@ -31,7 +31,7 @@ input[type="text"] {box-sizing:border-box;width:100%;height:32px;font-size:18px;
 **************************************************************************************/
 .mainSwipeWrap {position:relative;overflow:hidden;}
 .mainSwipeWrap .swiper-wrapper {position:relative;overflow:hidden;width:100000em;}
-.mainSwipeWrap .swiper-wrapper .swiper-slide {position:relative;float:left;width:100%;height:calc(100vh - 90px - 100px);background-position:center;background-repeat:no-repeat;background-size:cover;}
+.mainSwipeWrap .swiper-wrapper .swiper-slide {position:relative;float:left;width:100%;height:calc(100vh - 180px);background-position:center;background-repeat:no-repeat;background-size:cover;}
 .mainSwipeWrap .swiper-wrapper .swiper-slide .imgTxt {display:block;position:absolute;left:0;right:0;top:0;bottom:0;background-color:rgba(0,0,0,0.4);}
 .mainSwipeWrap .swiper-wrapper .swiper-slide .imgTxt .imgTxtIn {display:none;position:absolute;left:50%;top:50%;width:500px;transform:translate(-50%, -50%);}
 .mainSwipeWrap .swiper-wrapper .swiper-slide .imgTxt .tits {display:-webkit-box;-webkit-line-clamp:5;-webkit-box-orient:vertical;overflow:hidden;width:100%;max-height:175px;line-height:35px;font-size:25px;font-weight:700;color:#fff;text-align:center;text-overflow:ellipsis;}
@@ -44,21 +44,19 @@ input[type="text"] {box-sizing:border-box;width:100%;height:32px;font-size:18px;
 
 /*************************** 1024 ***************************/
 @media screen and (max-width:1024px) {
-	.mainSwipeWrap {margin:0 -40px;}
-	.mainSwipeWrap .swiper-wrapper .swiper-slide {height:calc(100vh - 130px);}
-	.mainSwipeWrap .btnPrev {left:40px;width:60px;background-position:left center;background-size:60px auto;}
-	.mainSwipeWrap .btnNext {right:40px;width:60px;background-position:right center;background-size:60px auto;}
+	.mainSwipeWrap .swiper-wrapper .swiper-slide {height:calc(100vh - 100px);}
+	.mainSwipeWrap .swiper-wrapper .swiper-slide .imgTxt .imgTxtIn {display:block;}
+	.mainSwipeWrap .btnPrev {display:none;}
+	.mainSwipeWrap .btnNext {display:none;}
+	.mainSwipeWrap:hover .btnPrev {display:none;}
+	.mainSwipeWrap:hover .btnNext {display:none;}
 }
 /*************************** 769 ***************************/
 @media screen and (max-width:768px) {
-	.mainSwipeWrap {margin:0 -20px;}
-	.mainSwipeWrap .swiper-wrapper .swiper-slide {height:calc(100vh - 110px);}
 	.mainSwipeWrap .swiper-wrapper .swiper-slide .imgTxt {display:block;}
 	.mainSwipeWrap .swiper-wrapper .swiper-slide .imgTxt .imgTxtIn {display:block;padding:0 10px;position:absolute;left:20px;right:20px;top:auto;bottom:30px;width:auto;transform:translate(0, 0);}
 	.mainSwipeWrap .swiper-wrapper .swiper-slide .imgTxt .tits {max-height:150px;line-height:30px;font-size:16px;}
 	.mainSwipeWrap .swiper-wrapper .swiper-slide .imgTxt .tags {margin:5px 0 0;line-height:22px;font-size:18px;}
-	.mainSwipeWrap .btnPrev {display:none;left:10px;width:40px;}
-	.mainSwipeWrap .btnNext {display:none;right:10px;width:40px;}
 }
 
 /**************************************************************************************
@@ -86,7 +84,7 @@ input[type="text"] {box-sizing:border-box;width:100%;height:32px;font-size:18px;
 .archiveWrap .archiveListWrap .grid {position:relative;box-sizing:border-box;margin:-20px 0 0;}
 .archiveWrap .archiveListWrap .grid .grid-item {display:inline-block;box-sizing:border-box;padding:20px;}
 .archiveWrap .archiveListWrap .grid .grid-item a {display:block;position:relative;}
-.archiveWrap .archiveListWrap .grid .grid-item a .img {display:block;overflow:hidden;position:relative;text-align:center;}
+.archiveWrap .archiveListWrap .grid .grid-item a .img {display:block;overflow:hidden;position:relative;text-align:center;border:1px solid #343434;}
 .archiveWrap .archiveListWrap .grid .grid-item a .img:after {display:block;content:"";position:absolute;left:0;right:0;top:0;bottom:0;background-color:rgba(255, 255, 255,0.3);opacity:0;}
 .archiveWrap .archiveListWrap .grid .grid-item a .img img {max-width:100%;transform:scale(1);}
 .archiveWrap .archiveListWrap .grid .grid-item a .itemFrame {overflow:hidden;}
@@ -94,7 +92,7 @@ input[type="text"] {box-sizing:border-box;width:100%;height:32px;font-size:18px;
 .archiveWrap .archiveListWrap .grid .grid-item a .itemFrame .inner .tits {display:block;line-height:29px;font-size:19px;font-weight:700;color:#343434;}
 .archiveWrap .archiveListWrap .grid .grid-item a .itemFrame .inner .tags {display:block;line-height:20px;font-size:14px;color:#343434;}
 .archiveWrap .archiveListWrap .grid .grid-item a:hover .img:after {opacity:1;}
-.archiveWrap .archiveListWrap .grid .grid-item a:hover .img img {transform:scale(1.5);transition:transform 0.5 ease;}
+.archiveWrap .archiveListWrap .grid .grid-item a:hover .img img {transform:scale(1.2);transition:transform 0.5s ease;}
 
 /*************************** 1024 - tablet ***************************/
 @media screen and (max-width:1024px) {
@@ -212,41 +210,26 @@ input[type="text"] {box-sizing:border-box;width:100%;height:32px;font-size:18px;
 /**************************************************************************************
 ** About
 **************************************************************************************/
-.aboutWrap {padding:0 0 100px;}
-.aboutWrap .aboutLogo02 {margin:50px 0 0;text-align:center;}
-.aboutWrap .aboutLogo02 img {max-width:100%;}
+.aboutWrap {position:relative;box-sizing:border-box;margin:0 190px;}
+.aboutWrap .aboutIntro {height:calc(100vh - 180px);padding:0 0 0 53%;}
+.aboutWrap .aboutLogo {display:block;position:absolute;left:0;top:0;bottom:0;width:48%;background-position:center;background-repeat:no-repeat;background-size:100% auto;}
+.aboutWrap .aboutLogo > span {display:block;position:absolute;left:0;right:0;top:50%;transform:translate(0, -50%);}
+.aboutWrap .aboutLogo > span img {max-width:100%;}
 .aboutWrap .aboutIntro:after {display:block;content:"";clear:both;overflow:hidden;width:0;height:0;line-height:0;}
-.aboutWrap .aboutIntro .aboutLogo {display:block;float:left;width:455px;padding:50px;text-align:center;}
-.aboutWrap .aboutIntro .aboutLogo img {max-width:100%;}
-.aboutWrap .aboutIntro .intro {float:right;width:calc(100% - 600px);padding:40px 10px 40px;line-height:35px;font-size:20px;}
-
-.aboutWrap .snsBox {padding:0 0 0 590px;}
-.aboutWrap .snsBox a {display:inline-block;height:30px;margin:0 0 0 30px;}
-.aboutWrap .snsBox a:first-child {margin:0;}
-.aboutWrap .snsBox a img {height:100%;}
-
-/*************************** 1400 ***************************/
-@media screen and (max-width:1400px) {
-	.aboutWrap .aboutIntro .aboutLogo {width:300px;padding:20px;}
-	.aboutWrap .aboutIntro .intro {width:calc(100% - 400px);}
-	.aboutWrap .snsBox {padding:0 0 0 400px;}
-}
+.aboutWrap .aboutIntro .intro {width:100%;padding:40px 10px 40px;line-height:35px;font-size:20px;}
 
 /*************************** 1024 ***************************/
 @media screen and (max-width:1024px) {
-	.aboutWrap .aboutIntro .aboutLogo {float:none;width:100%;padding:0;margin:50px 0 0;}
+	.aboutWrap {margin:0 10px;}
+	.aboutWrap .aboutIntro {height:auto;padding:20px 0 0;}
+	.aboutWrap .aboutIntro .aboutLogo {position:static;width:auto;text-align:center;}
+	.aboutWrap .aboutIntro .aboutLogo > span {display:inline-block;position:static;transform:translate(0, 0);}
 	.aboutWrap .aboutIntro .intro {float:none;width:100%;}
 	.aboutWrap .snsBox {float:none;width:100%;padding:0;text-align:center;}
 }
 
 /*************************** 768 ***************************/
 @media screen and (max-width:768px) {
-	.aboutWrap {padding:0 0 50px;}
-	.aboutWrap .aboutLogo02 {margin:25px 0 0;}
-	.aboutWrap .aboutIntro .aboutLogo {width:100%;padding:0;margin:20px 0 0;}
-	.aboutWrap .aboutIntro .intro {margin:20px 0 0;padding:0;line-height:24px;font-size:14px;}
-	.aboutWrap .snsBox {margin:10px 0 0;}
-	.aboutWrap .snsBox a {height:15px;margin:0 0 0 10px;}
 }
 
 /**************************************************************************************
@@ -318,7 +301,7 @@ input[type="text"] {box-sizing:border-box;width:100%;height:32px;font-size:18px;
 }
 /*************************** 768 ***************************/
 @media screen and (max-width:768px) {
-	.paging {margin:30px 0;}
+	.paging {margin:80px auto 0;}
 	.paging .pagingPrev {overflow:hidden;width:60px;height:10px;background-position:left top;background-size:auto 100%;}
 	.paging .pagingNext {overflow:hidden;width:60px;height:10px;background-position:right top;background-size:auto 100%;}
 	.paging .pagingPrev em,

@@ -189,7 +189,7 @@ export const menuClick = (target, setAction, action) => {
       transition: 'left 0.7s ease',
     });
     buttons.eq(2).css({
-      left: 'calc(100vw - 76px)',
+      left: 'calc(100vw - 130px)',
       transition: 'left 0.7s ease',
     });
   } else if (action === 3) {
