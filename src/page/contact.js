@@ -6,47 +6,38 @@ const Contact = ({ action }) => {
 		return (
 			<div className="contactWrap">
 				<div className="contactInfoBox">
-					<div className="infoBox">
-						<ul className="contcInfo">
-							<li>
-								<strong>E-Mail</strong>
+					<div className="infoInner">
+						<strong>디자인 스튜디오 <span>더그래픽노블스 The Graphic Novels</span></strong>
+						<div className="infoBox">
+							<ul className="contcInfo">
+								<li>
+									<strong>E-Mail</strong>
+									<span>&lt;the-gn@the-gn.com&gt;</span>
+								</li>
+								<li>
+									<strong>Phone</strong>
+									<span>&lt;02-455-9199&gt;</span>
+								</li>
+								{/* <li>
+									<strong>FAX</strong>
+									<span>&lt;02-455-9199&gt;</span>
+								</li> */}
+							</ul>
 
-								<span>&lt;the-gn@the-gn.com&gt;</span>
-							</li>
-							<li>
-								<strong>Phone</strong>
-								<span>&lt;02-455-9199&gt;</span>
-							</li>
-							<li>
-								<strong>FAX</strong>
-								<span>&lt;02-455-9199&gt;</span>
-							</li>
-						</ul>
-
-						<div className="corp">
-							<p>디자인 스튜디오 | 더그래픽노블스</p>
-							<p>The Graphic Novels</p>
-						</div>
-						<address>
-							A. 서울시 광진구 자양로 214 4F 04976 | 214, Jayang-ro,
-							Gwangjin-gu, Seoul, Republic of Korea
-						</address>
-					</div>
-
-					<span className="img">
-						<img src="resources/images/img_contact.jpg" alt="" />
-
-						<div className="moCorpInfo">
-							<div className="corp">
+							{/* <div className="corp">
 								<p>디자인 스튜디오 | 더그래픽노블스</p>
 								<p>The Graphic Novels</p>
-							</div>
+							</div> */}
 							<address>
-								A. 서울시 광진구 자양로 214 4F 04976 | 214, Jayang-ro,
-								Gwangjin-gu, Seoul, Republic of Korea
+								서울시 광진구 자양로 214 4F 04976
+								<span className="addrEn">214, Jayang-ro, Gwangjin-gu, Seoul, Republic of Korea</span>
 							</address>
 						</div>
-					</span>
+					</div>
+				</div>
+
+				<div className="mapWrap">
+					<img src="/resources/images/temp/map.jpg" alt="" />
 				</div>
 			</div>
 		);

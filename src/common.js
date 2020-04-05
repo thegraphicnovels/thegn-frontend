@@ -166,11 +166,12 @@ export const menuClick = (target, setAction, action) => {
   const naviListWrap = $('.naviListWrap');
   const winW = $(window).width();
   setAction(action);
+  buttons.removeClass('active');
   if (action === 1) {
     buttons.eq(0).css({
       left: '35px',
       transition: 'left 0.7s ease',
-    });
+    }).addClass('active');
     buttons.eq(1).css({
       left: 'calc(100vw - 185px)',
       transition: 'left 0.7s ease',
@@ -187,7 +188,7 @@ export const menuClick = (target, setAction, action) => {
     buttons.eq(1).css({
       left: '90px',
       transition: 'left 0.7s ease',
-    });
+    }).addClass('active');
     buttons.eq(2).css({
       left: 'calc(100vw - 130px)',
       transition: 'left 0.7s ease',
@@ -204,7 +205,7 @@ export const menuClick = (target, setAction, action) => {
     buttons.eq(2).css({
       left: '145px',
       transition: 'left 0.7s ease',
-    });
+    }).addClass('active');
   }
 
   pageWraps.removeClass('active').css({
