@@ -7,8 +7,17 @@
 #header .logo {display:block;float:left;padding:0 0 0 35px;}
 #header .logo a {display:block;height:26px;line-height:26px;}
 #header .logo a img {vertical-align:top;}
-#header .util {float:right;}
 
+#header .adminBox {position:relative;float:left;margin:0 0 0 70px;padding:}
+#header .adminBox .icoAdm {width:50px;}
+#header .adminBox .admList {display:none;position:absolute;left:50%;top:100%;padding:6px 0 0;transform:translate(-50%, 0);}
+#header .adminBox .admList ul {padding:10px;background-color:#fff;border:2px solid #333;border-radius:5px;box-shadow:0 0 5px rgba(0, 0, 0, 0.4);}
+#header .adminBox .admList ul li {margin:5px 0 0;padding:5px 0 0;border-top:1px solid #333;}
+#header .adminBox .admList ul li:first-child {margin:0;padding:0;border-top:none;}
+#header .adminBox .admList ul li a {display:block;}
+
+
+#header .util {float:right;}
 #header .util .topSrchBox {display:inline-block;position:relative;vertical-align:middle;}
 #header .util .topSrchBox:after {display:block;content:"";position:absolute;left:0;bottom:0;width:0;height:1px;transition:width .5s ease;}
 #header .util .topSrchBox span {display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:26px;line-height:26px;font-size:19px;}

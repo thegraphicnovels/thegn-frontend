@@ -129,22 +129,23 @@ input[type="text"] {box-sizing:border-box;width:100%;height:32px;font-size:18px;
 /**************************************************************************************
 ** ACHIVE DETAIL
 **************************************************************************************/
-.archiveDescriptWrap {overflow:hidden;}
+.archiveDescriptWrap {overflow:hidden;margin:0 190px 0 0;}
 .archiveDescriptWrap .descriptThum {overflow:hidden;position:relative;float:left;width:60%;}
 .archiveDescriptWrap .descriptThum .swiper-wrapper {overflow:hidden;width:9999em;}
-.archiveDescriptWrap .descriptThum .swiper-wrapper .swiper-slide {position:relative;float:left;}
-.archiveDescriptWrap .descriptThum .swiper-wrapper .swiper-slide:before {display:block;content:"";padding:84.0345199568501% 0 0;}
-.archiveDescriptWrap .descriptThum .swiper-wrapper .swiper-slide span {display:block;position:absolute;left:0;top:0;right:0;bottom:0;}
-.archiveDescriptWrap .descriptThum .swiper-wrapper .swiper-slide img {width:100%;height:100%;}
+.archiveDescriptWrap .descriptThum .swiper-wrapper .swiper-slide {position:relative;float:left;height:calc(100vh - 180px);background-position:center;background-repeat:no-repeat;background-size:cover;}
+/* .archiveDescriptWrap .descriptThum .swiper-wrapper .swiper-slide:before {display:block;content:"";padding:84.0345199568501% 0 0;} */
+/* .archiveDescriptWrap .descriptThum .swiper-wrapper .swiper-slide span {display:block;position:absolute;left:50%;top:0;bottom:0;transform:translate(-50%, 0);}
+.archiveDescriptWrap .descriptThum .swiper-wrapper .swiper-slide img {height:100%;} */
 .archiveDescriptWrap .descriptThum .swiper-wrapper .swiper-slide:after {display:block;content:"";position:absolute;left:0;top:0;right:0;bottom:0;background-color:rgba(0, 0, 0, 0.5);}
-.archiveDescriptWrap .descriptThum .btnPrev {position:absolute;left:40px;top:50%;width:112px;height:40px;background:url('../images/btn_main_swiper.png') no-repeat left top;z-index:1;transform:translate(0, -50%);}
-.archiveDescriptWrap .descriptThum .btnNext {position:absolute;right:40px;top:50%;width:112px;height:40px;background:url('../images/btn_main_swiper.png') no-repeat right top;z-index:1;transform:translate(0, -50%);}
+.archiveDescriptWrap .descriptThum .btnPrev {display:block;position:absolute;left:104px;top:50%;width:22px;height:22px;background:url('../images/btn_main_swiper_prev.svg') no-repeat left top;background-size:100% 100%;z-index:1;transform:translate(0, -50%);}
+.archiveDescriptWrap .descriptThum .btnNext {display:block;position:absolute;right:24px;top:50%;width:22px;height:22px;background:url('../images/btn_main_swiper_next.svg') no-repeat right top;background-size:100% 100%;z-index:1;transform:translate(0, -50%);}
+.archiveDescriptWrap .descriptThum .indicateNum {position:absolute;left:50%;bottom:30px;padding:0 20px;line-height:24px;font-size:17px;color:#fff;border-radius:12px;background-color:rgba(0, 0, 0, 0.6);}
 
-.archiveDescriptWrap .descriptBox {float:right;position:relative;width:38%;padding:20px 0 0;}
-.archiveDescriptWrap .descriptBox strong {display:block;line-height:50px;font-size:32px;font-weight:400;text-decoration:underline;}
+.archiveDescriptWrap .descriptBox {float:right;position:relative;width:35%;padding:20px 0 0;}
+.archiveDescriptWrap .descriptBox strong {display:block;line-height:42px;font-size:32px;font-weight:900;}
 .archiveDescriptWrap .descriptBox .date {line-height:36px;font-size:26px;font-weight:300;}
-.archiveDescriptWrap .descriptBox .tag {line-height:36px;font-size:26px;font-weight:300;}
-.archiveDescriptWrap .descriptBox .txt {line-height:30px;font-size:20px;}
+.archiveDescriptWrap .descriptBox .tag {line-height:29px;font-size:19px;font-weight:300;}
+.archiveDescriptWrap .descriptBox .txt {line-height:29px;font-size:19px;}
 .archiveDescriptWrap .descriptBox strong + .date,
 .archiveDescriptWrap .descriptBox strong + .tag {margin:20px 0 0;}
 .archiveDescriptWrap .descriptBox .date +  .txt,
@@ -170,7 +171,7 @@ input[type="text"] {box-sizing:border-box;width:100%;height:32px;font-size:18px;
 
 /*************************** 1024 ***************************/
 @media screen and (max-width:1024px) {
-	.archiveDescriptWrap {padding:30px 0 0;}
+	.archiveDescriptWrap {padding:30px 0 0;margin:0;}
 	.archiveDescriptWrap .descriptThum {float:none;width:100%;}
 	.archiveDescriptWrap .descriptThum .btnPrev {left:20px;top:50%;width:90px;height:20px;background-size:auto 100%;}
 	.archiveDescriptWrap .descriptThum .btnNext {right:20px;top:50%;width:90px;height:20px;background-size:auto 100%;}
@@ -309,6 +310,21 @@ input[type="text"] {box-sizing:border-box;width:100%;height:32px;font-size:18px;
 	.scratchWrap.hide.active,
 	.scratchWrap.active {right:10px;transition:right 0.7s ease;}
 }
+
+/**************************************************************************************
+** SCRATCH
+**************************************************************************************/
+.loginPageWrap {width:300px;margin:80px auto 0;padding:30px 50px 50px;text-align:center;border:2px solid #000;border-radius:10px;}
+.loginPageWrap strong {display:block;margin:0 0 50px;line-height:30px;font-size:20px;}
+.loginPageWrap ul li {margin:30px 0 0;}
+.loginPageWrap ul li:first-child {margin:0;}
+.loginPageWrap ul li label {display:block;position:relative;}
+.loginPageWrap ul li label .placeholder {display:block;position:absolute;top:0;right:0;bottom:0;left:0;padding:0 10px;line-height:30px;font-size:23px;text-align:left;}
+.loginPageWrap ul li label input[type=text],
+.loginPageWrap ul li label input[type=password] {box-sizing:border-box;width:100%;height:30px;padding:0 10px;font-size:23px;border:none;border-bottom:1px solid #000;vertical-align:top;}
+.loginPageWrap .btnLoginConfirm {margin:30px 0 0;}
+.loginPageWrap .btnLoginConfirm button {width:100%;height:34px;font-weight:800;border:1px solid #000;border-radius:5px;}
+
 
 /**************************************************************************************
 ** Layer Pop

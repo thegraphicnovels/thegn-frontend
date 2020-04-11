@@ -8,7 +8,7 @@ import {
 } from 'react-router-dom';
 import Header from 'layout/header';
 import Footer from 'layout/footer';
-// import Scratch from 'layout/scratch';
+import Scratch from 'layout/scratch';
 import Main from 'page/main';
 import Login from 'page/login_page';
 import ArchiveDetail from 'page/archive_detail';
@@ -67,7 +67,7 @@ const Router = () => {
         <PageUrl logged={logged} />
       </div>
       <Footer />
-      {/* {!logged && <Scratch />} */}
+      {!logged && <Scratch />}
     </BRouter>
   );
 };
