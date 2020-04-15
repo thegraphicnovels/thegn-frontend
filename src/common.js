@@ -264,7 +264,7 @@ export const tagMenuFn = target => {
 			_tagWrap.css({
 				// tag menu icon display
 				width: '100%',
-				padding: '95px 0 0 0',
+				padding: '60px 0 0',
 				'transition-delay': '1s, 1s',
 				'transition-property': 'width, padding',
 				'transition-duration': '0.7s, 0.7s',
@@ -274,7 +274,7 @@ export const tagMenuFn = target => {
 			_tagWrap.css({
 				// tag menu icon display
 				width: '100%',
-				padding: '60px 0 0 0',
+				padding: '30px 0 0',
 				'transition-delay': '1s, 1s',
 				'transition-property': 'width, padding',
 				'transition-duration': '0.7s, 0.7s',
@@ -525,13 +525,14 @@ export const AdminMenuFn = target => {
 	const admMenu = $('.icoAdm', target);
 	const admList = $('.admList', target);
 
-	$(target)
-		.mouseenter(() => {
-			admList.show();
-		})
-		.mouseleave(() => {
+	admMenu.click((e) => {
+		e.stopPropagation();
+		admList.show();
+		$(document).one('click', function() {
+			// console.log('admin menu close - one click');
 			admList.hide();
 		});
+	});
 };
 
 // footer

@@ -44,19 +44,18 @@ input[type="text"] {box-sizing:border-box;width:100%;height:32px;font-size:18px;
 
 /*************************** 1024 ***************************/
 @media screen and (max-width:1024px) {
-	.mainSwipeWrap .swiper-wrapper .swiper-slide {height:calc(100vh - 100px);}
+	.mainSwipeWrap .swiper-wrapper .swiper-slide {height:calc(100vh - 170px);}
 	.mainSwipeWrap .swiper-wrapper .swiper-slide .imgTxt .imgTxtIn {display:block;}
-	.mainSwipeWrap .btnPrev {display:none;}
-	.mainSwipeWrap .btnNext {display:none;}
-	.mainSwipeWrap:hover .btnPrev {display:none;}
-	.mainSwipeWrap:hover .btnNext {display:none;}
 }
 /*************************** 769 ***************************/
 @media screen and (max-width:768px) {
+	.mainSwipeWrap .swiper-wrapper .swiper-slide {height:calc(100vh - 115px);}
 	.mainSwipeWrap .swiper-wrapper .swiper-slide .imgTxt {display:block;}
 	.mainSwipeWrap .swiper-wrapper .swiper-slide .imgTxt .imgTxtIn {display:block;padding:0 10px;position:absolute;left:20px;right:20px;top:auto;bottom:30px;width:auto;transform:translate(0, 0);}
 	.mainSwipeWrap .swiper-wrapper .swiper-slide .imgTxt .tits {max-height:150px;line-height:30px;font-size:16px;}
 	.mainSwipeWrap .swiper-wrapper .swiper-slide .imgTxt .tags {margin:5px 0 0;line-height:22px;font-size:18px;}
+	.mainSwipeWrap .btnPrev {left:10px;margin:0;}
+	.mainSwipeWrap .btnNext {right:10px;margin:0;}
 }
 
 /**************************************************************************************
@@ -96,11 +95,15 @@ input[type="text"] {box-sizing:border-box;width:100%;height:32px;font-size:18px;
 
 /*************************** 1024 - tablet ***************************/
 @media screen and (max-width:1024px) {
-	.archiveWrap .tagMenu {position:relative;top:auto;bottom:auto;left:auto;}
+	.archiveWrap .tagMenu {position:absolute;top:55px;left:0;right:0;bottom:initial;}
 	.archiveWrap .tagMenu > button {left:50%;top:20px;transform:translate(-50%, 0);}
 	.archiveWrap .tagMenu .swiperScrollBox {overflow:hidden;margin:0;}
+	.archiveWrap .tagMenu .swiperScrollBox .swiper-wrapper .swiper-slide {width:60%;margin:0 auto;}
+	.archiveWrap .tagMenu .swiperScrollBox .swiper-wrapper .swiper-slide li {box-sizing:border-box;width:50%;padding:0 20px;margin:30px 0 0;}
+	.archiveWrap .tagMenu .swiperScrollBox .swiper-wrapper .swiper-slide li:nth-child(1),
+	.archiveWrap .tagMenu .swiperScrollBox .swiper-wrapper .swiper-slide li:nth-child(2) {margin:0;}
 	.archiveWrap .tagMenu.active {position:fixed;left:0;right:0;top:0;bottom:0;z-index:100;}
-
+	
 	.archiveWrap {overflow:hidden;margin:0;}
 	.archiveWrap .archiveListWrap .grid .grid-item a {text-align:center;}
 	.archiveWrap .archiveListWrap .grid .grid-item a .itemFrame {display:block;position:static;margin:15px 0 0;background-color:transparent;}
@@ -111,11 +114,13 @@ input[type="text"] {box-sizing:border-box;width:100%;height:32px;font-size:18px;
 
 /*************************** 768 - tablet ***************************/
 @media screen and (max-width:768px) {
-	.archiveWrap .tagMenu > button {width:14px;height:14px;background-size:100% auto;}
-	.archiveWrap .tagMenu .swiperScrollBox ul {padding:20px;}
-	.archiveWrap .tagMenu .swiperScrollBox ul li {margin:20px 0 0;}
-	.archiveWrap .tagMenu .swiperScrollBox ul li a,
-	.archiveWrap .tagMenu .swiperScrollBox ul li button {line-height:26px;font-size:18px;}
+	.archiveWrap .tagMenu {top:36px;}
+	.archiveWrap .tagMenu > button {top:0;width:14px;height:14px;background-size:100% auto;}
+	.archiveWrap .tagMenu.active > button {top:10px;}
+	.archiveWrap .tagMenu .swiperScrollBox .swiper-wrapper .swiper-slide {width:100%;padding:30px 10px;}
+	.archiveWrap .tagMenu .swiperScrollBox .swiper-wrapper .swiper-slide li {margin:20px 0 0;}
+	.archiveWrap .tagMenu .swiperScrollBox .swiper-wrapper .swiper-slide li a,
+	.archiveWrap .tagMenu .swiperScrollBox .swiper-wrapper .swiper-slide li button {line-height:26px;font-size:18px;}
 
 	.archiveWrap .archiveListWrap .grid .grid-item a {text-align:center;}
 	.archiveWrap .archiveListWrap .grid .grid-item a .itemFrame {display:block;position:static;margin:10px 0 0;background-color:transparent;}
