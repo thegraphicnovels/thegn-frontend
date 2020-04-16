@@ -56,6 +56,8 @@ window.addEventListener('resize', () => {
 	winResizeQueue.resizeFunc();
 });
 
+export {winResizeQueue};
+
 // input placeholder 기능
 export const placeholderFn = target => {
 	const searchWrap = $(target);
@@ -350,17 +352,46 @@ export const masonryFn = target => {
 	const _pageWrap = _grid.parents('.pageWrap');
 
 	const setSizeFnc = () => {
-		// console.log('window', window);
-		// console.log('window.innerWidth', window.innerWidth);
-		// console.log('typeof window.innerWidth', typeof window.innerWidth);
-		// console.log('window.innerWidth <= 768', window.innerWidth <= 768);
-		// if(window.innerWidth <= 768) {
-		//   $('.grid-item', _grid).css({'width' : '100%'});
-		// }else{
-		//   $('.grid-item', _grid).css({'width' : '50%'});
-		// }
+		console.log(window.innerWidth <= 768);
+		$('.grid-item', _grid).each(function() {
+			const _this = $(this);
+			const gridW = $('img', _this).outerWidth();
+			const gridH = $('img', _this).outerHeight();
+			const gridRatio = gridH / gridW;
+			let grideSize;
+
+			console.log('gridRatio = ', gridRatio);
+			if(window.innerWidth > 1024){ // 3단 정렬
+				if(gridRatio <= 0.6) {// 가로 사이즈가 큰경우
+					grideSize = '55%';
+				}else if(gridRatio >= 1.4) {// 세로 사이즈가 큰경우
+					grideSize = '25%';
+				}else{// 대략 정비율일 경우
+					grideSize = '33%';
+				}
+			}else if(window.innerWidth <= 1024 && window.innerWidth > 768) { // 2단 정렬
+				if(gridRatio < 0.6) {// 가로 사이즈가 큰경우
+					grideSize = '55%';
+				}else if(gridRatio >= 1.4) {// 세로 사이즈가 큰경우
+					grideSize = '45%';
+				}else{// 대략 정비율일 경우
+					grideSize = '30%';
+				}
+			}else if(window.innerWidth <= 768) { // 모바일 1단 정렬
+				grideSize = '100%';
+			}
+			console.log(grideSize);
+			_this.css({'width' : grideSize});
+		});
+		setTimeout(()=> {
+			if(_masonryLib) {
+				_masonryLib.layout()
+			}
+		}, 100);
 	}
+
 	setSizeFnc();
+
 	const _masonryLib = new Masonry(`.${target.current.className}`, {
 		itemSelector: '.grid-item',
 		// columnWidth: '.grid-item',
@@ -376,8 +407,9 @@ export const masonryFn = target => {
 	});
 
 	winResizeQueue.addQueue('archiveListResize', () => {
-		// console.log('archiveListResize');
+		console.log('archiveListResize');
 		setSizeFnc();
+		_masonryLib.layout();
 	});
 
 	return {
@@ -385,7 +417,6 @@ export const masonryFn = target => {
 			_masonryLib.destroy();
 			_pageWrap.unbind('transitionend');
 			winResizeQueue.removeQueue('archiveListResize');
-		//   $('.grid-item', _grid).css({ width: 'auto' });
 		},
 	};
 };

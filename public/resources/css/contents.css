@@ -144,13 +144,13 @@ input[type="text"] {box-sizing:border-box;width:100%;height:32px;font-size:18px;
 .archiveDescriptWrap .descriptThum .swiper-wrapper .swiper-slide:after {display:block;content:"";position:absolute;left:0;top:0;right:0;bottom:0;background-color:rgba(0, 0, 0, 0.5);}
 .archiveDescriptWrap .descriptThum .btnPrev {display:block;position:absolute;left:104px;top:50%;width:22px;height:22px;background:url('../images/btn_main_swiper_prev.svg') no-repeat left top;background-size:100% 100%;z-index:1;transform:translate(0, -50%);}
 .archiveDescriptWrap .descriptThum .btnNext {display:block;position:absolute;right:24px;top:50%;width:22px;height:22px;background:url('../images/btn_main_swiper_next.svg') no-repeat right top;background-size:100% 100%;z-index:1;transform:translate(0, -50%);}
-.archiveDescriptWrap .descriptThum .indicateNum {position:absolute;left:50%;bottom:30px;min-width:60px;padding:0 10px;line-height:24px;font-size:17px;color:#fff;text-align:center;border-radius:12px;background-color:rgba(0, 0, 0, 0.6);}
+.archiveDescriptWrap .descriptThum .indicateNum {position:absolute;left:50%;bottom:30px;min-width:60px;padding:0 10px;line-height:24px;font-size:17px;color:#fff;text-align:center;border-radius:12px;background-color:rgba(0, 0, 0, 0.6);transform:translate(-50%, 0);}
 
 .archiveDescriptWrap .descriptBox {float:right;position:relative;width:35%;padding:20px 0 0;}
-.archiveDescriptWrap .descriptBox strong {display:block;line-height:42px;font-size:32px;font-weight:900;}
-.archiveDescriptWrap .descriptBox .date {line-height:36px;font-size:26px;font-weight:300;}
-.archiveDescriptWrap .descriptBox .tag {line-height:29px;font-size:19px;font-weight:300;}
-.archiveDescriptWrap .descriptBox .txt {line-height:29px;font-size:19px;}
+.archiveDescriptWrap .descriptBox strong {display:block;line-height:34px;font-size:24px;font-weight:900;}
+/* .archiveDescriptWrap .descriptBox .date {line-height:36px;font-size÷:26px;font-weight:300;} */
+.archiveDescriptWrap .descriptBox .tag {line-height:30px;font-size:20px;font-weight:300;}
+.archiveDescriptWrap .descriptBox .txt {line-height:32px;font-size:22px;}
 .archiveDescriptWrap .descriptBox strong + .date,
 .archiveDescriptWrap .descriptBox strong + .tag {margin:20px 0 0;}
 .archiveDescriptWrap .descriptBox .date +  .txt,
@@ -176,34 +176,42 @@ input[type="text"] {box-sizing:border-box;width:100%;height:32px;font-size:18px;
 
 /*************************** 1024 ***************************/
 @media screen and (max-width:1024px) {
-	.archiveDescriptWrap {padding:30px 0 0;margin:0;}
+	.archiveDescriptWrap {padding:30px 0 60px;margin:0 30px;}
 	.archiveDescriptWrap .descriptThum {float:none;width:100%;}
 	.archiveDescriptWrap .descriptThum .btnPrev {left:20px;top:50%;width:90px;height:20px;background-size:auto 100%;}
 	.archiveDescriptWrap .descriptThum .btnNext {right:20px;top:50%;width:90px;height:20px;background-size:auto 100%;}
 
 	.archiveDescriptWrap .descriptBox {float:none;width:100%;}
 	.archiveDescriptWrap .descriptBox strong {padding:0 70px 0 0;}
+	.archiveDescriptWrap .descriptBox strong + .date,
+	.archiveDescriptWrap .descriptBox strong + .tag {margin:50px 0 0;}
+	.archiveDescriptWrap .descriptBox .date +  .txt,
+	.archiveDescriptWrap .descriptBox .tag +  .txt {margin:50px 0 0;}
 	.archiveDescriptWrap .descriptBox .btnDescriptBox {top:20px;}
 
 	.archiveMoreBox {margin:100px 0 0;padding:0 0 100px;}
-	.archiveMoreBox h3 {margin:0 0 50px;}
+	.archiveMoreBox h3 {margin:0 0 50px;}  
 	.archiveMoreBox .moreListWrap  .btnPrev {top:5px;left:70px;width:70px;height:20px;background-size:auto 100%;}
 	.archiveMoreBox .moreListWrap  .btnNext {top:5px;right:70px;width:70px;height:20px;background-size:auto 100%;}
 }
 
 /*************************** 768 ***************************/
 @media screen and (max-width:768px) {
-	.archiveDescriptWrap .descriptThum .btnPrev {left:10px;top:50%;width:30px;height:10px;}
-	.archiveDescriptWrap .descriptThum .btnNext {right:10px;top:50%;width:30px;height:10px;}
-	.archiveDescriptWrap .descriptBox .btnDescriptBox {top:0;}
+	.archiveDescriptWrap {margin:0;padding:14px 0 26px;}
+	.archiveDescriptWrap .descriptThum .btnPrev {left:10px;top:50%;}
+	.archiveDescriptWrap .descriptThum .btnNext {right:10px;top:50%;}
+	.archiveDescriptWrap .descriptThum .indicateNum {bottom:20px;min-width:50px;padding:0 5px;line-height:20px;font-size:12px;}
 
-	.archiveDescriptWrap .descriptBox {margin:20px 0 0;padding:0;}
-	.archiveDescriptWrap .descriptBox strong {line-height:22px;font-size:18px;}
-	.archiveDescriptWrap .descriptBox .date {line-height:22px;font-size:15px;}
-	.archiveDescriptWrap .descriptBox .tag {line-height:22px;font-size:15px;font-weight:300;}
-	.archiveDescriptWrap .descriptBox .txt {line-height:22px;font-size:14px;}
-	.archiveDescriptWrap .descriptBox .date + .txt,
-	.archiveDescriptWrap .descriptBox .tag + .txt {margin:10px 0 0;}
+	.archiveDescriptWrap .descriptBox {width:auto;margin:20px 10px 0;padding:0;}
+	.archiveDescriptWrap .descriptBox .btnDescriptBox {top:0;}
+	.archiveDescriptWrap .descriptBox strong {line-height:24px;font-size:20px;}
+	/* .archiveDescriptWrap .descriptBox .date {line-height:22px;font-size:15px;} */
+	.archiveDescriptWrap .descriptBox .tag {line-height:20px;font-size:16px;font-weight:300;}
+	.archiveDescriptWrap .descriptBox .txt {line-height:20px;font-size:16px;}
+	.archiveDescriptWrap .descriptBox strong + .date,
+	.archiveDescriptWrap .descriptBox strong + .tag {margin:15px 0 0;}
+	.archiveDescriptWrap .descriptBox .date +  .txt,
+	.archiveDescriptWrap .descriptBox .tag +  .txt {margin:40px 0 0;}
 
 	.archiveMoreBox {margin:30px 0 0;padding:0 0 20px;}
 	.archiveMoreBox h3 {margin:0 0 40px;line-height:30px;font-size:20px;}
@@ -222,20 +230,23 @@ input[type="text"] {box-sizing:border-box;width:100%;height:32px;font-size:18px;
 .aboutWrap .aboutLogo > span {display:block;position:absolute;left:0;right:0;top:50%;transform:translate(0, -50%);}
 .aboutWrap .aboutLogo > span img {max-width:100%;}
 .aboutWrap .aboutIntro:after {display:block;content:"";clear:both;overflow:hidden;width:0;height:0;line-height:0;}
-.aboutWrap .aboutIntro .intro {width:100%;padding:40px 10px 40px;line-height:35px;font-size:20px;}
+.aboutWrap .aboutIntro .intro {box-sizing:border-box;width:100%;padding:40px 10px 40px;line-height:35px;font-size:20px;}
 
 /*************************** 1024 ***************************/
 @media screen and (max-width:1024px) {
-	.aboutWrap {margin:0 10px;}
-	.aboutWrap .aboutIntro {height:auto;padding:20px 0 0;}
+	.aboutWrap {margin:0;padding:0 0 60px;}
+	.aboutWrap .aboutIntro {width:auto;height:auto;padding:20px 0 0;}
 	.aboutWrap .aboutIntro .aboutLogo {position:static;width:auto;text-align:center;}
 	.aboutWrap .aboutIntro .aboutLogo > span {display:inline-block;position:static;transform:translate(0, 0);}
-	.aboutWrap .aboutIntro .intro {float:none;width:100%;}
+	.aboutWrap .aboutIntro .intro {float:none;margin:50px 0 0;padding:50px 50px;font-weight:800;border-top:1px solid #343434;background-color:#99ff99;}
 	.aboutWrap .snsBox {float:none;width:100%;padding:0;text-align:center;}
 }
 
 /*************************** 768 ***************************/
 @media screen and (max-width:768px) {
+	.aboutWrap {padding:0;}
+	.aboutWrap .aboutIntro .aboutLogo > span {padding:0 36px;}
+	.aboutWrap .aboutIntro .intro {padding:26px 36px;line-height:26px;font-size:16px;}
 }
 
 /**************************************************************************************
@@ -254,21 +265,33 @@ input[type="text"] {box-sizing:border-box;width:100%;height:32px;font-size:18px;
 .contactWrap .contactInfoBox .infoInner .infoBox .contcInfo li span {display:block;float:left;}
 .contactWrap .contactInfoBox .infoInner .infoBox address {margin:40px 0 0;line-height:24px;font-size:18px;}
 .contactWrap .contactInfoBox .infoInner .infoBox address .addrEn {display:block;margin:30px 0 0;}
-.contactWrap .mapWrap {float:right;width:48%;height:calc(100vh - 180px)}
-.contactWrap .mapWrap img {width:100%;height:100%;}
+.contactWrap .mapWrap {float:right;width:48%;height:calc(100vh - 180px);}
+.contactWrap .mapWrap img {width:100%;height:100%;vertical-align:top;}
 
 /*************************** 1024 ***************************/
 @media screen and (max-width:1024px) {
-	.contactWrap .contactInfoBox {width:100%;padding:77px 10px 25px;}
+	.contactWrap {margin:-55px 0 0;padding:0 0 60px;}
+	.contactWrap .contactInfoBox {float:none;width:100%;padding:55px 95px 60px;}
 	.contactWrap .contactInfoBox .infoInner {height:auto;}
+	.contactWrap .contactInfoBox .infoInner > strong {padding:0;}
 	.contactWrap .contactInfoBox .infoInner .infoBox {position:static;}
-
-	.contactWrap .mapWrap {width:100%;height:250px;}
+	.contactWrap .contactInfoBox .infoInner .infoBox .contcInfo {margin:30px 0 0;}
+	.contactWrap .contactInfoBox .infoInner .infoBox .contcInfo li {line-height:24px;font-size:18px;}
+	.contactWrap .contactInfoBox .infoInner .infoBox address {margin:30px 0 0;line-height:24px;font-size:18px;}
+	.contactWrap .contactInfoBox .infoInner .infoBox address .addrEn {display:block;margin:10px 0 0;}
+	
+	.contactWrap .mapWrap {float:none;width:100%;height:auto;}
 }
 
 /*************************** 768 ***************************/
 @media screen and (max-width:768px) {
-	
+	.contactWrap {margin:-34px 0 0;padding:0 0 26px;}
+	.contactWrap .contactInfoBox {padding:34px 10px 30px;}
+	.contactWrap .contactInfoBox .infoInner > strong {line-height:34px;font-size:24px;}
+	.contactWrap .contactInfoBox .infoInner .infoBox .contcInfo {margin:20px 0 0;}
+	.contactWrap .contactInfoBox .infoInner .infoBox .contcInfo li {margin:5px 0 0;line-height:20px;font-size:14px;}
+	.contactWrap .contactInfoBox .infoInner .infoBox address {margin:30px 0 0;line-height:20px;font-size:14px;}
+	.contactWrap .contactInfoBox .infoInner .infoBox address .addrEn {display:block;margin:5px 0 0;}
 }
 
 /**************************************************************************************
