@@ -21,13 +21,6 @@ const Archive = ({ action }) => {
 		fetchPolicy: 'network-only',
 	});
 
-	const calcWrapSizeFnc = function() {
-		const winW = window.innerWidth;
-		const wrapW = winW - 380;
-	console.log(archiveList.current.style);
-		archiveList.current.style.width = `${wrapW}px`;
-	}
-
 	useEffect(() => {
 		// action값 변경시 useEffect 실행
 		return () => {
