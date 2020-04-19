@@ -81,9 +81,9 @@ input[type="text"] {box-sizing:border-box;width:100%;height:32px;font-size:18px;
 .archiveWrap {overflow:hidden;margin:0 190px;}
 .archiveWrap .archiveListWrap {overflow:hidden;}
 .archiveWrap .archiveListWrap .grid {position:relative;box-sizing:border-box;margin:-20px 0 0;}
-.archiveWrap .archiveListWrap .grid .grid-item {display:inline-block;box-sizing:border-box;padding:20px;}
+.archiveWrap .archiveListWrap .grid .grid-item {display:block;box-sizing:border-box;float:left;padding:20px;}
 .archiveWrap .archiveListWrap .grid .grid-item a {display:block;position:relative;}
-.archiveWrap .archiveListWrap .grid .grid-item a .img {display:block;overflow:hidden;position:relative;text-align:center;border:1px solid #343434;}
+.archiveWrap .archiveListWrap .grid .grid-item a .img {display:inline-block;overflow:hidden;position:relative;text-align:center;border:1px solid #343434;}
 .archiveWrap .archiveListWrap .grid .grid-item a .img:after {display:block;content:"";position:absolute;left:0;right:0;top:0;bottom:0;background-color:rgba(255, 255, 255,0.3);opacity:0;}
 .archiveWrap .archiveListWrap .grid .grid-item a .img img {max-width:100%;transform:scale(1);}
 .archiveWrap .archiveListWrap .grid .grid-item a .itemFrame {overflow:hidden;}
@@ -108,8 +108,8 @@ input[type="text"] {box-sizing:border-box;width:100%;height:32px;font-size:18px;
 	.archiveWrap .archiveListWrap .grid .grid-item a {text-align:center;}
 	.archiveWrap .archiveListWrap .grid .grid-item a .itemFrame {display:block;position:static;margin:15px 0 0;background-color:transparent;}
 	.archiveWrap .archiveListWrap .grid .grid-item a .itemFrame .inner {position:static;transform:translate(0, 0);}
-	.archiveWrap .archiveListWrap .grid .grid-item a .itemFrame .inner .tits {line-height:36px;font-size:26px;color:#000;}
-	.archiveWrap .archiveListWrap .grid .grid-item a .itemFrame .inner .tags {margin:10px 0 0;line-height:28px;font-size:18px;color:#000;}
+	.archiveWrap .archiveListWrap .grid .grid-item a .itemFrame .inner .tits {line-height:29px;font-size:19px;color:#000;}
+	.archiveWrap .archiveListWrap .grid .grid-item a .itemFrame .inner .tags {margin:10px 0 0;line-height:20px;font-size:14px;color:#000;}
 }
 
 /*************************** 768 - tablet ***************************/
@@ -310,7 +310,7 @@ input[type="text"] {box-sizing:border-box;width:100%;height:32px;font-size:18px;
 
 /*************************** 1024 ***************************/
 @media screen and (max-width:1024px) {
-	.paging {margin:50px 0;}
+	/* .paging {margin:50px 0;} */
 }
 /*************************** 768 ***************************/
 @media screen and (max-width:768px) {

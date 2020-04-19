@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { masonryFn, winResizeQueue } from 'common';
+import { masonryFn } from 'common';
 import Paging from 'components/paging';
 import TagMenu from 'components/tag_menu';
 import { useQuery } from '@apollo/react-hooks';
@@ -21,28 +21,15 @@ const Archive = ({ action }) => {
 		fetchPolicy: 'network-only',
 	});
 
-	// const loadImagesFn = (e, loadComplate) => {
-
-	// 	const {target} = e;
-	// 	const tW = target.width;
-	// 	const tH = target.height;
-	// 	const tSizeRatio = tH / tW;
-	// 	let tSize;
-
-	// 	if(tSizeRatio < 0.6) {// 가로 사이즈가 큰경우
-	// 		tSize = '60%';
-	// 	}else if(tSizeRatio > 1.6) {// 세로 사이즈가 큰경우
-	// 		tSize = '32%';
-	// 	}else{// 대략 정비율일 경우
-	// 		tSize = '32%';
-	// 	}
-	// 	setTimeout(()=> {target.parentElement.parentElement.parentElement.style.width = tSize}, 100);
-	// 	setLoadComplate(loadComplate);
-	// }
+	const calcWrapSizeFnc = function() {
+		const winW = window.innerWidth;
+		const wrapW = winW - 380;
+	console.log(archiveList.current.style);
+		archiveList.current.style.width = `${wrapW}px`;
+	}
 
 	useEffect(() => {
 		// action값 변경시 useEffect 실행
-
 		return () => {
 			if (action === 1) {
 				// console.log('archiveListFn destroy');

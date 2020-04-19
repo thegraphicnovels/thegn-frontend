@@ -352,7 +352,6 @@ export const masonryFn = target => {
 	const _pageWrap = _grid.parents('.pageWrap');
 
 	const setSizeFnc = () => {
-		console.log(window.innerWidth <= 768);
 		$('.grid-item', _grid).each(function() {
 			const _this = $(this);
 			const gridW = $('img', _this).outerWidth();
@@ -360,22 +359,24 @@ export const masonryFn = target => {
 			const gridRatio = gridH / gridW;
 			let grideSize;
 
-			console.log('gridRatio = ', gridRatio);
 			if(window.innerWidth > 1024){ // 3단 정렬
 				if(gridRatio <= 0.6) {// 가로 사이즈가 큰경우
 					grideSize = '55%';
 				}else if(gridRatio >= 1.4) {// 세로 사이즈가 큰경우
 					grideSize = '25%';
 				}else{// 대략 정비율일 경우
-					grideSize = '33%';
+					grideSize = '33.3%';
 				}
 			}else if(window.innerWidth <= 1024 && window.innerWidth > 768) { // 2단 정렬
 				if(gridRatio < 0.6) {// 가로 사이즈가 큰경우
-					grideSize = '55%';
+					grideSize = '100%';
+					// 	grideSize = '55%';
 				}else if(gridRatio >= 1.4) {// 세로 사이즈가 큰경우
-					grideSize = '45%';
+					grideSize = '50%';
+					// 	grideSize = '45%';
 				}else{// 대략 정비율일 경우
-					grideSize = '30%';
+					grideSize = '50%';
+					// 	grideSize = '30%';
 				}
 			}else if(window.innerWidth <= 768) { // 모바일 1단 정렬
 				grideSize = '100%';
@@ -383,14 +384,11 @@ export const masonryFn = target => {
 			console.log(grideSize);
 			_this.css({'width' : grideSize});
 		});
+
 		setTimeout(()=> {
-			if(_masonryLib) {
-				_masonryLib.layout()
-			}
+			_masonryLib.layout();
 		}, 100);
 	}
-
-	setSizeFnc();
 
 	const _masonryLib = new Masonry(`.${target.current.className}`, {
 		itemSelector: '.grid-item',
@@ -411,6 +409,8 @@ export const masonryFn = target => {
 		setSizeFnc();
 		_masonryLib.layout();
 	});
+
+	setSizeFnc();
 
 	return {
 		destroy() {
