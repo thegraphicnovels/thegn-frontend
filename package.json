@@ -20,6 +20,7 @@
     "filepond-plugin-image-exif-orientation": "^1.0.6",
     "filepond-plugin-image-preview": "^4.4.0",
     "filepond-polyfill": "^1.0.4",
+    "google-map-react": "^1.1.7",
     "graphql": "^14.5.8",
     "jquery": "^3.4.1",
     "jquery-bridget": "^2.0.1",
