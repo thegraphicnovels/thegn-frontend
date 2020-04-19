@@ -2,13 +2,12 @@
 
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { useDidMount } from 'rooks';
 
 const Contact = ({ action }) => {
-  //   useEffect(() => {
-
-  //   }, []);
-  if (action === 3) {
+  useDidMount(() => {
     kakao.maps.load(() => {
+      console.log('map');
       const option = {
         center: new kakao.maps.LatLng(37.5460744, 127.086625),
         level: 3,
@@ -51,7 +50,7 @@ const Contact = ({ action }) => {
         map.setCenter(moveLatLon);
       });
     });
-  }
+  });
   return (
     <div className="contactWrap">
       <div className="contactInfoBox">
