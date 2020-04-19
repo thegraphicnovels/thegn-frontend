@@ -180,7 +180,7 @@ export const menuClick = (target, setAction, action) => {
 	const pageWraps = $('.pageWrap', target.current);
 	const naviListWrap = $('.naviListWrap');
 	const winW = $(window).width();
-	setAction(action);
+
 	buttons.removeClass('active');
 	if (action === 1) {
 		buttons.eq(0).css({
@@ -235,7 +235,10 @@ export const menuClick = (target, setAction, action) => {
 			width: '100%',
 			height: 'auto',
 			transition: 'width 0.7s ease',
+		}).addEventListener('transitionend', function() {
+			setAction(action);
 		});
+
 
 	if (winW <= 1024) {
 		naviListWrap.removeClass('active');
