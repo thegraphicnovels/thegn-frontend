@@ -5,52 +5,65 @@ import PropTypes from 'prop-types';
 import { useDidMount } from 'rooks';
 
 const Contact = ({ action }) => {
-  useDidMount(() => {
-    kakao.maps.load(() => {
-      console.log('map');
-      const option = {
-        center: new kakao.maps.LatLng(37.5460744, 127.086625),
-        level: 3,
-      };
-      const el = document.getElementById('map');
+  //   console.log(action);
+  useEffect(() => {
+    if (action === 3) {
+      kakao.maps.load(() => {
+        console.log('map');
+        const option = {
+          center: new kakao.maps.LatLng(37.5460744, 127.086625),
+          level: 3,
+        };
+        const el = document.getElementById('map');
 
-      // 지도생성
-      const map = new kakao.maps.Map(el, option);
+        // 지도생성
+        const map = new kakao.maps.Map(el, option);
 
-      // geocoder라이브러리
-      const geocoder = new kakao.maps.services.Geocoder();
-      // 주소로 좌표를 검색합니다
-      geocoder.addressSearch(
-        '서울시 광진구 자양로 214 4F 04976',
-        (result, status) => {
-          // 정상적으로 검색이 완료됐으면
-          if (status === kakao.maps.services.Status.OK) {
-            const coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+        // geocoder라이브러리
+        const geocoder = new kakao.maps.services.Geocoder();
+        // 주소로 좌표를 검색합니다
+        geocoder.addressSearch(
+          '서울시 광진구 자양로 214 4F 04976',
+          (result, status) => {
+            // 정상적으로 검색이 완료됐으면
+            if (status === kakao.maps.services.Status.OK) {
+              const coords = new kakao.maps.LatLng(result[0].y, result[0].x);
 
-            // 결과값으로 받은 위치를 마커로 표시합니다
-            const marker = new kakao.maps.Marker({
-              map,
-              position: coords,
-            });
+              // 결과값으로 받은 위치를 마커로 표시합니다
+              const marker = new kakao.maps.Marker({
+                map,
+                position: coords,
+              });
 
-            // 인포윈도우로 장소에 대한 설명을 표시합니다
-            const infowindow = new kakao.maps.InfoWindow({
-              content:
-                '<div style="width:150px;text-align:center;padding:6px 0;">The Graphic Novels</div>',
-            });
-            infowindow.open(map, marker);
+              // 인포윈도우로 장소에 대한 설명을 표시합니다
+              const infowindow = new kakao.maps.InfoWindow({
+                content:
+                  '<div style="width:150px;text-align:center;padding:6px 0;">The Graphic Novels</div>',
+              });
+              infowindow.open(map, marker);
 
-            // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
-            map.setCenter(coords);
-          }
-        },
-      );
-      window.addEventListener('resize', () => {
-        const moveLatLon = new kakao.maps.LatLng(37.5460744, 127.086625);
-        map.setCenter(moveLatLon);
+              // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+              map.setCenter(coords);
+            }
+          },
+        );
+        window.addEventListener('resize', () => {
+          const moveLatLon = new kakao.maps.LatLng(37.5460744, 127.086625);
+          map.setCenter(moveLatLon);
+        });
       });
-    });
-  });
+    }
+
+    return () => {
+      if (action !== 3) {
+        const el = document.getElementById('map');
+        if (el) el.innerHTML = '';
+        console.log('clear');
+      }
+    };
+  }, [action]);
+
+  useDidMount(() => {});
   return (
     <div className="contactWrap">
       <div className="contactInfoBox">
