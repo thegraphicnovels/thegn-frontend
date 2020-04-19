@@ -9,7 +9,6 @@ const Contact = ({ action }) => {
   useEffect(() => {
     if (action === 3) {
       kakao.maps.load(() => {
-        console.log('map');
         const option = {
           center: new kakao.maps.LatLng(37.5460744, 127.086625),
           level: 3,
@@ -58,7 +57,6 @@ const Contact = ({ action }) => {
       if (action !== 3) {
         const el = document.getElementById('map');
         if (el) el.innerHTML = '';
-        console.log('clear');
       }
     };
   }, [action]);
