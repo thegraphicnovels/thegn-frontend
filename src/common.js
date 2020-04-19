@@ -180,7 +180,7 @@ export const menuClick = (target, setAction, action) => {
 	const pageWraps = $('.pageWrap', target.current);
 	const naviListWrap = $('.naviListWrap');
 	const winW = $(window).width();
-
+	setAction(action);
 	buttons.removeClass('active');
 	if (action === 1) {
 		buttons.eq(0).css({
