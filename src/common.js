@@ -235,8 +235,6 @@ export const menuClick = (target, setAction, action) => {
 			width: '100%',
 			height: 'auto',
 			transition: 'width 0.7s ease',
-		}).addEventListener('transitionend', function() {
-			setAction(action);
 		});
 
 
