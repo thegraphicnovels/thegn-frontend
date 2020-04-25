@@ -1,27 +1,43 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { swiperFn } from 'common';
 import { useQuery } from '@apollo/react-hooks';
 import { mainBannerQuery } from 'apollo/mainBannerQuery';
+import { Store } from 'store';
 
 const Mainswiper = ({ action }) => {
 	const swiperEl = useRef(null);
-
+	// const swipeitemEl = useRef(null);
+	const { headerEl, footEl, isDevice } = useContext(Store);
+	
 	const { data: mainBannerData, loading } = useQuery(mainBannerQuery);
-
+	
 	useEffect(() => {
 		let mainSwiper;
 		if (action === 0 && !loading) {
 			mainSwiper = swiperFn(swiperEl.current);
-
+			
 			swiperEl.current.addEventListener('mouseover', ()=>{
 				mainSwiper.autoStop();
 			});
 			swiperEl.current.addEventListener('mouseout', ()=>{
 				mainSwiper.autoStart();
 			});
+			
+			console.log('isDevice = ', isDevice);
+			
+			if(isDevice === 'MO') {
+				const swipeitemEl = swiperEl.current.children[1].children;
+				const winH = window.innerHeight;
+				const headH = headerEl.current.clientHeight;
+				const footH = footEl.current.clientHeight;
+				for(let i = 0; i < swipeitemEl.length; i++) {
+					swipeitemEl[i].style.height = `${winH - (headH + footH)}px`;
+				}
+			}
 		}
+
 
 		return () => {
 			if (action === 0 && mainSwiper) {
@@ -45,6 +61,7 @@ const Mainswiper = ({ action }) => {
 					banner.files.map((file, index) => (
 						banner.portpolio && (
 							<li
+								// ref={swipeitemEl}
 								key={index}
 								className="swiper-slide"
 								style={{
@@ -71,7 +88,7 @@ const Mainswiper = ({ action }) => {
 								)} */}
 								</div>
 							</Link>
-						</li>
+       </li>
 						)
 					)),
 				)}

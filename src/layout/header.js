@@ -11,6 +11,7 @@ const Header = () => {
 	const adminMenuEl = useRef(null);
 	const btnHambergEl = useRef(null);
 	const [logoutMutation] = useMutation(LOCAL_LOG_OUT);
+	const { headerEl } = useContext(Store);
 
 	useEffect(() => {
 		const gnbOpenFn = moGnbOpenFn(btnHambergEl.current);
@@ -23,7 +24,7 @@ const Header = () => {
 	});
 
 	return (
-		<header id="header">
+		<header id="header" ref={headerEl}>
 			<div className="headerIn">
 				<h1 className="logo">
 					<Link

@@ -1,9 +1,11 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useEffect, useContext } from 'react';
 import { footOpenFn } from 'common';
+import { Store } from 'store';
 
 const Footer = () => {
-  const footEl = useRef(null);
+  const {footEl} = useContext(Store);
   // const [isFootOpen, setFootOpen] = useState(false);
+
   useEffect(() => {
     const footEvenFn = footOpenFn(footEl.current);
     return () => {
