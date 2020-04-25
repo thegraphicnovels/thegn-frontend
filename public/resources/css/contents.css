@@ -141,9 +141,11 @@ input[type="text"] {box-sizing:border-box;width:100%;height:32px;font-size:18px;
 /* .archiveDescriptWrap .descriptThum .swiper-wrapper .swiper-slide:before {display:block;content:"";padding:84.0345199568501% 0 0;} */
 /* .archiveDescriptWrap .descriptThum .swiper-wrapper .swiper-slide span {display:block;position:absolute;left:50%;top:0;bottom:0;transform:translate(-50%, 0);}
 .archiveDescriptWrap .descriptThum .swiper-wrapper .swiper-slide img {height:100%;} */
-/* .archiveDescriptWrap .descriptThum .swiper-wrapper .swiper-slide:after {display:block;content:"";position:absolute;left:0;top:0;right:0;bottom:0;background-color:rgba(0, 0, 0, 0.5);} */
-.archiveDescriptWrap .descriptThum .btnPrev {display:block;position:absolute;left:104px;top:50%;width:22px;height:22px;background:url('../images/btn_main_swiper_prev.svg') no-repeat left top;background-size:100% 100%;z-index:1;transform:translate(0, -50%);}
-.archiveDescriptWrap .descriptThum .btnNext {display:block;position:absolute;right:24px;top:50%;width:22px;height:22px;background:url('../images/btn_main_swiper_next.svg') no-repeat right top;background-size:100% 100%;z-index:1;transform:translate(0, -50%);}
+.archiveDescriptWrap .descriptThum .btnPrev {display:none;position:absolute;left:104px;top:50%;width:22px;height:22px;background:url('../images/btn_main_swiper_prev.svg') no-repeat left top;background-size:100% 100%;z-index:1;transform:translate(0, -50%);}
+.archiveDescriptWrap .descriptThum .btnNext {display:none;position:absolute;right:24px;top:50%;width:22px;height:22px;background:url('../images/btn_main_swiper_next.svg') no-repeat right top;background-size:100% 100%;z-index:1;transform:translate(0, -50%);}
+.archiveDescriptWrap .descriptThum:hover .swiper-wrapper .swiper-slide:after {display:block;content:"";position:absolute;left:0;top:0;right:0;bottom:0;background-color:rgba(0, 0, 0, 0.2);}
+.archiveDescriptWrap .descriptThum:hover .btnPrev,
+.archiveDescriptWrap .descriptThum:hover .btnNext {display:block;}
 .archiveDescriptWrap .descriptThum .indicateNum {position:absolute;left:50%;bottom:30px;min-width:60px;padding:0 10px;line-height:24px;font-size:17px;color:#fff;text-align:center;border-radius:12px;background-color:rgba(0, 0, 0, 0.6);transform:translate(-50%, 0);}
 
 .archiveDescriptWrap .descriptBox {overflow-x:hidden;overflow-y:auto;box-sizing:border-box;float:right;position:relative;width:35%;height:calc(100vh - 180px);padding:20px 5px 0 0;}
