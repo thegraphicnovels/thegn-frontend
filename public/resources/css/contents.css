@@ -83,7 +83,7 @@ input[type="text"] {box-sizing:border-box;width:100%;height:32px;font-size:18px;
 .archiveWrap .archiveListWrap .grid {position:relative;box-sizing:border-box;margin:-20px 0 0;}
 .archiveWrap .archiveListWrap .grid .grid-item {display:block;box-sizing:border-box;float:left;padding:20px;}
 .archiveWrap .archiveListWrap .grid .grid-item a {display:block;position:relative;}
-.archiveWrap .archiveListWrap .grid .grid-item a .img {display:inline-block;overflow:hidden;position:relative;text-align:center;border:1px solid #343434;}
+.archiveWrap .archiveListWrap .grid .grid-item a .img {display:inline-block;overflow:hidden;position:relative;text-align:center;/*border:1px solid #343434;*/}
 .archiveWrap .archiveListWrap .grid .grid-item a .img:after {display:block;content:"";position:absolute;left:0;right:0;top:0;bottom:0;background-color:rgba(255, 255, 255,0.3);opacity:0;}
 .archiveWrap .archiveListWrap .grid .grid-item a .img img {max-width:100%;transform:scale(1);}
 .archiveWrap .archiveListWrap .grid .grid-item a .itemFrame {overflow:hidden;}
@@ -141,7 +141,7 @@ input[type="text"] {box-sizing:border-box;width:100%;height:32px;font-size:18px;
 /* .archiveDescriptWrap .descriptThum .swiper-wrapper .swiper-slide:before {display:block;content:"";padding:84.0345199568501% 0 0;} */
 /* .archiveDescriptWrap .descriptThum .swiper-wrapper .swiper-slide span {display:block;position:absolute;left:50%;top:0;bottom:0;transform:translate(-50%, 0);}
 .archiveDescriptWrap .descriptThum .swiper-wrapper .swiper-slide img {height:100%;} */
-.archiveDescriptWrap .descriptThum .swiper-wrapper .swiper-slide:after {display:block;content:"";position:absolute;left:0;top:0;right:0;bottom:0;background-color:rgba(0, 0, 0, 0.5);}
+/* .archiveDescriptWrap .descriptThum .swiper-wrapper .swiper-slide:after {display:block;content:"";position:absolute;left:0;top:0;right:0;bottom:0;background-color:rgba(0, 0, 0, 0.5);} */
 .archiveDescriptWrap .descriptThum .btnPrev {display:block;position:absolute;left:104px;top:50%;width:22px;height:22px;background:url('../images/btn_main_swiper_prev.svg') no-repeat left top;background-size:100% 100%;z-index:1;transform:translate(0, -50%);}
 .archiveDescriptWrap .descriptThum .btnNext {display:block;position:absolute;right:24px;top:50%;width:22px;height:22px;background:url('../images/btn_main_swiper_next.svg') no-repeat right top;background-size:100% 100%;z-index:1;transform:translate(0, -50%);}
 .archiveDescriptWrap .descriptThum .indicateNum {position:absolute;left:50%;bottom:30px;min-width:60px;padding:0 10px;line-height:24px;font-size:17px;color:#fff;text-align:center;border-radius:12px;background-color:rgba(0, 0, 0, 0.6);transform:translate(-50%, 0);}
