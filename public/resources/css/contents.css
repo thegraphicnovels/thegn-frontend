@@ -235,6 +235,10 @@ input[type="text"] {box-sizing:border-box;width:100%;height:32px;font-size:18px;
 .aboutWrap .aboutLogo > span img {max-width:100%;}
 .aboutWrap .aboutIntro:after {display:block;content:"";clear:both;overflow:hidden;width:0;height:0;line-height:0;}
 .aboutWrap .aboutIntro .intro {box-sizing:border-box;width:100%;padding:40px 10px 40px;line-height:35px;font-size:20px;}
+.aboutWrap .aboutIntro .intro .scrollBox {overflow-x:hidden;overflow-y:auto;height:calc(100vh - 260px);}
+.aboutWrap .aboutIntro .intro .scrollBox::-webkit-scrollbar {width:10px;}
+.aboutWrap .aboutIntro .intro .scrollBox::-webkit-scrollbar-thumb {border-radius:5px;background-color:#343434;}
+.aboutWrap .aboutIntro .intro .scrollBox::-webkit-scrollbar-track {background:url('../images/bg_scroll_line.gif') repeat-y center;}
 
 /*************************** 1024 ***************************/
 @media screen and (max-width:1024px) {
@@ -243,6 +247,7 @@ input[type="text"] {box-sizing:border-box;width:100%;height:32px;font-size:18px;
 	.aboutWrap .aboutIntro .aboutLogo {position:static;width:auto;text-align:center;}
 	.aboutWrap .aboutIntro .aboutLogo > span {display:inline-block;position:static;transform:translate(0, 0);}
 	.aboutWrap .aboutIntro .intro {float:none;margin:50px 0 0;padding:50px 50px;font-weight:800;border-top:1px solid #343434;background-color:#99ff99;}
+	.aboutWrap .aboutIntro .intro .scrollBox {height:auto;}
 	.aboutWrap .snsBox {float:none;width:100%;padding:0;text-align:center;}
 }
 

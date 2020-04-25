@@ -11,18 +11,16 @@ const About = ({ action }) => {
 						<span><img src="/resources/images/about_logo.png" alt="THE GRAPHIC NOVELS" /></span>
 					</span>
 					<div className="intro">
-						<div className="swiper-wrapper">
-							<div className="swiper-slide">
-								We describe ourselves as creative consultants. Not designers, or
-								writers, or advertisers, or brand strategists but all of these and
-								more. While our design roots were established with print associated
-								work, the growth of our business has branched out to include
-								branding, packaging and signage. More recently, we have made the
-								transition to include web design as an extension of our design
-								services, however design for print remains our first love and is the
-								core of our business – manifested mostly into design for branding,
-								packaging and associated collateral.
-							</div>
+						<div className="scrollBox">
+							We describe ourselves as creative consultants. Not designers, or
+							writers, or advertisers, or brand strategists but all of these and
+							more. While our design roots were established with print associated
+							work, the growth of our business has branched out to include
+							branding, packaging and signage. More recently, we have made the
+							transition to include web design as an extension of our design
+							services, however design for print remains our first love and is the
+							core of our business – manifested mostly into design for branding,
+							packaging and associated collateral.
 						</div>
 					</div>
 					{/* <div className="snsBox">
