@@ -16,7 +16,6 @@ const Mainswiper = ({ action }) => {
 	useEffect(() => {
 		let mainSwiper;
 		if (action === 0 && !loading) {
-			alert('111');
 			mainSwiper = swiperFn(swiperEl.current);
 			
 			swiperEl.current.addEventListener('mouseover', ()=>{
