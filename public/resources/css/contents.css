@@ -236,11 +236,15 @@ input[type="text"] {box-sizing:border-box;width:100%;height:32px;font-size:18px;
 .aboutWrap .aboutLogo > span {display:block;position:absolute;left:0;right:0;top:50%;transform:translate(0, -50%);}
 .aboutWrap .aboutLogo > span img {max-width:100%;}
 .aboutWrap .aboutIntro:after {display:block;content:"";clear:both;overflow:hidden;width:0;height:0;line-height:0;}
-.aboutWrap .aboutIntro .intro {box-sizing:border-box;width:100%;padding:40px 10px 40px;line-height:35px;font-size:20px;}
-.aboutWrap .aboutIntro .intro .scrollBox {overflow-x:hidden;overflow-y:auto;height:calc(100vh - 260px);}
+.aboutWrap .aboutIntro .intro {position:relative;box-sizing:border-box;height:calc(100vh - 180px);margin:0 -190px 0 0;padding:0;line-height:35px;font-size:20px;background-color:#99ff99;}
+.aboutWrap .aboutIntro .intro .scrollBox {overflow-x:hidden;overflow-y:auto;position:absolute;left:10px;right:200px;top:50%;max-height:100%;transform:translate(0, -50%);}
 .aboutWrap .aboutIntro .intro .scrollBox::-webkit-scrollbar {width:10px;}
 .aboutWrap .aboutIntro .intro .scrollBox::-webkit-scrollbar-thumb {border-radius:5px;background-color:#343434;}
 .aboutWrap .aboutIntro .intro .scrollBox::-webkit-scrollbar-track {background:url('../images/bg_scroll_line.gif') repeat-y center;}
+.aboutWrap .aboutIntro .intro .snsBox {margin:30px 0 0;text-align:center;}
+.aboutWrap .aboutIntro .intro .snsBox > a {display:inline-block;width:30px;margin:0 0 0 30px;}
+.aboutWrap .aboutIntro .intro .snsBox > a:first-child {margin:0;}
+.aboutWrap .aboutIntro .intro .snsBox > a img {width:100%;}
 
 /*************************** 1024 ***************************/
 @media screen and (max-width:1024px) {
@@ -248,9 +252,8 @@ input[type="text"] {box-sizing:border-box;width:100%;height:32px;font-size:18px;
 	.aboutWrap .aboutIntro {width:auto;height:auto;padding:20px 0 0;}
 	.aboutWrap .aboutIntro .aboutLogo {position:static;width:auto;text-align:center;}
 	.aboutWrap .aboutIntro .aboutLogo > span {display:inline-block;position:static;transform:translate(0, 0);}
-	.aboutWrap .aboutIntro .intro {float:none;margin:50px 0 0;padding:50px 50px;font-weight:800;border-top:1px solid #343434;background-color:#99ff99;}
-	.aboutWrap .aboutIntro .intro .scrollBox {height:auto;}
-	.aboutWrap .snsBox {float:none;width:100%;padding:0;text-align:center;}
+	.aboutWrap .aboutIntro .intro {float:none;height:auto;margin:50px 0 0;padding:50px 50px;font-weight:800;border-top:1px solid #343434;}
+	.aboutWrap .aboutIntro .intro .scrollBox {position:static;transform:translate(0, 0);}
 }
 
 /*************************** 768 ***************************/
@@ -258,6 +261,8 @@ input[type="text"] {box-sizing:border-box;width:100%;height:32px;font-size:18px;
 	.aboutWrap {padding:0;}
 	.aboutWrap .aboutIntro .aboutLogo > span {padding:0 36px;}
 	.aboutWrap .aboutIntro .intro {padding:26px 36px;line-height:26px;font-size:16px;}
+	.aboutWrap .aboutIntro .intro .snsBox {margin:15px 0 0;}
+	.aboutWrap .aboutIntro .intro .snsBox > a {width:20px;margin:0 0 0 20px;}
 }
 
 /**************************************************************************************

@@ -1,7 +1,7 @@
 @charset "utf-8";
 
 .registBox {display:block;}
-.registBox h2 {margin:0 0 30px;line-height:40px;font-size:30px;}
+.registBox h2 {margin:30px 0;line-height:40px;font-size:30px;text-align:center;}
 .registBox table {border-top:1px solid #000;border-bottom:1px solid #000;}
 .registBox table th {font-size:18px;border-top:1px solid #444;background-color:#cdcdcd;}
 .registBox table td {padding:10px;border-top:1px solid #444;}
@@ -58,3 +58,12 @@
 .listTblWrap {border-top:2px solid #000;}
 .listBarWrap + .listTblWrap {margin:10px 0 0;}
 .tagAddBox  + .listTblWrap {margin:50px 0 0;}
+
+/*************************** 1024 ***************************/
+@media screen and (max-width:1024px) {
+	.registBox h2 {margin:0 0 30px;}
+}
+/*************************** 768 ***************************/
+@media screen and (max-width:768px) {
+	.registBox h2 {margin:20px 0;line-height:24px;font-size:20px;}
+}
