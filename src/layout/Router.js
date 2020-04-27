@@ -19,6 +19,8 @@ import ManageTag from 'page/ManageTag';
 import MainBanner from 'page/ManageMainBanner/ManageMainBannerList';
 import ManageMainBannerEdit from 'page/ManageMainBanner/ManageMainBannerEdit';
 import NaviList from 'components/naviList';
+import ManageUserList from 'page/ManageUser/ManageUserList';
+import ManageUser from 'page/ManageUser/ManageUserEdit';
 import { Store } from 'store';
 
 const PageUrl = ({ logged }) => {
@@ -27,11 +29,11 @@ const PageUrl = ({ logged }) => {
       <Route path="/" exact component={Main} />
       <Route path="/search" component={ArchiveSearch} />
       <Route path="/archiveDetail/:portpolioId" component={ArchiveDetail} />
-	  {!logged && (
-		<>
-	  		<Route path="/login" component={Login} />
-		</>
-	  )}
+      {!logged && (
+        <>
+          <Route path="/login" component={Login} />
+        </>
+      )}
       {logged && (
         <>
           <Route path="/manage/mainBanner" component={MainBanner} />
@@ -50,6 +52,9 @@ const PageUrl = ({ logged }) => {
             component={ManageArchiveEdit}
           />
           <Route path="/manage/tag" component={ManageTag} />
+          <Route path="/manage/user" component={ManageUserList} />
+          <Route path="/manage/add/user" component={ManageUser} />
+          <Route path="/manage/edit/user/:userId" component={ManageUser} />
         </>
       )}
       <Redirect from="*" to="/" />
@@ -62,7 +67,7 @@ const Router = () => {
   return (
     <BRouter>
       <Header />
-	  <NaviList />
+      <NaviList />
       <div id="container">
         <PageUrl logged={logged} />
       </div>
