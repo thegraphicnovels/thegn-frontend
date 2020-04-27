@@ -29,10 +29,10 @@ const PageUrl = ({ logged }) => {
       <Route path="/" exact component={Main} />
       <Route path="/search" component={ArchiveSearch} />
       <Route path="/archiveDetail/:portpolioId" component={ArchiveDetail} />
-      {!logged && (
-        <>
-          <Route path="/login" component={Login} />
-        </>
+      {!logged ? (
+        <Route path="/login" component={Login} />
+      ) : (
+        <Redirect from="/login" to="/" />
       )}
       {logged && (
         <>
@@ -72,7 +72,7 @@ const Router = () => {
         <PageUrl logged={logged} />
       </div>
       <Footer />
-      {!logged && <Scratch />}
+      {/* {!logged && <Scratch />} */}
     </BRouter>
   );
 };
