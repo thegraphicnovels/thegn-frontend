@@ -7,7 +7,7 @@ import {
   tagCreateQuery,
   tagModifyQuery,
   tagDeleteQuery,
-} from '../../Apollo/tagQuery';
+} from '../../apollo/tagQuery';
 
 const ManageTagContainer = () => {
   const tag = useInput('');

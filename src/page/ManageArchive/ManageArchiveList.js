@@ -11,8 +11,8 @@ import TablePagination from '@material-ui/core/TablePagination';
 import TableRow from '@material-ui/core/TableRow';
 import TableSortLabel from '@material-ui/core/TableSortLabel';
 import { useQuery } from '@apollo/react-hooks';
-import { archiveListQuery } from '../../Apollo/archiveQuery';
-import naviList from '../../Components/naviList';
+import { archiveListQuery } from '../../apollo/archiveQuery';
+import naviList from '../../components/naviList';
 import { formatDate } from '../../common';
 
 const useStyles = makeStyles({

@@ -1,8 +1,8 @@
 import React, { useRef, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/react-hooks';
-import { LOCAL_LOG_OUT } from '../Apollo/loginQuery';
-import searchBox from '../Components/searchBox';
+import { LOCAL_LOG_OUT } from '../apollo/loginQuery';
+import searchBox from '../components/searchBox';
 import { Store } from '../store';
 import { moGnbOpenFn, AdminMenuFn } from '../common';
 

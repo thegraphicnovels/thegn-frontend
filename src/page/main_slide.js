@@ -2,7 +2,7 @@ import React, { useRef, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { useQuery } from '@apollo/react-hooks';
-import { mainBannerQuery } from '../Apollo/mainBannerQuery';
+import { mainBannerQuery } from '../apollo/mainBannerQuery';
 import { Store } from '../store';
 import { swiperFn } from '../common';
 

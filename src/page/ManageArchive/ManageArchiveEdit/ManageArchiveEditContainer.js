@@ -4,13 +4,13 @@ import { useQuery, useMutation, useLazyQuery } from '@apollo/react-hooks';
 import { useInput } from 'rooks';
 import request from 'superagent';
 import ManageArchiveEditPresenter from './ManageArchiveEditPresenter';
-import { tagQuery } from '../../../Apollo/tagQuery';
+import { tagQuery } from '../../../apollo/tagQuery';
 import {
   archiveDetailQuery,
   archiveUploadQuery,
   archiveModifyQuery,
   archiveDeleteQuery,
-} from '../../../Apollo/archiveQuery';
+} from '../../../apollo/archiveQuery';
 
 const ManageArchiveEditContainer = ({
   history,

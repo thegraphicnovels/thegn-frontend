@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Loader from '../../../Components/loader';
-import naviList from '../../../Components/naviList';
-import FilePond from '../../../Components/filePond';
+import Loader from '../../../components/loader';
+import naviList from '../../../components/naviList';
+import FilePond from '../../../components/filePond';
 
 const ManageMainBannerEditPresenter = ({
   title,

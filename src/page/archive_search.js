@@ -1,9 +1,9 @@
 import React, { useEffect, useRef, useState, useContext } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { useQuery } from '@apollo/react-hooks';
-import { archiveListQuery } from '../Apollo/archiveQuery';
-import naviList from '../Components/naviList';
-import TagMenu from '../Components/tag_menu';
+import { archiveListQuery } from '../apollo/archiveQuery';
+import naviList from '../components/naviList';
+import TagMenu from '../components/tag_menu';
 import { Store } from '../store';
 import { masonryFn } from '../common';
 

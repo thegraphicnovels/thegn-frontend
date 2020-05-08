@@ -4,13 +4,13 @@ import { useQuery, useMutation, useLazyQuery } from '@apollo/react-hooks';
 import request from 'superagent';
 import { useInput } from 'rooks';
 import ManageMainBannerEditPresenter from './ManageMainBannerEditPresenter';
-import { archiveSelectQuery } from '../../../Apollo/archiveQuery';
+import { archiveSelectQuery } from '../../../apollo/archiveQuery';
 import {
   mainBannerDetailQuery,
   mainBannerUploadQuery,
   mainBannerModifyQuery,
   mainBannerDeleteQuery,
-} from '../../../Apollo/mainBannerQuery';
+} from '../../../apollo/mainBannerQuery';
 
 const ManageMainBannerEditContainer = ({
   history,

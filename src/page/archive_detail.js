@@ -11,9 +11,9 @@ import {
   // useLazyQuery
 } from '@apollo/react-hooks';
 
-import NaviList from '../Components/naviList';
+import NaviList from '../components/naviList';
 // import RelatedList from 'Components/related_list';
-import { archiveViewsQuery, archiveDetailQuery } from '../Apollo/archiveQuery';
+import { archiveViewsQuery, archiveDetailQuery } from '../apollo/archiveQuery';
 import { Store } from '../store';
 import { swiperFn } from '../common';
 

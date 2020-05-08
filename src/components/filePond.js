@@ -27,8 +27,8 @@ const FilePond = ({ filepondEl, files, setFiles, allowMultiple, label }) => {
       files={files}
       acceptedFileTypes="image/*"
       allowMultiple={allowMultiple}
-      onupdatefiles={fileItems => {
-        setFiles(fileItems.map(fileItem => fileItem.file));
+      onupdatefiles={(fileItems) => {
+        setFiles(fileItems.map((fileItem) => fileItem.file));
       }}
       labelIdle={label}
       style={{ width: '400px;' }}

@@ -17,7 +17,7 @@ import ManageMainBannerEdit from '../page/ManageMainBanner/ManageMainBannerEdit'
 import ManageUserList from '../page/ManageUser/ManageUserList';
 import ManageUser from '../page/ManageUser/ManageUserEdit';
 import Main from '../page/main';
-import naviList from '../Components/naviList';
+import naviList from '../components/naviList';
 import Header from './header';
 import Footer from './footer';
 import { Store } from '../store';

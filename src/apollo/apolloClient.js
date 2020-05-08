@@ -1,8 +1,6 @@
-import ApolloClient from 'apollo-client';
+import { InMemoryCache, ApolloLink, ApolloClient } from 'apollo-boost';
 import { createPersistedQueryLink } from 'apollo-link-persisted-queries';
 import { createHttpLink } from 'apollo-link-http';
-import { InMemoryCache } from 'apollo-cache-inmemory';
-import { ApolloLink } from 'apollo-link';
 import { resolvers } from './localState';
 
 const cache = new InMemoryCache();

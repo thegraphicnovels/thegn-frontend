@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Loader from '../../../Components/loader';
-import naviList from '../../../Components/naviList';
-import ToggleComponent from '../../../Components/toggle';
-import FilePond from '../../../Components/filePond';
+import Loader from '../../../components/loader';
+import naviList from '../../../components/naviList';
+import ToggleComponent from '../../../components/toggle';
+import FilePond from '../../../components/filePond';
 
 const ManageArchiveEditPresenter = ({
   filepondEl,
