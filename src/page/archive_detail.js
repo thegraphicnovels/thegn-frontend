@@ -10,18 +10,15 @@ import {
   useMutation,
   // useLazyQuery
 } from '@apollo/react-hooks';
-import {
-  archiveDetailQuery,
-  archiveViewsQuery,
-  //   archiveListQuery,
-} from 'Apollo/archiveQuery';
+
 import {
   swiperFn,
   // formatDate
 } from 'common';
-import NaviList from 'Components/naviList';
-// import RelatedList from 'Components/related_list';
 import { Store } from 'store';
+import NaviList from '../Components/naviList';
+// import RelatedList from 'Components/related_list';
+import { archiveViewsQuery, archiveDetailQuery } from '../Apollo/archiveQuery';
 
 const ArchiveDetail = ({
   history,

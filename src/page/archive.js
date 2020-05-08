@@ -2,12 +2,10 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { masonryFn } from 'common';
-import Paging from 'Components/paging';
-import TagMenu from 'Components/tag_menu';
 import { useQuery } from '@apollo/react-hooks';
-import { archiveQuery } from 'Apollo/archiveQuery';
-import { querySelectorAll } from 'dom-helpers';
-import { isCompositeType } from 'graphql';
+import { archiveQuery } from '../Apollo/archiveQuery';
+import TagMenu from '../Components/tag_menu';
+import Paging from '../Components/paging';
 
 const Archive = ({ action }) => {
   const limit = 10;

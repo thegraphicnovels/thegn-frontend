@@ -12,8 +12,8 @@ import TableRow from '@material-ui/core/TableRow';
 import TableSortLabel from '@material-ui/core/TableSortLabel';
 import { formatDate } from 'common';
 import { useQuery } from '@apollo/react-hooks';
-import { mainBannerQuery } from 'Apollo/mainBannerQuery';
-import NaviList from 'Components/naviList';
+import { mainBannerQuery } from '../../Apollo/mainBannerQuery';
+import naviList from '../../Components/naviList';
 
 const useStyles = makeStyles({
   root: {
@@ -111,7 +111,7 @@ const MainBanner = ({ history }) => {
 
   return (
     <div className="contents">
-      <NaviList />
+      <naviList />
 
       <div className="registBox">
         <h2>Main Banner</h2>

@@ -2,10 +2,10 @@ import React, { useEffect, useRef, useState, useContext } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { useQuery } from '@apollo/react-hooks';
 import { masonryFn } from 'common';
-import { archiveListQuery } from 'Apollo/archiveQuery';
-import TagMenu from 'Components/tag_menu';
-import NaviList from 'Components/naviList';
 import { Store } from 'store';
+import { archiveListQuery } from '../Apollo/archiveQuery';
+import naviList from '../Components/naviList';
+import TagMenu from '../Components/tag_menu';
 
 const ArchiveSearch = ({ history, location: { search } }) => {
   const archiveList = useRef(null);
@@ -54,7 +54,7 @@ const ArchiveSearch = ({ history, location: { search } }) => {
           상세 본문영역
         </span>
 
-        <NaviList />
+        <naviList />
 
         <Link to="/" onClick={() => setAction(1)} className="subMenu01">
           <em>Archive</em>

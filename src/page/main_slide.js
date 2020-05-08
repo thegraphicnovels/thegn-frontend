@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { swiperFn } from 'common';
 import { useQuery } from '@apollo/react-hooks';
-import { mainBannerQuery } from 'Apollo/mainBannerQuery';
 import { Store } from 'store';
+import { mainBannerQuery } from '../Apollo/mainBannerQuery';
 
 const Mainswiper = ({ action }) => {
   const swiperEl = useRef(null);
