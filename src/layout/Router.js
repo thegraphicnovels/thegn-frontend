@@ -17,7 +17,7 @@ import ManageMainBannerEdit from '../page/ManageMainBanner/ManageMainBannerEdit'
 import ManageUserList from '../page/ManageUser/ManageUserList';
 import ManageUser from '../page/ManageUser/ManageUserEdit';
 import Main from '../page/main';
-import naviList from '../components/naviList';
+import NaviList from '../components/naviList';
 import Header from './header';
 import Footer from './footer';
 import { Store } from '../store';
@@ -66,7 +66,7 @@ const Router = () => {
   return (
     <BRouter>
       <Header />
-      <naviList />
+      <NaviList />
       <div id="container">
         <PageUrl logged={logged} />
       </div>

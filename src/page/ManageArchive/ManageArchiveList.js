@@ -12,7 +12,7 @@ import TableRow from '@material-ui/core/TableRow';
 import TableSortLabel from '@material-ui/core/TableSortLabel';
 import { useQuery } from '@apollo/react-hooks';
 import { archiveListQuery } from '../../apollo/archiveQuery';
-import naviList from '../../components/naviList';
+import NaviList from '../../components/naviList';
 import { formatDate } from '../../common';
 
 const useStyles = makeStyles({
@@ -121,7 +121,7 @@ const ManageArchive = ({ history }) => {
 
   return (
     <div className="contents">
-      <naviList />
+      <NaviList />
 
       <div className="registBox">
         <h2>Archive</h2>
