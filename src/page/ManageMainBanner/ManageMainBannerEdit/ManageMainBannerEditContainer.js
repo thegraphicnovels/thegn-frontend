@@ -65,7 +65,7 @@ const ManageMainBannerEditContainer = ({
 
   // 뒤로가기 클릭시
   useEffect(() => {
-    window.onpopstate = e => {
+    window.onpopstate = (e) => {
       history.push('/manage/mainBanner');
     };
   }, [history]);
@@ -76,7 +76,7 @@ const ManageMainBannerEditContainer = ({
   const [mainBannerDeleteMutation] = useMutation(mainBannerDeleteQuery);
 
   // Cloudinary upload Function
-  const bannerUpload = async fileArr => {
+  const bannerUpload = async (fileArr) => {
     for (let i = 0; i < fileArr.length; i++) {
       const url = await request
         .post(process.env.REACT_APP_CLOUDINARY_UPLOAD_URL)
@@ -85,7 +85,7 @@ const ManageMainBannerEditContainer = ({
           process.env.REACT_APP_CLOUDINARY_UPLOAD_MAIN_PRESET,
         )
         .field('file', fileArr[i])
-        .then(async response => {
+        .then(async (response) => {
           const {
             body: { secure_url: secureUrl },
           } = response;
@@ -94,14 +94,18 @@ const ManageMainBannerEditContainer = ({
           return '';
         });
 
-      setFileUrl(file => {
+      setFileUrl((file) => {
         file.push(url);
         return file;
       });
     }
   };
 
-  const handleUpload = async action => {
+  useEffect(() => {
+    return () => setLoading(false); // cleanup function을 이용
+  }, []);
+
+  const handleUpload = async (action) => {
     let _id;
     setLoading(true);
 
@@ -165,8 +169,7 @@ const ManageMainBannerEditContainer = ({
         history.push('/manage/mainBanner');
       }
     } catch (e) {
-      console.log(e);
-    } finally {
+      alert(e);
       setLoading(false);
     }
   };
@@ -195,8 +198,7 @@ const ManageMainBannerEditContainer = ({
       //   window.alert('No images to delete');
       // }
     } catch (e) {
-      console.log(e);
-    } finally {
+      alert(e);
       setLoading(false);
     }
   };

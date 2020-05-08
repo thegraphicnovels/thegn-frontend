@@ -75,7 +75,7 @@ const ManageArchiveEditContainer = ({
 
   // 뒤로가기 클릭시
   useEffect(() => {
-    window.onpopstate = e => {
+    window.onpopstate = (e) => {
       history.push('/manage/archive');
     };
   }, [history]);
@@ -108,7 +108,7 @@ const ManageArchiveEditContainer = ({
         .post(process.env.REACT_APP_CLOUDINARY_UPLOAD_URL)
         .field('upload_preset', preset)
         .field('file', fileArr[i])
-        .then(async response => {
+        .then(async (response) => {
           const {
             body: { secure_url: secureUrl },
           } = response;
@@ -118,12 +118,12 @@ const ManageArchiveEditContainer = ({
         });
 
       if (kind === 'post') {
-        setFileUrl(file => {
+        setFileUrl((file) => {
           file.push(url);
           return file;
         });
       } else if (kind === 'thumbnail') {
-        setThumbFileUrl(file => {
+        setThumbFileUrl((file) => {
           file.push(url);
           return file;
         });
@@ -131,7 +131,11 @@ const ManageArchiveEditContainer = ({
     }
   };
 
-  const handleUpload = async action => {
+  useEffect(() => {
+    return () => setLoading(false); // cleanup function을 이용
+  }, []);
+
+  const handleUpload = async (action) => {
     let _id;
     setLoading(true);
 
@@ -211,13 +215,12 @@ const ManageArchiveEditContainer = ({
         history.push(`/manage/archive`);
       }
     } catch (e) {
-      console.log(e);
-    } finally {
+      alert(e);
       setLoading(false);
     }
   };
 
-  const handleDeleteArchive = async id => {
+  const handleDeleteArchive = async (id) => {
     try {
       if (window.confirm('This archive Delete?')) {
         setLoading(true);
@@ -237,13 +240,12 @@ const ManageArchiveEditContainer = ({
         }
       }
     } catch (e) {
-      console.log(e);
-    } finally {
+      alert(e);
       setLoading(false);
     }
   };
 
-  const handleUseTag = e => {
+  const handleUseTag = (e) => {
     if (e.target.checked === true) {
       setTags([...tags, e.target.value]);
     } else {
@@ -253,9 +255,9 @@ const ManageArchiveEditContainer = ({
     }
   };
 
-  const handleDelFile = index => {
+  const handleDelFile = (index) => {
     if (window.confirm('Do you wnat to delete this Post?'))
-      setFileUrl(file => {
+      setFileUrl((file) => {
         const filesArr = [];
         for (let i = 0; i < file.length; i++) {
           if (index !== i) {
