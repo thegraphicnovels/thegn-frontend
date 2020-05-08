@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import NaviList from 'components/naviList';
+import NaviList from 'Components/naviList';
 import { formatDate } from 'common';
-import Loader from '../../../components/loader';
+import Loader from '../../../Components/loader';
 
 const ManageUserEditPresenter = ({
   userData,

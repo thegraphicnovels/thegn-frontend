@@ -11,7 +11,7 @@ import TableRow from '@material-ui/core/TableRow';
 import TableSortLabel from '@material-ui/core/TableSortLabel';
 import { formatDate } from 'common';
 import { RIEInput } from 'riek';
-import NaviList from 'components/naviList';
+import NaviList from 'Components/naviList';
 
 const useStyles = makeStyles({
   root: {
@@ -108,7 +108,7 @@ const ManageTagPresenter = ({
               <Table stickyHeader aria-label="sticky table">
                 <TableHead>
                   <TableRow>
-                    {columns.map(column => (
+                    {columns.map((column) => (
                       <TableCell
                         key={column.id}
                         align={column.align}
@@ -141,7 +141,7 @@ const ManageTagPresenter = ({
                             tabIndex={-1}
                             key={index}
                           >
-                            {columns.map(column => {
+                            {columns.map((column) => {
                               let value = row[column.id];
                               if (column.id === 'user') {
                                 value = row.user.name;

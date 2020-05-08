@@ -10,10 +10,10 @@ import TableHead from '@material-ui/core/TableHead';
 import TablePagination from '@material-ui/core/TablePagination';
 import TableRow from '@material-ui/core/TableRow';
 import TableSortLabel from '@material-ui/core/TableSortLabel';
-import { archiveListQuery } from 'apollo/archiveQuery';
+import { archiveListQuery } from 'Apollo/archiveQuery';
 import { useQuery } from '@apollo/react-hooks';
 import { formatDate } from 'common';
-import NaviList from 'components/naviList';
+import NaviList from 'Components/naviList';
 
 const useStyles = makeStyles({
   root: {
@@ -78,7 +78,7 @@ const ManageArchive = ({ history }) => {
     setPage(newPage);
   };
 
-  const handleChangeRowsPerPage = event => {
+  const handleChangeRowsPerPage = (event) => {
     setRowsPerPage(+event.target.value);
     setPage(0);
   };
@@ -89,7 +89,7 @@ const ManageArchive = ({ history }) => {
     setOrderBy(property);
   };
 
-  const createSortHandler = property => event => {
+  const createSortHandler = (property) => (event) => {
     handleRequestSort(event, property);
   };
 
@@ -110,7 +110,7 @@ const ManageArchive = ({ history }) => {
       if (ordered !== 0) return ordered;
       return a[1] - b[1];
     });
-    return stabilizedThis.map(el => el[0]);
+    return stabilizedThis.map((el) => el[0]);
   };
 
   const getSorting = (ordered, orderedBy) => {
@@ -137,7 +137,7 @@ const ManageArchive = ({ history }) => {
               <Table stickyHeader aria-label="sticky table">
                 <TableHead>
                   <TableRow>
-                    {columns.map(column => (
+                    {columns.map((column) => (
                       <TableCell
                         key={column.id}
                         align={column.align}
@@ -173,7 +173,7 @@ const ManageArchive = ({ history }) => {
                             tabIndex={-1}
                             key={index}
                           >
-                            {columns.map(column => {
+                            {columns.map((column) => {
                               let value = row[column.id];
 
                               if (column.id === 'description') {
@@ -211,7 +211,8 @@ const ManageArchive = ({ history }) => {
                                   onClick={() =>
                                     history.push(
                                       `/manage/edit/archive/${row._id}`,
-                                    )}
+                                    )
+                                  }
                                 >
                                   {value}
                                 </TableCell>

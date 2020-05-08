@@ -18,7 +18,7 @@ import ManageArchiveEdit from 'page/ManageArchive/ManageArchiveEdit';
 import ManageTag from 'page/ManageTag';
 import MainBanner from 'page/ManageMainBanner/ManageMainBannerList';
 import ManageMainBannerEdit from 'page/ManageMainBanner/ManageMainBannerEdit';
-import NaviList from 'components/naviList';
+import NaviList from 'Components/naviList';
 import ManageUserList from 'page/ManageUser/ManageUserList';
 import ManageUser from 'page/ManageUser/ManageUserEdit';
 import { Store } from 'store';

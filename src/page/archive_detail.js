@@ -14,13 +14,13 @@ import {
   archiveDetailQuery,
   archiveViewsQuery,
   //   archiveListQuery,
-} from 'apollo/archiveQuery';
+} from 'Apollo/archiveQuery';
 import {
   swiperFn,
   // formatDate
 } from 'common';
-import NaviList from 'components/naviList';
-// import RelatedList from 'components/related_list';
+import NaviList from 'Components/naviList';
+// import RelatedList from 'Components/related_list';
 import { Store } from 'store';
 
 const ArchiveDetail = ({

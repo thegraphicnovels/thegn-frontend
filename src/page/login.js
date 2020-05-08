@@ -2,12 +2,12 @@ import React, { useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useMutation } from '@apollo/react-hooks';
 import { useInput } from 'rooks';
-import { LOGIN_USER, LOCAL_LOG_IN } from 'apollo/loginQuery';
+import { LOGIN_USER, LOCAL_LOG_IN } from 'Apollo/loginQuery';
 import { placeholderFn } from 'common';
 
 const Login = ({ isPopOpen, setPopOpen }) => {
   // useInput validation
-  const validation = value => {
+  const validation = (value) => {
     if (value.length > 10) {
       return false;
     }
@@ -35,7 +35,7 @@ const Login = ({ isPopOpen, setPopOpen }) => {
   });
 
   // Login Function
-  const loginFn = async e => {
+  const loginFn = async (e) => {
     e.preventDefault();
     if (id.value !== '' && password.value !== '') {
       try {

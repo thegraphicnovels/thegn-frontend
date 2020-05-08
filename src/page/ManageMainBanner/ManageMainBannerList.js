@@ -12,8 +12,8 @@ import TableRow from '@material-ui/core/TableRow';
 import TableSortLabel from '@material-ui/core/TableSortLabel';
 import { formatDate } from 'common';
 import { useQuery } from '@apollo/react-hooks';
-import { mainBannerQuery } from 'apollo/mainBannerQuery';
-import NaviList from 'components/naviList';
+import { mainBannerQuery } from 'Apollo/mainBannerQuery';
+import NaviList from 'Components/naviList';
 
 const useStyles = makeStyles({
   root: {
@@ -68,7 +68,7 @@ const MainBanner = ({ history }) => {
     setPage(newPage);
   };
 
-  const handleChangeRowsPerPage = event => {
+  const handleChangeRowsPerPage = (event) => {
     setRowsPerPage(+event.target.value);
     setPage(0);
   };
@@ -79,7 +79,7 @@ const MainBanner = ({ history }) => {
     setOrderBy(property);
   };
 
-  const createSortHandler = property => event => {
+  const createSortHandler = (property) => (event) => {
     handleRequestSort(event, property);
   };
 
@@ -100,7 +100,7 @@ const MainBanner = ({ history }) => {
       if (ordered !== 0) return ordered;
       return a[1] - b[1];
     });
-    return stabilizedThis.map(el => el[0]);
+    return stabilizedThis.map((el) => el[0]);
   };
 
   const getSorting = (ordered, orderedBy) => {
@@ -126,7 +126,7 @@ const MainBanner = ({ history }) => {
               <Table stickyHeader aria-label="sticky table">
                 <TableHead>
                   <TableRow>
-                    {columns.map(column => (
+                    {columns.map((column) => (
                       <TableCell
                         key={column.id}
                         align={column.align}
@@ -159,7 +159,7 @@ const MainBanner = ({ history }) => {
                             tabIndex={-1}
                             key={index}
                           >
-                            {columns.map(column => {
+                            {columns.map((column) => {
                               let value = row[column.id];
                               if (column.id === 'user') {
                                 value = row.user.name;
@@ -182,7 +182,8 @@ const MainBanner = ({ history }) => {
                                   onClick={() =>
                                     history.push(
                                       `/manage/edit/mainBanner/${row._id}`,
-                                    )}
+                                    )
+                                  }
                                 >
                                   {value}
                                 </TableCell>

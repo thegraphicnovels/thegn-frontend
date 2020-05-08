@@ -6,7 +6,7 @@ import {
   tagCreateQuery,
   tagModifyQuery,
   tagDeleteQuery,
-} from 'apollo/tagQuery';
+} from 'Apollo/tagQuery';
 import ManageTagPresenter from './ManageTagPresenter';
 
 const ManageTagContainer = () => {
@@ -25,7 +25,7 @@ const ManageTagContainer = () => {
   const [tagModifyMutation] = useMutation(tagModifyQuery);
   const [tagDeleteMutation] = useMutation(tagDeleteQuery);
 
-  const handleTagCreate = async e => {
+  const handleTagCreate = async (e) => {
     e.preventDefault();
     try {
       const {
@@ -43,7 +43,7 @@ const ManageTagContainer = () => {
     }
   };
 
-  const handleTagModify = async e => {
+  const handleTagModify = async (e) => {
     if (window.confirm('Do you want to edit this Tag?')) {
       try {
         const id = Object.keys(e);
@@ -98,7 +98,7 @@ const ManageTagContainer = () => {
     setPage(newPage);
   };
 
-  const handleChangeRowsPerPage = event => {
+  const handleChangeRowsPerPage = (event) => {
     setRowsPerPage(+event.target.value);
     setPage(0);
   };
@@ -109,7 +109,7 @@ const ManageTagContainer = () => {
     setOrderBy(property);
   };
 
-  const createSortHandler = property => event => {
+  const createSortHandler = (property) => (event) => {
     handleRequestSort(event, property);
   };
 
@@ -130,7 +130,7 @@ const ManageTagContainer = () => {
       if (ordered !== 0) return ordered;
       return a[1] - b[1];
     });
-    return stabilizedThis.map(el => el[0]);
+    return stabilizedThis.map((el) => el[0]);
   };
 
   const getSorting = (ordered, orderedBy) => {
