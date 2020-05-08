@@ -1,10 +1,10 @@
 import React, { useRef, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/react-hooks';
-import { AdminMenuFn, moGnbOpenFn } from 'common';
-import { Store } from 'store';
 import { LOCAL_LOG_OUT } from '../Apollo/loginQuery';
 import searchBox from '../Components/searchBox';
+import { Store } from '../store';
+import { moGnbOpenFn, AdminMenuFn } from '../common';
 
 const Header = () => {
   const { logged } = useContext(Store);

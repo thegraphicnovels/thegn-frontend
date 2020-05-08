@@ -1,10 +1,10 @@
 import React, { useRef, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { swiperFn } from 'common';
 import { useQuery } from '@apollo/react-hooks';
-import { Store } from 'store';
 import { mainBannerQuery } from '../Apollo/mainBannerQuery';
+import { Store } from '../store';
+import { swiperFn } from '../common';
 
 const Mainswiper = ({ action }) => {
   const swiperEl = useRef(null);

@@ -1,11 +1,11 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { masonryFn } from 'common';
 import { useQuery } from '@apollo/react-hooks';
 import { archiveQuery } from '../Apollo/archiveQuery';
 import TagMenu from '../Components/tag_menu';
 import Paging from '../Components/paging';
+import { masonryFn } from '../common';
 
 const Archive = ({ action }) => {
   const limit = 10;

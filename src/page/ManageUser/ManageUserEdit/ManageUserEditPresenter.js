@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import NaviList from 'Components/naviList';
-import { formatDate } from 'common';
 import Loader from '../../../Components/loader';
+import naviList from '../../../Components/naviList';
+import { formatDate } from '../../../common';
 
 const ManageUserEditPresenter = ({
   userData,
@@ -19,7 +19,7 @@ const ManageUserEditPresenter = ({
     <Loader />
   ) : (
     <div className="contents">
-      <NaviList />
+      <naviList />
 
       <div className="registBox">
         <h2>User</h2>

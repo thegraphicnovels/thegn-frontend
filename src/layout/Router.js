@@ -6,22 +6,21 @@ import {
   Switch,
   Redirect,
 } from 'react-router-dom';
-import Header from 'layout/header';
-import Footer from 'layout/footer';
-import Scratch from 'layout/scratch';
-import Main from 'page/main';
-import Login from 'page/login_page';
-import ArchiveDetail from 'page/archive_detail';
-import ArchiveSearch from 'page/archive_search';
-import ManageArchive from 'page/ManageArchive/ManageArchiveList';
-import ManageArchiveEdit from 'page/ManageArchive/ManageArchiveEdit';
-import ManageTag from 'page/ManageTag';
-import MainBanner from 'page/ManageMainBanner/ManageMainBannerList';
-import ManageMainBannerEdit from 'page/ManageMainBanner/ManageMainBannerEdit';
-import NaviList from 'Components/naviList';
-import ManageUserList from 'page/ManageUser/ManageUserList';
-import ManageUser from 'page/ManageUser/ManageUserEdit';
-import { Store } from 'store';
+import Login from '../page/login_page';
+import ArchiveDetail from '../page/archive_detail';
+import ArchiveSearch from '../page/archive_search';
+import ManageArchive from '../page/ManageArchive/ManageArchiveList';
+import ManageArchiveEdit from '../page/ManageArchive/ManageArchiveEdit';
+import ManageTag from '../page/ManageTag';
+import MainBanner from '../page/ManageMainBanner/ManageMainBannerList';
+import ManageMainBannerEdit from '../page/ManageMainBanner/ManageMainBannerEdit';
+import ManageUserList from '../page/ManageUser/ManageUserList';
+import ManageUser from '../page/ManageUser/ManageUserEdit';
+import Main from '../page/main';
+import naviList from '../Components/naviList';
+import Header from './header';
+import Footer from './footer';
+import { Store } from '../store';
 
 const PageUrl = ({ logged }) => {
   return (
@@ -67,7 +66,7 @@ const Router = () => {
   return (
     <BRouter>
       <Header />
-      <NaviList />
+      <naviList />
       <div id="container">
         <PageUrl logged={logged} />
       </div>

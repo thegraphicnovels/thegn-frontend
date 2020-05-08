@@ -1,8 +1,8 @@
 import React, { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { useQuery } from '@apollo/react-hooks';
-import { tagMenuFn } from 'common';
 import { tagQuery } from '../Apollo/tagQuery';
+import { tagMenuFn } from '../common';
 
 const TagMenu = ({ refetch, setTag }) => {
   const tagMenuEl = useRef(null);
