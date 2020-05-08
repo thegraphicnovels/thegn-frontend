@@ -23,14 +23,14 @@ const About = ({ action }) => {
 								core of our business – manifested mostly into design for branding,
 								packaging and associated collateral.
 							</div>
-							<div className="snsBox">
+							{/*<div className="snsBox">
 								<Link to="/" className="btnInsta">
 									<img src="/resources/images/icon_insta.svg" alt="instagram" />
 								</Link>
 								<Link to="/" className="btnBe">
 									<img src="/resources/images/icon_Be.svg" alt="instagram" />
 								</Link>
-							</div>
+							</div> */}
 						</div>
 					</div>
 					{/* <div className="snsBox">

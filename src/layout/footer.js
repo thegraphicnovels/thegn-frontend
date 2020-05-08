@@ -25,16 +25,16 @@ const Footer = () => {
           We dream, explore and create progressive design
         </div>
         <div className="fInfoR">
-          <p>디자인 스튜디오 | 더그래픽노블스</p>
-          <p>The Graphic Novels</p>
+          <p className="infoTit">디자인 스튜디오 | 더그래픽노블스<br></br>
+          The Graphic Novels</p>
           <p>
-            A. 서울시 광진구 자양로 214 4F 04976 214, Jayang-ro, Gwangjin-gu,
-            Seoul, Republic of Korea
+            A. 서울시 광진구 자양로 214 4F 04976 <br></br>
+            / 214, Jayang-ro, Gwangjin-gu, Seoul, Republic of Korea
           </p>
-          <p>T. 02-455-9199 E. the-gn@the-gn.com</p>
-
-          <p className="copyright">ⓒ The Graphic Novels All rights reserved</p>
+          <p>T. 02-455-9199 <br></br>
+          E. the-gn@the-gn.com</p>
         </div>
+        <p className="copyright">ⓒ The Graphic Novels All rights reserved</p>
       </div>
     </footer>
   );
