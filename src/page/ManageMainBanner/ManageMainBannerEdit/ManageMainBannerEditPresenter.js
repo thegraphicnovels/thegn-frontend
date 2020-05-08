@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Loader from '../../../components/loader';
-import naviList from '../../../components/naviList';
+import NaviList from '../../../components/naviList';
 import FilePond from '../../../components/filePond';
 
 const ManageMainBannerEditPresenter = ({
@@ -24,7 +24,7 @@ const ManageMainBannerEditPresenter = ({
     <Loader />
   ) : (
     <div className="contents">
-      <naviList />
+      <NaviList />
 
       <div className="registBox">
         <h2>Main Banner</h2>

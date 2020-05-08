@@ -11,7 +11,7 @@ import TableRow from '@material-ui/core/TableRow';
 import TableSortLabel from '@material-ui/core/TableSortLabel';
 import { RIEInput } from 'riek';
 import { formatDate } from '../../common';
-import naviList from '../../components/naviList';
+import NaviList from '../../components/naviList';
 
 const useStyles = makeStyles({
   root: {
@@ -82,7 +82,7 @@ const ManageTagPresenter = ({
 
   return (
     <div className="contents">
-      <naviList />
+      <NaviList />
 
       <div className="registBox">
         <h2>Tag</h2>
