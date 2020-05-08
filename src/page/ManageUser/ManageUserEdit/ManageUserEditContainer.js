@@ -7,7 +7,7 @@ import {
   userCreateQuery,
   userModifyQuery,
   userDeleteQuery,
-} from '../../../apollo/userQuery';
+} from '../../../Apollo/userQuery';
 import ManageUserEditPresenter from './ManageUserEditPresenter';
 
 const ManageUserEditContainer = ({

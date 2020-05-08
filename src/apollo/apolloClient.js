@@ -3,7 +3,7 @@ import { createPersistedQueryLink } from 'apollo-link-persisted-queries';
 import { createHttpLink } from 'apollo-link-http';
 import { InMemoryCache } from 'apollo-cache-inmemory';
 import { ApolloLink } from 'apollo-link';
-import { resolvers } from 'apollo/localState';
+import { resolvers } from 'Apollo/localState';
 
 const cache = new InMemoryCache();
 cache.writeData({

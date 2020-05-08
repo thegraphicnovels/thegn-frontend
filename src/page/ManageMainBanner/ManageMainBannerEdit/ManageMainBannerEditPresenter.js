@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import FilePond from 'components/filePond';
-import NaviList from 'components/naviList';
-import Loader from '../../../components/loader';
+import FilePond from 'Components/filePond';
+import NaviList from 'Components/naviList';
+import Loader from '../../../Components/loader';
 
 const ManageMainBannerEditPresenter = ({
   title,
@@ -59,12 +59,12 @@ const ManageMainBannerEditPresenter = ({
                   <label htmlFor="selectPortpolio" className="selectBox">
                     <select
                       id="selectPortpolio"
-                      onChange={e => setPortId(e.target.value)}
+                      onChange={(e) => setPortId(e.target.value)}
                       defaultValue={portId}
                     >
                       <option value="">- Choose Portpolio -</option>
                       {selectPortpolioData.seePortpolios.portpolios.map(
-                        portpolio => (
+                        (portpolio) => (
                           <option key={portpolio._id} value={portpolio._id}>
                             {portpolio.title}
                           </option>

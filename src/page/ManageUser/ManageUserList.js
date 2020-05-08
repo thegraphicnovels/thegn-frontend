@@ -12,8 +12,8 @@ import TableRow from '@material-ui/core/TableRow';
 import TableSortLabel from '@material-ui/core/TableSortLabel';
 import { formatDate } from 'common';
 import { useQuery } from '@apollo/react-hooks';
-import { userListQuery } from 'apollo/userQuery';
-import NaviList from 'components/naviList';
+import { userListQuery } from 'Apollo/userQuery';
+import NaviList from 'Components/naviList';
 
 const useStyles = makeStyles({
   root: {

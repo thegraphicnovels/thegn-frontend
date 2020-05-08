@@ -2,12 +2,12 @@ import React, { useContext, useRef } from 'react';
 import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { Store } from 'store';
-import SearchBox from 'components/searchBox';
+import SearchBox from 'Components/searchBox';
 
 const NaviList = ({ history }) => {
   const { setAction, scratchEl } = useContext(Store);
   const naviEl = useRef(null);
-  const chMainPageFn = idx => {
+  const chMainPageFn = (idx) => {
     // if (action !== idx) {
     if (idx) {
       setAction(idx);

@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ToggleComponent from 'components/toggle';
-import FilePond from 'components/filePond';
-import NaviList from 'components/naviList';
-import Loader from '../../../components/loader';
+import ToggleComponent from 'Components/toggle';
+import FilePond from 'Components/filePond';
+import NaviList from 'Components/naviList';
+import Loader from '../../../Components/loader';
 
 const ManageArchiveEditPresenter = ({
   filepondEl,
@@ -72,7 +72,7 @@ const ManageArchiveEditPresenter = ({
               {tagData && (
                 <div className="tagListBox">
                   <ul>
-                    {tagData.seeTags.map(tag => {
+                    {tagData.seeTags.map((tag) => {
                       let duplicateChk = false;
                       if (tags) {
                         duplicateChk = findDuplicates(tags, tag._id);
