@@ -6,8 +6,8 @@ import 'core-js/features/number/is-nan';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { ApolloProvider } from '@apollo/react-hooks';
-import Client from './Apollo/apolloClient';
 import App from './layout/App';
+import Client from './Apollo/apolloClient';
 
 ReactDOM.render(
   <ApolloProvider client={Client}>
