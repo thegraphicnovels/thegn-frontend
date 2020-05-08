@@ -24,7 +24,7 @@ const RelatedList = ({ related, portpolioId }) => {
           <em className="blind">이전</em>
         </button>
         <ul className="swiper-wrapper">
-          {related.map(relatedData => {
+          {related.map((relatedData) => {
             if (portpolioId !== relatedData._id) {
               return (
                 <li key={relatedData._id} className="swiper-slide">

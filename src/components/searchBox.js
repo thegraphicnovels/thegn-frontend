@@ -2,14 +2,14 @@ import React, { useEffect, useRef } from 'react';
 import { withRouter } from 'react-router-dom';
 import { useInput } from 'rooks';
 import PropTypes from 'prop-types';
+import { srchBoxFn } from '../common';
 // import { placeholderFn } from 'common';
-import { srchBoxFn } from 'common';
 
 const SearchBox = ({ history, searchId, chMainPageFn }) => {
   const srchEl = useRef(null);
   const keyword = useInput('');
 
-  const onSearchSubmit = e => {
+  const onSearchSubmit = (e) => {
     e.preventDefault();
     // if (e.key === 'Enter') {
     if (chMainPageFn) {

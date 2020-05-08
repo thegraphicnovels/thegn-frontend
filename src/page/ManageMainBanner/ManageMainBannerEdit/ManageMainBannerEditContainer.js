@@ -1,17 +1,16 @@
 import React, { useState, useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useQuery, useMutation, useLazyQuery } from '@apollo/react-hooks';
-import { archiveSelectQuery } from 'Apollo/archiveQuery';
 import request from 'superagent';
+import { useInput } from 'rooks';
+import ManageMainBannerEditPresenter from './ManageMainBannerEditPresenter';
+import { archiveSelectQuery } from '../../../apollo/archiveQuery';
 import {
+  mainBannerDetailQuery,
   mainBannerUploadQuery,
   mainBannerModifyQuery,
   mainBannerDeleteQuery,
-  mainBannerDetailQuery,
-} from 'Apollo/mainBannerQuery';
-
-import { useInput } from 'rooks';
-import ManageMainBannerEditPresenter from './ManageMainBannerEditPresenter';
+} from '../../../apollo/mainBannerQuery';
 
 const ManageMainBannerEditContainer = ({
   history,

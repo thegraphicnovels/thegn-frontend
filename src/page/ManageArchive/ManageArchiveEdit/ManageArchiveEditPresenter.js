@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ToggleComponent from 'Components/toggle';
-import FilePond from 'Components/filePond';
-import NaviList from 'Components/naviList';
-import Loader from '../../../Components/loader';
+import Loader from '../../../components/loader';
+import naviList from '../../../components/naviList';
+import ToggleComponent from '../../../components/toggle';
+import FilePond from '../../../components/filePond';
 
 const ManageArchiveEditPresenter = ({
   filepondEl,
@@ -31,7 +31,7 @@ const ManageArchiveEditPresenter = ({
     <Loader />
   ) : (
     <div className="contents registBox">
-      <NaviList />
+      <naviList />
 
       <h2>Archive</h2>
       <table>

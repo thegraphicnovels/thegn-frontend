@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { useInput } from 'rooks';
 import { useMutation, useQuery } from '@apollo/react-hooks';
+import ManageTagPresenter from './ManageTagPresenter';
 import {
   tagQuery,
   tagCreateQuery,
   tagModifyQuery,
   tagDeleteQuery,
-} from 'Apollo/tagQuery';
-import ManageTagPresenter from './ManageTagPresenter';
+} from '../../apollo/tagQuery';
 
 const ManageTagContainer = () => {
   const tag = useInput('');

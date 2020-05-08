@@ -2,8 +2,8 @@ import React, { useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useMutation } from '@apollo/react-hooks';
 import { useInput } from 'rooks';
-import { LOGIN_USER, LOCAL_LOG_IN } from 'Apollo/loginQuery';
 import { placeholderFn } from 'common';
+import { LOGIN_USER, LOCAL_LOG_IN } from '../apollo/loginQuery';
 
 const Login = ({ isPopOpen, setPopOpen }) => {
   // useInput validation

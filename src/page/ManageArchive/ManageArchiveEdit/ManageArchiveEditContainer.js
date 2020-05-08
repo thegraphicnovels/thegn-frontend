@@ -1,16 +1,16 @@
 import React, { useState, useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useQuery, useMutation, useLazyQuery } from '@apollo/react-hooks';
-import { tagQuery } from 'Apollo/tagQuery';
+import { useInput } from 'rooks';
+import request from 'superagent';
+import ManageArchiveEditPresenter from './ManageArchiveEditPresenter';
+import { tagQuery } from '../../../apollo/tagQuery';
 import {
   archiveDetailQuery,
   archiveUploadQuery,
   archiveModifyQuery,
   archiveDeleteQuery,
-} from 'Apollo/archiveQuery';
-import { useInput } from 'rooks';
-import request from 'superagent';
-import ManageArchiveEditPresenter from './ManageArchiveEditPresenter';
+} from '../../../apollo/archiveQuery';
 
 const ManageArchiveEditContainer = ({
   history,
