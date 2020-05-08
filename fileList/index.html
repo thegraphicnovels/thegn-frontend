@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+<title>The Graphic Novels</title>
+<script type="text/javascript" src="../resources/js/jquery-3.3.1.min.js"></script>
+
+<style type="text/css">
+body {padding:0; margin:0; font-size:0.75em; font-family:dotum,"돋움"; color:#333333;}
+* {padding:0;margin:0;}
+#wrap {padding:20px 0 0;}
+#header {overflow:hidden; padding:0 15px;}
+#header h1 {float:left; padding:0; margin:0; font-size:30px; line-height:80px; color:#666666; font-family:Arial;}
+#header .logo {float:right; padding:0; margin:0;background:#448aca;}
+
+#depth1 ul {display:block;overflow:hidden; white-space:nowrap; padding:5px 10px; margin:0; list-style:none; background:#eeeeee;}
+#depth1 ul li {float:left; padding:0; margin:0 10px;text-align:center;}
+#depth1 ul li a {display:block;}
+
+.stepInfo {clear:both; padding:0; margin:5px 0; text-align:right;}
+.stepInfo li {display:inline; margin-right:10px; font-size:12px;}
+.stepInfo li span {display:inline-block; width:35px; height:13px; margin-right:3px; vertical-align:top;}
+.listTbl {width:100%; padding:0; margin:0; border:0; border-bottom:1px solid #e7e7e7; border-collapse:collapse;}
+.listTbl thead th {height:24px;padding:5px 10px; font-weight:normal; border:1px solid #666666; white-space:nowrap;}
+.listTbl thead th:last-child {border-right:0;}
+.listTbl tbody th {height:24px; padding:5px 10px; font-size:16px; text-align:left; border-bottom:1px solid #666;border-top:1px solid #666; background:#eeeeee; cursor:pointer;}
+.listTbl tbody td {height:24px; padding:0 10px; border:1px solid #e7e7e7; border-bottom:0; color:#666666}
+.listTbl th.depth2 {background:#fceff7; border-left:0;}
+.listTbl td.depth2 {white-space:nowrap; text-align:left; background:#fceff7; border-top-color:#e7e7e7;}
+.listTbl th.depth3 {background:#f2fcef;}
+.listTbl td.depth3 {white-space:nowrap; text-align:left; background:#f2fcef; border-top-color:#e7e7e7;}
+.listTbl th.depth4 {background:#efeffc;}
+.listTbl td.depth4 {white-space:nowrap; text-align:left; background:#efeffc; border-top-color:#e7e7e7;}
+.listTbl th.depth5 {background:#fcfcef;}
+.listTbl td.depth5 {white-space:nowrap; text-align:left; background:#fcfcef; border-top-color:#e7e7e7;}
+.listTbl th.popup {background:#effafc;}
+.listTbl td.popup {white-space:nowrap; text-align:left; background:#effafc; border-top-color:#e7e7e7;}
+
+/*
+@media(max-width:780px) {
+.listTbl thead th {display:none; }
+.listTbl tr > td:nth-child(4),
+.listTbl tr > td:nth-child(6),
+.listTbl tr > td:nth-child(7),
+.listTbl tr > td:nth-child(8) {display:none;}
+}
+*/
+
+.listTbl tbody tr td:nth-child(4) {white-space:nowrap;}
+.listTbl td.link {text-align:center;}
+.listTbl td.link a {white-space:nowrap;}
+.listTbl td.psd,
+.listTbl td.endHtml,
+.listTbl td.check1,
+.listTbl td.check2,
+.listTbl td.end,
+.listTbl td.name {text-align:center; white-space:nowrap;}
+.listTbl th.name,
+.listTbl th.last,
+.listTbl td.name {border-right:0 !important;}
+.listTbl tr:hover td {background:#548bcc !important; color:#ffffff;}
+.step0,
+.listTbl tr td.step0 {text-align:center;}
+.step1,
+.listTbl tr td.step1 {text-align:center; background:#999999 !important; color:#ffffff !important;}
+.step2,
+.listTbl tr td.step2 {text-align:center; background:#000000 !important; color:#ffffff !important;}
+.step3,
+.listTbl tr td.step3 {text-align:center; background:#fce8b2 !important; color:#000 !important;}
+#footer {position:fixed; left:0; bottom:0; width:100%;}
+#footer .goTop {text-align:right;}
+#footer .goTop a {display:inline-block; padding:1px 3px; text-decoration:none; background:#666666; color:#fff;}
+#footer .footBg {overflow:hidden; padding:10px 0 10px 10px; background:#eeeeee; border-top:1px solid #666666;}
+#footer .progress,
+#footer .nameList {padding:5px 0 0; margin:0; }
+#footer .progress li,
+#footer .nameList li {display:inline; padding:0; margin:0 10px 0 0; color:blue; }
+#footer .nameList {display:block;}
+#footer .tempMenu {float:right; white-space:nowrap; padding:0; margin:0; list-style:none;}
+#footer .tempMenu li {display:inline; padding:0; margin:0 10px;}
+#footer .info {padding:0; margin:0; list-style:none;}
+#container {padding-bottom:150px;}
+
+.ajax,.listTbl tr.ajax td {background:yellow;}
+
+.pageNum {padding:0; margin:0 5px; font-size:14px; font-weight:bold;}
+
+/* [class*="group"] {display:none;} */
+
+.guide {position:fixed;top:0;left:0;right:0;padding:10px; border-bottom:2px solid #333;background:#fff;}
+.guide button {padding:5px;border:2px solid #000;background:#fff;}
+.guide ul {display:none;margin:10px 0 0;list-style:none;color:#fff;}
+.guide ul li {float:left;}
+.guide ul li a {display:block;padding:10px;color:#fff;font-size:16px;font-weight:bold;background:#000;}
+
+</style>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('.pageNum .total').text('총 ' + $('.listTbl td.end').length + ' page');
+		$('.pageNum .end').text('완료 ' + $('.listTbl td.step2').length + ' page');
+		$('.pageNum .progress').text('진행률 ' + Math.floor(($('.listTbl td.step2').length / $('.listTbl td.end').length) *100) + ' %');
+
+		// $('th').click(function(){
+		// 	var $target = $(this).attr('id'),
+		// 		 $target = $('.'+$target);
+		// 	if(!$target.is(':hidden')){
+		// 		$target.hide();
+		// 	}else{
+		// 		$("[class*='group']").hide();
+		// 		$target.show();
+		// 	}
+		// });
+
+		$('.guide button').click(function() {
+			if($(this).next().is(':hidden')) {
+				$(this).next().show();
+			}else{
+				$(this).next().hide();
+			}
+		});
+
+	});
+</script>
+</head>
+
+<body>
+<div id="wrap">
+	<!-- header -->
+	<div id="header">
+		<h1>The Graphic Novels</h1>
+		<!-- <p class="logo"><img src=".png" alt="The Graphic Novels" /></p> -->
+	</div>
+	 <!-- //header -->
+
+<!-- <div class="guide">
+	<button type="button">가이드 리스트</button>
+	<ul >
+		<li><a href="../html/guide/guide.html" target="_blank">layout</a></li>
+	</ul>
+</div> -->
+
+
+<!-- container -->
+
+<div id="container">
+<div class="pageNum">
+	<span class="total"></span> / <span class="end"></span> / <span class="progress"></span>
+</div>
+<div id="depth1">
+	<ul>
+		<!-- <li><a href="../html/guide/guide03.html" target="_blank" style="font-size:15px; font-weight:bold; color:#ed1b2f; text-decoration:none;">가이드<br />(공통)</a></li>
+		<li><a href="../html/guide/guide.html" target="_blank" style="font-size:15px; font-weight:bold; color:#ed1b2f; text-decoration:none;">가이드<br />(리스트페이지)</a></li>
+		<li><a href="../html/guide/guide02.html" target="_blank" style="font-size:15px; font-weight:bold; color:#ed1b2f; text-decoration:none;">가이드<br />(상세페이지)</a></li> -->
+	</ul>
+</div>
+<ul class="stepInfo">
+	<li><span class="step1"></span>진행중</li>
+	<li><span class="step2"></span>완료</li>
+</ul>
+<table class="listTbl" summary="코딩 파일 리스트입니다.">
+<caption></caption>
+<colgroup>
+	<col colspan="8" width="auto"/>
+</colgroup>
+<thead>
+<tr>
+	<th scope="col" class="depth2">2DEPTH</th>
+	<th scope="col" class="depth3">3DEPTH</th>
+	<th scope="col" class="depth3">4DEPTH</th>
+	<th scope="col">비고</th>
+	<th scope="col">화면ID(링크)</th>
+	<th scope="col"></th>
+	<th scope="col">기획</th>
+	<th scope="col">완료</th>
+</tr>
+</thead>
+<tbody>
+<!-- Main -->
+<tr>
+	<th scope="col" id="group01" class="last" colspan="8">Main</th>
+</tr>
+<tr class="group01">
+	<td class="depth2">MAIN</td>
+	<td class="depth3"></td>
+	<td class="depth4"></td>
+	<td></td>
+	<td class="link"><a href="../html/index.html" target="_blank">MAIN Sample01</a></td>
+	<td></td>
+	<td></td>
+	<td class="end step0">X</td>
+</tr>
+<tr class="group01">
+	<td class="depth2"></td>
+	<td class="depth3"></td>
+	<td class="depth4"></td>
+	<td></td>
+	<td class="link"><a href="../html/index02.html" target="_blank">MAIN Sample02</a></td>
+	<td></td>
+	<td></td>
+	<td class="end step0">X</td>
+</tr>
+<tr class="group01">
+	<td class="depth2"></td>
+	<td class="depth3"></td>
+	<td class="depth4"></td>
+	<td></td>
+	<td class="link"><a href="../html/index03.html" target="_blank">MAIN Sample03</a></td>
+	<td></td>
+	<td></td>
+	<td class="end step0">X</td>
+</tr>
+<!-- //Main -->
+
+<!-- sub -->
+<tr>
+	<th scope="col" id="group02" class="last" colspan="8">sub</th>
+</tr>
+<tr class="group01">
+	<td class="depth2"></td>
+	<td class="depth3"></td>
+	<td class="depth4"></td>
+	<td></td>
+	<td class="link"><a href="../html/.html" target="_blank"></a></td>
+	<td></td>
+	<td></td>
+	<td class="end step0">X</td>
+</tr>
+<!-- sub -->
+
+
+
+</tbody>
+</table>
+</div>
+</div>
+</body>
+</html>
