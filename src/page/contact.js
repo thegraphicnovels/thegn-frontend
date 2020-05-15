@@ -9,7 +9,9 @@ const Contact = ({ action }) => {
         <div className="contactInfoBox">
           <div className="infoInner">
             <strong>
-              디자인 스튜디오 <span>더그래픽노블스 The Graphic Novels</span>
+              디자인 스튜디오
+              <br />
+              <span>더그래픽노블스</span>
             </strong>
             <h1>The Graphic Novels</h1>
             <div className="infoBox">

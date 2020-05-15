@@ -73,8 +73,8 @@ input[type='text'] {
   margin: 0 0 0 20px;
 }
 
-/*************************** 769 ***************************/
-@media screen and (max-width: 768px) {
+/*************************** 550 ***************************/
+@media screen and (max-width: 550px) {
   [class^='btnCustm'] {
     display: inline-block;
   }
@@ -190,8 +190,8 @@ input[type='text'] {
     display: block;
   }
 }
-/*************************** 769 ***************************/
-@media screen and (max-width: 768px) {
+/*************************** 550 ***************************/
+@media screen and (max-width: 550px) {
   .mainSwipeWrap .swiper-wrapper .swiper-slide {
     height: calc(100vh - 115px);
   }
@@ -204,14 +204,14 @@ input[type='text'] {
     position: absolute;
     left: 20px;
     right: 20px;
-    top: auto;
+    top: 50%;
     bottom: 30px;
     width: auto;
     transform: translate(0, 0);
   }
   .mainSwipeWrap .swiper-wrapper .swiper-slide .imgTxt .tits {
     max-height: 150px;
-    line-height: 30px;
+    line-height: 22px;
     font-size: 16px;
   }
   .mainSwipeWrap .swiper-wrapper .swiper-slide .imgTxt .tags {
@@ -236,7 +236,7 @@ input[type='text'] {
   overflow: hidden;
   position: fixed;
   left: 0;
-  top: 90px;
+  top: 10px;
   bottom: 90px;
   width: 0;
   z-index: 5;
@@ -244,7 +244,7 @@ input[type='text'] {
 .archiveWrap .tagMenu > button {
   position: absolute;
   left: 120px;
-  top: 50%;
+  top: calc(50% + 40px);
   width: 20px;
   height: 20px;
   background-image: url('../images/archive_btn_tag.svg');
@@ -278,12 +278,12 @@ input[type='text'] {
 .archiveWrap .tagMenu .swiperScrollBox ul li button {
   display: block;
   width: 100%;
-  line-height: 29px;
-  font-size: 19px;
+  line-height: 38px;
+  font-size: 20px;
   font-weight: 300;
   color: #fff;
   text-align: left;
-  letter-spacing: -0.6px;
+  letter-spacing: 0.5px;
 }
 .archiveWrap .tagMenu .swiperScrollBox .swiper-scrollbar {
   position: absolute;
@@ -343,7 +343,7 @@ input[type='text'] {
   display: block;
   box-sizing: border-box;
   float: left;
-  padding: 20px;
+  padding: 20px 17px 70px 17px;
 }
 .archiveWrap .archiveListWrap .grid .grid-item a {
   display: block;
@@ -374,17 +374,25 @@ input[type='text'] {
   overflow: hidden;
 }
 /* .archiveWrap .archiveListWrap .grid .grid-item a .itemFrame .inner {position:absolute;left:0;right:0;top:50%;padding:0 10px;transform:translate(0, -50%);} */
+
+/* .archiveWrap .archiveListWrap .grid .grid-item a .itemFrame .inner .tits {display:block;margin-top:3px;line-height:22px;letter-spacing:-0.05px;font-size:19px;font-weight:700;color:#343434;} */
+
 .archiveWrap .archiveListWrap .grid .grid-item a .itemFrame .inner .tits {
   display: block;
-  line-height: 29px;
-  font-size: 19px;
+  padding-top: 5px;
+  line-height: 24px;
+  letter-spacing: -0.05px; /*word-spacing:2px;*/
+  font-size: 20px;
   font-weight: 700;
   color: #343434;
 }
+
 .archiveWrap .archiveListWrap .grid .grid-item a .itemFrame .inner .tags {
   display: block;
-  line-height: 20px;
-  font-size: 14px;
+  margin-top: 3px;
+  line-height: 19px;
+  letter-spacing: -0.05px;
+  font-size: 15px;
   color: #343434;
 }
 .archiveWrap .archiveListWrap .grid .grid-item a:hover .img:after {
@@ -402,7 +410,7 @@ input[type='text'] {
     top: 55px;
     left: 0;
     right: 0;
-    bottom: initial;
+    bottom: initial; /*height: 100vh;*/
   }
   .archiveWrap .tagMenu > button {
     left: 50%;
@@ -450,13 +458,23 @@ input[type='text'] {
     overflow: hidden;
     margin: 0;
   }
-  .archiveWrap .archiveListWrap .grid .grid-item a {
-    text-align: center;
+  .archiveWrap .archiveListWrap .grid {
+    margin: 20px 0 0;
   }
+  .archiveWrap .archiveListWrap .grid .grid-item {
+    display: block;
+    box-sizing: border-box;
+    float: left;
+    padding: 0 30px 70px;
+  }
+  .archiveWrap .archiveListWrap .grid .grid-item a {
+    text-align: left;
+  }
+  /* .archiveWrap .archiveListWrap .grid .grid-item a .img {border-bottom:1px solid #343434;} */
   .archiveWrap .archiveListWrap .grid .grid-item a .itemFrame {
     display: block;
     position: static;
-    margin: 15px 0 0;
+    margin: 10px 0 0;
     background-color: transparent;
   }
   .archiveWrap .archiveListWrap .grid .grid-item a .itemFrame .inner {
@@ -464,27 +482,30 @@ input[type='text'] {
     transform: translate(0, 0);
   }
   .archiveWrap .archiveListWrap .grid .grid-item a .itemFrame .inner .tits {
-    line-height: 29px;
-    font-size: 19px;
-    color: #000;
+    line-height: 22px;
+    font-size: 20px;
+    padding-top: 0px;
   }
   .archiveWrap .archiveListWrap .grid .grid-item a .itemFrame .inner .tags {
-    margin: 10px 0 0;
-    line-height: 20px;
-    font-size: 14px;
-    color: #000;
+    margin: 5px 0 0;
+    line-height: 22px;
+    font-size: 16px;
   }
 }
 
-/*************************** 768 - tablet ***************************/
-@media screen and (max-width: 768px) {
+/*************************** 550 - tablet ***************************/
+@media screen and (max-width: 550px) {
+  .archiveWrap {
+    overflow: hidden;
+    margin: 35px 0 40px;
+  }
   .archiveWrap .tagMenu {
     top: 36px;
   }
   .archiveWrap .tagMenu > button {
-    top: 0;
-    width: 14px;
-    height: 14px;
+    top: 23px;
+    width: 18px;
+    height: 18px;
     background-size: 100% auto;
   }
   .archiveWrap .tagMenu.active > button {
@@ -509,13 +530,19 @@ input[type='text'] {
     font-size: 18px;
   }
 
+  .archiveWrap .archiveListWrap .grid .grid-item {
+    display: block;
+    box-sizing: border-box;
+    float: left;
+    padding: 0 10px 40px;
+  }
   .archiveWrap .archiveListWrap .grid .grid-item a {
-    text-align: center;
+    text-align: left;
   }
   .archiveWrap .archiveListWrap .grid .grid-item a .itemFrame {
     display: block;
     position: static;
-    margin: 10px 0 0;
+    margin: -1px 0 0;
     background-color: transparent;
   }
   .archiveWrap .archiveListWrap .grid .grid-item a .itemFrame .inner {
@@ -523,15 +550,13 @@ input[type='text'] {
     transform: translate(0, 0);
   }
   .archiveWrap .archiveListWrap .grid .grid-item a .itemFrame .inner .tits {
-    line-height: 30px;
-    font-size: 20px;
-    color: #000;
+    line-height: 22px;
+    font-size: 18px;
   }
   .archiveWrap .archiveListWrap .grid .grid-item a .itemFrame .inner .tags {
-    margin: 5px 0 0;
+    margin: 4px 0 0;
     line-height: 20px;
-    font-size: 14px;
-    color: #000;
+    font-size: 15px;
   }
 }
 
@@ -540,13 +565,13 @@ input[type='text'] {
 **************************************************************************************/
 .archiveDescriptWrap {
   overflow: hidden;
-  margin: 0 190px 0 0;
+  margin: 0 165px 0 0;
 }
 .archiveDescriptWrap .descriptThum {
   overflow: hidden;
   position: relative;
   float: left;
-  width: 60%;
+  width: 63%; /* border-right: 1px solid #343434; */
 }
 .archiveDescriptWrap .descriptThum .swiper-wrapper {
   overflow: hidden;
@@ -566,7 +591,7 @@ input[type='text'] {
 .archiveDescriptWrap .descriptThum .btnPrev {
   display: none;
   position: absolute;
-  left: 104px;
+  left: 18%;
   top: 50%;
   width: 22px;
   height: 22px;
@@ -578,7 +603,7 @@ input[type='text'] {
 .archiveDescriptWrap .descriptThum .btnNext {
   display: none;
   position: absolute;
-  right: 24px;
+  right: 10%;
   top: 50%;
   width: 22px;
   height: 22px;
@@ -622,44 +647,50 @@ input[type='text'] {
   box-sizing: border-box;
   float: right;
   position: relative;
-  width: 35%;
-  height: calc(100vh - 180px);
-  padding: 20px 5px 0 0;
+  width: 32%;
+  height: calc(100vh - 180px); /* padding:0 30px 0 0; */
 }
+/* .archiveDescriptWrap .descriptBox::-webkit-scrollbar {width:10px;}
+.archiveDescriptWrap .descriptBox::-webkit-scrollbar-thumb {border-radius:5px;background-color:#343434;}
+.archiveDescriptWrap .descriptBox::-webkit-scrollbar-track {background:url('../images/bg_scroll_line.gif') repeat-y center;} */
+
 .archiveDescriptWrap .descriptBox::-webkit-scrollbar {
-  width: 10px;
+  width: 0px;
 }
 .archiveDescriptWrap .descriptBox::-webkit-scrollbar-thumb {
   border-radius: 5px;
   background-color: #343434;
 }
-.archiveDescriptWrap .descriptBox::-webkit-scrollbar-track {
-  background: url('../images/bg_scroll_line.gif') repeat-y center;
-}
 
 .archiveDescriptWrap .descriptBox strong {
   display: block;
-  line-height: 34px;
-  font-size: 24px;
+  letter-spacing: 0.3px;
+  line-height: 43px;
+  font-size: 35px;
   font-weight: 900;
 }
 /* .archiveDescriptWrap .descriptBox .date {line-height:36px;font-size÷:26px;font-weight:300;} */
 .archiveDescriptWrap .descriptBox .tag {
-  line-height: 30px;
-  font-size: 20px;
-  font-weight: 300;
+  letter-spacing: 0.3px;
+  line-height: 37px;
+  font-size: 25px;
+  font-weight: 100;
 }
 .archiveDescriptWrap .descriptBox .txt {
-  line-height: 32px;
+  font-family: 'spoqa han sans';
+  font-weight: 100;
+  letter-spacing: -0.5px;
+  line-height: 37px;
   font-size: 22px;
+  word-break: keep-all;
 }
 .archiveDescriptWrap .descriptBox strong + .date,
 .archiveDescriptWrap .descriptBox strong + .tag {
-  margin: 20px 0 0;
+  margin: 25px 0 0;
 }
 .archiveDescriptWrap .descriptBox .date + .txt,
 .archiveDescriptWrap .descriptBox .tag + .txt {
-  margin: 20px 0 0;
+  margin: 125px 0 0;
 }
 .archiveDescriptWrap .descriptBox .btnDescriptBox {
   position: absolute;
@@ -789,12 +820,12 @@ input[type='text'] {
 /*************************** 1024 ***************************/
 @media screen and (max-width: 1024px) {
   .archiveDescriptWrap {
-    padding: 30px 0 60px;
-    margin: 0 30px;
+    padding: 0 0 60px;
+    margin: 0;
   }
   .archiveDescriptWrap .descriptThum {
     float: none;
-    width: 100%;
+    width: 100%; /* border-bottom: 1px solid #343434;border-right: none; */
   }
   .archiveDescriptWrap .descriptThum .btnPrev {
     left: 20px;
@@ -815,9 +846,10 @@ input[type='text'] {
     float: none;
     width: 100%;
     height: auto;
+    padding: 0 30px;
   }
   .archiveDescriptWrap .descriptBox strong {
-    padding: 0 70px 0 0;
+    padding: 40px 70px 0 0;
   }
   .archiveDescriptWrap .descriptBox strong + .date,
   .archiveDescriptWrap .descriptBox strong + .tag {
@@ -825,7 +857,7 @@ input[type='text'] {
   }
   .archiveDescriptWrap .descriptBox .date + .txt,
   .archiveDescriptWrap .descriptBox .tag + .txt {
-    margin: 50px 0 0;
+    margin: 50px 0 100px;
   }
   .archiveDescriptWrap .descriptBox .btnDescriptBox {
     top: 20px;
@@ -854,11 +886,10 @@ input[type='text'] {
   }
 }
 
-/*************************** 768 ***************************/
-@media screen and (max-width: 768px) {
+/*************************** 550 ***************************/
+@media screen and (max-width: 550px) {
   .archiveDescriptWrap {
-    margin: 0;
-    padding: 14px 0 26px;
+    padding: 0 0 45px;
   }
   .archiveDescriptWrap .descriptThum .btnPrev {
     left: 10px;
@@ -885,26 +916,27 @@ input[type='text'] {
     top: 0;
   }
   .archiveDescriptWrap .descriptBox strong {
-    line-height: 24px;
-    font-size: 20px;
+    line-height: 26px;
+    font-size: 22px;
+    padding: 22px 10px 0 0;
   }
   /* .archiveDescriptWrap .descriptBox .date {line-height:22px;font-size:15px;} */
   .archiveDescriptWrap .descriptBox .tag {
-    line-height: 20px;
-    font-size: 16px;
+    line-height: 22px;
+    font-size: 18px;
     font-weight: 300;
   }
   .archiveDescriptWrap .descriptBox .txt {
-    line-height: 20px;
-    font-size: 16px;
+    line-height: 29px;
+    font-size: 18px;
   }
   .archiveDescriptWrap .descriptBox strong + .date,
   .archiveDescriptWrap .descriptBox strong + .tag {
-    margin: 15px 0 0;
+    margin: 25px 0 0;
   }
   .archiveDescriptWrap .descriptBox .date + .txt,
   .archiveDescriptWrap .descriptBox .tag + .txt {
-    margin: 40px 0 0;
+    margin: 50px 0 0;
   }
 
   .archiveMoreBox {
@@ -966,9 +998,10 @@ input[type='text'] {
   right: 0;
   top: 50%;
   transform: translate(0, -50%);
+  text-align: center;
 }
 .aboutWrap .aboutLogo > span img {
-  max-width: 100%;
+  max-width: 77%;
 }
 .aboutWrap .aboutIntro:after {
   display: block;
@@ -986,29 +1019,30 @@ input[type='text'] {
   margin: 0 -190px 0 0;
   padding: 0;
   line-height: 35px;
-  font-size: 20px;
+  font-size: 20px; /* border-left:1px solid #343434; */
   background-color: #99ff99;
 }
 .aboutWrap .aboutIntro .intro .scrollBox {
   overflow-x: hidden;
   overflow-y: auto;
   position: absolute;
-  left: 10px;
-  right: 200px;
+  left: 10%;
+  right: 25%;
+  padding-right: 70px;
   top: 50%;
-  max-height: 100%;
+  max-height: 70%;
   transform: translate(0, -50%);
+  font-size: 20px;
+  line-height: 37px;
+  font-weight: 700;
 }
 .aboutWrap .aboutIntro .intro .scrollBox::-webkit-scrollbar {
-  width: 10px;
+  width: 2px;
 }
 .aboutWrap .aboutIntro .intro .scrollBox::-webkit-scrollbar-thumb {
-  border-radius: 5px;
-  background-color: #343434;
+  border-radius: 5px; /*background-color:#343434;*/
 }
-.aboutWrap .aboutIntro .intro .scrollBox::-webkit-scrollbar-track {
-  background: url('../images/bg_scroll_line.gif') repeat-y center;
-}
+/*.aboutWrap .aboutIntro .intro .scrollBox::-webkit-scrollbar-track {background:url('../images/bg_scroll_line.gif') repeat-y center;}*/
 .aboutWrap .aboutIntro .intro .snsBox {
   margin: 30px 0 0;
   text-align: center;
@@ -1029,7 +1063,7 @@ input[type='text'] {
 @media screen and (max-width: 1024px) {
   .aboutWrap {
     margin: 0;
-    padding: 0 0 60px;
+    padding: 0 0 10px;
   }
   .aboutWrap .aboutIntro {
     width: auto;
@@ -1049,10 +1083,9 @@ input[type='text'] {
   .aboutWrap .aboutIntro .intro {
     float: none;
     height: auto;
-    margin: 50px 0 0;
+    margin: 90px 0 0;
     padding: 50px 50px;
-    font-weight: 800;
-    border-top: 1px solid #343434;
+    font-weight: 800; /* border-top:1px solid #343434;border-left:none; */
   }
   .aboutWrap .aboutIntro .intro .scrollBox {
     position: static;
@@ -1060,8 +1093,8 @@ input[type='text'] {
   }
 }
 
-/*************************** 768 ***************************/
-@media screen and (max-width: 768px) {
+/*************************** 550 ***************************/
+@media screen and (max-width: 550px) {
   .aboutWrap {
     padding: 0;
   }
@@ -1074,11 +1107,18 @@ input[type='text'] {
     font-size: 16px;
   }
   .aboutWrap .aboutIntro .intro .snsBox {
-    margin: 15px 0 0;
+    margin: 35px 0 0;
   }
   .aboutWrap .aboutIntro .intro .snsBox > a {
     width: 20px;
     margin: 0 0 0 20px;
+  }
+  .aboutWrap .aboutIntro .intro .scrollBox {
+    position: static;
+    transform: translate(0, 0);
+    font-size: 18px;
+    line-height: 32px;
+    padding-right: 0px;
   }
 }
 
@@ -1091,8 +1131,8 @@ input[type='text'] {
 .contactWrap .contactInfoBox {
   float: left;
   box-sizing: border-box;
-  width: 52%;
-  padding: 0 28px 0 230px;
+  width: 52%; /* border-right:1px solid #343434; */
+  padding: 0 28px 0 calc(14vw + 35px);
   background-color: #6666ff;
 }
 .contactWrap .contactInfoBox .infoInner {
@@ -1102,24 +1142,31 @@ input[type='text'] {
 }
 .contactWrap .contactInfoBox .infoInner > strong {
   display: block;
-  padding: 20px 0 0;
-  line-height: 40px;
-  font-size: 30px;
+  padding: 35px 0 0;
+  line-height: 50px;
+  font-size: 35px;
   font-weight: 300;
+  letter-spacing: 0.2px;
 }
 .contactWrap .contactInfoBox .infoInner > strong span {
   font-weight: 700;
+  word-break: keep-all;
+}
+.contactWrap .contactInfoBox .infoInner > h1 {
+  font-size: 35px;
+  line-height: 43px;
+  font-weight: 700;
+  padding-top: 0;
 }
 .contactWrap .contactInfoBox .infoInner .infoBox {
-  position: absolute;
   left: 0;
   right: 0;
-  bottom: 20px;
+  margin-top: 60px;
 }
 .contactWrap .contactInfoBox .infoInner .infoBox .contcInfo li {
-  margin: 10px 0 0;
+  margin: 12px 0 0;
   line-height: 24px;
-  font-size: 18px;
+  font-size: 20px;
 }
 .contactWrap .contactInfoBox .infoInner .infoBox .contcInfo li:after {
   display: block;
@@ -1144,13 +1191,14 @@ input[type='text'] {
   float: left;
 }
 .contactWrap .contactInfoBox .infoInner .infoBox address {
-  margin: 40px 0 0;
+  padding-top: 100px;
+  bottom: 20px;
   line-height: 24px;
   font-size: 18px;
 }
 .contactWrap .contactInfoBox .infoInner .infoBox address .addrEn {
   display: block;
-  margin: 30px 0 0;
+  margin: 5px 0 0;
 }
 .contactWrap .mapWrap {
   float: right;
@@ -1168,12 +1216,12 @@ input[type='text'] {
 @media screen and (max-width: 1024px) {
   .contactWrap {
     margin: -55px 0 0;
-    padding: 0 0 60px;
+    padding: 0;
   }
   .contactWrap .contactInfoBox {
     float: none;
     width: 100%;
-    padding: 55px 95px 60px;
+    padding: 55px 95px 60px; /* border-bottom: 1px solid #343434; border-right: none; */
   }
   .contactWrap .contactInfoBox .infoInner {
     height: auto;
@@ -1204,35 +1252,46 @@ input[type='text'] {
   .contactWrap .mapWrap {
     float: none;
     width: 100%;
-    height: 500px;
+    height: 700px;
   }
 }
 
-/*************************** 768 ***************************/
-@media screen and (max-width: 768px) {
+/*************************** 550 ***************************/
+@media screen and (max-width: 550px) {
   .contactWrap {
     margin: -34px 0 0;
-    padding: 0 0 26px;
+    padding: 0;
   }
   .contactWrap .contactInfoBox {
-    padding: 34px 10px 30px;
+    padding: 5px 22px 0;
   }
   .contactWrap .contactInfoBox .infoInner > strong {
-    line-height: 34px;
-    font-size: 24px;
+    line-height: 45px;
+    font-size: 30px;
+  }
+  .contactWrap .contactInfoBox .infoInner > h1 {
+    font-size: 22px;
+    line-height: 22px;
+    font-weight: 700;
+    padding-top: 10px;
+  }
+  .contactWrap .contactInfoBox .infoInner .infoBox {
+    margin-top: 22px;
   }
   .contactWrap .contactInfoBox .infoInner .infoBox .contcInfo {
     margin: 20px 0 0;
   }
   .contactWrap .contactInfoBox .infoInner .infoBox .contcInfo li {
+    position: none;
     margin: 5px 0 0;
     line-height: 20px;
-    font-size: 14px;
+    font-size: 15px;
   }
   .contactWrap .contactInfoBox .infoInner .infoBox address {
-    margin: 30px 0 0;
+    position: relative;
+    margin: 97px 0 0;
     line-height: 20px;
-    font-size: 14px;
+    font-size: 15px;
   }
   .contactWrap .contactInfoBox .infoInner .infoBox address .addrEn {
     display: block;
@@ -1240,7 +1299,7 @@ input[type='text'] {
   }
 
   .contactWrap .mapWrap {
-    height: 300px;
+    height: 420px;
   }
 }
 
@@ -1251,7 +1310,7 @@ input[type='text'] {
   display: block;
   position: relative;
   width: 200px;
-  margin: 135px auto 0;
+  margin: 85px auto 50px;
 }
 .paging .pagingPrev {
   display: block;
@@ -1308,31 +1367,40 @@ input[type='text'] {
 .paging .viewPageNum {
   display: block;
   line-height: 30px;
-  font-size: 21px;
-  font-weight: 700;
+  font-size: 16px;
+  font-weight: 400;
   text-align: center;
 }
 
 /*************************** 1024 ***************************/
 @media screen and (max-width: 1024px) {
   /* .paging {margin:50px 0;} */
-}
-/*************************** 768 ***************************/
-@media screen and (max-width: 768px) {
   .paging {
-    margin: 80px auto 0;
+    margin: 85px auto 160px;
+  }
+  .paging .viewPageNum {
+    line-height: 20px;
+    font-size: 16px;
+    font-weight: 300;
+  }
+}
+/*************************** 550 ***************************/
+@media screen and (max-width: 550px) {
+  .paging {
+    width: 270px;
+    margin: 35px auto 0;
   }
   .paging .pagingPrev {
     overflow: hidden;
     width: 60px;
-    height: 10px;
+    height: 18px;
     background-position: left top;
     background-size: auto 100%;
   }
   .paging .pagingNext {
     overflow: hidden;
     width: 60px;
-    height: 10px;
+    height: 18px;
     background-position: right top;
     background-size: auto 100%;
   }
@@ -1467,8 +1535,8 @@ input[type='text'] {
   border-radius: 5px;
 }
 
-/*************************** 768 ***************************/
-@media screen and (max-width: 768px) {
+/*************************** 550 ***************************/
+@media screen and (max-width: 550px) {
   .loginPageWrap {
     width: auto;
     margin: 40px 30px 0;
@@ -1546,8 +1614,8 @@ input[type='text'] {
   vertical-align: top;
 }
 
-/*************************** 768 ***************************/
-@media screen and (max-width: 768px) {
+/*************************** 550 ***************************/
+@media screen and (max-width: 550px) {
   .loginWrap li {
     margin: 10px 0 0;
   }
@@ -1609,8 +1677,8 @@ input[type='text'] {
   top: 10px;
 }
 
-/*************************** 768 ***************************/
-@media screen and (max-width: 768px) {
+/*************************** 550 ***************************/
+@media screen and (max-width: 550px) {
   .layerWrap .layerpop {
     left: 15px;
     right: 15px;
