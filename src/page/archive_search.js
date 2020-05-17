@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState, useContext } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { useQuery } from '@apollo/react-hooks';
 import { archiveListQuery } from '../apollo/archiveQuery';
-import NaviList from '../components/naviList';
 import TagMenu from '../components/tag_menu';
 import { Store } from '../store';
 import { masonryFn } from '../common';
@@ -53,8 +52,6 @@ const ArchiveSearch = ({ history, location: { search } }) => {
         <span id="jumpConts" className="blind">
           상세 본문영역
         </span>
-
-        <NaviList />
 
         <Link to="/" onClick={() => setAction(1)} className="subMenu01">
           <em>Archive</em>

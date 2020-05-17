@@ -95,8 +95,8 @@ const Archive = ({ action }) => {
                           <span className="tits">{portpolioData.title}</span>
                           <span className="tags">
                             {portpolioData.tags.length > 0 &&
-                              portpolioData.tags.map((item, i) => {
-                                if (i === 0) {
+                              portpolioData.tags.map((item, j) => {
+                                if (j === 0) {
                                   return item.value;
                                 }
                                 return `, ${item.value}`;
