@@ -14,7 +14,7 @@ const Header = () => {
   const { headerEl } = useContext(Store);
 
   useEffect(() => {
-    const gnbOpenFn = moGnbOpenFn(btnHambergEl.current);
+	const gnbOpenFn = moGnbOpenFn(btnHambergEl.current);
     if (logged === true) {
       AdminMenuFn(adminMenuEl.current);
     }
