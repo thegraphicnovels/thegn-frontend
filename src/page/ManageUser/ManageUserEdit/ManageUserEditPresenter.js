@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Loader from '../../../components/loader';
-import NaviList from '../../../components/naviList';
 import { formatDate } from '../../../common';
 
 const ManageUserEditPresenter = ({
@@ -19,8 +18,6 @@ const ManageUserEditPresenter = ({
     <Loader />
   ) : (
     <div className="contents">
-      <NaviList />
-
       <div className="registBox">
         <h2>User</h2>
 
