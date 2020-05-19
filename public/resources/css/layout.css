@@ -715,7 +715,7 @@ body::-webkit-scrollbar {
     padding: 90px 0 0;
   }
   [class^='subMenu'] + [class^='pageWrap'] > h2.blind {
-    height: 20px;
+    /* height: 20px; */
     padding: 20px 0 0;
     line-height: 20px;
     font-size: 14px;
