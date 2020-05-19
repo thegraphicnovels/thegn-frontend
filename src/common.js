@@ -263,7 +263,7 @@ export const tagMenuFn = target => {
 				'transition-duration': '0.7s, 0.7s',
 				'transition-timing-function': 'ease, ease',
 			});
-		} else if (_thisWinW > 768) {
+		} else if (_thisWinW > 550) {
 			_tagWrap.css({
 				// tag menu icon display
 				width: '100%',
@@ -621,18 +621,19 @@ export const srchBoxFn = target => {
 	const inpt = $('input[type=text], input[type=password]', searchWrap);
 	const inptLeng = inpt.val().length;
 
+	console.log('viewTxt = ', viewTxt);
 	if (inptLeng) {
 		viewTxt.hide();
 	}
 
 	inpt
 		.focusin(() => {
-			//	 console.log('focus in');
+			console.log('focus in');
 			viewTxt.hide();
 			searchWrap.addClass('active');
 		})
 		.focusout(() => {
-			//	 console.log('focus out');
+			console.log('focus out');
 			if (inpt.val() === '') {
 				viewTxt.show();
 			} else {

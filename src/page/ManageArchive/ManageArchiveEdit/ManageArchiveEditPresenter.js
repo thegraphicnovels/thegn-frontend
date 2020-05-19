@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Loader from '../../../components/loader';
-import NaviList from '../../../components/naviList';
 import ToggleComponent from '../../../components/toggle';
 import FilePond from '../../../components/filePond';
 
@@ -31,8 +30,6 @@ const ManageArchiveEditPresenter = ({
     <Loader />
   ) : (
     <div className="contents registBox">
-      <NaviList />
-
       <h2>Archive</h2>
       <table>
         <caption>섬네일 이미지 등록</caption>

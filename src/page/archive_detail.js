@@ -11,7 +11,6 @@ import {
   // useLazyQuery
 } from '@apollo/react-hooks';
 
-import NaviList from '../components/naviList';
 // import RelatedList from 'Components/related_list';
 import { archiveViewsQuery, archiveDetailQuery } from '../apollo/archiveQuery';
 import { Store } from '../store';
@@ -78,8 +77,6 @@ const ArchiveDetail = ({
         <span id="jumpConts" className="blind">
           상세 본문영역
         </span>
-
-        <NaviList />
 
         <Link to="/" onClick={() => setAction(1)} className="subMenu01">
           <em>Archive</em>

@@ -2,7 +2,7 @@ import React, { useRef, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/react-hooks';
 import { LOCAL_LOG_OUT } from '../apollo/loginQuery';
-import searchBox from '../components/searchBox';
+import SearchBox from '../components/searchBox';
 import { Store } from '../store';
 import { moGnbOpenFn, AdminMenuFn } from '../common';
 
@@ -14,7 +14,7 @@ const Header = () => {
   const { headerEl } = useContext(Store);
 
   useEffect(() => {
-    const gnbOpenFn = moGnbOpenFn(btnHambergEl.current);
+	const gnbOpenFn = moGnbOpenFn(btnHambergEl.current);
     if (logged === true) {
       AdminMenuFn(adminMenuEl.current);
     }
@@ -80,7 +80,7 @@ const Header = () => {
 						searchId : SearchBox내부 인풋태그 라벨 태그 연결 id/for 값
 						SearchBox 컴포넌트가 여러군대 들어갈경우 동일한 id/for값으로 문제가 됨
 					 */}
-          <searchBox searchId="headerSearch" />
+          <SearchBox searchId="headerSearch" />
 
           {/* <Link to="/" className="btnInsta">
 					<img src="/resources/images/icon_insta.svg" alt="instagram" />

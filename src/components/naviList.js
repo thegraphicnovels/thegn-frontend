@@ -1,7 +1,7 @@
 import React, { useContext, useRef } from 'react';
 import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import searchBox from './searchBox';
+import SearchBox from './searchBox';
 import { Store } from '../store';
 
 const NaviList = ({ history }) => {
@@ -29,7 +29,7 @@ const NaviList = ({ history }) => {
 				searchId : SearchBox내부 인풋태그 라벨 태그 연결 id/for 값
 				SearchBox 컴포넌트가 여러군대 들어갈경우 동일한 id/for값으로 문제가 됨
 				*/}
-      <searchBox chMainPageFn={chMainPageFn} searchId="naviSearch" />
+      <SearchBox chMainPageFn={chMainPageFn} searchId="naviSearch" />
 
       <ul>
         <li>
