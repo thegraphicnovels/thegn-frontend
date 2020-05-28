@@ -49,6 +49,7 @@ const ManageUserEditContainer = ({
 
         if (createUser) {
           window.alert('This User Create success');
+          setLoading(false);
         }
       } else if (action === 'edit') {
         if (cPasswordInput.value !== cPasswordInputR.value) {
@@ -68,6 +69,7 @@ const ManageUserEditContainer = ({
 
           if (modifyUser) {
             window.alert('This User Edit success');
+            setLoading(false);
           }
           history.push('/manage/user');
         }
@@ -98,6 +100,7 @@ const ManageUserEditContainer = ({
             history.push('/manage/user');
           } else {
             window.alert('Failed to delete User');
+            setLoading(false);
           }
         }
       }

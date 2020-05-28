@@ -129,9 +129,11 @@ const ManageMainBannerEditContainer = ({
             _id = uploadBanner._id;
           } else {
             window.alert('Title is required');
+            setLoading(false);
           }
         } else {
           window.alert('Main image file is required');
+          setLoading(false);
         }
       } else if (action === 'edit') {
         if (files.length > 0 || fileUrl.length > 0) {
@@ -153,9 +155,11 @@ const ManageMainBannerEditContainer = ({
             _id = modifyBanner;
           } else {
             window.alert('Title is required');
+            setLoading(false);
           }
         } else {
           window.alert('Main image file is required');
+          setLoading(false);
         }
       }
 
@@ -191,6 +195,7 @@ const ManageMainBannerEditContainer = ({
           history.push('/manage/mainBanner');
         } else {
           window.alert('Failed to delete Main Banner');
+          setLoading(false);
         }
       }
       // } else {
