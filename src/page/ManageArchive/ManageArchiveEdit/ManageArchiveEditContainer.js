@@ -169,9 +169,11 @@ const ManageArchiveEditContainer = ({
             }
           } else {
             window.alert('Title is required');
+            setLoading(false);
           }
         } else {
           window.alert('Thumbnail & Portpolio is required');
+          setLoading(false);
         }
       } else if (action === 'upload') {
         if (files.length > 0 && thumbFiles.length > 0) {
@@ -200,9 +202,11 @@ const ManageArchiveEditContainer = ({
             }
           } else {
             window.alert('Title is required');
+            setLoading(false);
           }
         } else {
           window.alert('Thumbnail & Portpolio is required');
+          setLoading(false);
         }
       }
 
@@ -237,6 +241,7 @@ const ManageArchiveEditContainer = ({
           history.push(`/manage/archive`);
         } else {
           window.alert('Failed to delete archive');
+          setLoading(false);
         }
       }
     } catch (e) {
