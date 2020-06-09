@@ -35,7 +35,7 @@ const ManageArchiveEditContainer = ({
   const { data: portpolioData } = useQuery(archiveDetailQuery, {
     variables: { id: portpolioId },
     fetchPolicy: 'network-only',
-    skip: !portpolioId, // portpolioId가 없으면 건너뛴다.
+    skip: portpolioId === null, // portpolioId가 없으면 건너뛴다.
     onCompleted: ({ detailPortpolio }) => {
       const dTag = detailPortpolio.tags;
       if (dTag) {
