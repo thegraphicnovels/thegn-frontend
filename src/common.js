@@ -361,18 +361,8 @@ export const masonryFn = (target) => {
   const _grid = $(target.current);
   const _pageWrap = _grid.parents('.pageWrap');
 
-  const _masonryLib = new Masonry(`.${target.current.className}`, {
-    itemSelector: '.grid-item',
-    // columnWidth: '.grid-item',
-    // columnWidth: 200,
-    // fitWidth: true,
-    // gutter: 30,
-    // reisze: false,
-    percentPosition: true,
-  });
-
   const setSizeFnc = () => {
-    $('.grid-item', _grid).each(() => {
+    $('.grid-item', _grid).each(function () {
       const _this = $(this);
       const gridW = $('img', _this).outerWidth();
       const gridH = $('img', _this).outerHeight();
@@ -418,6 +408,16 @@ export const masonryFn = (target) => {
       _masonryLib.layout();
     }, 100);
   };
+
+  const _masonryLib = new Masonry(`.${target.current.className}`, {
+    itemSelector: '.grid-item',
+    // columnWidth: '.grid-item',
+    // columnWidth: 200,
+    // fitWidth: true,
+    // gutter: 30,
+    // reisze: false,
+    percentPosition: true,
+  });
 
   _pageWrap.bind('transitionend', () => {
     _masonryLib.layout(); // 아카이브 리스트 정렬 맞춤
@@ -578,7 +578,7 @@ export const AdminMenuFn = (target) => {
   admMenu.click((e) => {
     e.stopPropagation();
     admList.show();
-    $(document).one('click', () => {
+    $(document).one('click', function () {
       // console.log('admin menu close - one click');
       admList.hide();
     });
