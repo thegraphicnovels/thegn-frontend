@@ -10,15 +10,30 @@ const ArchiveSearch = ({ history, location: { search } }) => {
   const archiveList = useRef(null);
   const [imgLoadComplate, setLoadComplate] = useState(0);
   const [tag, setTag] = useState('');
+  const [tags, setTags] = useState([]);
   const keyword = new URLSearchParams(search).get('keyword');
+  const [data, setData] = useState(null);
 
   useEffect(() => {
     setTag('');
   }, [keyword]);
 
-  const { data, loading, refetch } = useQuery(archiveListQuery, {
+  const { loading } = useQuery(archiveListQuery, {
     variables: { keyword },
     fetchPolicy: 'network-only',
+    onCompleted: (portpolioData) => {
+      return setData(portpolioData);
+    },
+    skip: tags.length > 0,
+  });
+
+  useQuery(archiveListQuery, {
+    variables: { keyword, tags },
+    fetchPolicy: 'network-only',
+    onCompleted: (portpolioData) => {
+      return setData(portpolioData);
+    },
+    skip: tags.length <= 0,
   });
 
   const { setAction } = useContext(Store);
@@ -70,7 +85,7 @@ const ArchiveSearch = ({ history, location: { search } }) => {
           style={{ display: 'block', width: '100%', height: 'auto' }}
         >
           <div className="archiveWrap">
-            <TagMenu refetch={refetch} setTag={setTag} />
+            <TagMenu setTag={setTag} setTags={setTags} />
 
             <div className="archiveListWrap">
               <ul className="grid" ref={archiveList}>

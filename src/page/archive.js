@@ -11,12 +11,27 @@ const Archive = ({ action }) => {
   const limit = 10;
   const archiveList = useRef(null);
   const [tag, setTag] = useState('');
+  const [tags, setTags] = useState([]);
   const [nowPageNum, setPageNum] = useState(1);
   const [imgLoadComplate, setLoadComplate] = useState(0);
+  const [data, setData] = useState(null);
 
-  const { data, loading, refetch } = useQuery(archiveQuery, {
+  const { loading } = useQuery(archiveQuery, {
     variables: { page: nowPageNum, limit },
     fetchPolicy: 'network-only',
+    onCompleted: (portpolioData) => {
+      return setData(portpolioData);
+    },
+    skip: tags.length > 0,
+  });
+
+  useQuery(archiveQuery, {
+    variables: { page: nowPageNum, limit, tags },
+    fetchPolicy: 'network-only',
+    onCompleted: (portpolioData) => {
+      return setData(portpolioData);
+    },
+    skip: tags.length <= 0,
   });
 
   useEffect(() => {
@@ -60,7 +75,7 @@ const Archive = ({ action }) => {
         {tag !== '' && data && (
           <div className="registBox">
             <h2>
-              {data.seePortpolios.portpolios.length} SEARCH RESULTS FOR TAG :{' '}
+              {data.seePortpolios.totalPortpolios} SEARCH RESULTS FOR TAG :{' '}
               {tag}
             </h2>
           </div>
@@ -73,7 +88,7 @@ const Archive = ({ action }) => {
 			</h2>
 		</div> */}
         <div className="archiveWrap">
-          <TagMenu refetch={refetch} setTag={setTag} />
+          <TagMenu setTag={setTag} setTags={setTags} setPageNum={setPageNum} />
           <div className="archiveListWrap">
             <ul className="grid" ref={archiveList}>
               {data &&
