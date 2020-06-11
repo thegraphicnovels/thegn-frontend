@@ -4,7 +4,7 @@ import { useQuery } from '@apollo/react-hooks';
 import { tagQuery } from '../apollo/tagQuery';
 import { tagMenuFn } from '../common';
 
-const TagMenu = ({ refetch, setTag }) => {
+const TagMenu = ({ setTag, setTags, setPageNum }) => {
   const tagMenuEl = useRef(null);
   const { data: tagData, loading: tagLoading } = useQuery(tagQuery, {
     fetchPolicy: 'network-only',
@@ -13,12 +13,17 @@ const TagMenu = ({ refetch, setTag }) => {
     if (tagMenuEl.current.classList.contains('active')) {
       tagMenuEl.current.classList.remove('active');
     }
+    if (setPageNum) {
+      setPageNum(1);
+    }
     if (tag === '') {
-      refetch({ tags: null, page: 1 });
+      // refetch({ tags: null, page: 1 });
       setTag(tag);
+      setTags([]);
     } else {
-      refetch({ tags: [tag._id], page: 1 });
+      // refetch({ tags: [tag._id], page: 1 });
       setTag(tag.value);
+      setTags([tag._id]);
     }
   };
 
@@ -69,8 +74,9 @@ const TagMenu = ({ refetch, setTag }) => {
 };
 
 TagMenu.propTypes = {
-  refetch: PropTypes.func.isRequired,
   setTag: PropTypes.func.isRequired,
+  setTags: PropTypes.func.isRequired,
+  setPageNum: PropTypes.func,
 };
 
 export default TagMenu;
