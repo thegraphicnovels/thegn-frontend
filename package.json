@@ -40,7 +40,7 @@
     "react-toggle": "^4.1.1",
     "riek": "^1.1.0",
     "rooks": "^3.4.0",
-    "serialize-javascript": "2.1.1",
+    "serialize-javascript": "3.1.0",
     "styled-components": "^5.0.1",
     "superagent": "^5.1.0",
     "swiper": "^5.0.3",
