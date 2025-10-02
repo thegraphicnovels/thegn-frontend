@@ -6,10 +6,12 @@ const MapComponent = () => {
 	const mapWrap = useRef(null);
 	const center = { lat: 37.546066, lng: 127.0867 };
 	const zoom = 17;
+	const API_KEY = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
+
 	return (
 		<div className="mapWrap" ref={mapWrap}>
 			<GoogleMapReact
-				bootstrapURLKeys={{ key: 'AIzaSyDnC-SfRiE5RMUSx8perOl7NkWULn53Gu4' }}
+				bootstrapURLKeys={{ key: API_KEY }}
 				defaultCenter={center}
 				defaultZoom={zoom}
 			>
