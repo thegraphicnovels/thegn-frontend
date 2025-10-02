@@ -44,7 +44,7 @@ const Mainswiper = ({ action }) => {
         mainSwiper.destroy();
       }
     };
-  }, [action, loading]);
+  }, [action, loading, footEl, headerEl, isDevice]);
 
   // if(!loading) console.log(mainBannerData);
 
