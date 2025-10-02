@@ -9,7 +9,7 @@ const MapComponent = () => {
 	return (
 		<div className="mapWrap" ref={mapWrap}>
 			<GoogleMapReact
-				bootstrapURLKeys={{ key: 'AIzaSyCjWt4pUBDu5cTtSxAq_L93PPG_prg7VEI' }}
+				bootstrapURLKeys={{ key: 'AIzaSyDnC-SfRiE5RMUSx8perOl7NkWULn53Gu4' }}
 				defaultCenter={center}
 				defaultZoom={zoom}
 			>
